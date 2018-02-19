@@ -1,0 +1,15 @@
+uuid: 0635b1c3-025a-4815-8cc6-f0e209f75108
+langcode: en
+status: false
+dependencies: {  }
+id: prod_config
+label: 'Prod Config'
+folder: ../config/prod_config
+module:
+  config_readonly: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0
