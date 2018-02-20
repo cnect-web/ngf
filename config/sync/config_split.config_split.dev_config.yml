@@ -6,12 +6,12 @@ id: dev_config
 label: 'Dev Config'
 folder: ../config/dev_config
 module:
-  config_split: 0
   devel: 0
   kint: 0
 theme: {  }
 blacklist: {  }
-graylist: {  }
+graylist:
+  - config_split.config_split.dev_config.yml
 graylist_dependents: true
 graylist_skip_equal: true
 weight: 0
