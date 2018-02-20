@@ -1,0 +1,10 @@
+uuid: 99d21a7b-ea14-4271-bed9-0856b0b948b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - replication
+id: replication_log.token
+label: Token
+targetEntityType: replication_log
+cache: true
