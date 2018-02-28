@@ -53,7 +53,9 @@
         "drush/drush": "^9.0.0",
         "harvesthq/chosen": "^1.8",
         "webflo/drupal-finder": "^1.0.0",
-        "webmozart/path-util": "^2.3"
+        "webmozart/path-util": "^2.3",
+        "boedah/robo-drush": "~3",
+        "nuvoleweb/robo-config": "^0.2"
     },
     "require-dev": {
         "behat/behat": "^3.4",
@@ -70,6 +72,9 @@
         "sort-packages": true
     },
     "autoload": {
+        "psr-4": {
+            "NGF\\Robo\\": "robo"
+        },
         "classmap": [
             "scripts/composer/ScriptHandler.php"
         ]
@@ -86,7 +91,7 @@
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "_DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
         ]
     },
     "extra": {
