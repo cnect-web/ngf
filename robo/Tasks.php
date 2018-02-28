@@ -90,6 +90,9 @@ class Tasks extends RoboTasks {
   public function projectInstallConfig() {
     $this->getInstallTask()
       ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
+      ->arg('config_installer_site_configure_form.account.name=' . $this->config('account.name'))
+      ->arg('config_installer_site_configure_form.account.pass=' . $this->config('account.password'))
+      ->arg('config_installer_site_configure_form.account.mail=' . $this->config('account.mail'))
       ->siteInstall('config_installer')
       ->run();
     $this->projectSetupSettings();
