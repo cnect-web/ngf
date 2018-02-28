@@ -1,1 +1,1 @@
-sh '''echo printenv'''
+sh '''printenv'''
