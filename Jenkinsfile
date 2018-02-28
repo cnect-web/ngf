@@ -31,6 +31,7 @@ node('JenkinsSlave') {
   }
   stage('Install') {
       sh '''
+          sudo rm -rf /var/www/html/web &&
           sudo ln -s ${WORKSPACE}/web /var/www/html/ &&
           sudo chmod 0777 ${WORKSPACE}/web/sites/default/files/
           '''
