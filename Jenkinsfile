@@ -1,4 +1,4 @@
-node() {
+node {
   stage('Debug') {
     sh '''printenv'''
   }
