@@ -36,8 +36,8 @@ node('JenkinsSlave') {
           '''
   }
   stage('Test') {
-      sh '''cd ${WORKSPACE}/tests &&
-      ./behat
+      sh '''cd ${WORKSPACE}/behat &&
+      ./bnp.sh behat
       '''
   }
   stage('Ready') {

@@ -31,6 +31,7 @@
         }
     ],
     "require": {
+        "boedah/robo-drush": "~3",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
@@ -45,6 +46,7 @@
         "drupal/console": "^1.0.2",
         "drupal/core": "~8.4",
         "drupal/ctools": "^3.0",
+        "drupal/drupal-extension": "^3.4",
         "drupal/features": "^3.5",
         "drupal/field_group": "^1.0",
         "drupal/group": "^1.0@RC",
@@ -52,10 +54,9 @@
         "drupal/token": "^1.1",
         "drush/drush": "^9.0.0",
         "harvesthq/chosen": "^1.8",
+        "nuvoleweb/robo-config": "^0.2",
         "webflo/drupal-finder": "^1.0.0",
-        "webmozart/path-util": "^2.3",
-        "boedah/robo-drush": "~3",
-        "nuvoleweb/robo-config": "^0.2"
+        "webmozart/path-util": "^2.3"
     },
     "require-dev": {
         "behat/behat": "^3.4",
