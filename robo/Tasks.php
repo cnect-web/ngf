@@ -105,13 +105,10 @@ class Tasks extends RoboTasks {
     $settings_file = $this->root() . '/web/sites/default/settings.php';
     $processor = new SettingsProcessor(Robo::config());
     $content = $processor->process($settings_file);
-    $this->say(print_r($content,1));
-    /*
     $this->collectionBuilder()->addTaskList([
       $this->taskFilesystemStack()->chmod('web/sites', 0775, 0000, TRUE),
       $this->taskWriteToFile($settings_file)->text($content),
     ])->run();
-    */
   }
 
   /**
