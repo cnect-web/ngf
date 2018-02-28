@@ -1,1 +1,6 @@
-sh '''printenv'''
+node() {
+  stage('Debug') {
+    sh '''printenv'''
+  }
+}
+
