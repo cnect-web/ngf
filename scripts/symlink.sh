@@ -1,2 +1,2 @@
 # Symlink vendor binaries.
-ln -sfn ../vendor/bin .
+ln -sfn ./vendor/bin .
