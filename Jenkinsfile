@@ -1,6 +1,6 @@
 node('JenkinsSlave') {
   stage('Debug') {
-    sh '''printenv '''
+    sh '''printenv'''
   }
   stage('Clone') {
       // Clone the repo
