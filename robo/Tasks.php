@@ -88,11 +88,19 @@ class Tasks extends RoboTasks {
    * @aliases pic
    */
   public function projectInstallConfig() {
-    $this->getInstallTask()
+    $this->taskDrushStack($this->config('bin.drush'))
+      ->arg("--root={$this->root()}/web")
+      ->arg('keep-config')
       ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
       ->arg('config_installer_site_configure_form.account.name=' . $this->config('account.name'))
       ->arg('config_installer_site_configure_form.account.pass=' . $this->config('account.password'))
       ->arg('config_installer_site_configure_form.account.mail=' . $this->config('account.mail'))
+      ->dbUrl(sprintf("mysql://%s:%s@%s:%s/%s",
+        $this->config('database.user'),
+        $this->config('database.password'),
+        $this->config('database.host'),
+        $this->config('database.port'),
+        $this->config('database.name')))
       ->siteInstall('config_installer')
       ->run();
     $this->projectSetupSettings();

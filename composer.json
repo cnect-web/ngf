@@ -106,6 +106,9 @@
         "_comment_patches": "Temporarily enabling patches on chained composer.json until config_installer is on core",
         "patches": {
             "enable-patching" : true,
+            "drupal/config_installer": {
+                "Support Drush 9": "https://www.drupal.org/files/issues/drush9-support-2916090-14.patch"
+            },
             "drupal/adminimal_theme": {
                 "Colors in horizontal and vertical toolbar need fixing": "https://www.drupal.org/files/issues/adminimal_theme-fix-toolbar-colors-28226369.patch"
             },
