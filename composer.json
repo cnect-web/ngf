@@ -88,11 +88,10 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+	    "bash scripts/symlink.sh"
         ],
-        "post-update-cmd": [
-            "_DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ]
+        "post-update-cmd": []
     },
     "extra": {
         "installer-paths": {
