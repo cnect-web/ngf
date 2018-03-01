@@ -21,10 +21,9 @@ node('JenkinsSlave') {
   stage('Build') {
       sh '''
           . /home/ubuntu/init.sh &&
-          printenv &&
           cd ${WORKSPACE} &&
           composer install &&
-          ./bin/robo project:install-config -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}" &&
+          ./bin/robo project:install-config -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}" -o "project.url: ${HOST_NAME}" &&
           ./bin/robo project:setup-behat -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}"
           '''
   }
