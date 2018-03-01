@@ -90,7 +90,7 @@
         ],
         "post-install-cmd": [
             "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-	    "bash scripts/symlink.sh"
+	        "bash scripts/symlink.sh"
         ],
         "post-update-cmd": []
     },

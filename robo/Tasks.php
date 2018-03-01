@@ -60,10 +60,10 @@ class Tasks extends RoboTasks {
         ->from(array_keys($behat_tokens))
         ->to($behat_tokens),
       $this->taskReplaceInFile($this->config('behat.destination'))
-        ->from("{root}")
+        ->from("{drupal_root}")
         ->to($this->config('project.root')),
       $this->taskReplaceInFile($this->config('behat.destination'))
-        ->from("{url}")
+        ->from("{base_url}")
         ->to($this->config('project.url')),
     ])->run();
   }
