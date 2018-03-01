@@ -1,7 +1,4 @@
 node('JenkinsSlave') {
-  stage('Debug') {
-    sh '''printenv'''
-  }
   stage('Clone') {
       // Clone the repo
       checkout([
@@ -23,21 +20,23 @@ node('JenkinsSlave') {
   }
   stage('Build') {
       sh '''
+          . /home/ubuntu/init.sh &&
           cd ${WORKSPACE} &&
           composer install &&
-          ./bin/robo project:install -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}" &&
+          ./bin/robo project:install-config -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}" -o "project.url: ${HOST_NAME}" &&
           ./bin/robo project:setup-behat -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}"
           '''
   }
   stage('Install') {
       sh '''
+          sudo rm -rf /var/www/html/web &&
           sudo ln -s ${WORKSPACE}/web /var/www/html/ &&
           sudo chmod 0777 ${WORKSPACE}/web/sites/default/files/
           '''
   }
   stage('Test') {
-      sh '''cd ${WORKSPACE}/tests &&
-      ./behat
+      sh '''cd ${WORKSPACE}/behat &&
+      ./bnp.sh behat
       '''
   }
   stage('Ready') {

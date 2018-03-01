@@ -60,10 +60,10 @@ class Tasks extends RoboTasks {
         ->from(array_keys($behat_tokens))
         ->to($behat_tokens),
       $this->taskReplaceInFile($this->config('behat.destination'))
-        ->from("{root}")
-        ->to($this->config('project.root')),
+        ->from("{drupal_root}")
+        ->to($this->config('project.root') . '/web'),
       $this->taskReplaceInFile($this->config('behat.destination'))
-        ->from("{url}")
+        ->from("{base_url}")
         ->to($this->config('project.url')),
     ])->run();
   }
@@ -105,13 +105,10 @@ class Tasks extends RoboTasks {
     $settings_file = $this->root() . '/web/sites/default/settings.php';
     $processor = new SettingsProcessor(Robo::config());
     $content = $processor->process($settings_file);
-    $this->say(print_r($content,1));
-    /*
     $this->collectionBuilder()->addTaskList([
       $this->taskFilesystemStack()->chmod('web/sites', 0775, 0000, TRUE),
       $this->taskWriteToFile($settings_file)->text($content),
     ])->run();
-    */
   }
 
   /**
