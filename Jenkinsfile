@@ -40,7 +40,7 @@ node('JenkinsSlave') {
       '''
   }
   stage('Ready') {
-      sh '''echo ${HOST_NAME} '''
+      sh '''echo "${HOST_NAME}" '''
   }
 
 }
