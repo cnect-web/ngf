@@ -40,8 +40,7 @@ node('JenkinsSlave') {
       '''
   }
   stage('Ready') {
-      sh '''
-      echo <a href="'${HOST_NAME}'">Click here to see your website</a> &&
+      sh '''echo '<a href="'${HOST_NAME}'">Click here to see your website</a>' &&
       cd ${WORKSPACE}/ &&
       ./bin/robo ec2:hostname
       '''
