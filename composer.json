@@ -107,7 +107,11 @@
         "patches": {
             "enable-patching" : true,
             "drupal/config_installer": {
-                "Support Drush 9": "https://www.drupal.org/files/issues/drush9-support-2916090-14.patch"
+                "Support Drush 9": "https://www.drupal.org/files/issues/drush9-support-2916090-6.patch",
+                "Drush 9: Call to undefined function drush_generate_password": "https://www.drupal.org/files/issues/config_installer-drush_9_call_undefined_function_drush_generate_password-2935426-2.patch"
+            },
+            "drupal/core": {
+                "Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch"
             },
             "drupal/adminimal_theme": {
                 "Colors in horizontal and vertical toolbar need fixing": "https://www.drupal.org/files/issues/adminimal_theme-fix-toolbar-colors-28226369.patch"
