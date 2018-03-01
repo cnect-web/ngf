@@ -41,7 +41,9 @@ node('JenkinsSlave') {
   }
   stage('Ready') {
       sh '''
+      printenv &&
       . /home/ubuntu/.jenkins_info > /dev/null &&
+      printenv &&
       echo "http://${HOST_NAME}"
       '''
   }
