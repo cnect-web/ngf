@@ -20,7 +20,7 @@ node('JenkinsSlave') {
   }
   stage('Build') {
       sh '''
-          ls -lah /home/ubuntu/ &&
+          . /home/ubuntu/init.sh &&
           printenv &&
           cd ${WORKSPACE} &&
           composer install &&
