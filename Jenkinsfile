@@ -23,7 +23,7 @@ node('JenkinsSlave') {
           . /home/ubuntu/init.sh &&
           cd ${WORKSPACE} &&
           composer install &&
-          ./bin/robo project:install-config -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}" -o "project.url: ${HOST_NAME}" &&
+          ./bin/robo project:install-config -o "project.root: ${WORKSPACE}" -o "project.url: ${HOST_NAME}" -o "database.password: ${MYSQL_PASSWORD}" &&
           ./bin/robo project:setup-behat -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}"
           '''
   }
@@ -40,7 +40,9 @@ node('JenkinsSlave') {
       '''
   }
   stage('Ready') {
-      sh '''cd ${WORKSPACE}/ &&
+      sh '''
+      echo <a href="'${HOST_NAME}'">Click here to see your website</a> &&
+      cd ${WORKSPACE}/ &&
       ./bin/robo ec2:hostname
       '''
   }
