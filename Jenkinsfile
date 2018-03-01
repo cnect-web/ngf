@@ -40,8 +40,6 @@ node('JenkinsSlave') {
       '''
   }
   stage('Ready') {
-      import hudson.console.ModelHyperlinkNote
-      println hudson.console.ModelHyperlinkNote.encodeTo('http://${HOST_NAME}', 'Click here to see your website!')
       sh '''echo ${HOST_NAME} '''
   }
 
