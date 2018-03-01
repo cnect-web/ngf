@@ -20,8 +20,8 @@ node('JenkinsSlave') {
   }
   stage('Build') {
       sh '''
-          printenv &&
           ls -lah /home/ubuntu/ &&
+          printenv &&
           cd ${WORKSPACE} &&
           composer install &&
           ./bin/robo project:install-config -o "project.root: ${WORKSPACE}" -o "database.password: ${MYSQL_PASSWORD}" &&
