@@ -20,7 +20,7 @@ node('JenkinsSlave') {
   }
   stage('Build') {
       sh '''
-          . /home/ubuntu/init.sh &&
+          . /home/ubuntu/.jenkins_info &&
           cd ${WORKSPACE} &&
           composer install &&
           ./bin/robo project:install-config -o "project.root: ${WORKSPACE}" -o "project.url: ${HOST_NAME}" -o "database.password: ${MYSQL_PASSWORD}" &&
@@ -40,7 +40,10 @@ node('JenkinsSlave') {
       '''
   }
   stage('Ready') {
-      sh '''echo "${HOST_NAME}" '''
+      sh '''
+      . /home/ubuntu/.jenkins_info &&
+      echo "${HOST_NAME}"
+      '''
   }
 
 }
