@@ -31,6 +31,7 @@
         }
     ],
     "require": {
+        "boedah/robo-drush": "~3",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
@@ -45,6 +46,7 @@
         "drupal/console": "^1.0.2",
         "drupal/core": "~8.4",
         "drupal/ctools": "^3.0",
+        "drupal/drupal-extension": "^3.4",
         "drupal/features": "^3.5",
         "drupal/field_group": "^1.0",
         "drupal/group": "^1.0@RC",
@@ -52,10 +54,9 @@
         "drupal/token": "^1.1",
         "drush/drush": "^9.0.0",
         "harvesthq/chosen": "^1.8",
+        "nuvoleweb/robo-config": "^0.2",
         "webflo/drupal-finder": "^1.0.0",
-        "webmozart/path-util": "^2.3",
-        "boedah/robo-drush": "~3",
-        "nuvoleweb/robo-config": "^0.2"
+        "webmozart/path-util": "^2.3"
     },
     "require-dev": {
         "behat/behat": "^3.4",
@@ -88,11 +89,10 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+	        "bash scripts/symlink.sh"
         ],
-        "post-update-cmd": [
-            "_DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
-        ]
+        "post-update-cmd": []
     },
     "extra": {
         "installer-paths": {
@@ -106,6 +106,13 @@
         "_comment_patches": "Temporarily enabling patches on chained composer.json until config_installer is on core",
         "patches": {
             "enable-patching" : true,
+            "drupal/config_installer": {
+                "Support Drush 9": "https://www.drupal.org/files/issues/drush9-support-2916090-6.patch",
+                "Drush 9: Call to undefined function drush_generate_password": "https://www.drupal.org/files/issues/config_installer-drush_9_call_undefined_function_drush_generate_password-2935426-2.patch"
+            },
+            "drupal/core": {
+                "Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch"
+            },
             "drupal/adminimal_theme": {
                 "Colors in horizontal and vertical toolbar need fixing": "https://www.drupal.org/files/issues/adminimal_theme-fix-toolbar-colors-28226369.patch"
             },
