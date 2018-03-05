@@ -782,12 +782,12 @@ if (file_exists($app_root . '/../.env')) {
  * Database settings:
  */
 $databases['default']['default'] = array (
-  'database' => getenv("DATABASE"),
-  'username' => getenv("DATABASE_USER"),
-  'password' => getenv("DATABASE_PASSWORD"),
-  'prefix' => '',
-  'host' => getenv("DATABASE_HOST"),
-  'port' => getenv("DATABASE_PORT"),
+  'database' => getenv('DATABASE'),
+  'username' => getenv('DATABASE_USER'),
+  'password' => getenv('DATABASE_PASSWORD'),
+  'prefix' => getenv('DATABASE_PREFIX'),
+  'host' => getenv('DATABASE_HOST'),
+  'port' => getenv('DATABASE_PORT'),
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
@@ -795,15 +795,15 @@ $databases['default']['default'] = array (
 /**
  * Config directories.
  */
-$config_directories["sync"] = '../config/sync';
-$config_directories["dev_config"] = '../config/dev_config';
-$config_directories["staging_config"] = '../config/staging_config';
-$config_directories["prod_config"] = '../config/prod_config';
+$config_directories['sync'] = '../config/sync';
+$config_directories['dev_config'] = '../config/dev_config';
+$config_directories['staging_config'] = '../config/staging_config';
+$config_directories['prod_config'] = '../config/prod_config';
 
 /**
  * Config Split.
  */
-switch (getenv("ENVIRONMENT")) {
+switch (getenv('ENVIRONMENT')) {
   case 'production':
     $config['config_split.config_split.dev_config']['status'] = FALSE;
     $config['config_split.config_split.staging_config']['status'] = FALSE;
@@ -837,3 +837,4 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
+$settings['install_profile'] = 'standard';

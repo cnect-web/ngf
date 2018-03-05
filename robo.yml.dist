@@ -2,6 +2,7 @@
 project:
   root: /var/www/html/
   url: http://localhost
+  environment: development
 
 # Site information.
 site:
@@ -23,7 +24,7 @@ database:
   port: 3306
   name: drupal
   user: root
-  password: ''
+  password: root
   prefix: ''
 
 # Behat settings.
