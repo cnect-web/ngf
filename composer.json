@@ -51,10 +51,12 @@
         "drupal/field_group": "^1.0",
         "drupal/group": "^1.0@RC",
         "drupal/redirect": "^1.0",
+        "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/token": "^1.1",
         "drush/drush": "^9.0.0",
         "harvesthq/chosen": "^1.8",
         "nuvoleweb/robo-config": "^0.2",
+        "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
     },
