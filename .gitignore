@@ -34,3 +34,5 @@
 /web/sites/example.settings.local.php
 /web/sites/example.sites.php
 
+# Ignore .env file
+.env
