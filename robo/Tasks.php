@@ -50,7 +50,6 @@ class Tasks extends RoboTasks {
    * @aliases psb
    */
   public function projectSetupBehat() {
-    $project_tokens = $this->config('project.tokens');
     $behat_tokens = $this->config('behat.tokens');
 
     $this->collectionBuilder()->addTaskList([
@@ -75,10 +74,10 @@ class Tasks extends RoboTasks {
    * @aliases pi
    */
   public function projectInstall() {
+    $this->projectGenerateEnv();
     $this->getInstallTask()
       ->siteInstall($this->config('site.profile'))
       ->run();
-    $this->projectSetupSettings();
   }
 
   /**
@@ -88,28 +87,39 @@ class Tasks extends RoboTasks {
    * @aliases pic
    */
   public function projectInstallConfig() {
-    $this->getInstallTask()
-      ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
-      ->siteInstall('config_installer')
-      ->run();
-    $this->projectSetupSettings();
+      $this->projectGenerateEnv();
+      $this->getInstallTask()
+          ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
+          ->siteInstall('config_installer')
+          ->run();
   }
 
-  /**
-   * Setup Drupal settings.
-   *
-   * @command project:setup-settings
-   * @aliases pss
-   */
-  public function projectSetupSettings() {
-    $settings_file = $this->root() . '/web/sites/default/settings.php';
-    $processor = new SettingsProcessor(Robo::config());
-    $content = $processor->process($settings_file);
-    $this->collectionBuilder()->addTaskList([
-      $this->taskFilesystemStack()->chmod('web/sites', 0775, 0000, TRUE),
-      $this->taskWriteToFile($settings_file)->text($content),
-    ])->run();
-  }
+
+    /**
+     * Setup .env file.
+     *
+     * @command project:setup-env
+     * @aliases pse
+     */
+    public function projectGenerateEnv() {
+        $content = '';
+        $settings = [
+            'ENVIRONMENT' => 'project.environment',
+            'DATABASE' => 'database.name',
+            'DATABASE_HOST' => 'database.host',
+            'DATABASE_PORT' => 'database.port',
+            'DATABASE_USER' => 'database.user',
+            'DATABASE_PASSWORD' => 'database.password',
+            'DATABASE_PREFIX' => 'database.prefix',
+        ];
+        foreach ($settings as $key => $setting) {
+            $content .= "$key=" . $this->config($setting) ."\n";
+        }
+        if (!empty($content)) {
+            $this->taskWriteToFile($this->root() . '/.env')->text($content)->run();
+        }
+    }
+
 
   /**
    * Get installation task.
