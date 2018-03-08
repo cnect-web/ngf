@@ -4,7 +4,6 @@ namespace NGF\Robo;
 
 use Robo\Robo;
 use Robo\Tasks as RoboTasks;
-use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class Tasks.
@@ -95,7 +94,6 @@ class Tasks extends RoboTasks {
       ->run();
   }
 
-
   /**
    * Setup .env file.
    *
@@ -119,6 +117,27 @@ class Tasks extends RoboTasks {
     if (!empty($content)) {
       $this->taskWriteToFile($this->root() . '/.env')->text($content)->run();
     }
+  }
+
+  /**
+   * Get installation task.
+   *
+   * @return \Boedah\Robo\Task\Drush\DrushStack
+   *   Drush installation task.
+   */
+  protected function getInstallConfigTask() {
+    return $this->taskDrushStack($this->config('bin.drush'))
+      ->arg("--root={$this->root()}/web")
+      ->accountMail($this->config('account.mail'))
+      ->accountName($this->config('account.name'))
+      ->accountPass($this->config('account.password'))
+      ->dbPrefix($this->config('database.prefix'))
+      ->dbUrl(sprintf("mysql://%s:%s@%s:%s/%s",
+        $this->config('database.user'),
+        $this->config('database.password'),
+        $this->config('database.host'),
+        $this->config('database.port'),
+        $this->config('database.name')));
   }
 
   /**

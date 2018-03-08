@@ -795,10 +795,12 @@ $databases['default']['default'] = array (
 /**
  * Config directories.
  */
-$config_directories['sync'] = '../config/sync';
-$config_directories['dev_config'] = '../config/dev_config';
-$config_directories['staging_config'] = '../config/staging_config';
-$config_directories['prod_config'] = '../config/prod_config';
+$config_directories =  [
+  'sync' => '../config/sync',
+  'dev_config' => '../config/dev_config',
+  'staging_config' => '../config/staging_config',
+  'prod_config' => '../config/prod_config'
+];
 
 /**
  * Config Split.
