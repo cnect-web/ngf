@@ -87,39 +87,58 @@ class Tasks extends RoboTasks {
    * @aliases pic
    */
   public function projectInstallConfig() {
-      $this->projectGenerateEnv();
-      $this->getInstallTask()
-          ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
-          ->siteInstall('config_installer')
-          ->run();
+    $this->projectGenerateEnv();
+    $this->getInstallTask()
+      ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
+      ->siteInstall('config_installer')
+      ->run();
   }
 
-
-    /**
-     * Setup .env file.
-     *
-     * @command project:setup-env
-     * @aliases pse
-     */
-    public function projectGenerateEnv() {
-        $content = '';
-        $settings = [
-            'ENVIRONMENT' => 'project.environment',
-            'DATABASE' => 'database.name',
-            'DATABASE_HOST' => 'database.host',
-            'DATABASE_PORT' => 'database.port',
-            'DATABASE_USER' => 'database.user',
-            'DATABASE_PASSWORD' => 'database.password',
-            'DATABASE_PREFIX' => 'database.prefix',
-        ];
-        foreach ($settings as $key => $setting) {
-            $content .= "$key=" . $this->config($setting) ."\n";
-        }
-        if (!empty($content)) {
-            $this->taskWriteToFile($this->root() . '/.env')->text($content)->run();
-        }
+  /**
+   * Setup .env file.
+   *
+   * @command project:setup-env
+   * @aliases pse
+   */
+  public function projectGenerateEnv() {
+    $content = '';
+    $settings = [
+      'ENVIRONMENT' => 'project.environment',
+      'DATABASE' => 'database.name',
+      'DATABASE_HOST' => 'database.host',
+      'DATABASE_PORT' => 'database.port',
+      'DATABASE_USER' => 'database.user',
+      'DATABASE_PASSWORD' => 'database.password',
+      'DATABASE_PREFIX' => 'database.prefix',
+    ];
+    foreach ($settings as $key => $setting) {
+      $content .= "$key=" . $this->config($setting) ."\n";
     }
+    if (!empty($content)) {
+      $this->taskWriteToFile($this->root() . '/.env')->text($content)->run();
+    }
+  }
 
+  /**
+   * Get installation task.
+   *
+   * @return \Boedah\Robo\Task\Drush\DrushStack
+   *   Drush installation task.
+   */
+  protected function getInstallConfigTask() {
+    return $this->taskDrushStack($this->config('bin.drush'))
+      ->arg("--root={$this->root()}/web")
+      ->accountMail($this->config('account.mail'))
+      ->accountName($this->config('account.name'))
+      ->accountPass($this->config('account.password'))
+      ->dbPrefix($this->config('database.prefix'))
+      ->dbUrl(sprintf("mysql://%s:%s@%s:%s/%s",
+        $this->config('database.user'),
+        $this->config('database.password'),
+        $this->config('database.host'),
+        $this->config('database.port'),
+        $this->config('database.name')));
+  }
 
   /**
    * Get installation task.
