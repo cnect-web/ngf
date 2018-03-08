@@ -51,6 +51,7 @@
         "drupal/field_group": "^1.0",
         "drupal/group": "^1.0@RC",
         "drupal/pathauto": "^1.1",
+        "drupal/permissions_filter": "^1.0",
         "drupal/redirect": "^1.0",
         "drupal/stage_file_proxy": "^1.0@alpha",
         "drupal/token": "^1.1",
