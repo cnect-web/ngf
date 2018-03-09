@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c82d4c709834a8e7e0c45636aa08bfb",
+    "content-hash": "cb416fe957d0a6423187a0acab4b32b7",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -679,6 +679,30 @@
             ],
             "description": "Drupal code generator",
             "time": "2018-03-03T04:17:26+00:00"
+        },
+        {
+            "name": "cnect-web/funkywave",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cnect-web/funkywave.git",
+                "reference": "b04c62ec4f2d6ee15f590e9725ff41e70010bce6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/b04c62ec4f2d6ee15f590e9725ff41e70010bce6",
+                "reference": "b04c62ec4f2d6ee15f590e9725ff41e70010bce6",
+                "shasum": ""
+            },
+            "type": "drupal-theme",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Peter Neyens",
+                    "email": "peter.neyens@telenet.be"
+                }
+            ],
+            "time": "2018-03-05T15:55:35+00:00"
         },
         {
             "name": "composer/installers",
@@ -2265,17 +2289,17 @@
         },
         {
             "name": "drupal/config_installer",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/config_installer",
-                "reference": "8.x-1.6"
+                "reference": "8.x-1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/config_installer-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "a1db5469775d3c104fd082929de0c7abe08241c6"
+                "url": "https://ftp.drupal.org/files/projects/config_installer-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "263006c947e814f766ff8420d1b7e4ea8c258ecd"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2286,8 +2310,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1519901110",
+                    "version": "8.x-1.7",
+                    "datestamp": "1520542980",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9210,6 +9234,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "cnect-web/funkywave": 20,
         "drupal/config_readonly": 10,
         "drupal/group": 5,
         "drupal/stage_file_proxy": 15
