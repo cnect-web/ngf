@@ -32,6 +32,7 @@
     ],
     "require": {
         "boedah/robo-drush": "~3",
+        "cnect-web/funkywave": "dev-master",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
@@ -48,8 +49,8 @@
         "drupal/ctools": "^3.0",
         "drupal/drupal-extension": "^3.4",
         "drupal/embed": "^1.0",
-        "drupal/entity_embed": "^1.0",
         "drupal/entity_browser": "^2.0",
+        "drupal/entity_embed": "^1.0",
         "drupal/features": "^3.5",
         "drupal/field_group": "^1.0",
         "drupal/group": "^1.0@RC",
