@@ -795,33 +795,27 @@ $databases['default']['default'] = array (
 /**
  * Config directories.
  */
-$config_directories =  [
-  'sync' => '../config/sync',
-  'dev_config' => '../config/dev_config',
-  'staging_config' => '../config/staging_config',
-  'prod_config' => '../config/prod_config'
-];
+$config_directories['sync'] = '../config/sync';
 
 /**
  * Config Split.
  */
+$config['config_split.config_split.dev_config']['status'] = FALSE;
+$config['config_split.config_split.staging_config']['status'] = FALSE;
+$config['config_split.config_split.prod_config']['status'] = FALSE;
 switch (getenv('ENVIRONMENT')) {
   case 'production':
-    $config['config_split.config_split.dev_config']['status'] = FALSE;
-    $config['config_split.config_split.staging_config']['status'] = FALSE;
     $config['config_split.config_split.prod_config']['status'] = TRUE;
     break;
 
   case 'staging':
-    $config['config_split.config_split.dev_config']['status'] = FALSE;
     $config['config_split.config_split.staging_config']['status'] = TRUE;
-    $config['config_split.config_split.prod_config']['status'] = TRUE;
     break;
 
   default:
     $config['config_split.config_split.dev_config']['status'] = TRUE;
-    $config['config_split.config_split.staging_config']['status'] = TRUE;
-    $config['config_split.config_split.prod_config']['status'] = FALSE;
+    // Enable local development services.
+    $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/development.services.yml';
     break;
 }
 
@@ -835,6 +829,7 @@ switch (getenv('ENVIRONMENT')) {
  *
  * Keep this code block at the end of this file to take full effect.
  */
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
+$local_settings_file = $app_root . '/' . $site_path . '/settings.local.php';
+if (file_exists($local_settings_file)) {
+  include $local_settings_file;
 }
