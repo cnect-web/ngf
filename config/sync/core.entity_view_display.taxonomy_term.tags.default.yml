@@ -1,0 +1,30 @@
+uuid: c70ef48f-7bab-4341-a5f7-5c6711261deb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.tags.meta
+    - taxonomy.vocabulary.tags
+  module:
+    - text
+id: taxonomy_term.tags.default
+targetEntityType: taxonomy_term
+bundle: tags
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  meta:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }
