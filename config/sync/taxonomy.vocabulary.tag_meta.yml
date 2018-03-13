@@ -1,9 +1,0 @@
-uuid: 4570917c-c29e-405e-b6e2-0d86cdf4c8a7
-langcode: en
-status: true
-dependencies: {  }
-name: 'Tag meta'
-vid: tag_meta
-description: 'Meta information for tags'
-hierarchy: 0
-weight: 0
