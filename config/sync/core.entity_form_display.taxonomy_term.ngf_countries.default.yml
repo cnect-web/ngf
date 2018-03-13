@@ -1,15 +1,17 @@
-uuid: 92ead57a-8dcf-4710-a941-fbd201cbaec1
+uuid: 2ae98db7-b8d2-43e6-9824-f06bdf648a69
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.tags
+    - field.field.taxonomy_term.ngf_countries.ngf_is_ec
+    - field.field.taxonomy_term.ngf_countries.ngf_iso_code
+    - taxonomy.vocabulary.ngf_countries
   module:
     - path
     - text
-id: taxonomy_term.tags.default
+id: taxonomy_term.ngf_countries.default
 targetEntityType: taxonomy_term
-bundle: tags
+bundle: ngf_countries
 mode: default
 content:
   description:
@@ -28,6 +30,21 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  ngf_is_ec:
+    weight: 31
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  ngf_iso_code:
+    weight: 32
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
     weight: 30

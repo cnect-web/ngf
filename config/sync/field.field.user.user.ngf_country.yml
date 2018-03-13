@@ -1,16 +1,17 @@
-uuid: 66e6ceb3-4c5e-4ac2-b52a-9e4778a8146f
+uuid: 0099538b-3da7-4af5-adde-ce235a634565
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.meta
-    - taxonomy.vocabulary.tag_meta
-    - taxonomy.vocabulary.tags
-id: taxonomy_term.tags.meta
-field_name: meta
-entity_type: taxonomy_term
-bundle: tags
-label: Meta
+    - field.storage.user.ngf_country
+    - taxonomy.vocabulary.ngf_countries
+  module:
+    - user
+id: user.user.ngf_country
+field_name: ngf_country
+entity_type: user
+bundle: user
+label: Country
 description: ''
 required: false
 translatable: false
@@ -20,7 +21,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      tag_meta: tag_meta
+      ngf_countries: ngf_countries
     sort:
       field: name
       direction: asc

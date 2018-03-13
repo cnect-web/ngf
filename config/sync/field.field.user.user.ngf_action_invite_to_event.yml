@@ -1,0 +1,24 @@
+uuid: 577c69f4-a927-4e81-ab05-a35912815352
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.ngf_action_invite_to_event
+  module:
+    - user
+id: user.user.ngf_action_invite_to_event
+field_name: ngf_action_invite_to_event
+entity_type: user
+bundle: user
+label: 'Invite you to events'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Allow people to invite you to events'
+  off_label: 'Don''t allow people to invite you to events'
+field_type: boolean
