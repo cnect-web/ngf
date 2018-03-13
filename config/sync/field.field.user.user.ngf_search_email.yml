@@ -1,0 +1,24 @@
+uuid: 95189018-1fb6-430f-88ca-7ab51186af4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.ngf_search_email
+  module:
+    - user
+id: user.user.ngf_search_email
+field_name: ngf_search_email
+entity_type: user
+bundle: user
+label: 'Your email'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Allow people to find you by email'
+  off_label: 'Don''t allow people to find you by email'
+field_type: boolean

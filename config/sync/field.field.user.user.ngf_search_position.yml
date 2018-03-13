@@ -1,0 +1,24 @@
+uuid: b5ec992a-892b-4cc8-82e1-47a93400de88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.ngf_search_position
+  module:
+    - user
+id: user.user.ngf_search_position
+field_name: ngf_search_position
+entity_type: user
+bundle: user
+label: 'Your position'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Allow people to find you by position'
+  off_label: 'Don''t allow people to find you by position'
+field_type: boolean
