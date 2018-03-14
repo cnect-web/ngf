@@ -1,0 +1,14 @@
+{
+  "name": "cnect-web/ngf_core",
+  "type": "drupal-module",
+  "description": "Next Generation Futurium Core Functionality",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/ngf_core",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/ngf_main",
+    "source": "http://cgit.drupalcode.org/ngf_main"
+  },
+  "require": { }
+}

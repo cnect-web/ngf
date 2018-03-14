@@ -1,0 +1,5 @@
+services:
+  ngf_core.route_subscriber:
+    class: Drupal\ngf_core\Routing\NGFCoreRouteSubscriber
+    tags:
+      - { name: event_subscriber }

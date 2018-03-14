@@ -154,4 +154,6 @@ content:
     third_party_settings: {  }
     weight: -1
     region: content
-hidden: {  }
+hidden:
+  first_name: true
+  last_name: true

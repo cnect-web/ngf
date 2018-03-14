@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Contains ngf_core.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ngf_core_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ngf_core module.
+    case 'help.page.ngf_core':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Next Generation Futurium Core Functionality') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Alter the group menu.
+ */
+function ngf_core_group_operations_alter(&$links, $group) {
+  // Move the Create Post action to top.
+  if (isset($links['gnode-create-post'])) {
+    $links['gnode-create-post']['weight']--;
+  }
+
+  // Modify the action link title.
+  foreach ($links as $key => $link) {
+    $link_title_arg = $link['title']->getArguments();
+    if (isset($link_title_arg['@type'])) {
+      $links[$key]['title'] = t('New @type', $link_title_arg);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function ngf_core_link_alter(&$variables) {
+  /**
+   * The URL of the link.
+   *
+   * @var Url
+   */
+  $url = $variables['url'];
+
+  if ($url->isRouted() && $url->getRouteName() == 'user.login') {
+    $variables['text'] = t('Sign In');
+  }
+}

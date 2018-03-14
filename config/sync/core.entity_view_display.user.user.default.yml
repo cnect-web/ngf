@@ -160,4 +160,6 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
-hidden: {  }
+hidden:
+  first_name: true
+  last_name: true
