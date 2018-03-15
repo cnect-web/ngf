@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.ngf_is_ec
+    - field.storage.taxonomy_term.field_ngf_is_ec
     - taxonomy.vocabulary.ngf_countries
 id: taxonomy_term.ngf_countries.ngf_is_ec
 field_name: ngf_is_ec
