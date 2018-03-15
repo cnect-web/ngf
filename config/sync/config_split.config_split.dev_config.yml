@@ -6,6 +6,7 @@ id: dev_config
 label: 'Dev Config'
 folder: ../config/dev_config
 module:
+  config_devel: 0
   devel: 0
   features_ui: 0
   field_ui: 0

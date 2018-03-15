@@ -1,0 +1,488 @@
+iso,Country,Region
+AT,Austria,Burgenland
+AT,Austria,Steiermark
+AT,Austria,Tirol
+AT,Austria,Niederösterreich
+AT,Austria,Vorarlberg
+AT,Austria,Oberösterreich
+AT,Austria,Salzburg
+AT,Austria,Kärnten
+AT,Austria,Salzburg
+AT,Austria,Wien
+BE,Belgium,HainAT
+BE,Belgium,Limburg
+BE,Belgium,Namur
+BE,Belgium,Antwerp
+BE,Belgium,Brussels
+BE,Belgium,Walloon Brabant
+BE,Belgium,Liege
+BE,Belgium,Flemish Brabant
+BE,Belgium,East Flanders
+BE,Belgium,West Flanders
+BE,Belgium,Luxembourg
+BG,Bulgaria,Grad Sofiya
+BG,Bulgaria,Montana
+BG,Bulgaria,Kyustendil
+BG,Bulgaria,Burgas
+BG,Bulgaria,Varna
+BG,Bulgaria,Ruse
+BG,Bulgaria,Haskovo
+BG,Bulgaria,Stara Zagora
+BG,Bulgaria,Plovdiv
+BG,Bulgaria,Sofia
+BG,Bulgaria,Veliko Tarnovo
+BG,Bulgaria,Vratsa
+BG,Bulgaria,Targovishte
+BG,Bulgaria,Pleven
+BG,Bulgaria,Vidin
+BG,Bulgaria,Pazardzhik
+BG,Bulgaria,Smolyan
+BG,Bulgaria,Yambol
+BG,Bulgaria,Sliven
+BG,Bulgaria,Razgrad
+BG,Bulgaria,Kardzhali
+BG,Bulgaria,Gabrovo
+BG,Bulgaria,Lovech
+BG,Bulgaria,Shumen
+BG,Bulgaria,Dobrich
+BG,Bulgaria,Silistra
+BG,Bulgaria,Pernik
+BG,Bulgaria,Blagoevgrad
+HR,Croatia,Karlovacka
+HR,Croatia,Licko-Senjska
+HR,Croatia,Sisacko-Moslavacka
+HR,Croatia,Viroviticko-Podravska
+HR,Croatia,Zagrebacka
+HR,Croatia,Osjecko-Baranjska
+HR,Croatia,Bjelovarska-Bilogorska
+HR,Croatia,Varaždinska
+HR,Croatia,Grad Zagreb
+HR,Croatia,Vukovarsko-Srijemska
+HR,Croatia,Šibensko-Kninska
+HR,Croatia,Krapinsko-Zagorska
+HR,Croatia,Istarska
+HR,Croatia,Brodsko-Posavska
+HR,Croatia,Brodsko-Posavska
+HR,Croatia,Koprivnicko-Križevacka
+HR,Croatia,Zadarska
+HR,Croatia,Dubrovacko-Neretvanska
+HR,Croatia,Medimurska
+HR,Croatia,Splitsko-Dalmatinska
+HR,Croatia,Primorsko-Goranska
+HR,Croatia,Primorsko-Goranska
+HR,Croatia,Grad Zagreb
+CY,Cyprus,Famagusta
+CY,Cyprus,Paphos
+CY,Cyprus,Limassol
+CY,Cyprus,Larnaca
+CY,Cyprus,Nicosia
+CZ,Czech Republic,Karlovarský
+CZ,Czech Republic,Liberecký
+CZ,Czech Republic,Královéhradecký
+CZ,Czech Republic,Moravskoslezský
+CZ,Czech Republic,Prague
+CZ,Czech Republic,Jihoceský
+CZ,Czech Republic,Kraj Vysocina
+CZ,Czech Republic,Stredoceský
+DK,Denmark,Eysturoyar
+DK,Denmark,Hovedstaden
+DK,Denmark,Nordjylland
+DK,Denmark,Syddanmark
+DK,Denmark,Sjaælland
+DK,Denmark,Midtjylland
+ES,Estonia,Harju
+ES,Estonia,Lääne
+ES,Estonia,Järva
+ES,Estonia,Lääne-Viru
+ES,Estonia,Hiiu
+ES,Estonia,Tartu
+ES,Estonia,Võru
+ES,Estonia,Ida-Viru
+ES,Estonia,Viljandi
+ES,Estonia,Jõgeva
+ES,Estonia,Saare
+ES,Estonia,Valga
+ES,Estonia,Rapla
+ES,Estonia,Põlva
+ES,Estonia,Pärnu
+FI,Finland,Oulu
+FI,Finland,Finland Proper
+FI,Finland,Central Finland
+FI,Finland,Ostrobothnia
+FI,Finland,Tavastia Proper
+FI,Finland,Southern Finland
+FI,Finland,Satakunta
+FI,Finland,Finström
+FI,Finland,Eastern Uusimaa
+FI,Finland,Northern Ostrobothnia
+FI,Finland,Päijänne Tavastia
+FI,Finland,South Karelia
+FI,Finland,North Karelia
+FI,Finland,Eastern Finland
+FI,Finland,Southern Ostrobothnia
+FI,Finland,Central Ostrobothnia
+FI,Finland,Pirkanmaa
+FI,Finland,Southern Savonia
+FI,Finland,Lapland
+FI,Finland,Southern Finland
+FR,France,French Guiana
+FR,France,Rhône-Alpes
+FR,France,Bourgogne
+FR,France,Picardie
+FR,France,Martinique
+FR,France,Pays de la Loire
+FR,France,Centre
+FR,France,Poitou-Charentes
+FR,France,HATe-Normandie
+FR,France,Île-de-France
+FR,France,Limousin
+FR,France,Nord-Pas-de-Calais
+FR,France,Franche-Comté
+FR,France,Alsace
+FR,France,Basse-Normandie
+FR,France,Corse
+FR,France,Midi-Pyrénées
+FR,France,Provence-Alpes-Côte-d'Azur
+FR,France,Languedoc-Roussillon
+FR,France,Auvergne
+FR,France,Champagne-Ardenne
+FR,France,Bretagne
+FR,France,Aquitaine
+FR,France,Lorraine
+DE,Germany,Saarland
+DE,Germany,Bayern
+DE,Germany,Thüringen
+DE,Germany,Nordrhein-Westfalen
+DE,Germany,Schleswig-Holstein
+DE,Germany,Sachsen
+DE,Germany,Hessen
+DE,Germany,Bremen
+DE,Germany,Hamburg
+DE,Germany,Berlin
+DE,Germany,Niedersachsen
+DE,Germany,Rheinland-Pfalz
+DE,Germany,Sachsen-Anhalt
+DE,Germany,Baden-Württemberg
+DE,Germany,Brandenburg
+DE,Germany,Mecklenburg-Vorpommern
+GR,Greece,Ionioi Nisoi
+GR,Greece,Kriti
+GR,Greece,Thessalia
+GR,Greece,Kentriki Makedonia
+GR,Greece,Anatoliki Makedonia kai Thraki
+GR,Greece,Attiki
+GR,Greece,Peloponnisos
+GR,Greece,Dytiki Ellada
+GR,Greece,Dytiki Makedonia
+GR,Greece,Ipeiros
+GR,Greece,Voreio Aigaio
+GR,Greece,Stereá Elláda
+GR,Greece,Ayion Oros
+GR,Greece,Notio Aigaio
+HU,Hungary,Fejér
+HU,Hungary,Gyor-Moson-Sopron
+HU,Hungary,Somogy
+HU,Hungary,Budapest
+HU,Hungary,Szabolcs-Szatmár-Bereg
+HU,Hungary,Csongrád
+HU,Hungary,Heves
+HU,Hungary,Vas
+HU,Hungary,Borsod-Abaúj-Zemplén
+HU,Hungary,Hajdú-Bihar
+HU,Hungary,Zala
+HU,Hungary,Komárom-Esztergom
+HU,Hungary,Jász-Nagykun-Szolnok
+HU,Hungary,Tolna
+HU,Hungary,Békés
+HU,Hungary,Baranya
+HU,Hungary,Bács-Kiskun
+HU,Hungary,Nógrád
+HU,Hungary,Veszprém
+HU,Hungary,Pest
+IE,Ireland,Cavan
+IE,Ireland,Louth
+IE,Ireland,Offaly
+IE,Ireland,Leitrim
+IE,Ireland,Clare
+IE,Ireland,Dublin
+IE,Ireland,Kildare
+IE,Ireland,Limerick
+IE,Ireland,Longford
+IE,Ireland,Carlow
+IE,Ireland,Cork
+IE,Ireland,Galway
+IE,Ireland,Meath
+IE,Ireland,Laoighis
+IE,Ireland,Roscommon
+IE,Ireland,Mayo
+IE,Ireland,Westmeath
+IE,Ireland,Wicklow
+IE,Ireland,Kerry
+IE,Ireland,Tipperary
+IE,Ireland,Wexford
+IE,Ireland,Kilkenny
+IE,Ireland,Sligo
+IE,Ireland,Donegal
+IE,Ireland,Waterford
+IE,Ireland,Monaghan
+IT,Italy,Campania
+IT,Italy,Apulia
+IT,Italy,Piemonte
+IT,Italy,Valle d'Aosta
+IT,Italy,Liguria
+IT,Italy,Marche
+IT,Italy,Emilia-Romagna
+IT,Italy,Sicily
+IT,Italy,Lazio
+IT,Italy,Toscana
+IT,Italy,Abruzzo
+IT,Italy,Umbria
+IT,Italy,Lombardia
+IT,Italy,Sardegna
+IT,Italy,Basilicata
+IT,Italy,Calabria
+IT,Italy,Molise
+IT,Italy,Trentino-Alto Adige
+IT,Italy,Veneto
+IT,Italy,Friuli-Venezia Giulia
+LV,Latvia,Liepaja
+LV,Latvia,Latgale
+LV,Latvia,Aluksne
+LV,Latvia,Zemgale
+LV,Latvia,Vidzeme
+LV,Latvia,Jekabpils
+LV,Latvia,Madona
+LV,Latvia,Kraslava
+LV,Latvia,Ludza
+LV,Latvia,Bauska
+LV,Latvia,Limbaži
+LV,Latvia,Ogre
+LV,Latvia,Riga
+LV,Latvia,Kurzeme
+LV,Latvia,Saldus
+LV,Latvia,Talsi
+LV,Latvia,Daugavpils
+LV,Latvia,Jelgava
+LV,Latvia,Riga
+LV,Latvia,Valmiera
+LV,Latvia,Dobele
+LV,Latvia,Gulbene
+LV,Latvia,Ventspils
+LV,Latvia,Balvi
+LV,Latvia,Valga
+LV,Latvia,Preili
+LV,Latvia,Tukums
+LU,Luxembourg,Luxembourg
+LU,Luxembourg,Grevenmacher
+LU,Luxembourg,Diekirch
+NL,Netherlands,Drenthe
+NL,Netherlands,Friesland
+NL,Netherlands,Zeeland
+NL,Netherlands,Gelderland
+NL,Netherlands,Groningen
+NL,Netherlands,Overijssel
+NL,Netherlands,Limburg
+NL,Netherlands,Flevoland
+NL,Netherlands,Noord-Holland
+NL,Netherlands,Noord-Brabant
+NL,Netherlands,Utrecht
+NL,Netherlands,Zuid-Holland
+PL,Poland,Opole
+PL,Poland,Lesser Poland
+PL,Poland,Warmian-Masurian
+PL,Poland,Masovian
+PL,Poland,Swietokrzyskie
+PL,Poland,Podlachian
+PL,Poland,Lódz
+PL,Poland,Lubusz
+PL,Poland,West Pomeranian
+PL,Poland,Greater Poland
+PL,Poland,Kuyavian-Pomeranian
+PL,Poland,Lublin
+PL,Poland,Subcarpathian
+PL,Poland,Pomeranian
+PL,Poland,Lower Silesian
+PL,Poland,Silesian
+PT,Portugal,Beja
+PT,Portugal,Faro
+PT,Portugal,Bragança
+PT,Portugal,Coimbra
+PT,Portugal,Guarda
+PT,Portugal,Viseu
+PT,Portugal,Santarém
+PT,Portugal,Leiria
+PT,Portugal,Lisboa
+PT,Portugal,Portalegre
+PT,Portugal,Aveiro
+PT,Portugal,Azores
+PT,Portugal,Braga
+PT,Portugal,Porto
+PT,Portugal,Madeira
+PT,Portugal,Viana do Castelo
+PT,Portugal,Évora
+PT,Portugal,Castelo Branco
+PT,Portugal,Vila Real
+RO,Romania,Dolj
+RO,Romania,Bihor
+RO,Romania,Alba
+RO,Romania,Hunedoara
+RO,Romania,Arges
+RO,Romania,Bacau
+RO,Romania,Dâmbovita
+RO,Romania,Cluj
+RO,Romania,Salaj
+RO,Romania,Satu Mare
+RO,Romania,Covasna
+RO,Romania,Mehedinti
+RO,Romania,Teleorman
+RO,Romania,Vâlcea
+RO,Romania,Neamt
+RO,Romania,Braila
+RO,Romania,Galati
+RO,Romania,Giurgiu
+RO,Romania,Sibiu
+RO,Romania,Vaslui
+RO,Romania,Vrancea
+RO,Romania,Maramures
+RO,Romania,Olt
+RO,Romania,Ialomita
+RO,Romania,Constanta
+RO,Romania,Mures
+RO,Romania,Iasi
+RO,Romania,Prahova
+RO,Romania,Gorj
+RO,Romania,Caras-Severin
+RO,Romania,Timis
+RO,Romania,Bistrita-Nasaud
+RO,Romania,Brasov
+RO,Romania,Suceava
+RO,Romania,Bucharest
+RO,Romania,Calarasi
+RO,Romania,Arad
+RO,Romania,Botosani
+RO,Romania,Harghita
+RO,Romania,Buzau
+SK,Slovakia,Bratislavský
+SK,Slovakia,Banskobystrický
+SK,Slovakia,Trenciansky
+SK,Slovakia,KoŠický
+SK,Slovakia,Trnavský
+SK,Slovakia,Žilinský
+SK,Slovakia,Nitriansky
+SK,Slovakia,PreŠov
+ES,Spain,Castilla-La Mancha
+ES,Spain,Canillo
+ES,Spain,Cantabria
+ES,Spain,Castilla y León
+ES,Spain,Ceuta
+ES,Spain,La Rioja
+ES,Spain,Andalucía
+ES,Spain,Comunidad de Madrid
+ES,Spain,Cataluña
+ES,Spain,Principado de Asturias
+ES,Spain,Extremadura
+ES,Spain,Melilla
+ES,Spain,Región de Murcia
+ES,Spain,País Vasco
+ES,Spain,Galicia
+ES,Spain,Islas Baleares
+ES,Spain,Comunidad Foral de Navarra
+ES,Spain,Comunidad Valenciana
+ES,Spain,Aragón
+SE,Sweden,Gävleborg
+SE,Sweden,Västernorrland
+SE,Sweden,Östergötland
+SE,Sweden,Norrbotten
+SE,Sweden,Kronoberg
+SE,Sweden,Västmanland
+SE,Sweden,Halland
+SE,Sweden,Jämtland
+SE,Sweden,Uppsala
+SE,Sweden,Blekinge
+SE,Sweden,Stockholm
+SE,Sweden,Södermanland
+SE,Sweden,Värmland
+SE,Sweden,Jönköping
+SE,Sweden,Västerbotten
+SE,Sweden,Orebro
+SE,Sweden,Kalmar
+SE,Sweden,Dalarna
+SE,Sweden,Gotland
+SE,Sweden,Västra Götaland
+SE,Sweden,Skåne
+SI,Slovenia,Gorenjska
+SI,Slovenia,Goriška
+SI,Slovenia,Jugovzhodna Slovenija
+SI,Slovenia,Koroška
+SI,Slovenia,Obalno-kraška
+SI,Slovenia,Osrednjeslovenska
+SI,Slovenia,Podravska
+SI,Slovenia,Pomurska
+SI,Slovenia,Primorsko-notranjska
+SI,Slovenia,Savinjska
+SI,Slovenia,Spodnjeposavska
+SI,Slovenia,Zasavska
+UK,United Kingdom,Antrim
+UK,United Kingdom,Armagh
+UK,United Kingdom,Bedfordshire
+UK,United Kingdom,Belfast City
+UK,United Kingdom,Berkshire
+UK,United Kingdom,Bristol
+UK,United Kingdom,Buckinghamshire
+UK,United Kingdom,Cambridgeshire
+UK,United Kingdom,Cheshire
+UK,United Kingdom,City of London
+UK,United Kingdom,Clwyd
+UK,United Kingdom,Cornwall
+UK,United Kingdom,Cumbria
+UK,United Kingdom,Derbyshire
+UK,United Kingdom,Devon
+UK,United Kingdom,Dorset
+UK,United Kingdom,Down
+UK,United Kingdom,Durham
+UK,United Kingdom,Dyfed
+UK,United Kingdom,East Riding of Yorkshire
+UK,United Kingdom,East Sussex
+UK,United Kingdom,Essex
+UK,United Kingdom,Fermanagh
+UK,United Kingdom,Gloucestershire
+UK,United Kingdom,Greater London
+UK,United Kingdom,Greater Manchester
+UK,United Kingdom,Gwent
+UK,United Kingdom,Gwynedd
+UK,United Kingdom,Hampshire
+UK,United Kingdom,Herefordshire
+UK,United Kingdom,Hertfordshire
+UK,United Kingdom,Isle of Wight
+UK,United Kingdom,Kent
+UK,United Kingdom,Lancashire
+UK,United Kingdom,Leicestershire
+UK,United Kingdom,Lincolnshire
+UK,United Kingdom,Londonderry
+UK,United Kingdom,Londonderry City
+UK,United Kingdom,Merseyside
+UK,United Kingdom,Mid Glamorgan
+UK,United Kingdom,Norfolk
+UK,United Kingdom,North Yorkshire
+UK,United Kingdom,Northamptonshire
+UK,United Kingdom,Northumberland
+UK,United Kingdom,Nottinghamshire
+UK,United Kingdom,Oxfordshire
+UK,United Kingdom,Powys
+UK,United Kingdom,Rutland
+UK,United Kingdom,Shropshire
+UK,United Kingdom,Somerset
+UK,United Kingdom,South Glamorgan
+UK,United Kingdom,South Yorkshire
+UK,United Kingdom,Staffordshire
+UK,United Kingdom,Suffolk
+UK,United Kingdom,Surrey
+UK,United Kingdom,Tyne and Wear
+UK,United Kingdom,Tyrone
+UK,United Kingdom,Warwickshire
+UK,United Kingdom,West Glamorgan
+UK,United Kingdom,West Midlands
+UK,United Kingdom,West Sussex
+UK,United Kingdom,West Yorkshire
+UK,United Kingdom,Wiltshire
+UK,United Kingdom,Worcestershire
