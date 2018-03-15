@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb416fe957d0a6423187a0acab4b32b7",
+    "content-hash": "31a18430577db1637c3ad41e1b74f30b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -682,16 +682,16 @@
         },
         {
             "name": "cnect-web/funkywave",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "b04c62ec4f2d6ee15f590e9725ff41e70010bce6"
+                "reference": "edc5f407ad06b184c292a9974ffd4f2d9a481743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/b04c62ec4f2d6ee15f590e9725ff41e70010bce6",
-                "reference": "b04c62ec4f2d6ee15f590e9725ff41e70010bce6",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/edc5f407ad06b184c292a9974ffd4f2d9a481743",
+                "reference": "edc5f407ad06b184c292a9974ffd4f2d9a481743",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -702,7 +702,7 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-03-05T15:55:35+00:00"
+            "time": "2018-03-13T13:59:59+00:00"
         },
         {
             "name": "composer/installers",
@@ -3752,17 +3752,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/redirect",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "93021b77f225a3035fbee361a21850a36a8cd684"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "32916081c436ea325b51bc5b3ec840fa19857cf7"
             },
             "require": {
                 "drupal/core": "~8"
@@ -3773,8 +3773,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1513767485",
+                    "version": "8.x-1.1",
+                    "datestamp": "1520897880",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
