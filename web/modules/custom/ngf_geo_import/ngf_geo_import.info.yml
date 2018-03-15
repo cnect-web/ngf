@@ -1,0 +1,5 @@
+name: 'Geo import'
+type: module
+description: 'Module imports countries, regions and cities.'
+core: 8.x
+package: 'NGF'

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb416fe957d0a6423187a0acab4b32b7",
+    "content-hash": "f1b202d6cd5f2a999215cf8685b8b92a",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -682,16 +682,16 @@
         },
         {
             "name": "cnect-web/funkywave",
-            "version": "dev-master",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "b04c62ec4f2d6ee15f590e9725ff41e70010bce6"
+                "reference": "e70480e809bf65f30b5f107f78d63ce423110e16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/b04c62ec4f2d6ee15f590e9725ff41e70010bce6",
-                "reference": "b04c62ec4f2d6ee15f590e9725ff41e70010bce6",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/e70480e809bf65f30b5f107f78d63ce423110e16",
+                "reference": "e70480e809bf65f30b5f107f78d63ce423110e16",
                 "shasum": ""
             },
             "type": "drupal-theme",
@@ -702,7 +702,7 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-03-05T15:55:35+00:00"
+            "time": "2018-03-13T14:18:01+00:00"
         },
         {
             "name": "composer/installers",
@@ -3643,6 +3643,192 @@
             }
         },
         {
+            "name": "drupal/migrate_plus",
+            "version": "4.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/migrate_plus",
+                "reference": "8.x-4.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/migrate_plus-8.x-4.0-beta3.zip",
+                "reference": "8.x-4.0-beta3",
+                "shasum": "a0da6dc169a0315bf29a8dd0ee2146d18215a56b"
+            },
+            "require": {
+                "drupal/core": "^8.3"
+            },
+            "require-dev": {
+                "drupal/migrate_example_advanced_setup": "*",
+                "drupal/migrate_example_setup": "*"
+            },
+            "suggest": {
+                "ext-soap": "*",
+                "sainsburys/guzzle-oauth2-plugin": "3.0 required for the OAuth2 authentication plugin"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.0-beta3",
+                    "datestamp": "1519400592",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Ryan",
+                    "homepage": "https://www.drupal.org/u/mikeryan",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "mikeryan",
+                    "homepage": "https://www.drupal.org/user/4420"
+                }
+            ],
+            "description": "Enhancements to core migration support.",
+            "homepage": "https://www.drupal.org/project/migrate_plus",
+            "support": {
+                "source": "https://cgit.drupalcode.org/migrate_plus",
+                "issues": "https://www.drupal.org/project/issues/migrate_plus",
+                "irc": "irc://irc.freenode.org/drupal-migrate"
+            }
+        },
+        {
+            "name": "drupal/migrate_source_csv",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/migrate_source_csv",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/migrate_source_csv-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "056845ce1679a051733b12576e3204609dce293d"
+            },
+            "require": {
+                "drupal/core": "~8.1"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "~1",
+                "phpunit/phpunit": "~4"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1479750843",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Lucas Hedding",
+                    "homepage": "https://www.drupal.org/u/heddn",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "mikeryan",
+                    "homepage": "https://www.drupal.org/user/4420"
+                }
+            ],
+            "description": "CSV source migration.",
+            "homepage": "https://www.drupal.org/project/migrate_source_csv",
+            "support": {
+                "source": "https://cgit.drupalcode.org/migrate_source_csv",
+                "issues": "https://www.drupal.org/project/issues/migrate_source_csv",
+                "irc": "irc://irc.freenode.org/drupal-migrate"
+            }
+        },
+        {
+            "name": "drupal/migrate_tools",
+            "version": "4.0.0-beta3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/migrate_tools",
+                "reference": "8.x-4.0-beta3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/migrate_tools-8.x-4.0-beta3.zip",
+                "reference": "8.x-4.0-beta3",
+                "shasum": "5256ef34d63bbcc564bd9e1e4434c34f12983dba"
+            },
+            "require": {
+                "drupal/core": "^8.3",
+                "drupal/migrate_plus": "*"
+            },
+            "require-dev": {
+                "drupal/coder": "^8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.0-beta3",
+                    "datestamp": "1519400285",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^9"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "heddn",
+                    "homepage": "https://www.drupal.org/user/1463982"
+                },
+                {
+                    "name": "mikeryan",
+                    "homepage": "https://www.drupal.org/user/4420"
+                },
+                {
+                    "name": "moshe weitzman",
+                    "homepage": "https://www.drupal.org/user/23"
+                }
+            ],
+            "description": "Tools to assist in developing and running migrations.",
+            "homepage": "http://drupal.org/project/migrate_tools",
+            "support": {
+                "source": "http://cgit.drupalcode.org/migrate_tools",
+                "issues": "http://drupal.org/project/migrate_tools",
+                "irc": "irc://irc.freenode.org/drupal-migrate"
+            }
+        },
+        {
             "name": "drupal/pathauto",
             "version": "1.1.0",
             "source": {
@@ -3752,17 +3938,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/redirect",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "93021b77f225a3035fbee361a21850a36a8cd684"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "32916081c436ea325b51bc5b3ec840fa19857cf7"
             },
             "require": {
                 "drupal/core": "~8"
@@ -3773,8 +3959,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1513767485",
+                    "version": "8.x-1.1",
+                    "datestamp": "1520897880",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7434,6 +7620,77 @@
                 "standards"
             ],
             "time": "2017-03-18T10:28:49+00:00"
+        },
+        {
+            "name": "drupal/config_devel",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/config_devel",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/config_devel-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "203bf299b1ad395d1451e22ea5a8f25ae462d880"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1510843084",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "alexpott",
+                    "homepage": "https://www.drupal.org/user/157725"
+                },
+                {
+                    "name": "benjy",
+                    "homepage": "https://www.drupal.org/user/1852732"
+                },
+                {
+                    "name": "chx",
+                    "homepage": "https://www.drupal.org/user/9446"
+                },
+                {
+                    "name": "joachim",
+                    "homepage": "https://www.drupal.org/user/107701"
+                },
+                {
+                    "name": "nedjo",
+                    "homepage": "https://www.drupal.org/user/4481"
+                },
+                {
+                    "name": "tim.plunkett",
+                    "homepage": "https://www.drupal.org/user/241634"
+                },
+                {
+                    "name": "vijaycs85",
+                    "homepage": "https://www.drupal.org/user/93488"
+                }
+            ],
+            "description": "Helps developers work with configuration.",
+            "homepage": "https://www.drupal.org/project/config_devel",
+            "support": {
+                "source": "http://cgit.drupalcode.org/config_devel"
+            }
         },
         {
             "name": "drupal/devel",
