@@ -1,0 +1,18 @@
+uuid: 22c72dfe-a1e5-4b2a-b573-b42055e0073d
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.ngf_search_position
+field_name: ngf_search_position
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

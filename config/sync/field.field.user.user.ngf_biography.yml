@@ -1,0 +1,28 @@
+uuid: 8d92c693-c00d-442c-a384-0c3f7cf4eac5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.ngf_biography
+  module:
+    - allowed_formats
+    - text
+    - user
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: user.user.ngf_biography
+field_name: ngf_biography
+entity_type: user
+bundle: user
+label: Biography
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
