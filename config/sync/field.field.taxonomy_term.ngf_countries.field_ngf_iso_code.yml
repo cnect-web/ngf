@@ -1,12 +1,12 @@
-uuid: 60b2a7ac-c49e-4e32-8679-6e9b0acd1d93
+uuid: 78620913-dcdf-45da-9c5c-375668f58627
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.taxonomy_term.ngf_iso_code
+    - field.storage.taxonomy_term.field_ngf_iso_code
     - taxonomy.vocabulary.ngf_countries
-id: taxonomy_term.ngf_countries.ngf_iso_code
-field_name: ngf_iso_code
+id: taxonomy_term.ngf_countries.field_ngf_iso_code
+field_name: field_ngf_iso_code
 entity_type: taxonomy_term
 bundle: ngf_countries
 label: 'ISO code'

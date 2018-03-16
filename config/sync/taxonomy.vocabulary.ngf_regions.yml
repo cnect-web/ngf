@@ -1,0 +1,9 @@
+uuid: 51fad6c2-6ec5-4bd2-93f1-38f1efed9b79
+langcode: en
+status: true
+dependencies: {  }
+name: Regions
+vid: ngf_regions
+description: ''
+hierarchy: 0
+weight: 0
