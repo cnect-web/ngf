@@ -3,3 +3,8 @@ services:
     class: Drupal\ngf_core\Routing\NGFCoreRouteSubscriber
     tags:
       - { name: event_subscriber }
+  ngf_core.social_auth_subscriber:
+    class: Drupal\ngf_core\EventSubscriber\SocialAuthSubscriber
+    arguments: []
+    tags:
+      - { name: 'event_subscriber' }

@@ -54,9 +54,11 @@
         "drupal/features": "^3.5",
         "drupal/field_group": "^1.0",
         "drupal/group": "^1.0@RC",
+        "drupal/honeypot": "^1.27",
         "drupal/pathauto": "^1.1",
         "drupal/permissions_filter": "^1.0",
         "drupal/realname": "^1.0@RC",
+        "drupal/recaptcha": "^2.3",
         "drupal/redirect": "^1.0",
         "drupal/social_api": "^2.0",
         "drupal/social_auth": "^2.0",
@@ -140,6 +142,9 @@
             },
             "drupal/entity_reference_revisions": {
                 "Embed Paragraph Content in Normalized Parent Entities (REST)": "https://www.drupal.org/files/issues/embed_paragraph_content-2848878-43.patch"
+            },
+            "drupal/social_auth_twitter": {
+                "Proxy support": "https://www.drupal.org/files/issues/2018-03-15/social_auth_twitter-proxy_support-2952324-6-8.patch"
             }
         }
     }

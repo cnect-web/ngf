@@ -6,6 +6,7 @@ module:
   block: 0
   block_content: 0
   breakpoint: 0
+  captcha: 0
   chosen: 0
   chosen_lib: 0
   ckeditor: 0
@@ -36,6 +37,7 @@ module:
   group: 0
   help: 0
   history: 0
+  honeypot: 0
   image: 0
   link: 0
   media: 0
@@ -47,12 +49,15 @@ module:
   quickedit: 0
   rdf: 0
   realname: 0
+  recaptcha: 0
   redirect: 0
   search: 0
   shortcut: 0
   social_api: 0
   social_auth: 0
   social_auth_facebook: 0
+  social_auth_google: 0
+  social_auth_linkedin: 0
   social_auth_twitter: 0
   system: 0
   taxonomy: 0
