@@ -33,7 +33,6 @@ settings:
           name: Media
           items:
             - Blockquote
-            - media_browser
             - DrupalImage
         -
           name: 'Block Formatting'
