@@ -1,16 +1,16 @@
-uuid: 2ae98db7-b8d2-43e6-9824-f06bdf648a69
+uuid: 285bde0f-ca49-44bb-ba31-4aa50e5d1bcb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.ngf_countries.field_ngf_iso_code
-    - taxonomy.vocabulary.ngf_countries
+    - field.field.taxonomy_term.ngf_cities.field_ngf_country
+    - taxonomy.vocabulary.ngf_cities
   module:
     - path
     - text
-id: taxonomy_term.ngf_countries.default
+id: taxonomy_term.ngf_cities.default
 targetEntityType: taxonomy_term
-bundle: ngf_countries
+bundle: ngf_cities
 mode: default
 content:
   description:
@@ -21,13 +21,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_ngf_iso_code:
+  field_ngf_country:
     weight: 31
     settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
+    type: entity_reference_autocomplete
     region: content
   name:
     type: string_textfield

@@ -32,7 +32,7 @@
     ],
     "require": {
         "boedah/robo-drush": "~3",
-        "cnect-web/funkywave": "dev-master",
+        "cnect-web/funkywave": "dev-develop",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6",
         "drupal-composer/drupal-scaffold": "^2.2",
@@ -55,6 +55,9 @@
         "drupal/field_group": "^1.0",
         "drupal/group": "^1.0@RC",
         "drupal/honeypot": "^1.27",
+        "drupal/migrate_plus": "^4.0",
+        "drupal/migrate_source_csv": "^2.0",
+        "drupal/migrate_tools": "^4.0",
         "drupal/pathauto": "^1.1",
         "drupal/permissions_filter": "^1.0",
         "drupal/realname": "^1.0@RC",
@@ -80,6 +83,7 @@
         "behat/behat": "^3.4",
         "drupal/devel": "^1.2",
         "drupal/kint": "^1.2",
+        "drupal/config_devel": "^1.2",
         "webflo/drupal-core-require-dev": "~8.4"
     },
     "conflict": {

@@ -1,0 +1,9 @@
+uuid: e53a0d5d-8b30-4187-a766-f120d6e5260d
+langcode: en
+status: true
+dependencies: {  }
+name: Cities
+vid: ngf_cities
+description: ''
+hierarchy: 0
+weight: 0
