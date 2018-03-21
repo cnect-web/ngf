@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_ngf_city
+    - field.field.user.user.field_ngf_region
     - field.field.user.user.ngf_action_contact
     - field.field.user.user.ngf_action_invite_to_event
     - field.field.user.user.ngf_action_invite_to_group
@@ -20,7 +22,6 @@ dependencies:
     - image.style.thumbnail
   module:
     - image
-    - path
     - text
     - user
 _core:
@@ -31,37 +32,51 @@ bundle: user
 mode: default
 content:
   account:
-    weight: -10
-    region: content
-  contact:
-    weight: 5
-    region: content
-  language:
     weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ngf_city:
+    weight: 15
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ngf_region:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   ngf_action_contact:
-    weight: 40
+    weight: 10
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   ngf_action_invite_to_event:
-    weight: 42
+    weight: 12
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   ngf_action_invite_to_group:
-    weight: 41
+    weight: 11
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   ngf_biography:
-    weight: 43
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -69,7 +84,7 @@ content:
     type: text_textarea
     region: content
   ngf_country:
-    weight: 31
+    weight: 13
     settings:
       match_operator: CONTAINS
       size: 60
@@ -78,7 +93,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   ngf_first_name:
-    weight: 33
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -86,7 +101,7 @@ content:
     type: string_textfield
     region: content
   ngf_interests:
-    weight: 32
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -95,7 +110,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   ngf_last_name:
-    weight: 34
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -103,48 +118,39 @@ content:
     type: string_textfield
     region: content
   ngf_search_email:
-    weight: 39
+    weight: 6
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   ngf_search_interests:
-    weight: 38
+    weight: 9
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   ngf_search_location:
-    weight: 36
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   ngf_search_name:
-    weight: 35
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   ngf_search_position:
-    weight: 37
+    weight: 7
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
-    region: content
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  timezone:
-    weight: 6
     region: content
   user_picture:
     type: image_image
@@ -152,8 +158,12 @@ content:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: -1
+    weight: 1
     region: content
 hidden:
   first_name: true
   last_name: true
+  contact: true
+  language: true
+  path: true
+  timezone: true
