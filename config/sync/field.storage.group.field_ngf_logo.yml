@@ -1,0 +1,30 @@
+uuid: 48e9da0b-f6a7-4df4-ae99-7e7c47790d40
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - group
+    - image
+id: group.field_ngf_logo
+field_name: field_ngf_logo
+entity_type: group
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
