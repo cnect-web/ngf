@@ -1,0 +1,30 @@
+uuid: 0f516c86-6a0a-4f09-9a5a-f7ed895f05cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.ngf_regions.field_ngf_country
+    - taxonomy.vocabulary.ngf_regions
+  module:
+    - text
+id: taxonomy_term.ngf_regions.default
+targetEntityType: taxonomy_term
+bundle: ngf_regions
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ngf_country:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

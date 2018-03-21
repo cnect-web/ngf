@@ -1,14 +1,16 @@
-uuid: 51915b41-d6bf-4bab-9eb4-1663e3c41085
+uuid: ba510d8b-56e1-4ea9-9a6a-b770298a28b0
 langcode: en
 status: true
 dependencies:
   module:
     - taxonomy
-id: taxonomy_term.ngf_is_ec
-field_name: ngf_is_ec
-entity_type: taxonomy_term
-type: boolean
-settings: {  }
+    - user
+id: user.field_ngf_city
+field_name: field_ngf_city
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

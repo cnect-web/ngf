@@ -28,7 +28,6 @@ module:
   entity_embed: 0
   features: 0
   field: 0
-  field_group: 0
   file: 0
   filter: 0
   ggroup: 0
@@ -48,6 +47,7 @@ module:
   options: 0
   page_cache: 0
   path: 0
+  permissions_filter: 0
   quickedit: 0
   rdf: 0
   redirect: 0

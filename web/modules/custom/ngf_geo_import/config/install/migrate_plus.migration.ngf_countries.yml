@@ -1,5 +1,5 @@
 id: ngf_countries
-label: Import eu countries
+label: Import of EU countries
 migration_group: ngf
 dependencies:
   enforced:
@@ -34,15 +34,12 @@ source:
       name: 'Name'
     1:
       iso: 'Iso'
-    2:
-      ec: 'Is EC country'
 process:
   vid:
     plugin: default_value
     default_value: ngf_countries
   name: name
   field_ngf_iso_code: iso
-  field_ngf_is_ec: ec
 
 destination:
   plugin: entity:taxonomy_term

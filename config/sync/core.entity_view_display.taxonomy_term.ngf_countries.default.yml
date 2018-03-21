@@ -3,8 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.ngf_countries.ngf_is_ec
-    - field.field.taxonomy_term.ngf_countries.ngf_iso_code
+    - field.field.taxonomy_term.ngf_countries.field_ngf_iso_code
     - taxonomy.vocabulary.ngf_countries
   module:
     - text
@@ -20,18 +19,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  ngf_is_ec:
+  field_ngf_iso_code:
     weight: 1
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  ngf_iso_code:
-    weight: 2
     label: above
     settings:
       link_to_entity: false
