@@ -1,0 +1,28 @@
+uuid: 498ad668-8909-4123-a1df-dab6125b3779
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ngf_event.body
+    - node.type.ngf_event
+  module:
+    - text
+    - user
+id: node.ngf_event.teaser
+targetEntityType: node
+bundle: ngf_event
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

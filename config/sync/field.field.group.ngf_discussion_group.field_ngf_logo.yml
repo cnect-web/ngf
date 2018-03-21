@@ -1,0 +1,38 @@
+uuid: f25a2b00-90ba-444b-b136-1c3f31e97968
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_ngf_logo
+    - group.type.ngf_discussion_group
+  module:
+    - image
+id: group.ngf_discussion_group.field_ngf_logo
+field_name: field_ngf_logo
+entity_type: group
+bundle: ngf_discussion_group
+label: Logo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: groups
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

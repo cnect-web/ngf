@@ -1,0 +1,56 @@
+uuid: 97d11627-cf62-47f5-8d93-bc9f739a7ed3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ngf_event.body
+    - field.field.node.ngf_event.field_ngf_event_end_date
+    - field.field.node.ngf_event.field_ngf_event_start_date
+    - field.field.node.ngf_event.field_ngf_venue
+    - node.type.ngf_event
+  module:
+    - datetime
+    - text
+    - user
+id: node.ngf_event.default
+targetEntityType: node
+bundle: ngf_event
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ngf_event_end_date:
+    weight: 103
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ngf_event_start_date:
+    weight: 102
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ngf_venue:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

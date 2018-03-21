@@ -1,0 +1,36 @@
+uuid: fab60d8a-cbed-4935-b715-b1f3f724bae6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.ngf_discussion.body
+    - field.field.node.ngf_discussion.field_ngf_attachment
+    - node.type.ngf_discussion
+  module:
+    - text
+    - user
+id: node.ngf_discussion.default
+targetEntityType: node
+bundle: ngf_discussion
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ngf_attachment:
+    type: entity_reference_entity_view
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

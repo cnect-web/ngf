@@ -1,0 +1,44 @@
+uuid: 7214a5df-3887-4380-8496-62481d412f0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.ngf_discussion_group.field_ngf_description
+    - field.field.group.ngf_discussion_group.field_ngf_logo
+    - group.type.ngf_discussion_group
+  module:
+    - image
+    - text
+id: group.ngf_discussion_group.default
+targetEntityType: group
+bundle: ngf_discussion_group
+mode: default
+content:
+  field_ngf_description:
+    weight: -3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ngf_logo:
+    weight: -2
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  label:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  uid: true
