@@ -25,4 +25,7 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_ngf_event_end_date: true
+  field_ngf_event_start_date: true
+  field_ngf_venue: true

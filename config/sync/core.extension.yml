@@ -40,11 +40,11 @@ module:
   image: 0
   link: 0
   media: 0
-  ngf_core: 0
   migrate: 0
   migrate_plus: 0
   migrate_source_csv: 0
   migrate_tools: 0
+  ngf_core: 0
   ngf_geo_import: 0
   node: 0
   options: 0

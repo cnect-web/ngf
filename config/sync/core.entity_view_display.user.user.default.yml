@@ -179,5 +179,4 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
-  first_name: true
-  last_name: true
+  realname: true

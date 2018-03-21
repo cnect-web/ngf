@@ -161,8 +161,6 @@ content:
     weight: 1
     region: content
 hidden:
-  first_name: true
-  last_name: true
   contact: true
   language: true
   path: true

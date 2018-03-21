@@ -26,4 +26,20 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_ngf_city: true
+  field_ngf_region: true
   member_for: true
+  ngf_action_contact: true
+  ngf_action_invite_to_event: true
+  ngf_action_invite_to_group: true
+  ngf_biography: true
+  ngf_country: true
+  ngf_first_name: true
+  ngf_interests: true
+  ngf_last_name: true
+  ngf_search_email: true
+  ngf_search_interests: true
+  ngf_search_location: true
+  ngf_search_name: true
+  ngf_search_position: true
+  realname: true
