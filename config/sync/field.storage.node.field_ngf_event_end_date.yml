@@ -1,0 +1,20 @@
+uuid: a975d02f-d671-48f5-8866-c5d44468d5e7
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_ngf_event_end_date
+field_name: field_ngf_event_end_date
+entity_type: node
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
