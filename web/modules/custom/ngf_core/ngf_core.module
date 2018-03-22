@@ -43,14 +43,27 @@ function ngf_core_group_operations_alter(&$links, $group) {
  * Implements hook_menu_alter().
  */
 function ngf_core_link_alter(&$variables) {
-  /**
-   * The URL of the link.
-   *
-   * @var Url
-   */
   $url = $variables['url'];
-
+  // Alter the login link text to "Sign In"
   if ($url->isRouted() && $url->getRouteName() == 'user.login') {
     $variables['text'] = t('Sign In');
   }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_core_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Alter the registration form button text to "Sign Up".
+  if (isset($form['actions']['submit'])) {
+    $form['actions']['submit']['#value'] = t('Sign Up');
+  }
+
+  // Add the legal agreements message.
+  $form['agreements'] = [
+    '#markup' => t("By clicking 'Sign up' or using one of the Social Auth Login buttons you agree to our <a href=\"/legal/terms-and-conditions\">Terms and Conditions</a> and that you have read our <a href=\"/legal/data-use-policy\">Data Use Policy</a>."),
+    '#weight' => 99,
+  ];
+
+
 }
