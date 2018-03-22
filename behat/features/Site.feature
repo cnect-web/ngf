@@ -39,3 +39,20 @@ Feature: Site is installed
     And I should see the text "Login with LinkedIn"
     And I should see the text "Login with Google"
     And I should see the text "Login with Twitter"
+
+  Scenario: License agreements.
+    Given I am at "user/register"
+    Then I should see the text "By clicking 'Sign up' or using one of the Social Auth Login buttons you agree to our Terms and Conditions and that you have read our Data Use Policy."
+    And I should see the link "Terms and Conditions"
+    And I should see the link "Data Use Policy"
+    And I should see the button "Sign Up"
+
+  Scenario: License agreements links.
+    Given I am at "user/register"
+    And I click "Terms and Conditions"
+    Then I should see the heading "Terms and Conditions"
+
+  Scenario: License agreements links.
+    Given I am at "user/register"
+    And I click "Data Use Policy"
+    Then I should see the heading "Data Use Policy"
