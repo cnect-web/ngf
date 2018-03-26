@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.ngf_search_interests
+    - field.storage.user.field_ngf_search_interests
   module:
     - user
-id: user.user.ngf_search_interests
-field_name: ngf_search_interests
+id: user.user.field_ngf_search_interests
+field_name: field_ngf_search_interests
 entity_type: user
 bundle: user
 label: 'Your interests'

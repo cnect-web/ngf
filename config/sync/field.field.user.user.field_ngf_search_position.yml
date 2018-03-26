@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.ngf_search_position
+    - field.storage.user.field_ngf_search_position
   module:
     - user
-id: user.user.ngf_search_position
-field_name: ngf_search_position
+id: user.user.field_ngf_search_position
+field_name: field_ngf_search_position
 entity_type: user
 bundle: user
 label: 'Your position'

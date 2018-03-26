@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - user
-id: user.ngf_action_contact
-field_name: ngf_action_contact
+id: user.field_ngf_action_contact
+field_name: field_ngf_action_contact
 entity_type: user
 type: boolean
 settings: {  }

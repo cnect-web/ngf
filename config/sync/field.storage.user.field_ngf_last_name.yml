@@ -1,14 +1,17 @@
-uuid: 8b8c92b7-c768-4483-a6d4-deafc27e45c4
+uuid: bce6eba5-8d8b-4803-ba70-544700cf52f4
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: user.ngf_action_invite_to_group
-field_name: ngf_action_invite_to_group
+id: user.field_ngf_last_name
+field_name: field_ngf_last_name
 entity_type: user
-type: boolean
-settings: {  }
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1

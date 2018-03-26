@@ -1,11 +1,11 @@
-uuid: 13284ffc-f5ee-4466-9a34-4391d96bcb58
+uuid: e0498423-f27e-458b-b85c-251052fb3020
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: user.ngf_search_interests
-field_name: ngf_search_interests
+id: user.field_ngf_search_email
+field_name: field_ngf_search_email
 entity_type: user
 type: boolean
 settings: {  }

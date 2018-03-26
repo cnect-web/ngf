@@ -5,19 +5,19 @@ dependencies:
   config:
     - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_region
-    - field.field.user.user.ngf_action_contact
-    - field.field.user.user.ngf_action_invite_to_event
-    - field.field.user.user.ngf_action_invite_to_group
-    - field.field.user.user.ngf_biography
-    - field.field.user.user.ngf_country
-    - field.field.user.user.ngf_first_name
-    - field.field.user.user.ngf_interests
-    - field.field.user.user.ngf_last_name
-    - field.field.user.user.ngf_search_email
-    - field.field.user.user.ngf_search_interests
-    - field.field.user.user.ngf_search_location
-    - field.field.user.user.ngf_search_name
-    - field.field.user.user.ngf_search_position
+    - field.field.user.user.field_ngf_action_contact
+    - field.field.user.user.field_ngf_action_invite_to_event
+    - field.field.user.user.field_ngf_action_invite_to_group
+    - field.field.user.user.field_ngf_biography
+    - field.field.user.user.field_ngf_country
+    - field.field.user.user.field_ngf_first_name
+    - field.field.user.user.field_ngf_interests
+    - field.field.user.user.field_ngf_last_name
+    - field.field.user.user.field_ngf_search_email
+    - field.field.user.user.field_ngf_search_interests
+    - field.field.user.user.field_ngf_search_location
+    - field.field.user.user.field_ngf_search_name
+    - field.field.user.user.field_ngf_search_position
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -50,7 +50,7 @@ content:
   member_for:
     weight: 5
     region: content
-  ngf_action_contact:
+  field_ngf_action_contact:
     weight: 15
     label: above
     settings:
@@ -60,7 +60,7 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  ngf_action_invite_to_event:
+  field_ngf_action_invite_to_event:
     weight: 17
     label: above
     settings:
@@ -70,7 +70,7 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  ngf_action_invite_to_group:
+  field_ngf_action_invite_to_group:
     weight: 16
     label: above
     settings:
@@ -80,14 +80,14 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  ngf_biography:
+  field_ngf_biography:
     weight: 18
     label: above
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  ngf_country:
+  field_ngf_country:
     weight: 6
     label: above
     settings:
@@ -95,7 +95,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  ngf_first_name:
+  field_ngf_first_name:
     weight: 8
     label: above
     settings:
@@ -103,7 +103,7 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  ngf_interests:
+  field_ngf_interests:
     weight: 7
     label: above
     settings:
@@ -111,7 +111,7 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  ngf_last_name:
+  field_ngf_last_name:
     weight: 9
     label: above
     settings:
@@ -119,7 +119,7 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  ngf_search_email:
+  field_ngf_search_email:
     weight: 14
     label: above
     settings:
@@ -129,7 +129,7 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  ngf_search_interests:
+  field_ngf_search_interests:
     weight: 13
     label: above
     settings:
@@ -139,7 +139,7 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  ngf_search_location:
+  field_ngf_search_location:
     weight: 11
     label: above
     settings:
@@ -149,7 +149,7 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  ngf_search_name:
+  field_ngf_search_name:
     weight: 10
     label: above
     settings:
@@ -159,7 +159,7 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  ngf_search_position:
+  field_ngf_search_position:
     weight: 12
     label: above
     settings:
@@ -169,7 +169,7 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  user_picture:
+  field_user_picture:
     type: image
     weight: 0
     region: content
