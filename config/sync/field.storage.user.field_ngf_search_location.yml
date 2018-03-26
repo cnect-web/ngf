@@ -1,16 +1,15 @@
-uuid: fe21c9ee-0f58-4615-ab62-d88208d582bd
+uuid: f4122e91-1186-4ae4-a04f-c177cb8182e6
 langcode: en
 status: true
 dependencies:
   module:
-    - text
     - user
-id: user.ngf_biography
-field_name: ngf_biography
+id: user.field_ngf_search_location
+field_name: field_ngf_search_location
 entity_type: user
-type: text_long
+type: boolean
 settings: {  }
-module: text
+module: core
 locked: false
 cardinality: 1
 translatable: true

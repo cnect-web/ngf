@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.ngf_search_email
+    - field.storage.user.field_ngf_search_email
   module:
     - user
-id: user.user.ngf_search_email
-field_name: ngf_search_email
+id: user.user.field_ngf_search_email
+field_name: field_ngf_search_email
 entity_type: user
 bundle: user
 label: 'Your email'

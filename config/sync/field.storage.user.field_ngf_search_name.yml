@@ -4,8 +4,8 @@ status: true
 dependencies:
   module:
     - user
-id: user.ngf_search_name
-field_name: ngf_search_name
+id: user.field_ngf_search_name
+field_name: field_ngf_search_name
 entity_type: user
 type: boolean
 settings: {  }

@@ -1,20 +1,19 @@
-uuid: bce6eba5-8d8b-4803-ba70-544700cf52f4
+uuid: 8cb4e9ee-93c4-401d-bf3e-c4c74ecbfffb
 langcode: en
 status: true
 dependencies:
   module:
+    - taxonomy
     - user
-id: user.ngf_last_name
-field_name: ngf_last_name
+id: user.field_ngf_interests
+field_name: field_ngf_interests
 entity_type: user
-type: string
+type: entity_reference
 settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
+  target_type: taxonomy_term
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
