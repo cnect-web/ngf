@@ -4,25 +4,19 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.ngf_discussion.body
+    - field.field.node.ngf_discussion.field_ngf_attachment
+    - field.field.node.ngf_discussion.field_ngf_introtext
     - node.type.ngf_discussion
   module:
-    - text
     - user
 id: node.ngf_discussion.teaser
 targetEntityType: node
 bundle: ngf_discussion
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_ngf_attachment: true
+  field_ngf_introtext: true

@@ -1,18 +1,18 @@
-uuid: 2e0b6f4c-b844-4401-b159-0d2bc59a4646
+uuid: 5dd80ea9-2b0f-468f-b4e4-d68e95d93810
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.group.field_ngf_description
-    - group.type.ngf_discussion_group
+    - field.storage.node.field_ngf_description
+    - node.type.ngf_discussion
     - paragraphs.paragraphs_type.ngf_media
     - paragraphs.paragraphs_type.ngf_text
   module:
     - entity_reference_revisions
-id: group.ngf_discussion_group.field_ngf_description
+id: node.ngf_discussion.field_ngf_description
 field_name: field_ngf_description
-entity_type: group
-bundle: ngf_discussion_group
+entity_type: node
+bundle: ngf_discussion
 label: Description
 description: ''
 required: false
@@ -24,13 +24,13 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      ngf_media: ngf_media
       ngf_text: ngf_text
+      ngf_media: ngf_media
     target_bundles_drag_drop:
-      ngf_media:
-        enabled: true
-        weight: 3
       ngf_text:
         enabled: true
-        weight: 4
+        weight: -5
+      ngf_media:
+        enabled: true
+        weight: -4
 field_type: entity_reference_revisions

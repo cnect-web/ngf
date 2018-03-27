@@ -4,22 +4,41 @@ status: true
 dependencies:
   config:
     - field.field.group.ngf_discussion_group.field_ngf_description
+    - field.field.group.ngf_discussion_group.field_ngf_interests
+    - field.field.group.ngf_discussion_group.field_ngf_introtext
     - field.field.group.ngf_discussion_group.field_ngf_logo
     - group.type.ngf_discussion_group
   module:
+    - entity_reference_revisions
     - image
-    - text
 id: group.ngf_discussion_group.default
 targetEntityType: group
 bundle: ngf_discussion_group
 mode: default
 content:
   field_ngf_description:
-    weight: -3
+    type: entity_reference_revisions_entity_view
+    weight: -1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_ngf_interests:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_ngf_introtext:
+    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   field_ngf_logo:
     weight: -2

@@ -1,0 +1,23 @@
+uuid: a2d5271d-5697-4290-88fb-6f5b02479237
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngf_registration_link
+    - node.type.ngf_event
+  module:
+    - link
+id: node.ngf_event.field_ngf_registration_link
+field_name: field_ngf_registration_link
+entity_type: node
+bundle: ngf_event
+label: 'Registration link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link
