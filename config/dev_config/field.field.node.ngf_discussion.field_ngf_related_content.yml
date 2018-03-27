@@ -1,0 +1,29 @@
+uuid: 42981eb0-a7d7-443c-8154-a6c62bc97e6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngf_related_content
+    - node.type.ngf_discussion
+    - node.type.ngf_event
+id: node.ngf_discussion.field_ngf_related_content
+field_name: field_ngf_related_content
+entity_type: node
+bundle: ngf_discussion
+label: 'Related content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      ngf_discussion: ngf_discussion
+      ngf_event: ngf_event
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ngf_discussion
+field_type: entity_reference

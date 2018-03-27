@@ -1,0 +1,30 @@
+uuid: 5f6d6a74-f377-4ec0-835a-bd348d23ff4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngf_attachment
+    - media.type.file
+    - media.type.image
+    - node.type.ngf_event
+id: node.ngf_event.field_ngf_attachment
+field_name: field_ngf_attachment
+entity_type: node
+bundle: ngf_event
+label: Attachment
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      file: file
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: file
+field_type: entity_reference

@@ -3,16 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_ngf_city
-    - field.field.user.user.field_ngf_region
     - field.field.user.user.field_ngf_action_contact
     - field.field.user.user.field_ngf_action_invite_to_event
     - field.field.user.user.field_ngf_action_invite_to_group
     - field.field.user.user.field_ngf_biography
+    - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_country
     - field.field.user.user.field_ngf_first_name
     - field.field.user.user.field_ngf_interests
     - field.field.user.user.field_ngf_last_name
+    - field.field.user.user.field_ngf_region
     - field.field.user.user.field_ngf_search_email
     - field.field.user.user.field_ngf_search_interests
     - field.field.user.user.field_ngf_search_location
@@ -36,24 +36,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ngf_city:
-    weight: 15
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_ngf_region:
-    weight: 14
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_ngf_action_contact:
     weight: 10
     settings:
@@ -83,14 +65,20 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_ngf_country:
-    weight: 13
+  field_ngf_city:
+    weight: 15
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  field_ngf_country:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_ngf_first_name:
     weight: 2
@@ -116,6 +104,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_ngf_region:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_ngf_search_email:
     weight: 6
