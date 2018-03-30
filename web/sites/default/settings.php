@@ -816,6 +816,8 @@ switch (getenv('ENVIRONMENT')) {
     $config['config_split.config_split.dev_config']['status'] = TRUE;
     // Enable local development services.
     $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/development.services.yml';
+    ini_set('display_errors', TRUE);
+    ini_set('display_startup_errors', TRUE);
     break;
 }
 
