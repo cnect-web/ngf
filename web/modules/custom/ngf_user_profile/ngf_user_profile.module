@@ -1,0 +1,41 @@
+<?php
+
+use Drupal\Core\Entity\Entity\EntityFormDisplay;
+/**
+ * @file
+ * Contains ngf_user_profile.module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function ngf_user_profile_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // This hook gets called as base form id hook for forms like the user register
+  // one, so we need to double check the form id.
+   if ($form_id !== 'user_form') {
+     return;
+   }
+
+//   var_dump($form['field_ngf_country']);
+//    var_dump($form);
+//   exit();
+}
+
+
+
+function ngf_user_profile_entity_form_display_alter(\Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display, array $context) {
+//
+//    var_dump($form_display);
+//    exit();
+//    var_dump($context);
+//    var_dump($form_display);
+//    exit();
+}
+
+function ngf_user_profile_theme($existing, $type, $theme, $path) {
+  return [
+    'followed_users_list' => [
+      'variables' => ['users' => []],
+    ],
+  ];
+}
