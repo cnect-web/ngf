@@ -165,6 +165,8 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
     $items = [];
     foreach ($lists as $list) {
       $items[] = Link::fromTextAndUrl($list->getName(), Url::fromRoute('ngf_user_profile.remove_user_list', ['list_id' => $list->id()]));
+      $items[] = Link::fromTextAndUrl('items', Url::fromRoute('ngf_user_profile.user_list_items', ['list_id' => $list->id()]));
+      $items[] = '-------------------------------';
     }
 
     return $render = [
@@ -186,25 +188,28 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
     return $this->redirect('ngf_user_profile.user_lists');
   }
 
-  public function removeUserlistItem() {
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: profile')
-    ];
+  public function removeUserlistItem($list_id, $username) {
+    $this->userListItemManager->removeItemByListIdAndUsername($list_id, $username);
+    // Redirect back to a user lists.
+    return $this->redirect('ngf_user_profile.user_list_items', ['list_id' => $list_id]);
   }
 
   public function addUserlistItem($list_id, $username) {
-    $this->userListItemManager->add($list_id, $username);
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: profile')
-    ];
+    $this->userListItemManager->remove($list_id, $username);
+    return $this->redirect('ngf_user_profile.user_list_items', ['list_id' => $list_id]);
   }
 
-  public function userListItems() {
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: profile')
+  public function userListItems($list_id) {
+    $list_items = $this->userListItemManager->getList($list_id);
+
+    $items = [];
+    foreach ($list_items as $list_item) {
+      $items[] = Link::fromTextAndUrl(UserHelper::getUserFullName($list_item->getUser()), Url::fromRoute('ngf_user_profile.remove_user_list_item', ['username' => $list_item->getUser()->getAccountName(), 'list_id' => $list_id]));
+    }
+
+    return $render = [
+      '#theme' => 'item_list',
+      '#items' => $items,
     ];
   }
 

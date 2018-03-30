@@ -124,6 +124,13 @@ class UserListItem extends ContentEntityBase implements UserListItemInterface {
   /**
    * {@inheritdoc}
    */
+  public function getUser() {
+    return $this->get('list_user_id')->entity;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type
   ) {
     $fields = parent::baseFieldDefinitions($entity_type);
