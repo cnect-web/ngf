@@ -1,0 +1,22 @@
+uuid: d8893e70-f9a9-40ba-b75e-74094a126e37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngf_location
+    - node.type.ngf_event
+  module:
+    - geofield
+id: node.ngf_event.field_ngf_location
+field_name: field_ngf_location
+entity_type: node
+bundle: ngf_event
+label: Location
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield

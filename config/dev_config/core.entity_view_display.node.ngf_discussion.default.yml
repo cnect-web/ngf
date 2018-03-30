@@ -3,24 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.ngf_discussion.body
     - field.field.node.ngf_discussion.field_ngf_attachment
+    - field.field.node.ngf_discussion.field_ngf_cover_image
+    - field.field.node.ngf_discussion.field_ngf_description
+    - field.field.node.ngf_discussion.field_ngf_interests
+    - field.field.node.ngf_discussion.field_ngf_introtext
+    - field.field.node.ngf_discussion.field_ngf_related_content
     - node.type.ngf_discussion
   module:
-    - text
+    - entity_reference_revisions
     - user
 id: node.ngf_discussion.default
 targetEntityType: node
 bundle: ngf_discussion
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_ngf_attachment:
     type: entity_reference_entity_view
     weight: 102
@@ -29,6 +26,47 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+    region: content
+  field_ngf_cover_image:
+    type: entity_reference_entity_view
+    weight: 105
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ngf_description:
+    type: entity_reference_revisions_entity_view
+    weight: 104
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_ngf_interests:
+    weight: 107
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_ngf_introtext:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_ngf_related_content:
+    weight: 106
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   links:
     weight: 100

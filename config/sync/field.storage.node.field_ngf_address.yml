@@ -1,0 +1,19 @@
+uuid: 58f7a4e1-9111-4f80-ac5c-cd1beb77176b
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - node
+id: node.field_ngf_address
+field_name: field_ngf_address
+entity_type: node
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

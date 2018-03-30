@@ -4,25 +4,21 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.ngf_event.body
+    - field.field.node.ngf_event.field_ngf_event_end_date
+    - field.field.node.ngf_event.field_ngf_event_start_date
+    - field.field.node.ngf_event.field_ngf_venue
     - node.type.ngf_event
   module:
-    - text
     - user
 id: node.ngf_event.teaser
 targetEntityType: node
 bundle: ngf_event
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_ngf_event_end_date: true
+  field_ngf_event_start_date: true
+  field_ngf_venue: true
