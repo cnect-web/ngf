@@ -36,13 +36,13 @@ class UserListItemManager extends UserManager {
         $user_list_item->save();
 
         if ($user_list_item) {
-          $this->addMessage(t('You now follow @username', ['@']));
+          $this->addMessage(t('User @username has been added to the list ', ['@username' => UserHelper::getUserFullName($user)]));
         } else {
-          $this->addError(t('Something went wrong, impossible to add user @username'));
+          $this->addError(t('Something went wrong, impossible to add user @username', ['@username' => UserHelper::getUserFullName($user)]));
         }
       }
       else {
-        $this->addError(t('You already follow @username'));
+        $this->addError(t('You have user @username in the list', ['@username' => UserHelper::getUserFullName($user)]));
       }
 
     }
@@ -56,7 +56,33 @@ class UserListItemManager extends UserManager {
 
     $this->removeItems($list_item_ids);
 
-    $this->addMessage(t('List items have been removed'));
+    $this->addMessage(t('Users have been removed from the list'));
+  }
+
+  public function removeItemByListIdAndUsername($list_id, $username) {
+    if ($user = user_load_by_name($username)) {
+      $list_item_ids = \Drupal::entityQuery('ngf_user_list_item')
+        ->condition('user_id', $this->currentUser->id())
+        ->condition('list_id', $list_id)
+        ->condition('list_user_id', $user->id())
+        ->execute();
+
+      $this->removeItems($list_item_ids);
+
+      $this->addMessage(t('User has been removed from the list'));
+    } else {
+      $this->addError(t('User is not found'));
+    }
+  }
+
+
+  public function getList($list_id) {
+    $list_ids = \Drupal::entityQuery($this->getEntityType())
+      ->condition('user_id', $this->currentUser->id())
+      ->condition('list_id', $list_id)
+      ->execute();
+
+    return UserListItem::loadMultiple($list_ids);
   }
 
 }

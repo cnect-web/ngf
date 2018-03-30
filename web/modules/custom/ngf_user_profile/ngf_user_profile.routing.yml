@@ -80,9 +80,10 @@ ngf_user_profile.add_user_list_item:
     username: '^[a-zA-Z0-9_]+'
 
 ngf_user_profile.user_list_items:
-  path: '/profile/user-list-items'
+  path: '/profile/user-list-items/{list_id}'
   defaults:
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::userlistItems'
     _title: 'User list items'
   requirements:
     _permission: 'access content'
+    list_id: '^[0-9]+'
