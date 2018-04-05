@@ -55,15 +55,28 @@
         "drupal/entity_reference_revisions": "^1.0",
         "drupal/features": "^3.5",
         "drupal/field_group": "^3.0",
+        "drupal/flag": "^4.0@alpha",
         "drupal/geofield": "^1.0",
         "drupal/group": "^1.0",
+        "drupal/honeypot": "^1.27",
+        "drupal/message": "^1.0@RC",
+        "drupal/message_notify": "^1.0@beta",
+        "drupal/message_subscribe": "^1.0@beta",
         "drupal/migrate_plus": "^4.0",
         "drupal/migrate_source_csv": "^2.0",
         "drupal/migrate_tools": "^4.0",
         "drupal/paragraphs": "^1.1",
         "drupal/pathauto": "^1.1",
         "drupal/permissions_filter": "^1.0",
+        "drupal/realname": "^1.0@RC",
+        "drupal/recaptcha": "^2.3",
         "drupal/redirect": "^1.0",
+        "drupal/social_api": "^2.0",
+        "drupal/social_auth": "^2.0",
+        "drupal/social_auth_facebook": "^2.0",
+        "drupal/social_auth_google": "^2.0",
+        "drupal/social_auth_linkedin": "^2.0",
+        "drupal/social_auth_twitter": "^2.0",
         "drupal/stage_file_proxy": "^1.0",
         "drupal/token": "^1.1",
         "drush/drush": "^9.0.0",
@@ -134,13 +147,17 @@
             },
             "drupal/group": {
                 "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-145.patch",
-                "More contexts needed": "https://www.drupal.org/files/issues/expand_context_to_nodes-2815971-14.patch"
+                "More contexts needed": "https://www.drupal.org/files/issues/expand_context_to_nodes-2815971-14.patch",
+                "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch"
             },
             "drupal/geocoder": {
                 "using reverse geocoding behind a proxy": "https://www.drupal.org/files/issues/using_reverse_geocoding_behind_proxy-2796277-3.patch"
             },
             "drupal/entity_reference_revisions": {
                 "Embed Paragraph Content in Normalized Parent Entities (REST)": "https://www.drupal.org/files/issues/embed_paragraph_content-2848878-43.patch"
+            },
+            "drupal/social_auth_twitter": {
+                "Proxy support": "https://www.drupal.org/files/issues/2018-03-21/social_auth_twitter-proxy_support-2952324-8-8.patch"
             }
         }
     }
