@@ -158,6 +158,9 @@
             },
             "drupal/social_auth_twitter": {
                 "Proxy support": "https://www.drupal.org/files/issues/2018-03-21/social_auth_twitter-proxy_support-2952324-8-8.patch"
+            },
+            "drupal/message": {
+                "Proxy support": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
             }
         }
     }
