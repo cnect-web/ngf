@@ -4,21 +4,14 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.user.register
-    - field.field.user.user.field_ngf_city
-    - field.field.user.user.field_ngf_region
     - field.field.user.user.field_ngf_action_contact
-    - field.field.user.user.field_ngf_action_invite_to_event
-    - field.field.user.user.field_ngf_action_invite_to_group
     - field.field.user.user.field_ngf_biography
+    - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_country
     - field.field.user.user.field_ngf_first_name
     - field.field.user.user.field_ngf_interests
     - field.field.user.user.field_ngf_last_name
-    - field.field.user.user.field_ngf_search_email
-    - field.field.user.user.field_ngf_search_interests
-    - field.field.user.user.field_ngf_search_location
-    - field.field.user.user.field_ngf_search_name
-    - field.field.user.user.field_ngf_search_position
+    - field.field.user.user.field_ngf_region
     - field.field.user.user.user_picture
   module:
     - user
@@ -53,18 +46,11 @@ content:
 hidden:
   contact: true
   field_ngf_action_contact: true
-  field_ngf_action_invite_to_event: true
-  field_ngf_action_invite_to_group: true
   field_ngf_biography: true
   field_ngf_city: true
   field_ngf_country: true
   field_ngf_interests: true
   field_ngf_region: true
-  field_ngf_search_email: true
-  field_ngf_search_interests: true
-  field_ngf_search_location: true
-  field_ngf_search_name: true
-  field_ngf_search_position: true
   language: true
   path: true
   timezone: true
