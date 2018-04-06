@@ -31,11 +31,3 @@ function ngf_user_profile_entity_form_display_alter(\Drupal\Core\Entity\Display\
 //    var_dump($form_display);
 //    exit();
 }
-
-function ngf_user_profile_theme($existing, $type, $theme, $path) {
-  return [
-    'followed_users_list' => [
-      'variables' => ['users' => []],
-    ],
-  ];
-}

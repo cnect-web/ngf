@@ -18,11 +18,14 @@ use Drupal\user\UserInterface;
  *   id = "ngf_user_list",
  *   label = @Translation("User list"),
  *   base_table = "ngf_user_list",
+ *   handlers = {
+ *     "views_data" = "Drupal\ngf_user_profile\Entity\UserListViewsData",
+ *   },
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "name",
  *     "uuid" = "uuid",
- *     "uid" = "user_id",
+ *     "user_id" = "user_id",
  *     "langcode" = "langcode"
  *   },
  * )
