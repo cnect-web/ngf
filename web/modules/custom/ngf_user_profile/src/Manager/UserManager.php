@@ -2,14 +2,12 @@
 
 namespace Drupal\ngf_user_profile\Manager;
 
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\user\UserDataInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
-abstract class UserManager implements ContainerInjectionInterface {
+class UserManager {
   /**
    * The current user.
    *
@@ -31,6 +29,13 @@ abstract class UserManager implements ContainerInjectionInterface {
    */
   protected $userData;
 
+  /**
+   * The messenger service.
+   *
+   * @var \Drupal\user\UserDataInterface
+   */
+  protected $flag;
+
 
   /**
    * UserProfileController constructor.
@@ -50,31 +55,11 @@ abstract class UserManager implements ContainerInjectionInterface {
     $this->checkAccess();
   }
 
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('current_user'),
-      $container->get('messenger'),
-      $container->get('user.data')
-    );
-  }
-
   protected function checkAccess() {
     if ($this->currentUser->isAnonymous()) {
       throw new AccessDeniedHttpException();
     }
   }
-
-  protected function removeItems($item_ids = []) {
-    $storage_handler = \Drupal::entityTypeManager()->getStorage($this->getEntityType());
-    $entities = $storage_handler->loadMultiple($item_ids);
-    if (!empty($entities)) {
-      $storage_handler->delete($entities);
-    }
-  }
-
 
   protected function addError($message) {
     $this->messenger->addMessage($message, MessengerInterface::TYPE_ERROR);
@@ -84,6 +69,6 @@ abstract class UserManager implements ContainerInjectionInterface {
     $this->messenger->addMessage($message, MessengerInterface::TYPE_STATUS);
   }
 
-  public abstract function getEntityType();
+
 
 }

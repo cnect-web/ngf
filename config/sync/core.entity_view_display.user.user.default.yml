@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_ngf_action_contact
     - field.field.user.user.field_ngf_biography
     - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_country
@@ -22,16 +21,6 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_ngf_action_contact:
-    weight: 15
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_ngf_biography:
     weight: 18
     label: above

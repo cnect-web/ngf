@@ -4,11 +4,6 @@ namespace Drupal\ngf_user_profile\Manager;
 
 class UserSettingsManager extends UserManager {
 
-
-  public function getEntityType() {
-    return '';
-  }
-
   protected function setSetting($name, $value) {
     $this->userData->set('ngf_user_profile', $this->currentUser->id(), $name, $value);
   }
@@ -22,7 +17,7 @@ class UserSettingsManager extends UserManager {
   }
 
   public function getActionContact($value) {
-    $this->setSetting('action_contact', $value);
+    $this->getSetting('action_contact', $value);
   }
 
   public function setActionInviteToEvent() {
@@ -46,7 +41,7 @@ class UserSettingsManager extends UserManager {
   }
 
   public function getSearchEmail($value) {
-    $this->setSetting('search_email', $value);
+    $this->getSetting('search_email', $value);
   }
 
   public function setSearchInterests() {
@@ -54,7 +49,7 @@ class UserSettingsManager extends UserManager {
   }
 
   public function getSearchInterests($value) {
-    $this->setSetting('search_interests', $value);
+    $this->getSetting('search_interests', $value);
   }
 
   public function setSearchLocation() {
@@ -62,7 +57,7 @@ class UserSettingsManager extends UserManager {
   }
 
   public function getSearchLocation($value) {
-    $this->setSetting('search_location', $value);
+    $this->getSetting('search_location', $value);
   }
 
   public function setSearchName() {
@@ -70,7 +65,7 @@ class UserSettingsManager extends UserManager {
   }
 
   public function getSearchName($value) {
-    $this->setSetting('search_name', $value);
+    $this->getSetting('search_name', $value);
   }
 
   public function setSearchPosition() {
@@ -78,7 +73,7 @@ class UserSettingsManager extends UserManager {
   }
 
   public function getSearchPosition($value) {
-    $this->setSetting('search_position', $value);
+    $this->getSetting('search_position', $value);
   }
 
 

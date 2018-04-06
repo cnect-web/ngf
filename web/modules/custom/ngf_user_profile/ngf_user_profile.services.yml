@@ -1,13 +1,13 @@
 services:
-  ngf_user_profile.user_list_item_manager:
-    class: Drupal\ngf_user_profile\Manager\UserListItemManager
-    arguments: ['@current_user', '@messenger']
-
   ngf_user_profile.user_list_manager:
     class: Drupal\ngf_user_profile\Manager\UserListManager
     arguments: ['@current_user', '@messenger']
 
-  ngf_user_profile.followed_user_manager:
+  ngf_user_profile.user_manager:
     class: Drupal\ngf_user_profile\Manager\FollowedUserManager
-    arguments: ['@current_user', '@messenger']
+    arguments: ['@current_user', '@messenger', '@user.data']
+
+  ngf_user_profile.user_settings_manager:
+    class: Drupal\ngf_user_profile\Manager\UserSettingsManager
+    arguments: ['@current_user', '@messenger', '@user.data']
 

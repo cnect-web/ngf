@@ -68,6 +68,14 @@ class UserListManager extends UserManager {
     }
   }
 
+  protected function removeItems($item_ids = []) {
+    $storage_handler = \Drupal::entityTypeManager()->getStorage($this->getEntityType());
+    $entities = $storage_handler->loadMultiple($item_ids);
+    if (!empty($entities)) {
+      $storage_handler->delete($entities);
+    }
+  }
+
 
 }
 

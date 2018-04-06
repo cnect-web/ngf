@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.user.register
-    - field.field.user.user.field_ngf_action_contact
     - field.field.user.user.field_ngf_biography
     - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_country
@@ -45,7 +44,6 @@ content:
     region: content
 hidden:
   contact: true
-  field_ngf_action_contact: true
   field_ngf_biography: true
   field_ngf_city: true
   field_ngf_country: true
