@@ -2,10 +2,11 @@
 
 namespace Drupal\ngf_user_profile\Manager;
 
+use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\user\UserDataInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 
 abstract class UserManager implements ContainerInjectionInterface {
@@ -24,16 +25,27 @@ abstract class UserManager implements ContainerInjectionInterface {
   protected $messenger;
 
   /**
+   * The messenger service.
+   *
+   * @var \Drupal\user\UserDataInterface
+   */
+  protected $userData;
+
+
+  /**
    * UserProfileController constructor.
    *
    * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user.
    * @param \Drupal\Core\Messenger\MessengerInterface $messenger
    *   The messenger service.
+   * @param \Drupal\user\UserDataInterface $userData
+   *   The user data service.
    */
-  public function __construct(AccountInterface $current_user, MessengerInterface $messenger) {
+  public function __construct(AccountInterface $current_user, MessengerInterface $messenger, UserDataInterface $userData) {
     $this->currentUser = $current_user;
     $this->messenger = $messenger;
+    $this->userData = $userData;
 
     $this->checkAccess();
   }
@@ -44,7 +56,8 @@ abstract class UserManager implements ContainerInjectionInterface {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('current_user'),
-      $container->get('messenger')
+      $container->get('messenger'),
+      $container->get('user.data')
     );
   }
 
