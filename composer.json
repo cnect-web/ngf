@@ -65,7 +65,7 @@
         "drupal/migrate_plus": "^4.0",
         "drupal/migrate_source_csv": "^2.0",
         "drupal/migrate_tools": "^4.0",
-        "drupal/paragraphs": "^1.1",
+        "drupal/paragraphs": "dev-1.x",
         "drupal/pathauto": "^1.1",
         "drupal/permissions_filter": "^1.0",
         "drupal/realname": "^1.0@RC",
@@ -160,8 +160,7 @@
                 "Proxy support": "https://www.drupal.org/files/issues/2018-03-21/social_auth_twitter-proxy_support-2952324-8-8.patch"
             },
             "drupal/message": {
-                "Fix misspelling cardinality": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt",
-                "Add field parents": "https://www.drupal.org/files/issues/2018-04-10/add_field_parents-2959799-2.patch"
+                "Fix misspelling cardinality": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
             }
         }
     }

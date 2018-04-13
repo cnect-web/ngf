@@ -95,3 +95,21 @@ ngf_user_profile.user_notifications:
     _title: 'User notifications'
   requirements:
     _permission: 'access content'
+
+ngf_user_profile.mark_as_read_notification:
+  path: '/profile/notification/markasread/{message_id}'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::markAsRead'
+    _title: 'Mark a notification as read'
+  requirements:
+    _permission: 'access content'
+    message_id: '^[0-9]+'
+
+ngf_user_profile.remove_notification:
+  path: '/profile/notification/remove/{message_id}'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::removeNotification'
+    _title: 'Mark a notification as read'
+  requirements:
+    _permission: 'access content'
+    message_id: '^[0-9]+'

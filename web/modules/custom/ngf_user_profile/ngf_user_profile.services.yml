@@ -7,3 +7,6 @@ services:
     class: Drupal\ngf_user_profile\Manager\UserSettingsManager
     arguments: ['@current_user', '@messenger', '@user.data']
 
+  ngf_user_profile.notification_manager:
+    class: Drupal\ngf_user_profile\Manager\NotificationManager
+    arguments: ['@messenger', '@flag']

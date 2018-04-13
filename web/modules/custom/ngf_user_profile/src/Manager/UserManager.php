@@ -4,14 +4,21 @@ namespace Drupal\ngf_user_profile\Manager;
 
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\ngf_user_profile\MessageTrait;
 use Drupal\user\Entity\User;
 use Drupal\user\UserDataInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\Helper\UserHelper;
 use Drupal\ngf_user_profile\Entity\UserList;
+use Drupal\ngf_user_profile\FlagTrait;
+
 
 class UserManager {
+
+  use FlagTrait;
+  use MessageTrait;
+
   /**
    * The current user.
    *
@@ -27,7 +34,7 @@ class UserManager {
   protected $messenger;
 
   /**
-   * The messenger service.
+   * The user data service.
    *
    * @var \Drupal\user\UserDataInterface
    */
@@ -65,14 +72,6 @@ class UserManager {
     if ($this->currentUser->isAnonymous()) {
       throw new AccessDeniedHttpException();
     }
-  }
-
-  protected function addError($message) {
-    $this->messenger->addMessage($message, MessengerInterface::TYPE_ERROR);
-  }
-
-  protected function addMessage($message) {
-    $this->messenger->addMessage($message, MessengerInterface::TYPE_STATUS);
   }
 
   public function getList($list_id) {
@@ -113,26 +112,19 @@ class UserManager {
   public function follow($username) {
     $user = user_load_by_name($username);
     if (empty($user)) {
-      $this->messenger->addMessage(t('User is not found.'), MessengerInterface::TYPE_ERROR);
+      $this->addError(t('User is not found.'));
     }
     else {
       $user_name = UserHelper::getUserFullName($user);
-      $flag_id = 'ngf_follow_user';
-      $flag = $this->flag->getFlagById($flag_id);
-      if (!empty($flag)) {
-        if (!$flag->isFlagged($user, $this->currentUser)) {
-          $this->flag->flag($flag, $user);
+      $flag = $this->getFollowUserFlag();
+      if (!$flag->isFlagged($user, $this->currentUser)) {
+        $this->flag->flag($flag, $user);
 
-          $this->messenger->addMessage(t('You are following @username',
-            ['@username' => $user_name]), MessengerInterface::TYPE_STATUS);
-        } else {
-          $this->messenger->addMessage(t('You are already following @username',
-            ['@username' => $user_name]), MessengerInterface::TYPE_ERROR);
-        }
-      }
-      else {
-        $this->messenger->addMessage(t('Flag @flag_id is not found',
-          ['@flag_id' => $flag_id]), MessengerInterface::TYPE_STATUS);
+        $this->addMessage(t('You are following @username',
+          ['@username' => $user_name]));
+      } else {
+        $this->addError(t('You are already following @username',
+          ['@username' => $user_name]));
       }
     }
   }
@@ -147,27 +139,20 @@ class UserManager {
     $user = user_load_by_name($username);
 
     if (empty($user)) {
-      $this->messenger->addMessage(t('User is not found.'), MessengerInterface::TYPE_ERROR);
+      $this->addError(t('User is not found.'));
     }
     else {
       $user_name = UserHelper::getUserFullName($user);
-      $flag_id = 'ngf_follow_user';
-      $flag = $this->flag->getFlagById($flag_id);
-      if (!empty($flag)) {
-        if ($flag->isFlagged($user, $this->currentUser)) {
-          $this->flag->unflag($flag, $user);
+      $flag = $this->getFollowUserFlag();
+      if ($flag->isFlagged($user, $this->currentUser)) {
+        $this->flag->unflag($flag, $user);
 
-          $this->messenger->addMessage(t('You are not following anymore @username',
-            ['@username' => $user_name]), MessengerInterface::TYPE_STATUS);
-        }
-        else {
-          $this->messenger->addMessage(t('You are not following @username',
-            ['@username' => $user_name]), MessengerInterface::TYPE_ERROR);
-        }
+        $this->addMessage(t('You are not following anymore @username',
+          ['@username' => $user_name]));
       }
       else {
-        $this->messenger->addMessage(t('Flag @flag_id is not found',
-          ['@flag_id' => $flag_id]), MessengerInterface::TYPE_STATUS);
+        $this->addError(t('You are not following @username',
+          ['@username' => $user_name]));
       }
     }
   }
@@ -224,21 +209,14 @@ class UserManager {
     } elseif ($list->getOwnerId() !== $this->currentUser->id()) {
       $this->addError(t('This list does not belong to you.'));
     } else {
-      $flag_id = 'ngf_list_item';
-      $flag = $this->flag->getFlagById($flag_id);
-      if (!empty($flag)) {
-        $user_name = UserHelper::getUserFullName($user);
-        if (!$flag->isFlagged($user, $this->currentUser)) {
-          $this->flag->flag($flag, $list, $user);
-          $this->addMessage(t('User @username has been added to the list ', ['@username' => $user_name]));
-        }
-        else {
-          $this->addError(t('You have user @username in the list', ['@username' => $user_name]));
-        }
+      $flag = $this->getListItemFlag();
+      $user_name = UserHelper::getUserFullName($user);
+      if (!$flag->isFlagged($user, $this->currentUser)) {
+        $this->flag->flag($flag, $list, $user);
+        $this->addMessage(t('User @username has been added to the list ', ['@username' => $user_name]));
       }
       else {
-        $this->messenger->addMessage(t('Flag @flag_id is not found',
-          ['@flag_id' => $flag_id]), MessengerInterface::TYPE_STATUS);
+        $this->addError(t('You have user @username in the list', ['@username' => $user_name]));
       }
     }
   }
@@ -254,21 +232,14 @@ class UserManager {
     } elseif ($list->getOwnerId() !== $this->currentUser->id()) {
       $this->addError(t('This list does not belong to you.'));
     } else {
-      $flag_id = 'ngf_list_item';
-      $flag = $this->flag->getFlagById($flag_id);
-      if (!empty($flag)) {
-        $user_name = UserHelper::getUserFullName($user);
-        if ($flag->isFlagged($list, $user)) {
-          $this->flag->unflag($flag, $list, $user);
-          $this->addMessage(t('User @username has been removed from the list ', ['@username' => $user_name]));
-        }
-        else {
-          $this->addError(t('You do not have user @username in the list', ['@username' => $user_name]));
-        }
+      $flag = $this->getListItemFlag();
+      $user_name = UserHelper::getUserFullName($user);
+      if ($flag->isFlagged($list, $user)) {
+        $this->flag->unflag($flag, $list, $user);
+        $this->addMessage(t('User @username has been removed from the list ', ['@username' => $user_name]));
       }
       else {
-        $this->messenger->addMessage(t('Flag @flag_id is not found',
-          ['@flag_id' => $flag_id]), MessengerInterface::TYPE_STATUS);
+        $this->addError(t('You do not have user @username in the list', ['@username' => $user_name]));
       }
     }
   }
@@ -279,18 +250,13 @@ class UserManager {
     if (empty($list)) {
       $this->addError(t('List is not found.'));
     } else {
-      $flag_id = 'ngf_list_item';
-      $flag = $this->flag->getFlagById($flag_id);
-      if (!empty($flag)) {
-        $flag_user_list_items = $this->flag->getEntityFlaggings($flag, $list);
-        $user_ids = [];
-        foreach ($flag_user_list_items as $flag_user_list_item) {
-          $user_ids[] = $flag_user_list_item->getOwnerId();
-        }
-        $user_list_items =  User::loadMultiple($user_ids);
-      } else {
-        $this->addError(t('Flag @flag is not found.', ['@flag' => $flag_id]));
+      $flag = $this->getListItemFlag();
+      $flag_user_list_items = $this->flag->getEntityFlaggings($flag, $list);
+      $user_ids = [];
+      foreach ($flag_user_list_items as $flag_user_list_item) {
+        $user_ids[] = $flag_user_list_item->getOwnerId();
       }
+      $user_list_items =  User::loadMultiple($user_ids);
     }
 
     return $user_list_items;
@@ -318,12 +284,15 @@ class UserManager {
   }
 
   protected function removeUserListItemByList($user_list) {
-    $flag = $this->flag->getFlagById('ngf_list_item');
-    if (empty($flag)) {
+    if (empty($user_list)) {
       $this->addError(t('List is not found.'));
     } else {
       $this->flag->unflagAllByEntity($user_list);
     }
+  }
+
+  public function getFollowers($user) {
+    return $this->flag->getFlaggingUsers($user, $this->getFollowUserFlag());
   }
 
 
