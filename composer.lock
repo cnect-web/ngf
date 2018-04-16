@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "62b6b4e6fc125cec4883314d6611b07d",
+    "content-hash": "c213f503cce4421ad2aa00e30e46fbae",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2535,7 +2535,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.1",
-                    "datestamp": "1511779985",
+                    "datestamp": "1522943885",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4242,6 +4242,9 @@
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Proxy support": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
