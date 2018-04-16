@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c213f503cce4421ad2aa00e30e46fbae",
+    "content-hash": "84458ac20a61c242caa8891cdd71f426",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2509,6 +2509,57 @@
             }
         },
         {
+            "name": "drupal/components",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/components",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/components-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "adb1872a655466d575c2d3396f7ca2daba0a2918"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1461060840",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "JohnAlbin",
+                    "homepage": "https://www.drupal.org/user/32095"
+                },
+                {
+                    "name": "RobLoach",
+                    "homepage": "https://www.drupal.org/user/61114"
+                }
+            ],
+            "description": "Registers “component libraries” defined in modules and themes with the Twig system",
+            "homepage": "https://www.drupal.org/project/components",
+            "support": {
+                "source": "http://cgit.drupalcode.org/components"
+            }
+        },
+        {
             "name": "drupal/config_filter",
             "version": "1.1.0",
             "source": {
@@ -2535,7 +2586,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.1",
-                    "datestamp": "1522943885",
+                    "datestamp": "1511779985",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5509,6 +5560,217 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "http://cgit.drupalcode.org/token"
+            }
+        },
+        {
+            "name": "drupal/twig_field_value",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/twig_field_value",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/twig_field_value-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "793d634347eec904617e7bc3b03b75a69fceb928"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1474037939",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sutharsan",
+                    "homepage": "https://www.drupal.org/user/73854"
+                }
+            ],
+            "description": "Twig filters for value(s) and label.",
+            "homepage": "https://www.drupal.org/project/twig_field_value",
+            "support": {
+                "source": "http://cgit.drupalcode.org/twig_field_value"
+            }
+        },
+        {
+            "name": "drupal/twig_tweak",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/twig_tweak",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/twig_tweak-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "e07fe9386a415f5a2122f4bd7ee2305be15c81f7"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "suggest": {
+                "symfony/var-dumper": "better dump() function for debugging Twig variables"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1523707084",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Chi",
+                    "homepage": "https://www.drupal.org/user/556138"
+                }
+            ],
+            "description": "A Twig extension with some useful functions and filters for Drupal development.",
+            "homepage": "https://www.drupal.org/project/twig_tweak",
+            "keywords": [
+                "Drupal",
+                "Twig"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/twig_tweak",
+                "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
+        },
+        {
+            "name": "drupal/ui_patterns",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ui_patterns",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ui_patterns-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "26f531c68d1a99e5ccb64473b10da0f9f550f7e2"
+            },
+            "require": {
+                "drupal/core": "^8.3.0"
+            },
+            "conflict": {
+                "drupal/drupal": "*"
+            },
+            "require-dev": {
+                "bex/behat-extension-driver-locator": "^1.0",
+                "bex/behat-screenshot": "^1.2",
+                "bex/behat-screenshot-image-driver-img42": "^1.0",
+                "drupal/bootstrap": "3.1",
+                "drupal/coder": "8.2.8",
+                "drupal/coffee": "~1",
+                "drupal/config_installer": "1.3.0",
+                "drupal/console": "~1",
+                "drupal/core": "~8",
+                "drupal/ds": "~3",
+                "drupal/entity_reference_revisions": "*",
+                "drupal/features": "~3",
+                "drupal/features_ui": "*",
+                "drupal/field_group": "~1",
+                "drupal/page_manager": "*",
+                "drupal/page_manager_ui": "*",
+                "drupal/panels": "~4",
+                "drupal/paragraphs": "~1",
+                "drupal/token": "~1",
+                "drupal/ui_patterns_ds": "*",
+                "drupal/ui_patterns_field_group": "*",
+                "drupal/ui_patterns_layouts": "*",
+                "drupal/ui_patterns_library": "*",
+                "drupal/ui_patterns_views": "*",
+                "drush/drush": "*",
+                "mikey179/vfsstream": "*",
+                "nuvoleweb/drupal-behat": "1.0.2",
+                "nuvoleweb/drupal-component-scaffold": "*",
+                "peridot-php/leo": "^1.6",
+                "phpro/grumphp": "0.11.4",
+                "phpunit/phpunit": "5.5.*",
+                "squizlabs/php_codesniffer": "~2.9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1506360843",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                },
+                "installer-paths": {
+                    "build/core": [
+                        "type:drupal-core"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\ui_patterns\\": "src",
+                    "Drupal\\Tests\\ui_patterns\\": "tests/src"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Nuvole Web",
+                    "homepage": "https://www.drupal.org/user/186696",
+                    "email": "info@nuvole.org"
+                },
+                {
+                    "name": "bircher",
+                    "homepage": "https://www.drupal.org/user/1344166"
+                },
+                {
+                    "name": "pescetti",
+                    "homepage": "https://www.drupal.org/user/436244"
+                }
+            ],
+            "description": "UI Patterns.",
+            "homepage": "https://www.drupal.org/project/ui_patterns",
+            "keywords": [
+                "drupal",
+                "ui",
+                "web"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/ui_patterns"
             }
         },
         {
@@ -11138,7 +11400,8 @@
         "drupal/message": 5,
         "drupal/message_notify": 10,
         "drupal/message_subscribe": 10,
-        "drupal/realname": 5
+        "drupal/realname": 5,
+        "drupal/ui_patterns": 5
     },
     "prefer-stable": true,
     "prefer-lowest": false,
