@@ -3,3 +3,6 @@ type: module
 description: 'User profile'
 core: 8.x
 package: 'NGF'
+dependencies:
+  - message
+  - flag

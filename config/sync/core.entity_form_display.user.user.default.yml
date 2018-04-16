@@ -3,9 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_ngf_action_contact
-    - field.field.user.user.field_ngf_action_invite_to_event
-    - field.field.user.user.field_ngf_action_invite_to_group
     - field.field.user.user.field_ngf_biography
     - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_country
@@ -13,11 +10,6 @@ dependencies:
     - field.field.user.user.field_ngf_interests
     - field.field.user.user.field_ngf_last_name
     - field.field.user.user.field_ngf_region
-    - field.field.user.user.field_ngf_search_email
-    - field.field.user.user.field_ngf_search_interests
-    - field.field.user.user.field_ngf_search_location
-    - field.field.user.user.field_ngf_search_name
-    - field.field.user.user.field_ngf_search_position
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -36,27 +28,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ngf_action_contact:
-    weight: 10
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_ngf_action_invite_to_event:
-    weight: 12
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_ngf_action_invite_to_group:
-    weight: 11
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_ngf_biography:
     weight: 16
     settings:
@@ -113,41 +84,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: content
-  field_ngf_search_email:
-    weight: 6
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_ngf_search_interests:
-    weight: 9
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_ngf_search_location:
-    weight: 8
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_ngf_search_name:
-    weight: 5
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_ngf_search_position:
-    weight: 7
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
   user_picture:
     type: image_image

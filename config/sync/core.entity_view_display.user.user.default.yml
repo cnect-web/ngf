@@ -3,25 +3,15 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_ngf_city
-    - field.field.user.user.field_ngf_region
-    - field.field.user.user.field_ngf_action_contact
-    - field.field.user.user.field_ngf_action_invite_to_event
-    - field.field.user.user.field_ngf_action_invite_to_group
     - field.field.user.user.field_ngf_biography
+    - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_country
     - field.field.user.user.field_ngf_first_name
     - field.field.user.user.field_ngf_interests
     - field.field.user.user.field_ngf_last_name
-    - field.field.user.user.field_ngf_search_email
-    - field.field.user.user.field_ngf_search_interests
-    - field.field.user.user.field_ngf_search_location
-    - field.field.user.user.field_ngf_search_name
-    - field.field.user.user.field_ngf_search_position
+    - field.field.user.user.field_ngf_region
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
     - text
     - user
 _core:
@@ -31,36 +21,6 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  field_ngf_action_contact:
-    weight: 15
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_ngf_action_invite_to_event:
-    weight: 17
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_ngf_action_invite_to_group:
-    weight: 16
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_ngf_biography:
     weight: 18
     label: above
@@ -116,56 +76,6 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_ngf_search_email:
-    weight: 14
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_ngf_search_interests:
-    weight: 13
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_ngf_search_location:
-    weight: 11
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_ngf_search_name:
-    weight: 10
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_ngf_search_position:
-    weight: 12
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_user_picture:
     type: image
     weight: 0
@@ -175,6 +85,9 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
+  flag_ngf_follow_user:
+    weight: 10
+    region: content
   member_for:
     weight: 5
     region: content
