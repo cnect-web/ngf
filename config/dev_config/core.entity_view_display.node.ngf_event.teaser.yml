@@ -19,6 +19,14 @@ content:
     weight: 100
     region: content
 hidden:
+  field_ngf_address: true
+  field_ngf_attachment: true
+  field_ngf_cover_image: true
+  field_ngf_description: true
   field_ngf_event_end_date: true
   field_ngf_event_start_date: true
+  field_ngf_interests: true
+  field_ngf_introtext: true
+  field_ngf_location: true
+  field_ngf_registration_link: true
   field_ngf_venue: true

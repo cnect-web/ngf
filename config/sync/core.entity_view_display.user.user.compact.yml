@@ -16,6 +16,9 @@ targetEntityType: user
 bundle: user
 mode: compact
 content:
+  flag_ngf_follow_user:
+    weight: 10
+    region: content
   user_picture:
     type: image
     weight: 0
