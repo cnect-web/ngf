@@ -19,4 +19,8 @@ content:
     region: content
 hidden:
   field_ngf_attachment: true
+  field_ngf_cover_image: true
+  field_ngf_description: true
+  field_ngf_interests: true
   field_ngf_introtext: true
+  field_ngf_related_content: true
