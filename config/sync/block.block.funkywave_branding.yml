@@ -1,6 +1,6 @@
 uuid: d3bde1f9-be18-4951-9e40-9d71a1758caa
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -10,7 +10,7 @@ _core:
   default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
 id: funkywave_branding
 theme: funkywave
-region: logo_area
+region: sidebar_first
 weight: -4
 provider: null
 plugin: system_branding_block

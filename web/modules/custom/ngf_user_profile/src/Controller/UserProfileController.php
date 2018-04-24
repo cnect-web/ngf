@@ -7,7 +7,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\ngf_user_profile\Helper\UserHelper;
 use Drupal\ngf_user_profile\Manager\userManager;
-use Drupal\user\Entity\User;
+use Drupal\message\Entity\Message;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -161,11 +161,29 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
   }
 
   public function notifications() {
+    $notification_manager = $this->container->get('ngf_user_profile.notification_manager');
+    $messages = $notification_manager->getUserNotifications();
     $items = [];
-    return $render = [
-      '#theme' => 'item_list',
-      '#items' => $items,
+    foreach ($messages as $message) {
+      $text = $message->getText();
+      $items[] =  \array_shift($text) . ' - <a href="/profile/notification/markasread/' . $message->id() . '">Mark as read</a> - <a href="/profile/notification/remove/' . $message->id() . '">Delete</a><br>';
+    }
+
+    return  [
+      '#markup' => implode(" - ", $items)
     ];
+  }
+
+  public function markAsRead($message_id) {
+    $notification_manager = $this->container->get('ngf_user_profile.notification_manager');
+    $notification_manager->markNotificationAsRead($message_id);
+    return $this->redirect('ngf_user_profile.user_notifications');
+  }
+
+  public function removeNotification($message_id) {
+    $notification_manager = $this->container->get('ngf_user_profile.notification_manager');
+    $notification_manager->removeNotification($message_id);
+    return $this->redirect('ngf_user_profile.user_notifications');
   }
 
 }
