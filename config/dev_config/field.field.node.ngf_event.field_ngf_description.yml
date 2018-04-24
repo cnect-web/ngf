@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.node.field_ngf_description
     - node.type.ngf_event
+    - paragraphs.paragraphs_type.ngf_file
+    - paragraphs.paragraphs_type.ngf_image
     - paragraphs.paragraphs_type.ngf_text
   module:
     - entity_reference_revisions
@@ -23,12 +25,17 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
+      ngf_file: ngf_file
       ngf_text: ngf_text
+      ngf_image: ngf_image
     target_bundles_drag_drop:
-      ngf_media:
+      ngf_file:
         enabled: true
-        weight: 3
+        weight: 4
       ngf_text:
         enabled: true
         weight: 4
+      ngf_image:
+        enabled: true
+        weight: 5
 field_type: entity_reference_revisions

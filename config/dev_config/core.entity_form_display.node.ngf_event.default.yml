@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.media_browser
     - field.field.node.ngf_event.field_ngf_address
-    - field.field.node.ngf_event.field_ngf_attachment
     - field.field.node.ngf_event.field_ngf_cover_image
     - field.field.node.ngf_event.field_ngf_description
     - field.field.node.ngf_event.field_ngf_event_end_date
@@ -19,6 +19,7 @@ dependencies:
     - address
     - content_moderation
     - datetime
+    - entity_browser
     - geofield
     - link
     - paragraphs
@@ -41,23 +42,18 @@ content:
     third_party_settings: {  }
     type: address_default
     region: content
-  field_ngf_attachment:
-    weight: 7
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_ngf_cover_image:
     weight: 1
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      entity_browser: media_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      open: false
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     region: content
   field_ngf_description:
     weight: 3
@@ -70,6 +66,9 @@ content:
       add_mode: dropdown
       form_display_mode: default
       default_paragraph_type: ''
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
     third_party_settings: {  }
     type: paragraphs
     region: content
