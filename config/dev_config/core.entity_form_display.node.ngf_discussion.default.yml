@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.ngf_discussion.field_ngf_attachment
+    - entity_browser.browser.media_browser
     - field.field.node.ngf_discussion.field_ngf_cover_image
     - field.field.node.ngf_discussion.field_ngf_description
     - field.field.node.ngf_discussion.field_ngf_interests
@@ -12,6 +12,7 @@ dependencies:
     - node.type.ngf_discussion
   module:
     - content_moderation
+    - entity_browser
     - paragraphs
     - path
 id: node.ngf_discussion.default
@@ -25,23 +26,18 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_ngf_attachment:
-    weight: 14
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_ngf_cover_image:
     weight: 1
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      entity_browser: media_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      open: false
+      field_widget_display_settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     region: content
   field_ngf_description:
     type: entity_reference_paragraphs

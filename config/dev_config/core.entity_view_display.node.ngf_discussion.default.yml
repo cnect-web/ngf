@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.ngf_discussion.field_ngf_attachment
     - field.field.node.ngf_discussion.field_ngf_cover_image
     - field.field.node.ngf_discussion.field_ngf_description
     - field.field.node.ngf_discussion.field_ngf_interests
@@ -18,15 +17,6 @@ targetEntityType: node
 bundle: ngf_discussion
 mode: default
 content:
-  field_ngf_attachment:
-    type: entity_reference_entity_view
-    weight: 102
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
-    region: content
   field_ngf_cover_image:
     type: entity_reference_entity_view
     weight: 105

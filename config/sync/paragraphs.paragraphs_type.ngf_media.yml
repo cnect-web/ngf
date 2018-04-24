@@ -1,9 +1,0 @@
-uuid: 532b6eb4-d9ba-494c-b561-8c06e1b11a92
-langcode: en
-status: true
-dependencies: {  }
-id: ngf_media
-label: Media
-icon_uuid: null
-description: ''
-behavior_plugins: {  }

@@ -3,7 +3,8 @@
 namespace Drupal\ngf_user_profile\Manager;
 
 use Drupal\Core\Messenger\MessengerInterface;
-use Drupal\user\Entity\NodeInterface;
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 use Drupal\comment\Entity\CommentInterface;
 use Drupal\flag\FlagService;
 use Drupal\message\Entity\Message;
@@ -61,10 +62,10 @@ class NotificationManager {
   /**
    * Notify following users about a new node.
    *
-   * @param \Drupal\user\Entity\NodeInterface $node
+   * @param \Drupal\user\Entity\Node $node
    *   Created node.
    */
-  public function notifyFollowersAboutNewContent(NodeInterface $node) {
+  public function notifyFollowersAboutNewContent(Node $node) {
     $followers = $this->getFollowers($node->getOwner());
     foreach ($followers as $follower) {
       $message = Message::create([
