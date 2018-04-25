@@ -82,6 +82,7 @@
         "drupal/token": "^1.1",
         "drupal/twig_field_value": "^1.1",
         "drupal/twig_tweak": "^2.0",
+        "drupal/video": "^1.2",
         "drupal/ui_patterns": "^1.0",
         "drush/drush": "^9.0.0",
         "harvesthq/chosen": "^1.8",
