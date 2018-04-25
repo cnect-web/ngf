@@ -1,14 +1,14 @@
-uuid: ad12eda3-7448-43ce-ba09-2b3b86e0bb7c
+uuid: 7cd39e8a-2d4f-4529-bb2c-5396fe7a923a
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.media_browser
+    - views.view.ngf_file_media_browser
   module:
     - views
-name: media_browser
-label: 'Media browser'
-display: iframe
+name: ngf_file_browser
+label: 'File browser'
+display: modal
 display_configuration:
   width: '650'
   height: '500'
@@ -19,24 +19,23 @@ selection_display_configuration: {  }
 widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
-  3cd0420c-0d93-4190-8475-ba9587a85635:
+  93f94b93-de48-44a8-a989-9401f91c4beb:
     settings:
-      view: media_browser
+      view: ngf_file_media_browser
       view_display: entity_browser_1
       submit_text: 'Select entities'
       auto_select: false
-    uuid: 3cd0420c-0d93-4190-8475-ba9587a85635
+    uuid: 93f94b93-de48-44a8-a989-9401f91c4beb
     weight: 1
     label: Files
     id: view
-  06f90a95-be60-4a7f-a807-50491f10d8a2:
+  2ea91987-a8d9-4eb8-a1f6-de961ade580a:
     settings:
-      extensions: 'jpg jpeg png gif'
-      media_type: image
       upload_location: 'public://'
-      multiple: '1'
-      submit_text: Upload
-    uuid: 06f90a95-be60-4a7f-a807-50491f10d8a2
-    weight: 2
+      multiple: true
+      submit_text: 'Select files'
+      extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
+    uuid: 2ea91987-a8d9-4eb8-a1f6-de961ade580a
+    weight: 3
     label: Upload
-    id: media_image_upload
+    id: upload

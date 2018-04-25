@@ -5,8 +5,10 @@ dependencies:
   config:
     - field.storage.node.field_ngf_description
     - node.type.ngf_discussion
-    - paragraphs.paragraphs_type.ngf_media
+    - paragraphs.paragraphs_type.ngf_file
+    - paragraphs.paragraphs_type.ngf_image
     - paragraphs.paragraphs_type.ngf_text
+    - paragraphs.paragraphs_type.ngf_video
   module:
     - entity_reference_revisions
 id: node.ngf_discussion.field_ngf_description
@@ -25,12 +27,20 @@ settings:
     negate: 0
     target_bundles:
       ngf_text: ngf_text
-      ngf_media: ngf_media
+      ngf_file: ngf_file
+      ngf_video: ngf_video
+      ngf_image: ngf_image
     target_bundles_drag_drop:
       ngf_text:
         enabled: true
         weight: -5
-      ngf_media:
+      ngf_file:
         enabled: true
-        weight: -4
+        weight: 4
+      ngf_video:
+        enabled: true
+        weight: 5
+      ngf_image:
+        enabled: true
+        weight: 5
 field_type: entity_reference_revisions

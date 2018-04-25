@@ -1,17 +1,16 @@
-uuid: 67fb0db1-58b3-4d35-9a26-d11f3ff4e1b7
+uuid: 8a6e278e-793a-45f4-af29-ac1ee3a5f352
 langcode: en
 status: true
 dependencies:
   config:
-    - image.style.thumbnail
+    - media.type.file
     - media.type.image
   module:
     - entity_browser
-    - image
     - media
     - user
-id: media_browser
-label: 'Image : Media browser'
+id: ngf_file_media_browser
+label: 'File : Media browser'
 module: views
 description: 'Provides media browser for images'
 tag: ''
@@ -163,72 +162,6 @@ display:
           hide_alter_empty: true
           entity_type: media
           plugin_id: entity_browser_select
-        thumbnail__target_id:
-          id: thumbnail__target_id
-          table: media_field_data
-          field: thumbnail__target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_style: thumbnail
-            image_link: ''
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: media
-          entity_field: thumbnail
-          plugin_id: field
         name:
           id: name
           table: media_field_data
@@ -356,6 +289,7 @@ display:
           admin_label: ''
           operator: in
           value:
+            file: file
             image: image
           group: 1
           exposed: false

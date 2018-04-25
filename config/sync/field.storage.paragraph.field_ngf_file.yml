@@ -1,13 +1,13 @@
-uuid: 1af599b4-3341-41d8-8b24-a5678be5fdf8
+uuid: fbf1eeff-aa42-40ad-a9ca-6075ccbaf1f8
 langcode: en
 status: true
 dependencies:
   module:
     - media
-    - node
-id: node.field_ngf_attachment
-field_name: field_ngf_attachment
-entity_type: node
+    - paragraphs
+id: paragraph.field_ngf_file
+field_name: field_ngf_file
+entity_type: paragraph
 type: entity_reference
 settings:
   target_type: media

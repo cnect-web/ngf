@@ -1,17 +1,16 @@
-uuid: 8877d119-22eb-4096-bee9-252231189b6b
+uuid: 686d9462-3890-40fc-abca-1047e83b5b6c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_ngf_media
-    - media.type.file
+    - field.storage.paragraph.field_ngf_image
     - media.type.image
-    - paragraphs.paragraphs_type.ngf_media
-id: paragraph.ngf_media.field_ngf_media
-field_name: field_ngf_media
+    - paragraphs.paragraphs_type.ngf_image
+id: paragraph.ngf_image.field_ngf_image
+field_name: field_ngf_image
 entity_type: paragraph
-bundle: ngf_media
-label: Media
+bundle: ngf_image
+label: Image
 description: ''
 required: false
 translatable: false
@@ -21,10 +20,9 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      file: file
       image: image
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: file
+    auto_create_bundle: ''
 field_type: entity_reference

@@ -1,16 +1,16 @@
-uuid: 9c068e5c-63d0-412a-93e4-6443ce2fd06f
+uuid: 15f64459-21f0-46dd-9600-8b8060bd3dc7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.ngf_media.field_ngf_media
-    - paragraphs.paragraphs_type.ngf_media
-id: paragraph.ngf_media.default
+    - field.field.paragraph.ngf_image.field_ngf_image
+    - paragraphs.paragraphs_type.ngf_image
+id: paragraph.ngf_image.default
 targetEntityType: paragraph
-bundle: ngf_media
+bundle: ngf_image
 mode: default
 content:
-  field_ngf_media:
+  field_ngf_image:
     type: entity_reference_entity_view
     weight: 0
     label: above

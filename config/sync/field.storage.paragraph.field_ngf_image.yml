@@ -1,19 +1,19 @@
-uuid: 0b2c46c7-0a88-43a5-8282-970766624a8f
+uuid: 09cbf374-35df-40ec-a21f-99e62c30b162
 langcode: en
 status: true
 dependencies:
   module:
     - media
     - paragraphs
-id: paragraph.field_ngf_media
-field_name: field_ngf_media
+id: paragraph.field_ngf_image
+field_name: field_ngf_image
 entity_type: paragraph
 type: entity_reference
 settings:
   target_type: media
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

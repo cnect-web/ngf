@@ -1,0 +1,38 @@
+uuid: 8f137698-1e1f-4b59-b81e-58f4f4261330
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ngf_image.field_ngf_image
+    - paragraphs.paragraphs_type.ngf_image
+  module:
+    - content_moderation
+    - entity_browser
+id: paragraph.ngf_image.default
+targetEntityType: paragraph
+bundle: ngf_image
+mode: default
+content:
+  field_ngf_image:
+    weight: 101
+    settings:
+      entity_browser: null
+      open: false
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_display_settings: {  }
+      selection_mode: selection_append
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true
