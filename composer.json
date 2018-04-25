@@ -72,6 +72,7 @@
         "drupal/realname": "^1.0",
         "drupal/recaptcha": "^2.3",
         "drupal/redirect": "^1.0",
+        "drupal/search_kint": "^1.0",
         "drupal/social_api": "^2.0",
         "drupal/social_auth": "^2.0",
         "drupal/social_auth_facebook": "^2.0",
@@ -80,6 +81,7 @@
         "drupal/social_auth_twitter": "^2.0",
         "drupal/stage_file_proxy": "^1.0",
         "drupal/token": "^1.1",
+        "drupal/twig_extensions": "^1.1",
         "drupal/twig_field_value": "^1.1",
         "drupal/twig_tweak": "^2.0",
         "drupal/ui_patterns": "^1.0",
@@ -87,6 +89,7 @@
         "harvesthq/chosen": "^1.8",
         "henrikbjorn/lurker": "^1.2",
         "nuvoleweb/robo-config": "^0.2",
+        "twig/extensions": "^1.5",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3"
