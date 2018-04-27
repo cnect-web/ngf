@@ -1,0 +1,24 @@
+uuid: 91daca75-8634-421d-91fd-23a198893ea1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.tools-navigation
+  module:
+    - system
+  theme:
+    - funkywave
+id: toolsnavigation
+theme: funkywave
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:tools-navigation'
+settings:
+  id: 'system_menu_block:tools-navigation'
+  label: 'Tools navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }
