@@ -34,6 +34,8 @@ module:
   file: 0
   filter: 0
   flag: 0
+  fontawesome: 0
+  fontawesome_menu_icons: 0
   geofield: 0
   ggroup: 0
   gnode: 0
@@ -41,6 +43,7 @@ module:
   help: 0
   history: 0
   image: 0
+  libraries: 0
   link: 0
   media: 0
   message: 0
@@ -63,9 +66,9 @@ module:
   system: 0
   taxonomy: 0
   text: 0
-  token: 0
   toolbar: 0
   tour: 0
+  twig_extensions: 0
   twig_field_value: 0
   twig_tweak: 0
   ui_patterns: 0
