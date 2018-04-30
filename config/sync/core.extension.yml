@@ -46,6 +46,7 @@ module:
   libraries: 0
   link: 0
   media: 0
+  menu_ui: 0
   message: 0
   migrate: 0
   migrate_plus: 0
@@ -67,6 +68,7 @@ module:
   taxonomy: 0
   text: 0
   toolbar: 0
+  token: 0
   tour: 0
   twig_extensions: 0
   twig_field_value: 0
