@@ -1,8 +1,0 @@
-uuid: a0b76cd6-92f2-441b-af7a-53930ea26fe8
-langcode: en
-status: true
-dependencies: {  }
-id: tools-navigation
-label: 'Tools navigation'
-description: 'Menu with links to Filters and Search'
-locked: false

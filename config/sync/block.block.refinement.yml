@@ -1,22 +1,22 @@
-uuid: 91daca75-8634-421d-91fd-23a198893ea1
+uuid: aa66cdec-c05c-4fa2-844c-cf2f732f3c4a
 langcode: en
 status: true
 dependencies:
   config:
-    - system.menu.tools-navigation
+    - system.menu.refinement
   module:
     - system
   theme:
     - funkywave
-id: toolsnavigation
+id: refinement
 theme: funkywave
 region: header
 weight: 0
 provider: null
-plugin: 'system_menu_block:tools-navigation'
+plugin: 'system_menu_block:refinement'
 settings:
-  id: 'system_menu_block:tools-navigation'
-  label: 'Tools navigation'
+  id: 'system_menu_block:refinement'
+  label: Refinement
   provider: system
   label_display: '0'
   level: 1
