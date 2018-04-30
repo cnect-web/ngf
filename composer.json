@@ -147,7 +147,9 @@
         "patches": {
             "enable-patching" : true,
             "drupal/core": {
-                "Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch"
+                "Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch",
+                "Add events for matching entity hooks": "https://www.drupal.org/files/issues/2551893-52.patch",
+                "Allow themes to declare dependencies on modules": "https://www.drupal.org/files/issues/2018-03-27/474684-164.patch"
             },
             "drupal/adminimal_theme": {
                 "Colors in horizontal and vertical toolbar need fixing": "https://www.drupal.org/files/issues/adminimal_theme-fix-toolbar-colors-28226369.patch"
@@ -156,9 +158,12 @@
                 "Recoverable fatal error: Argument 2 passed to Drupal\\views\\Plugin\\views\\relationship\\RelationshipPluginBase::init() must be an instance of Drupal\\views\\Plugin\\views\\display\\DisplayPluginBase": "https://www.drupal.org/files/issues/2806015.patch"
             },
             "drupal/group": {
-                "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/group-add_subgroups_module-2736233-145.patch",
+                "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/2018-04-20/2736233-156.patch",
                 "More contexts needed": "https://www.drupal.org/files/issues/expand_context_to_nodes-2815971-14.patch",
-                "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch"
+                "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch",
+                "Members duplicated in group members list": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch",
+                "Change 'Add' and 'Create' labels and paths to make be more intuitive & follow Drupal patterns" : "https://www.drupal.org/files/issues/2683039-28.patch",
+                "Get a token of a node's parent group to create a pathauto pattern" : "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch"
             },
             "drupal/geocoder": {
                 "using reverse geocoding behind a proxy": "https://www.drupal.org/files/issues/using_reverse_geocoding_behind_proxy-2796277-3.patch"
@@ -170,7 +175,13 @@
                 "Proxy support": "https://www.drupal.org/files/issues/2018-03-21/social_auth_twitter-proxy_support-2952324-8-8.patch"
             },
             "drupal/message": {
-                "Fix misspelling cardinality": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
+                "Notice: Undefined index: #cardinality": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
+            },
+            "drupal/twig_extensions": {
+                "Twig_Error_Syntax: The text to be translated with trans can only contain references to simple variables in Twig_Extensions_TokenParser_Trans->checkTransString()": "https://www.drupal.org/files/issues/2018-04-24/twig_extension-trans_error-2895187-16.patch"
+            },
+            "drupal/entity_browser": {
+                "Provide MediaFileUpload widget" : "https://www.drupal.org/files/issues/entity_browser-media-file-upload-2922885-3.patch"
             }
         }
     }
