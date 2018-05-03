@@ -5,7 +5,7 @@ namespace Drupal\ngf_user_profile\Manager;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\node\Entity\Node;
 use Drupal\user\Entity\User;
-use Drupal\comment\Entity\CommentInterface;
+use Drupal\comment\Entity\Comment;
 use Drupal\flag\FlagService;
 use Drupal\message\Entity\Message;
 use Drupal\ngf_user_profile\FlagTrait;
@@ -84,7 +84,7 @@ class NotificationManager {
    * @param \Drupal\comment\Entity\Comment $comment
    *  Created comment.
    */
-  public function notifyOwnerAboutNewComment(CommentInterface $comment) {
+  public function notifyOwnerAboutNewComment(Comment $comment) {
     $message = Message::create([
       'template' => 'ngf_post_new_comment',
       'uid' => $comment->getCommentedEntity()->getOwnerId(),
