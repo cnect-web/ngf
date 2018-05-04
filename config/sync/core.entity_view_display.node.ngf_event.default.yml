@@ -35,7 +35,7 @@ content:
     region: content
   field_ngf_cover_image:
     weight: 107
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
