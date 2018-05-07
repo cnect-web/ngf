@@ -1,13 +1,13 @@
-uuid: d5a6853e-f287-42d5-8ff5-3abb91496cd1
+uuid: 2a447ca2-6c04-44e9-81b4-0aa32da99e38
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ngf_venue
-    - node.type.ngf_event
-id: node.ngf_event.field_ngf_venue
+    - field.storage.group.field_ngf_venue
+    - group.type.ngf_event
+id: group.ngf_event.field_ngf_venue
 field_name: field_ngf_venue
-entity_type: node
+entity_type: group
 bundle: ngf_event
 label: Venue
 description: ''

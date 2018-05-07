@@ -1,15 +1,15 @@
-uuid: 0956de08-9a84-4327-9eea-a87e2701f40f
+uuid: e26e3c45-2e3e-4885-8651-fe7b02fc4cff
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ngf_address
-    - node.type.ngf_event
+    - field.storage.group.field_ngf_address
+    - group.type.ngf_event
   module:
     - address
-id: node.ngf_event.field_ngf_address
+id: group.ngf_event.field_ngf_address
 field_name: field_ngf_address
-entity_type: node
+entity_type: group
 bundle: ngf_event
 label: Address
 description: ''
@@ -22,10 +22,10 @@ settings:
   fields:
     administrativeArea: administrativeArea
     locality: locality
-    dependentLocality: dependentLocality
     postalCode: postalCode
     addressLine1: addressLine1
     addressLine2: addressLine2
+    dependentLocality: '0'
     sortingCode: '0'
     organization: '0'
     givenName: '0'

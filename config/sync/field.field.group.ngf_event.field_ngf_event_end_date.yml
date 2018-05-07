@@ -1,15 +1,15 @@
-uuid: 9355282f-1086-451b-af7f-061779691bfa
+uuid: 2e2b0e28-174f-4dad-b826-be273ff586fb
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ngf_event_end_date
-    - node.type.ngf_event
+    - field.storage.group.field_ngf_event_end_date
+    - group.type.ngf_event
   module:
     - datetime
-id: node.ngf_event.field_ngf_event_end_date
+id: group.ngf_event.field_ngf_event_end_date
 field_name: field_ngf_event_end_date
-entity_type: node
+entity_type: group
 bundle: ngf_event
 label: 'Event end date'
 description: ''

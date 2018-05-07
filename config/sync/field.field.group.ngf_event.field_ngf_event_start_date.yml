@@ -1,15 +1,15 @@
-uuid: 07ee0a50-e939-48b1-afed-d6d0de81c798
+uuid: 6283fff9-16d9-4ad2-aec9-76418b06c24b
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ngf_event_start_date
-    - node.type.ngf_event
+    - field.storage.group.field_ngf_event_start_date
+    - group.type.ngf_event
   module:
     - datetime
-id: node.ngf_event.field_ngf_event_start_date
+id: group.ngf_event.field_ngf_event_start_date
 field_name: field_ngf_event_start_date
-entity_type: node
+entity_type: group
 bundle: ngf_event
 label: 'Event start date'
 description: ''

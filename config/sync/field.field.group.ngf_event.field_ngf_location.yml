@@ -1,15 +1,15 @@
-uuid: d8893e70-f9a9-40ba-b75e-74094a126e37
+uuid: f31e3f41-0040-4e97-b076-78bcf65246c2
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ngf_location
-    - node.type.ngf_event
+    - field.storage.group.field_ngf_location
+    - group.type.ngf_event
   module:
     - geofield
-id: node.ngf_event.field_ngf_location
+id: group.ngf_event.field_ngf_location
 field_name: field_ngf_location
-entity_type: node
+entity_type: group
 bundle: ngf_event
 label: Location
 description: ''

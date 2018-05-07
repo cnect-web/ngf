@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_ngf_related_content
     - node.type.ngf_discussion
-    - node.type.ngf_event
 id: node.ngf_discussion.field_ngf_related_content
 field_name: field_ngf_related_content
 entity_type: node
@@ -21,7 +20,6 @@ settings:
   handler_settings:
     target_bundles:
       ngf_discussion: ngf_discussion
-      ngf_event: ngf_event
     sort:
       field: _none
     auto_create: false
