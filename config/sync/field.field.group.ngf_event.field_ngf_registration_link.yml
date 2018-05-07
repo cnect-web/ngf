@@ -1,15 +1,15 @@
-uuid: a2d5271d-5697-4290-88fb-6f5b02479237
+uuid: f4dc482c-d533-49c3-9d61-def36281a667
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_ngf_registration_link
-    - node.type.ngf_event
+    - field.storage.group.field_ngf_registration_link
+    - group.type.ngf_event
   module:
     - link
-id: node.ngf_event.field_ngf_registration_link
+id: group.ngf_event.field_ngf_registration_link
 field_name: field_ngf_registration_link
-entity_type: node
+entity_type: group
 bundle: ngf_event
 label: 'Registration link'
 description: ''

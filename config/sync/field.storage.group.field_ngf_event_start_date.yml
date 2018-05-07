@@ -1,13 +1,13 @@
-uuid: a975d02f-d671-48f5-8866-c5d44468d5e7
+uuid: 6c5abaac-b873-4002-9d7e-2a1e7a1ca3df
 langcode: en
 status: true
 dependencies:
   module:
     - datetime
-    - node
-id: node.field_ngf_event_end_date
-field_name: field_ngf_event_end_date
-entity_type: node
+    - group
+id: group.field_ngf_event_start_date
+field_name: field_ngf_event_start_date
+entity_type: group
 type: datetime
 settings:
   datetime_type: datetime

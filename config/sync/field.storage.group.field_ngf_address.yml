@@ -1,13 +1,13 @@
-uuid: 58f7a4e1-9111-4f80-ac5c-cd1beb77176b
+uuid: 8c5e9d80-5612-49a2-b271-84f4352b426d
 langcode: en
 status: true
 dependencies:
   module:
     - address
-    - node
-id: node.field_ngf_address
+    - group
+id: group.field_ngf_address
 field_name: field_ngf_address
-entity_type: node
+entity_type: group
 type: address
 settings: {  }
 module: address

@@ -1,12 +1,12 @@
-uuid: 33988319-df5a-4fb4-afc5-16d72f7a03c7
+uuid: 73eaff86-3ded-4ae8-b9c2-740cadb00a1e
 langcode: en
 status: true
 dependencies:
   module:
-    - node
-id: node.field_ngf_venue
+    - group
+id: group.field_ngf_venue
 field_name: field_ngf_venue
-entity_type: node
+entity_type: group
 type: string
 settings:
   max_length: 255

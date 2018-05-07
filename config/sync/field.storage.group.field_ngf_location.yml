@@ -1,13 +1,13 @@
-uuid: cc22bf8c-e63e-42fa-9ee6-9e2c3fa10143
+uuid: ab7ca6da-d380-406b-aacd-1333c83f63ec
 langcode: en
 status: true
 dependencies:
   module:
     - geofield
-    - node
-id: node.field_ngf_location
+    - group
+id: group.field_ngf_location
 field_name: field_ngf_location
-entity_type: node
+entity_type: group
 type: geofield
 settings:
   backend: geofield_backend_default
