@@ -21,12 +21,6 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-  group_membership_state:
-    type: options_select
-    weight: 32
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   group_roles:
     type: options_buttons
     weight: 31
