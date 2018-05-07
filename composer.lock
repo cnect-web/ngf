@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0550dc6922e434b4a5df8de1176ce687",
+    "content-hash": "29321e017e91ae6b3ea973cf6ea9c408",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -4324,7 +4324,8 @@
                     "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch",
                     "Members duplicated in group members list": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch",
                     "Change 'Add' and 'Create' labels and paths to make be more intuitive & follow Drupal patterns": "https://www.drupal.org/files/issues/2683039-28.patch",
-                    "Get a token of a node's parent group to create a pathauto pattern": "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch"
+                    "Get a token of a node's parent group to create a pathauto pattern": "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch",
+                    "Redirect after create group content": "https://www.drupal.org/files/issues/2817109-by-rachel_norfolk-ericras-How-to-redir.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4850,7 +4851,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/paragraphs",
-                "reference": "966e1c5ad3dc668d6a0ec4421583df74d558e05f"
+                "reference": "be6a91c8aaa1e174d1145c3af9d49944efade49a"
             },
             "require": {
                 "drupal/core": "~8",
@@ -4878,8 +4879,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2+69-dev",
-                    "datestamp": "1525204384",
+                    "version": "8.x-1.2+70-dev",
+                    "datestamp": "1525257484",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -4917,7 +4918,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs"
             },
-            "time": "2018-05-02T10:34:19+00:00"
+            "time": "2018-05-03T12:46:01+00:00"
         },
         {
             "name": "drupal/pathauto",
@@ -4950,6 +4951,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Change method used for initial alias creation": "https://pastebin.com/raw/r7pPTydt"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5175,17 +5179,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/redirect",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "32916081c436ea325b51bc5b3ec840fa19857cf7"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "ac503fbfbd15523c65f38d8b326e5f2159683cdb"
             },
             "require": {
                 "drupal/core": "~8"
@@ -5196,8 +5200,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1520897880",
+                    "version": "8.x-1.2",
+                    "datestamp": "1525419785",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6107,6 +6111,9 @@
                         "message": "Covered by Drupal's security advisory policy"
                     },
                     "package": "Field types"
+                },
+                "patches_applied": {
+                    "Error when generating content": "https://www.drupal.org/files/issues/patch-2728517-latest.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

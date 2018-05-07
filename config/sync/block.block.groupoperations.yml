@@ -1,0 +1,22 @@
+uuid: 9152e312-9cc9-4d06-811f-d3fd70ea51b2
+langcode: en
+status: false
+dependencies:
+  module:
+    - group
+  theme:
+    - funkywave
+id: groupoperations
+theme: funkywave
+region: logo_area
+weight: 0
+provider: null
+plugin: group_operations
+settings:
+  id: group_operations
+  label: Tasks
+  provider: group
+  label_display: '0'
+  context_mapping:
+    group: '@group.group_route_context:group'
+visibility: {  }

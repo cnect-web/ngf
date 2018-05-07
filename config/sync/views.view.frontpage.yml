@@ -29,29 +29,6 @@ display:
         type: tag
         options: {  }
       empty:
-        area_text_custom:
-          admin_label: ''
-          content: 'No front page content has been created yet.'
-          empty: true
-          field: area_text_custom
-          group_type: group
-          id: area_text_custom
-          label: ''
-          relationship: none
-          table: views
-          tokenize: false
-          plugin_id: text_custom
-        node_listing_empty:
-          admin_label: ''
-          empty: true
-          field: node_listing_empty
-          group_type: group
-          id: node_listing_empty
-          label: ''
-          relationship: none
-          table: node
-          plugin_id: node_listing_empty
-          entity_type: node
         title:
           id: title
           table: views
@@ -280,6 +257,7 @@ display:
           relationship: none
           view_mode: rss
       display_extenders: {  }
+      enabled: false
     cache_metadata:
       contexts:
         - 'languages:language_interface'

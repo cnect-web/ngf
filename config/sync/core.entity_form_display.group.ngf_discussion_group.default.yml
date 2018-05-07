@@ -4,30 +4,73 @@ status: true
 dependencies:
   config:
     - field.field.group.ngf_discussion_group.field_ngf_description
+    - field.field.group.ngf_discussion_group.field_ngf_group_visibility
     - field.field.group.ngf_discussion_group.field_ngf_interests
     - field.field.group.ngf_discussion_group.field_ngf_introtext
     - field.field.group.ngf_discussion_group.field_ngf_logo
     - group.type.ngf_discussion_group
     - image.style.thumbnail
   module:
+    - field_group
     - image
-    - paragraphs
+third_party_settings:
+  field_group:
+    group_ngf_group_accordion:
+      children:
+        - group_ngf_group_accordion_gi
+        - group_ngf_group_accordion_se
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        label: 'Tabs Wrapper'
+        direction: vertical
+        id: ''
+        classes: ''
+      label: 'Tabs Wrapper'
+      region: content
+    group_ngf_group_accordion_gi:
+      children:
+        - label
+        - field_ngf_logo
+        - field_ngf_introtext
+      parent_name: group_ngf_group_accordion
+      weight: 0
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        required_fields: true
+        description: ''
+      label: 'General Information'
+      region: content
+    group_ngf_group_accordion_se:
+      children:
+        - field_ngf_group_visibility
+        - field_ngf_interests
+      parent_name: group_ngf_group_accordion
+      weight: 1
+      format_type: tab
+      format_settings:
+        label: Settings
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+        description: ''
+      label: Settings
+      region: content
 id: group.ngf_discussion_group.default
 targetEntityType: group
 bundle: ngf_discussion_group
 mode: default
 content:
-  field_ngf_description:
-    type: entity_reference_paragraphs
+  field_ngf_group_visibility:
     weight: 3
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
+    settings: {  }
     third_party_settings: {  }
+    type: options_select
     region: content
   field_ngf_interests:
     weight: 4
@@ -39,7 +82,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_ngf_introtext:
-    weight: 2
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -47,7 +90,7 @@ content:
     type: string_textarea
     region: content
   field_ngf_logo:
-    weight: 1
+    weight: 3
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -56,12 +99,13 @@ content:
     region: content
   label:
     type: string_textfield
-    weight: 0
+    weight: 2
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_ngf_description: true
   path: true
   uid: true

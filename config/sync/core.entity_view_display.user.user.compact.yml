@@ -19,6 +19,9 @@ content:
   flag_ngf_follow_user:
     weight: 10
     region: content
+  groups_view:
+    weight: 100
+    region: content
   user_picture:
     type: image
     weight: 0

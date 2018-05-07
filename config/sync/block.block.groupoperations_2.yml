@@ -1,0 +1,22 @@
+uuid: b7d89f7b-8647-4000-9bb8-66b7fad69b69
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+  theme:
+    - funkywave
+id: groupoperations_2
+theme: funkywave
+region: footer
+weight: 0
+provider: null
+plugin: group_operations
+settings:
+  id: group_operations
+  label: 'Group operations'
+  provider: group
+  label_display: '0'
+  context_mapping:
+    group: '@group.group_route_context:group'
+visibility: {  }

@@ -8,12 +8,12 @@ dependencies:
     - views
 name: media_browser
 label: 'Media browser'
-display: iframe
+display: modal
 display_configuration:
   width: '650'
   height: '500'
-  link_text: 'Select entities'
-  auto_open: true
+  link_text: 'Select Images'
+  auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: tabs
@@ -23,11 +23,11 @@ widgets:
     settings:
       view: media_browser
       view_display: entity_browser_1
-      submit_text: 'Select entities'
+      submit_text: 'Select Images'
       auto_select: false
     uuid: 3cd0420c-0d93-4190-8475-ba9587a85635
     weight: 1
-    label: Files
+    label: Images
     id: view
   06f90a95-be60-4a7f-a807-50491f10d8a2:
     settings:

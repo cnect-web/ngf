@@ -17,7 +17,7 @@ content:
   field_media_video_file:
     type: file_video
     weight: 0
-    label: visually_hidden
+    label: hidden
     settings:
       muted: false
       width: 640

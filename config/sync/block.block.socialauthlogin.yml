@@ -1,0 +1,26 @@
+uuid: 4602a5f0-be85-41df-a81a-afd67117033b
+langcode: en
+status: true
+dependencies:
+  module:
+    - social_auth
+    - system
+  theme:
+    - funkywave
+id: socialauthlogin
+theme: funkywave
+region: content
+weight: -1
+provider: null
+plugin: social_auth_login
+settings:
+  id: social_auth_login
+  label: 'Social Media Login'
+  provider: social_auth
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/register\r\n/user/login"
+    negate: false
+    context_mapping: {  }

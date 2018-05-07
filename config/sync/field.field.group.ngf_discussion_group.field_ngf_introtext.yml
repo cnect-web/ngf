@@ -9,9 +9,9 @@ id: group.ngf_discussion_group.field_ngf_introtext
 field_name: field_ngf_introtext
 entity_type: group
 bundle: ngf_discussion_group
-label: Introtext
-description: ''
-required: false
+label: Description
+description: 'Brief description of the group'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

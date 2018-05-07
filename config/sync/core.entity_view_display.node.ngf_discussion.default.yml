@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.ngf_discussion.field_comments
     - field.field.node.ngf_discussion.field_ngf_cover_image
     - field.field.node.ngf_discussion.field_ngf_description
     - field.field.node.ngf_discussion.field_ngf_interests
@@ -11,7 +10,6 @@ dependencies:
     - field.field.node.ngf_discussion.field_ngf_related_content
     - node.type.ngf_discussion
   module:
-    - comment
     - entity_reference_revisions
     - user
 id: node.ngf_discussion.default
@@ -19,15 +17,6 @@ targetEntityType: node
 bundle: ngf_discussion
 mode: default
 content:
-  field_comments:
-    weight: 108
-    label: above
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    type: comment_default
-    region: content
   field_ngf_cover_image:
     type: entity_reference_entity_view
     weight: 105
@@ -48,7 +37,7 @@ content:
     region: content
   field_ngf_interests:
     weight: 107
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -63,7 +52,7 @@ content:
     region: content
   field_ngf_related_content:
     weight: 106
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }

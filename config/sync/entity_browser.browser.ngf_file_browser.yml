@@ -12,8 +12,8 @@ display: modal
 display_configuration:
   width: '650'
   height: '500'
-  link_text: 'Select entities'
-  auto_open: true
+  link_text: 'Select Files'
+  auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: tabs
@@ -23,19 +23,20 @@ widgets:
     settings:
       view: ngf_file_media_browser
       view_display: entity_browser_1
-      submit_text: 'Select entities'
+      submit_text: 'Select Files'
       auto_select: false
     uuid: 93f94b93-de48-44a8-a989-9401f91c4beb
     weight: 1
     label: Files
     id: view
-  2ea91987-a8d9-4eb8-a1f6-de961ade580a:
+  7cb4e39a-f845-4371-855e-c00e5661af91:
     settings:
-      upload_location: 'public://'
-      multiple: true
-      submit_text: 'Select files'
       extensions: 'jpg jpeg gif png txt doc xls pdf ppt pps odt ods odp'
-    uuid: 2ea91987-a8d9-4eb8-a1f6-de961ade580a
+      media_type: file
+      upload_location: 'public://'
+      multiple: '1'
+      submit_text: 'Select files'
+    uuid: 7cb4e39a-f845-4371-855e-c00e5661af91
     weight: 3
     label: Upload
-    id: upload
+    id: media_file_upload

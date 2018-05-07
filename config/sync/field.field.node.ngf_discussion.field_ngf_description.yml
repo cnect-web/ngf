@@ -28,8 +28,8 @@ settings:
     target_bundles:
       ngf_text: ngf_text
       ngf_file: ngf_file
-      ngf_video: ngf_video
       ngf_image: ngf_image
+      ngf_video: ngf_video
     target_bundles_drag_drop:
       ngf_text:
         enabled: true
@@ -37,10 +37,13 @@ settings:
       ngf_file:
         enabled: true
         weight: 4
-      ngf_video:
-        enabled: true
-        weight: 5
       ngf_image:
         enabled: true
         weight: 5
+      ngf_video:
+        enabled: true
+        weight: 5
+      embedded:
+        enabled: true
+        weight: 6
 field_type: entity_reference_revisions

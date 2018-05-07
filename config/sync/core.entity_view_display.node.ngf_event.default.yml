@@ -28,7 +28,7 @@ mode: default
 content:
   field_ngf_address:
     weight: 112
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
@@ -43,7 +43,7 @@ content:
     region: content
   field_ngf_description:
     weight: 105
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -52,7 +52,7 @@ content:
     region: content
   field_ngf_event_end_date:
     weight: 103
-    label: above
+    label: hidden
     settings:
       format_type: medium
       timezone_override: ''
@@ -61,7 +61,7 @@ content:
     region: content
   field_ngf_event_start_date:
     weight: 102
-    label: above
+    label: hidden
     settings:
       format_type: medium
       timezone_override: ''
@@ -70,7 +70,7 @@ content:
     region: content
   field_ngf_interests:
     weight: 110
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
@@ -78,14 +78,14 @@ content:
     region: content
   field_ngf_introtext:
     weight: 106
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_ngf_location:
     weight: 111
-    label: above
+    label: hidden
     settings:
       output_format: wkt
     third_party_settings: {  }
@@ -93,7 +93,7 @@ content:
     region: content
   field_ngf_registration_link:
     weight: 109
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -105,7 +105,7 @@ content:
     region: content
   field_ngf_venue:
     weight: 104
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

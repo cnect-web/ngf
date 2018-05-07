@@ -12,4 +12,13 @@ audience: member
 group_type: ngf_discussion_group
 permissions_ui: true
 permissions:
-  - 'leave group'
+  0: 'leave group'
+  1: 'view group'
+  4: 'create group_node:ngf_discussion entity'
+  5: 'delete own group_node:ngf_discussion entity'
+  6: 'update own group_node:ngf_discussion entity'
+  7: 'view group_node:ngf_discussion entity'
+  8: 'create group_node:ngf_event entity'
+  9: 'delete own group_node:ngf_event entity'
+  10: 'update own group_node:ngf_event entity'
+  11: 'view group_node:ngf_event entity'

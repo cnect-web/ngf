@@ -42,7 +42,7 @@ Feature: Site is installed
 
   Scenario: License agreements.
     Given I am at "user/register"
-    Then I should see the text "By clicking 'Sign up' or using one of the Social Auth Login buttons you agree to our Terms and Conditions and that you have read our Data Use Policy."
+    Then I should see the text "By clicking 'Sign up' or using one of the Social Media Login buttons you agree to our Terms and Conditions and that you have read our Data Use Policy."
     And I should see the link "Terms and Conditions"
     And I should see the link "Data Use Policy"
     And I should see the button "Sign Up"

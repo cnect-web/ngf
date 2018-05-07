@@ -1,4 +1,4 @@
-@api
+@api @javascript
 Feature: Groups
   As a developer
   I want to know if the group functionalities are working
