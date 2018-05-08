@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0550dc6922e434b4a5df8de1176ce687",
+    "content-hash": "bfe841f117232855e9220e2ac9807574",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -740,12 +740,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "6ecb8c56b5e76918acd8b68102b90cfaeffe6bb6"
+                "reference": "7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/6ecb8c56b5e76918acd8b68102b90cfaeffe6bb6",
-                "reference": "6ecb8c56b5e76918acd8b68102b90cfaeffe6bb6",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e",
+                "reference": "7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e",
                 "shasum": ""
             },
             "require": {
@@ -760,7 +760,7 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-05-02T11:20:53+00:00"
+            "time": "2018-05-08T09:32:36+00:00"
         },
         {
             "name": "commerceguys/addressing",
@@ -4400,6 +4400,72 @@
             }
         },
         {
+            "name": "drupal/inline_entity_form",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/inline_entity_form",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/inline_entity_form-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "185ffc28a7b68d19cce057855d1c111f1741a3ea"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/entity_reference_revisions": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1477868343",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "bojanz",
+                    "homepage": "https://www.drupal.org/user/86106"
+                },
+                {
+                    "name": "dawehner",
+                    "homepage": "https://www.drupal.org/user/99340"
+                },
+                {
+                    "name": "rszrama",
+                    "homepage": "https://www.drupal.org/user/49344"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
+                }
+            ],
+            "description": "Provides a widget for inline management (creation, modification, removal) of referenced entities.",
+            "homepage": "https://www.drupal.org/project/inline_entity_form",
+            "support": {
+                "source": "http://cgit.drupalcode.org/inline_entity_form"
+            }
+        },
+        {
             "name": "drupal/libraries",
             "version": "3.0.0-alpha1",
             "source": {
@@ -4590,17 +4656,17 @@
         },
         {
             "name": "drupal/message_subscribe",
-            "version": "1.0.0-beta4",
+            "version": "1.0.0-beta5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/message_subscribe",
-                "reference": "8.x-1.0-beta4"
+                "reference": "8.x-1.0-beta5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/message_subscribe-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
-                "shasum": "edd0e7462dddb87021d42ee5a701dc2b19640888"
+                "url": "https://ftp.drupal.org/files/projects/message_subscribe-8.x-1.0-beta5.zip",
+                "reference": "8.x-1.0-beta5",
+                "shasum": "0860e9762afef4353371c0e1270787df9d8a42fd"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -4619,8 +4685,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta4",
-                    "datestamp": "1497650343",
+                    "version": "8.x-1.0-beta5",
+                    "datestamp": "1525719484",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -4850,7 +4916,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/paragraphs",
-                "reference": "966e1c5ad3dc668d6a0ec4421583df74d558e05f"
+                "reference": "be6a91c8aaa1e174d1145c3af9d49944efade49a"
             },
             "require": {
                 "drupal/core": "~8",
@@ -4878,8 +4944,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2+69-dev",
-                    "datestamp": "1525204384",
+                    "version": "8.x-1.2+70-dev",
+                    "datestamp": "1525257484",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -4917,7 +4983,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs"
             },
-            "time": "2018-05-02T10:34:19+00:00"
+            "time": "2018-05-03T12:46:01+00:00"
         },
         {
             "name": "drupal/pathauto",
@@ -5175,17 +5241,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/redirect",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "32916081c436ea325b51bc5b3ec840fa19857cf7"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "ac503fbfbd15523c65f38d8b326e5f2159683cdb"
             },
             "require": {
                 "drupal/core": "~8"
@@ -5196,8 +5262,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1520897880",
+                    "version": "8.x-1.2",
+                    "datestamp": "1525419785",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5940,7 +6006,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.0",
-                    "datestamp": "1523707084",
+                    "datestamp": "1523708073",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

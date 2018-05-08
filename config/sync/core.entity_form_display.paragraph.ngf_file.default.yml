@@ -3,12 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.ngf_file_browser
     - field.field.paragraph.ngf_file.field_ngf_file
     - paragraphs.paragraphs_type.ngf_file
   module:
     - content_moderation
-    - entity_browser
+    - inline_entity_form
 id: paragraph.ngf_file.default
 targetEntityType: paragraph
 bundle: ngf_file
@@ -17,15 +16,12 @@ content:
   field_ngf_file:
     weight: 101
     settings:
-      entity_browser: ngf_file_browser
-      field_widget_display: label
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      open: false
-      field_widget_display_settings: {  }
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
     third_party_settings: {  }
-    type: entity_browser_entity_reference
+    type: inline_entity_form_simple
     region: content
   moderation_state:
     type: moderation_state_default
