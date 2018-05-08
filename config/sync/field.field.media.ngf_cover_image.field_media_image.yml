@@ -1,30 +1,30 @@
-uuid: f25a2b00-90ba-444b-b136-1c3f31e97968
+uuid: b0c8a501-4979-41a0-b468-fc62dd21440d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.group.field_ngf_logo
-    - group.type.ngf_discussion_group
+    - field.storage.media.field_media_image
+    - media.type.ngf_cover_image
   module:
     - image
-id: group.ngf_discussion_group.field_ngf_logo
-field_name: field_ngf_logo
-entity_type: group
-bundle: ngf_discussion_group
-label: Logo
+id: media.ngf_cover_image.field_media_image
+field_name: field_media_image
+entity_type: media
+bundle: ngf_cover_image
+label: Image
 description: ''
-required: false
-translatable: false
+required: true
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: groups
+  file_directory: '[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''
-  min_resolution: ''
-  alt_field: false
-  alt_field_required: false
+  min_resolution: 640x100
+  alt_field: true
+  alt_field_required: true
   title_field: false
   title_field_required: false
   default_image:
