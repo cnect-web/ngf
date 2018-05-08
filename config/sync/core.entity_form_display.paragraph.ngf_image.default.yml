@@ -3,37 +3,27 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.media_browser
     - field.field.paragraph.ngf_image.field_ngf_image
     - paragraphs.paragraphs_type.ngf_image
   module:
-    - content_moderation
-    - entity_browser
+    - inline_entity_form
 id: paragraph.ngf_image.default
 targetEntityType: paragraph
 bundle: ngf_image
 mode: default
 content:
   field_ngf_image:
-    weight: 101
+    weight: 0
     settings:
-      entity_browser: media_browser
-      field_widget_display: label
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      open: false
-      field_widget_display_settings: {  }
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      override_labels: false
     third_party_settings: {  }
-    type: entity_browser_entity_reference
+    type: inline_entity_form_simple
     region: content
-  moderation_state:
-    type: moderation_state_default
-    weight: 100
-    settings: {  }
-    region: content
-    third_party_settings: {  }
 hidden:
   created: true
+  moderation_state: true
   status: true
   uid: true
