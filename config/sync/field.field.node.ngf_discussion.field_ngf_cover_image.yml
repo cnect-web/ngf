@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_ngf_cover_image
-    - media.type.image
+    - media.type.ngf_cover_image
     - node.type.ngf_discussion
 id: node.ngf_discussion.field_ngf_cover_image
 field_name: field_ngf_cover_image
@@ -20,9 +20,9 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      image: image
+      ngf_cover_image: ngf_cover_image
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: ngf_cover_image
 field_type: entity_reference
