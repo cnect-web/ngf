@@ -60,13 +60,13 @@ content:
     type: paragraphs
     region: content
   field_ngf_event_end_date:
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_ngf_event_start_date:
-    weight: 6
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
