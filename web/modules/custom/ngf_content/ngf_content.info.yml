@@ -1,0 +1,5 @@
+name: 'NGF Content'
+type: module
+description: 'NGF Content'
+core: 8.x
+package: 'NGF'
