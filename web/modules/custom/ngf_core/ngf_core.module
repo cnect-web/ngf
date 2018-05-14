@@ -134,13 +134,20 @@ function ngf_core_node_access(NodeInterface $node, $op, AccountInterface $accoun
  * Implement template_preprocess_node().
  */
 function ngf_core_preprocess_node(&$variables) {
-  $context = \Drupal::service('context.repository');
-  $groupContext = $context->getRuntimeContexts(['@group.group_route_context:group']);
-  $groupContext['@group.group_route_context:group']->getContextData()->getValue();
-
   $node = $variables['elements']['#node'];
   if (isset($node->group)) {
     $variables['group_name'] = $node->group->label();
+    $variables['group_url'] = $node->group->url();
+    $group_logo_uri = $node->group->field_ngf_logo->entity->getFileUri();
+
+    $render = [
+      '#theme' => 'image_style',
+      '#style_name' => 'thumbnail',
+      '#uri' => $group_logo_uri,
+      '#attributes' => ['class' => ['post-info__picture post-info__picture--group responsive']]
+    ];
+
+    $variables['group_logo'] = drupal_render($render);
   }
 }
 
