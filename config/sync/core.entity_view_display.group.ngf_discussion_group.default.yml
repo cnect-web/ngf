@@ -47,6 +47,9 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  group_content_view:
+    weight: 100
+    region: content
   label:
     label: hidden
     type: string

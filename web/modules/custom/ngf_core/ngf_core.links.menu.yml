@@ -1,0 +1,14 @@
+ngf_core.link.discover:
+  title: 'Discover'
+  description: 'Discovery page'
+  parent: main
+  menu_name: main
+  route_name: ngf_core.page.discover
+  weight: 20
+
+user_register.link:
+  title: 'Join'
+  description: 'User registration page'
+  parent: account
+  menu_name: account
+  route_name: user.register

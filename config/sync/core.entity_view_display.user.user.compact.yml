@@ -44,4 +44,5 @@ hidden:
   field_ngf_search_location: true
   field_ngf_search_name: true
   field_ngf_search_position: true
+  groups_view: true
   member_for: true

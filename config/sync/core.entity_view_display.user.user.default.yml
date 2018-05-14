@@ -88,6 +88,9 @@ content:
   flag_ngf_follow_user:
     weight: 10
     region: content
+  groups_view:
+    weight: 100
+    region: content
   member_for:
     weight: 5
     region: content
