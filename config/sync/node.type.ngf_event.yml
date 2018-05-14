@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Event
 type: ngf_event
-description: ''
+description: 'A gathering of individuals engaged in some common interest.'
 help: ''
 new_revision: false
 preview_mode: 1

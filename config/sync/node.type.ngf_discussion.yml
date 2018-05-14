@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Discussion
 type: ngf_discussion
-description: ''
+description: 'A discussion is interactive communication between two or more people.'
 help: ''
 new_revision: false
 preview_mode: 1
