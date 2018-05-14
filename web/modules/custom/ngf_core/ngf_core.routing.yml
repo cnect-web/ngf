@@ -1,0 +1,7 @@
+ngf_core.page.discover:
+  path: '/discover'
+  defaults:
+    _title: 'Discover'
+    _controller: '\Drupal\ngf_core\Controller\DiscoverPageController::content'
+  requirements:
+    _permission: 'access content'
