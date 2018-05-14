@@ -25,8 +25,8 @@ use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\PluginBase;
 use Drupal\views\Views;
 
-define("NGF_GROUP_PUBLIC", 0);
-define("NGF_GROUP_PRIVATE", 1);
+define('NGF_GROUP_PUBLIC', 0);
+define('NGF_GROUP_PRIVATE', 1);
 
 /**
  * Implements hook_help().
@@ -225,7 +225,7 @@ function ngf_core_user_view(array &$build, EntityInterface $entity, EntityViewDi
  * Implements hook_form_alter().
  */
 function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // NGF-65 : Set default tex for registration link and make the field readonly.
+  // NGF-65 : Set default text for registration link and make the field readonly.
   $form['field_ngf_registration_link']['widget'][0]['title']['#attributes']['readonly'] = 'readonly';
   $form['field_ngf_registration_link']['widget'][0]['title']['#value'] = t('Register');
 
