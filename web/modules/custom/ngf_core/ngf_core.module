@@ -207,7 +207,7 @@ function ngf_core_user_view(array &$build, EntityInterface $entity, EntityViewDi
 
     $build['groups_view']['title'] = [
       '#type' => 'markup',
-      '#markup' => '<h2>' . t("My Groups") . '</h2>',
+      '#markup' => '<h2>' . t('My Groups') . '</h2>',
     ];
 
     $build['groups_view']['view'] = [
@@ -252,5 +252,15 @@ function _ngf_content_event_end_date_validate($element, &$form_state) {
         '%end_date' => $form_state->getValue('field_ngf_event_end_date')[0]['value']->format('Y-m-d H:i:s'),
       ])
     );
+  }
+}
+
+/**
+ * Implements hook_taxonomy_term_insert().
+ */
+function ngf_content_taxonomy_term_insert(TermInterface $term) {
+  if ($term->bundle() == 'ngf_interests') {
+    $term->set('field_ngf_creator', \Drupal::currentUser()->id());
+    $term->save();
   }
 }
