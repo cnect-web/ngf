@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "29321e017e91ae6b3ea973cf6ea9c408",
+    "content-hash": "bfde32a77630ec25c11ccb67ac70b373",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -740,12 +740,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "6ecb8c56b5e76918acd8b68102b90cfaeffe6bb6"
+                "reference": "7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/6ecb8c56b5e76918acd8b68102b90cfaeffe6bb6",
-                "reference": "6ecb8c56b5e76918acd8b68102b90cfaeffe6bb6",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e",
+                "reference": "7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e",
                 "shasum": ""
             },
             "require": {
@@ -760,7 +760,33 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-05-02T11:20:53+00:00"
+            "time": "2018-05-08T09:32:36+00:00"
+        },
+        {
+            "name": "cnect-web/ngf_core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/HoracioLopes/ngf_core.git",
+                "reference": "73fbe01f2535085e5aa06ffdc0dc06111ac4a8b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/HoracioLopes/ngf_core/get/73fbe01f2535085e5aa06ffdc0dc06111ac4a8b1.zip",
+                "reference": "73fbe01f2535085e5aa06ffdc0dc06111ac4a8b1",
+                "shasum": ""
+            },
+            "type": "drupal-custom-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Next Generation Futurium Core Functionality",
+            "homepage": "https://bitbucket.org/HoracioLopes/ngf_core/src",
+            "keywords": [
+                "drupal"
+            ],
+            "time": "2018-05-07T11:20:19+00:00"
         },
         {
             "name": "commerceguys/addressing",
@@ -4084,17 +4110,17 @@
         },
         {
             "name": "drupal/fontawesome",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/fontawesome",
-                "reference": "8.x-2.1"
+                "reference": "8.x-2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.1.zip",
-                "reference": "8.x-2.1",
-                "shasum": "fdb44c935091b296e7fb61435f9de0d85c2e2bf7"
+                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.2.zip",
+                "reference": "8.x-2.2",
+                "shasum": "01ccb314a33db936fb18ab570441e1d8c9ab5894"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4105,8 +4131,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.1",
-                    "datestamp": "1523983080",
+                    "version": "8.x-2.2",
+                    "datestamp": "1526243880",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4591,17 +4617,17 @@
         },
         {
             "name": "drupal/message_subscribe",
-            "version": "1.0.0-beta4",
+            "version": "1.0.0-beta5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/message_subscribe",
-                "reference": "8.x-1.0-beta4"
+                "reference": "8.x-1.0-beta5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/message_subscribe-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
-                "shasum": "edd0e7462dddb87021d42ee5a701dc2b19640888"
+                "url": "https://ftp.drupal.org/files/projects/message_subscribe-8.x-1.0-beta5.zip",
+                "reference": "8.x-1.0-beta5",
+                "shasum": "0860e9762afef4353371c0e1270787df9d8a42fd"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -4620,8 +4646,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta4",
-                    "datestamp": "1497650343",
+                    "version": "8.x-1.0-beta5",
+                    "datestamp": "1525719484",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -4851,7 +4877,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/paragraphs",
-                "reference": "be6a91c8aaa1e174d1145c3af9d49944efade49a"
+                "reference": "011dab53cff0986316b5dbe6292c3b857b158634"
             },
             "require": {
                 "drupal/core": "~8",
@@ -4879,8 +4905,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2+70-dev",
-                    "datestamp": "1525257484",
+                    "version": "8.x-1.2+74-dev",
+                    "datestamp": "1526033284",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -4918,7 +4944,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs"
             },
-            "time": "2018-05-03T12:46:01+00:00"
+            "time": "2018-05-11T14:24:08+00:00"
         },
         {
             "name": "drupal/pathauto",
@@ -11829,6 +11855,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "cnect-web/funkywave": 20,
+        "cnect-web/ngf_core": 20,
         "drupal/flag": 15,
         "drupal/message": 5,
         "drupal/message_notify": 10,
