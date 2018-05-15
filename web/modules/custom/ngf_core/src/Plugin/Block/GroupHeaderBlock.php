@@ -44,7 +44,6 @@ class GroupHeaderBlock extends BlockBase {
       $view_modes[$key] = $view_mode['label'] ?? 'Default';
     }
 
-
     $form['view_mode'] = [
       '#title' => 'View mode',
       '#type' => 'select',
