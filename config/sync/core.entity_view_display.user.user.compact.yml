@@ -4,10 +4,15 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_ngf_biography
+    - field.field.user.user.field_ngf_city
+    - field.field.user.user.field_ngf_country
+    - field.field.user.user.field_ngf_first_name
+    - field.field.user.user.field_ngf_interests
+    - field.field.user.user.field_ngf_last_name
+    - field.field.user.user.field_ngf_region
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
     - user
 _core:
   default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
@@ -16,18 +21,27 @@ targetEntityType: user
 bundle: user
 mode: compact
 content:
-  flag_ngf_follow_user:
-    weight: 10
-    region: content
-  user_picture:
-    type: image
+  field_ngf_first_name:
+    type: string
     weight: 0
     region: content
+    label: above
     settings:
-      image_style: thumbnail
-      image_link: content
+      link_to_entity: false
     third_party_settings: {  }
-    label: hidden
+  field_ngf_last_name:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  flag_ngf_follow_user:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_ngf_action_contact: true
   field_ngf_action_invite_to_event: true
@@ -35,9 +49,7 @@ hidden:
   field_ngf_biography: true
   field_ngf_city: true
   field_ngf_country: true
-  field_ngf_first_name: true
   field_ngf_interests: true
-  field_ngf_last_name: true
   field_ngf_region: true
   field_ngf_search_email: true
   field_ngf_search_interests: true
@@ -46,3 +58,4 @@ hidden:
   field_ngf_search_position: true
   groups_view: true
   member_for: true
+  user_picture: true
