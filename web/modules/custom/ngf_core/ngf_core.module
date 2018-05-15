@@ -236,10 +236,10 @@ function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\
   $form['field_ngf_registration_link']['widget'][0]['title']['#value'] = t('Register');
 
   // Add additional validation for end date.
-  $form['field_ngf_event_end_date']['#element_validate'][] = '_ngf_content_event_end_date_validate';
+  $form['field_ngf_event_end_date']['#element_validate'][] = '_ngf_core_event_end_date_validate';
 }
 
-function _ngf_content_event_end_date_validate($element, &$form_state) {
+function _ngf_core_event_end_date_validate($element, &$form_state) {
   // NGF-67: Start date can't be greater than End date.
   $start_date = NULL;
   if (!empty($form_state->getValue('field_ngf_event_start_date')[0]['value'])) {
@@ -264,7 +264,7 @@ function _ngf_content_event_end_date_validate($element, &$form_state) {
 /**
  * Implements hook_taxonomy_term_insert().
  */
-function ngf_content_taxonomy_term_insert(TermInterface $term) {
+function ngf_core_taxonomy_term_insert(TermInterface $term) {
   if ($term->bundle() == 'ngf_interests') {
     $term->set('field_ngf_creator', \Drupal::currentUser()->id());
     $term->save();
