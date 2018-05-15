@@ -18,7 +18,12 @@ class NGFGroupAccessControlHandler extends GroupAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
-    $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
+    if ($entity->hasField('field_ngf_group_visibility')) {
+      $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
+    }
+    else {
+      $groupVisibility = NGF_GROUP_PUBLIC;
+    }
 
     switch ($operation) {
       case 'view':
