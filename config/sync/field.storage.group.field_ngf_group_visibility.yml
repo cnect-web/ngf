@@ -10,14 +10,8 @@ field_name: field_ngf_group_visibility
 entity_type: group
 type: list_integer
 settings:
-  allowed_values:
-    -
-      value: 0
-      label: Public
-    -
-      value: 1
-      label: Private
-  allowed_values_function: ''
+  allowed_values: {  }
+  allowed_values_function: ngf_core_group_visiblity_allowed_values
 module: options
 locked: false
 cardinality: 1
