@@ -66,7 +66,7 @@ function ngf_core_group_operations_alter(&$links, $group) {
  */
 function ngf_core_link_alter(&$variables) {
   $url = $variables['url'];
-  // Alter the login link text to "Sign In"
+  // Alter the login link text to "Sign In".
   if ($url->isRouted() && $url->getRouteName() == 'user.login') {
     $variables['text'] = t('Sign In');
   }
@@ -147,7 +147,7 @@ function ngf_core_preprocess_node(&$variables) {
       '#attributes' => ['class' => ['post-info__picture post-info__picture--group responsive']]
     ];
 
-    $variables['group_logo'] = drupal_render($render);
+    $variables['group_logo'] = \Drupal::service('renderer')->render($render);
   }
 }
 
@@ -178,7 +178,6 @@ function ngf_core_entity_extra_field_info() {
     'weight' => 100,
     'visible' => TRUE,
   ];
-
 
   $extra['user']['user']['display']['groups_view'] = [
     'label' => t('User Groups View'),
