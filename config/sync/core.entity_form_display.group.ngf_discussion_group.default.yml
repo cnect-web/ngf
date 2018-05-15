@@ -10,6 +10,7 @@ dependencies:
     - field.field.group.ngf_discussion_group.field_ngf_introtext
     - group.type.ngf_discussion_group
   module:
+    - inline_entity_form
     - paragraphs
 id: group.ngf_discussion_group.default
 targetEntityType: group
@@ -19,11 +20,12 @@ content:
   field_ngf_cover_image:
     weight: 5
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      override_labels: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: inline_entity_form_simple
     region: content
   field_ngf_description:
     type: entity_reference_paragraphs

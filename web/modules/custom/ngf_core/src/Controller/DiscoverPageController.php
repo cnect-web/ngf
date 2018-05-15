@@ -22,7 +22,7 @@ class DiscoverPageController extends ControllerBase {
 
     // Check if the current user can create groups.
     if ($user->hasPermission('create ngf discussion group group')) {
-      $url = Url::fromUri('internal:/group/add/ngf_discussion_group', array());
+      $url = Url::fromUri('internal:/group/add/ngf_discussion_group', []);
       $link = Link::fromTextAndUrl(t('Create a Group'), $url);
 
       // Add the create group link to the render array.
