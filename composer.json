@@ -179,7 +179,8 @@
                 "Notice: Undefined index: #cardinality": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
             },
             "drupal/twig_extensions": {
-                "Twig_Error_Syntax: The text to be translated with trans can only contain references to simple variables in Twig_Extensions_TokenParser_Trans->checkTransString()": "https://www.drupal.org/files/issues/2018-04-24/twig_extension-trans_error-2895187-16.patch"
+                "Twig_Error_Syntax: The text to be translated with trans can only contain references to simple variables in Twig_Extensions_TokenParser_Trans->checkTransString()": "https://www.drupal.org/files/issues/2018-04-24/twig_extension-trans_error-2895187-16.patch",
+                "PHP intl extension missing": "https://pastebin.com/raw/LCZD67Qv"
             },
             "drupal/entity_browser": {
                 "Provide MediaFileUpload widget" : "https://www.drupal.org/files/issues/entity_browser-media-file-upload-2922885-3.patch"
