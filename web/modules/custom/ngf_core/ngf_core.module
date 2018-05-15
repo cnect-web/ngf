@@ -48,14 +48,14 @@ function ngf_core_help($route_name, RouteMatchInterface $route_match) {
 function ngf_core_group_operations_alter(&$links, $group) {
 
   // Move the Create Post action to top.
-  if (isset($links['gnode-create-ngf_post'])) {
+  if (!empty($links['gnode-create-ngf_post'])) {
     $links['gnode-create-ngf_post']['weight']--;
   }
 
   // Modify the action link title.
   foreach ($links as $key => $link) {
     $link_title_arg = $link['title']->getArguments();
-    if (isset($link_title_arg['@type'])) {
+    if (!empty($link_title_arg['@type'])) {
       $links[$key]['title'] = t('New @type', $link_title_arg);
     }
   }
@@ -82,7 +82,7 @@ function ngf_core_link_alter(&$variables) {
  */
 function ngf_core_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   // Alter the registration form button text to "Sign Up".
-  if (isset($form['actions']['submit'])) {
+  if (!empty($form['actions']['submit'])) {
     $form['actions']['submit']['#value'] = t('Sign Up');
   }
 
@@ -120,7 +120,7 @@ function ngf_core_node_load(&$nodes) {
  */
 function ngf_core_node_access(NodeInterface $node, $op, AccountInterface $account) {
   if ($op === 'view') {
-    if (isset($node->group) && $group = $node->group) {
+    if (!empty($node->group) && $group = $node->group) {
       $groupVisibility = $group->get('field_ngf_group_visibility')->getString();
       // @todo: allow to override per node?
       if ($groupVisibility == NGF_GROUP_PRIVATE && !$group->getMember($account)) {
@@ -135,7 +135,7 @@ function ngf_core_node_access(NodeInterface $node, $op, AccountInterface $accoun
  */
 function ngf_core_preprocess_node(&$variables) {
   $node = $variables['elements']['#node'];
-  if (isset($node->group)) {
+  if (!empty($node->group)) {
     $variables['group_name'] = $node->group->label();
     $variables['group_url'] = $node->group->url();
     $group_logo_uri = $node->group->field_ngf_logo->entity->getFileUri();
@@ -170,22 +170,22 @@ function ngf_core_group_content_info_alter(array &$definitions) {
  * Implements hook_entity_extra_field_info().
  */
 function ngf_core_entity_extra_field_info() {
-  $extra = array();
+  $extra = [];
 
-  $extra['group']['ngf_discussion_group']['display']['group_content_view'] = array(
+  $extra['group']['ngf_discussion_group']['display']['group_content_view'] = [
     'label' => t('Group Content View'),
     'description' => t('List of group contents'),
     'weight' => 100,
     'visible' => TRUE,
-  );
+  ];
 
 
-  $extra['user']['user']['display']['groups_view'] = array(
+  $extra['user']['user']['display']['groups_view'] = [
     'label' => t('User Groups View'),
     'description' => t('List of groups user belongs to'),
     'weight' => 100,
     'visible' => TRUE,
-  );
+  ];
 
   return $extra;
 }
