@@ -67,7 +67,12 @@ class NGFGroupMembershipController extends GroupMembershipController {
   public function join(GroupInterface $group) {
     /** @var \Drupal\group\Plugin\GroupContentEnablerInterface $plugin */
     $plugin = $group->getGroupType()->getContentPlugin('group_membership');
-    $groupVisibility = $group->get('field_ngf_group_visibility')->getString();
+    if ($group->hasField('field_ngf_group_visibility')) {
+      $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
+    }
+    else {
+      $groupVisibility = NGF_GROUP_PUBLIC;
+    }
 
     // Membership default to active unless private group.
     if ($groupVisibility == NGF_GROUP_PRIVATE && !$group->getMember($this->currentUser)) {
