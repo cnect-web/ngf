@@ -12,6 +12,7 @@ dependencies:
     - field.field.user.user.field_ngf_region
     - field.field.user.user.user_picture
   module:
+    - image
     - text
     - user
 _core:
@@ -22,30 +23,14 @@ bundle: user
 mode: default
 content:
   field_ngf_biography:
-    weight: 18
+    type: text_default
+    weight: 1
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
-  field_ngf_city:
-    weight: 20
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_ngf_country:
-    weight: 6
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_ngf_first_name:
-    weight: 8
+    weight: 2
     label: above
     settings:
       link_to_entity: false
@@ -53,28 +38,20 @@ content:
     type: string
     region: content
   field_ngf_interests:
-    weight: 7
+    type: entity_reference_label
+    weight: 4
+    region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_ngf_last_name:
-    weight: 9
+    weight: 3
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_ngf_region:
-    weight: 19
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
     region: content
   field_user_picture:
     type: image
@@ -86,13 +63,22 @@ content:
     third_party_settings: {  }
     label: hidden
   flag_ngf_follow_user:
-    weight: 10
-    region: content
-  groups_view:
-    weight: 100
-    region: content
-  member_for:
     weight: 5
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
 hidden:
-  user_picture: true
+  field_ngf_city: true
+  field_ngf_country: true
+  field_ngf_region: true
+  groups_view: true
+  member_for: true
