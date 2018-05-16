@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fdd6e6553b2b2136070b3e52f0f6ea4",
+    "content-hash": "a4c76dd49f89e9dbd5de01f5db41907d",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -740,12 +740,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e"
+                "reference": "39301cc3fad190dea9707556fa5b1356d27f2ff7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e",
-                "reference": "7fcd80c2bd5b5f29dcb4ea95cc43bca93f235a2e",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/39301cc3fad190dea9707556fa5b1356d27f2ff7",
+                "reference": "39301cc3fad190dea9707556fa5b1356d27f2ff7",
                 "shasum": ""
             },
             "require": {
@@ -760,7 +760,7 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-05-08T09:32:36+00:00"
+            "time": "2018-05-15T13:11:00+00:00"
         },
         {
             "name": "commerceguys/addressing",
@@ -4084,17 +4084,17 @@
         },
         {
             "name": "drupal/fontawesome",
-            "version": "2.1.0",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/fontawesome",
-                "reference": "8.x-2.1"
+                "reference": "8.x-2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.1.zip",
-                "reference": "8.x-2.1",
-                "shasum": "fdb44c935091b296e7fb61435f9de0d85c2e2bf7"
+                "url": "https://ftp.drupal.org/files/projects/fontawesome-8.x-2.2.zip",
+                "reference": "8.x-2.2",
+                "shasum": "01ccb314a33db936fb18ab570441e1d8c9ab5894"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -4105,8 +4105,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.1",
-                    "datestamp": "1523983080",
+                    "version": "8.x-2.2",
+                    "datestamp": "1526243880",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4916,7 +4916,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/paragraphs",
-                "reference": "be6a91c8aaa1e174d1145c3af9d49944efade49a"
+                "reference": "011dab53cff0986316b5dbe6292c3b857b158634"
             },
             "require": {
                 "drupal/core": "~8",
@@ -4944,8 +4944,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2+70-dev",
-                    "datestamp": "1525257484",
+                    "version": "8.x-1.2+74-dev",
+                    "datestamp": "1526033284",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -4983,7 +4983,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs"
             },
-            "time": "2018-05-03T12:46:01+00:00"
+            "time": "2018-05-11T14:24:08+00:00"
         },
         {
             "name": "drupal/pathauto",
@@ -5982,7 +5982,8 @@
                     }
                 },
                 "patches_applied": {
-                    "Twig_Error_Syntax: The text to be translated with trans can only contain references to simple variables in Twig_Extensions_TokenParser_Trans->checkTransString()": "https://www.drupal.org/files/issues/2018-04-24/twig_extension-trans_error-2895187-16.patch"
+                    "Twig_Error_Syntax: The text to be translated with trans can only contain references to simple variables in Twig_Extensions_TokenParser_Trans->checkTransString()": "https://www.drupal.org/files/issues/2018-04-24/twig_extension-trans_error-2895187-16.patch",
+                    "PHP intl extension missing": "https://pastebin.com/raw/LCZD67Qv"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6079,7 +6080,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.0",
-                    "datestamp": "1523708073",
+                    "datestamp": "1523707084",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -9898,16 +9899,16 @@
         },
         {
             "name": "zendframework/zend-feed",
-            "version": "2.9.0",
+            "version": "2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-feed.git",
-                "reference": "abe88686124d492e0a2a84656f15e5482bfbe030"
+                "reference": "15a6ca78dd8f67b687e4f902657b4e420a8fd1e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/abe88686124d492e0a2a84656f15e5482bfbe030",
-                "reference": "abe88686124d492e0a2a84656f15e5482bfbe030",
+                "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/15a6ca78dd8f67b687e4f902657b4e420a8fd1e0",
+                "reference": "15a6ca78dd8f67b687e4f902657b4e420a8fd1e0",
                 "shasum": ""
             },
             "require": {
@@ -9955,7 +9956,7 @@
                 "feed",
                 "zf"
             ],
-            "time": "2017-12-04T17:59:38+00:00"
+            "time": "2018-05-14T21:45:18+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
