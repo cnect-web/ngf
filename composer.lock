@@ -740,12 +740,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "39301cc3fad190dea9707556fa5b1356d27f2ff7"
+                "reference": "d166c70abee2f96800f351499fe2f7175f30b29d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/39301cc3fad190dea9707556fa5b1356d27f2ff7",
-                "reference": "39301cc3fad190dea9707556fa5b1356d27f2ff7",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/d166c70abee2f96800f351499fe2f7175f30b29d",
+                "reference": "d166c70abee2f96800f351499fe2f7175f30b29d",
                 "shasum": ""
             },
             "require": {
@@ -760,7 +760,7 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-05-15T13:11:00+00:00"
+            "time": "2018-05-16T08:25:55+00:00"
         },
         {
             "name": "commerceguys/addressing",
