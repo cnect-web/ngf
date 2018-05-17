@@ -25,6 +25,9 @@ use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
 define('NGF_GROUP_PUBLIC', 0);
 define('NGF_GROUP_PRIVATE', 1);
 
@@ -158,6 +161,20 @@ function ngf_core_entity_extra_field_info() {
     'visible' => TRUE,
   ];
 
+  $extra['group']['ngf_discussion_group']['display']['members_and_followers'] = [
+    'label' => t('Members and Followers'),
+    'description' => t('Links to members and followers'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  $extra['group']['ngf_discussion_group']['display']['join_and_follow'] = [
+    'label' => t('Join And Follow'),
+    'description' => t('Join and Follow buttons'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
   $extra['user']['user']['display']['groups_view'] = [
     'label' => t('User Groups View'),
     'description' => t('List of groups user belongs to'),
@@ -172,6 +189,8 @@ function ngf_core_entity_extra_field_info() {
  * Implements hook_ENTITY_TYPE_view().
  */
 function ngf_core_group_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+
+  // View of group content.
   if ($display->getComponent('group_content_view') && $view_mode === 'full') {
     $build['group_content_view'] = [
       '#type' => 'view',
@@ -181,6 +200,84 @@ function ngf_core_group_view(array &$build, EntityInterface $entity, EntityViewD
         $entity->id(),
       ],
     ];
+  }
+
+  // Members and follower counts.
+  if ($display->getComponent('members_and_followers') && $view_mode === 'full') {
+    $items = [];
+    /**
+     * @todo : count followers.
+     * @todo : link to proper place.
+     */
+    // Member count.
+    $member_count = count($entity->getMembers());
+    $items['group-members'] = Link::fromTextAndUrl(
+      \Drupal::translation()->formatPlural($member_count, '1 member', '@count members', array('@count' => $member_count)),
+      Url::fromUri('http://google.pt/')
+    )
+    ->toRenderable();
+    $items['group-members']['#attributes']['class'][] = 'group-members-count';
+
+    // Followers count.
+    $follower_count = 324;
+    $items['group-followers'] = Link::fromTextAndUrl(
+      \Drupal::translation()->formatPlural($follower_count, '1 follower', '@count followers', array('@count' => $follower_count)),
+      Url::fromUri('http://reddit.com/')
+    )
+    ->toRenderable();
+    $items['group-followers']['#attributes']['class'][] = 'follow-group';
+
+    $build['members_and_followers']['#title'] = '';
+    $build['members_and_followers']['#theme'] = 'item_list';
+    $build['members_and_followers']['#items'] = $items;
+    $build['members_and_followers']['#attributes']['class'][] = 'inline';
+  }
+
+  // Join and follow group buttons.
+  if ($display->getComponent('join_and_follow') && $view_mode === 'full') {
+    /** @var \Drupal\group\Entity\GroupInterface $group */
+    $links = $items = [];
+
+    $group = $entity;
+
+    // Retrieve the operations from the installed content plugins.
+    foreach ($group->getGroupType()->getInstalledContentPlugins() as $plugin) {
+      if ($plugin->getPluginId() == 'group_membership') {
+        /** @var \Drupal\group\Plugin\GroupContentEnablerInterface $plugin */
+        $links += $plugin->getGroupOperations($group);
+      }
+    }
+
+    if ($links) {
+      // Allow modules to alter the collection of gathered links.
+      \Drupal::moduleHandler()->alter('group_operations', $links, $group);
+
+      // Sort the operations by weight.
+      uasort($links, '\Drupal\Component\Utility\SortArray::sortByWeightElement');
+
+      foreach ($links as $key => $value) {
+        $value['title'] = str_replace(' group', '', $value['title']);
+        $items[$key]['#title'] = $value['title'];
+        $items[$key]['#url'] = $value['url'];
+        $items[$key]['#type'] = 'link';
+        $items[$key]['#attributes']['class'][] = $key;
+        $items[$key]['#attributes']['class'][] = "btn";
+        $items[$key]['#attributes']['class'][] = "button-link";
+      }
+
+      // Follow flag dummy button.
+      // @todo: replace with real flag.
+      $items['group-follow'] = Link::fromTextAndUrl(t('Follow'), Url::fromUri('http://ngf.dev.europa.eu/'))->toRenderable();
+      $items['group-follow']['#attributes']['class'][] = 'follow-group';
+      $items['group-follow']['#attributes']['class'][] = "btn";
+      $items['group-follow']['#attributes']['class'][] = "button-link";
+
+      // Create an operations element with all of the links.
+      $build['join_and_follow']['#title'] = '';
+      $build['join_and_follow']['#theme'] = 'item_list';
+      $build['join_and_follow']['#items'] = $items;
+      $build['join_and_follow']['#attributes']['class'][] = 'inline';
+    }
   }
 }
 
@@ -243,7 +340,7 @@ function _ngf_core_event_end_date_validate($element, &$form_state) {
 /**
  * Implements hook_taxonomy_term_insert().
  */
-function ngf_core_taxonomy_term_insert(TermInterface $term) {
+function ngf_core_taxonomy_term_insert(Drupal\Core\Entity\EntityInterface $term) {
   if ($term->bundle() == 'ngf_interests') {
     $term->set('field_ngf_creator', \Drupal::currentUser()->id());
     $term->save();

@@ -15,7 +15,7 @@ class DiscoverPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function content() {
+  public function discoverPage() {
 
     $render_array = [];
     $user = \Drupal::currentUser();
