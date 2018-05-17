@@ -6,8 +6,8 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\ngf_user_profile\Helper\UserHelper;
-use Drupal\ngf_user_profile\Manager\userManager;
-use Drupal\message\Entity\Message;
+use Drupal\ngf_user_profile\Manager\UserFeedManager;
+use Drupal\ngf_user_profile\Manager\UserManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -29,15 +29,26 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
   protected $userManager;
 
   /**
+   * The user feed manager service.
+   *
+   * @var Drupal\ngf_user_profile\Manager\userFeedManager
+   */
+  protected $userFeedManager;
+
+  /**
    * UserProfileController constructor.
    *
    * @param Drupal\ngf_user_profile\Manager\UserManager $user_manager
    *   The user manager.
+   * @param Drupal\ngf_user_profile\Manager\UserFeedManager $user_feed_manager
+   *   The user manager.
    */
   public function __construct(
-    userManager $user_manager
+    userManager $user_manager,
+    UserFeedManager $user_feed_manager
   ) {
     $this->userManager = $user_manager;
+    $this->userFeedManager = $user_feed_manager;
   }
 
   /**
@@ -45,7 +56,8 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('ngf_user_profile.user_manager')
+      $container->get('ngf_user_profile.user_manager'),
+      $container->get('ngf_user_profile.user_feed_manager')
     );
   }
 
@@ -184,6 +196,37 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
     $notification_manager = $this->container->get('ngf_user_profile.notification_manager');
     $notification_manager->removeNotification($message_id);
     return $this->redirect('ngf_user_profile.user_notifications');
+  }
+
+  public function feed() {
+    $this->userFeedManager->getContent();
+    exit('feed');
+//    $arr = [];
+//    for($i = 1; $i <= 100; $i++) {
+//      $arr[] = $i;
+//    }
+//
+//    $page = pager_find_page();
+//    $num_per_page = 10;
+//    $offset = $num_per_page * $page;
+//    $result = array_slice($arr, $offset, $num_per_page);
+//
+//    // Now that we have the total number of results, initialize the pager.
+//    pager_default_initialize(count($arr), $num_per_page);
+//
+//    // Create a render array with the search results.
+//    $render = [];
+//    $render[] = [
+//      '#theme' => 'item_list',
+//      '#items' => $result,
+//    ];
+//
+//    // Finally, add the pager to the render array, and return.
+//    $render[] = [
+//      '#type' => 'pager',
+//    ];
+//    return $render;
+
   }
 
 }

@@ -740,12 +740,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "d166c70abee2f96800f351499fe2f7175f30b29d"
+                "reference": "d41914df5c590c44c5f7164484af9a0b7eedf269"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/d166c70abee2f96800f351499fe2f7175f30b29d",
-                "reference": "d166c70abee2f96800f351499fe2f7175f30b29d",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/d41914df5c590c44c5f7164484af9a0b7eedf269",
+                "reference": "d41914df5c590c44c5f7164484af9a0b7eedf269",
                 "shasum": ""
             },
             "require": {
@@ -760,7 +760,7 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-05-16T08:25:55+00:00"
+            "time": "2018-05-16T14:42:32+00:00"
         },
         {
             "name": "commerceguys/addressing",
@@ -4916,7 +4916,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/paragraphs",
-                "reference": "011dab53cff0986316b5dbe6292c3b857b158634"
+                "reference": "c899469a460936339216093462442eb2e5a0f7c9"
             },
             "require": {
                 "drupal/core": "~8",
@@ -4927,12 +4927,12 @@
                 "drupal/ctools": "3.x-dev",
                 "drupal/diff": "~1.0",
                 "drupal/entity_browser": "1.x-dev",
-                "drupal/entity_usage": "1.x-dev",
+                "drupal/entity_usage": "2.x-dev",
                 "drupal/field_group": "~1.0",
                 "drupal/inline_entity_form": "~1.0",
                 "drupal/paragraphs-paragraphs_library": "*",
                 "drupal/replicate": "~1.0",
-                "drupal/search_api": "*",
+                "drupal/search_api": "~1.0",
                 "drupal/search_api_db": "*"
             },
             "suggest": {
@@ -4944,8 +4944,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2+74-dev",
-                    "datestamp": "1526033284",
+                    "version": "8.x-1.2+75-dev",
+                    "datestamp": "1526048584",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -4983,7 +4983,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs"
             },
-            "time": "2018-05-11T14:24:08+00:00"
+            "time": "2018-05-16T13:30:41+00:00"
         },
         {
             "name": "drupal/pathauto",
@@ -6080,7 +6080,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.0",
-                    "datestamp": "1523707084",
+                    "datestamp": "1523708073",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

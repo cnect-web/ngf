@@ -40,8 +40,11 @@ content:
       override_labels: false
       label_singular: ''
       label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
     third_party_settings: {  }
-    type: inline_entity_form_simple
+    type: inline_entity_form_complex
     region: content
   field_ngf_description:
     type: paragraphs
