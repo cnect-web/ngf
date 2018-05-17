@@ -205,10 +205,7 @@ function ngf_core_group_view(array &$build, EntityInterface $entity, EntityViewD
   // Members and follower counts.
   if ($display->getComponent('members_and_followers') && $view_mode === 'full') {
     $items = [];
-    /**
-     * @todo : count followers.
-     * @todo : link to proper place.
-     */
+    // @todo : links to proper places.
     // Member count.
     $member_count = count($entity->getMembers());
     $items['group-members'] = Link::fromTextAndUrl(
@@ -219,7 +216,10 @@ function ngf_core_group_view(array &$build, EntityInterface $entity, EntityViewD
     $items['group-members']['#attributes']['class'][] = 'group-members-count';
 
     // Followers count.
-    $follower_count = 324;
+    $flag_service = \Drupal::service('flag');
+    $flaggings_count = \Drupal::service('flag.count')->getEntityFlagCounts($entity);
+    $follower_count = isset($flaggings_count['ngf_follow_group']) ? $flaggings_count['ngf_follow_group'] : 0;
+
     $items['group-followers'] = Link::fromTextAndUrl(
       \Drupal::translation()->formatPlural($follower_count, '1 follower', '@count followers', array('@count' => $follower_count)),
       Url::fromUri('http://reddit.com/')
@@ -265,12 +265,19 @@ function ngf_core_group_view(array &$build, EntityInterface $entity, EntityViewD
         $items[$key]['#attributes']['class'][] = "button-link";
       }
 
-      // Follow flag dummy button.
-      // @todo: replace with real flag.
-      $items['group-follow'] = Link::fromTextAndUrl(t('Follow'), Url::fromUri('http://ngf.dev.europa.eu/'))->toRenderable();
-      $items['group-follow']['#attributes']['class'][] = 'follow-group';
-      $items['group-follow']['#attributes']['class'][] = "btn";
-      $items['group-follow']['#attributes']['class'][] = "button-link";
+      // Follow group flag.
+      // @todo: add css classes.
+      $items['group-follow'] = [
+        '#lazy_builder' => [
+          'flag.link_builder:build',
+          [
+            $entity->getEntityTypeId(),
+            $entity->id(),
+            'ngf_follow_group',
+          ],
+        ],
+        '#create_placeholder' => TRUE,
+      ];
 
       // Create an operations element with all of the links.
       $build['join_and_follow']['#title'] = '';
