@@ -1,0 +1,83 @@
+uuid: 54447265-bc76-49a8-9629-0cca9983d008
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.teaser
+    - field.field.group.ngf_event.field_ngf_address
+    - field.field.group.ngf_event.field_ngf_cover_image
+    - field.field.group.ngf_event.field_ngf_description
+    - field.field.group.ngf_event.field_ngf_event_end_date
+    - field.field.group.ngf_event.field_ngf_event_start_date
+    - field.field.group.ngf_event.field_ngf_interests
+    - field.field.group.ngf_event.field_ngf_introtext
+    - field.field.group.ngf_event.field_ngf_location
+    - field.field.group.ngf_event.field_ngf_registration_link
+    - field.field.group.ngf_event.field_ngf_venue
+    - group.type.ngf_event
+  module:
+    - address
+    - datetime
+id: group.ngf_event.teaser
+targetEntityType: group
+bundle: ngf_event
+mode: teaser
+content:
+  field_ngf_address:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_ngf_cover_image:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_ngf_event_end_date:
+    weight: 4
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ngf_event_start_date:
+    weight: 3
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_ngf_introtext:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  label:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  changed: true
+  created: true
+  field_ngf_description: true
+  field_ngf_interests: true
+  field_ngf_location: true
+  field_ngf_registration_link: true
+  field_ngf_venue: true
+  uid: true

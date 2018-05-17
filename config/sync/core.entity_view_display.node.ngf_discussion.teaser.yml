@@ -35,6 +35,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_comments: true
   field_ngf_description: true
   field_ngf_interests: true
   field_ngf_related_content: true

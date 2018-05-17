@@ -340,7 +340,7 @@ function _ngf_core_event_end_date_validate($element, &$form_state) {
 /**
  * Implements hook_taxonomy_term_insert().
  */
-function ngf_core_taxonomy_term_insert(Drupal\Core\Entity\EntityInterface $term) {
+function ngf_core_taxonomy_term_insert(Drupal\taxonomy\Entity\Term $term) {
   if ($term->bundle() == 'ngf_interests') {
     $term->set('field_ngf_creator', \Drupal::currentUser()->id());
     $term->save();
