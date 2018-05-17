@@ -65,7 +65,11 @@ class NGFGroupMembershipController extends GroupMembershipController {
    *   A group join form.
    */
   public function join(GroupInterface $group) {
+    /**
+     * @todo: check if the below code is still needed for membership controlling.
+     */
     /** @var \Drupal\group\Plugin\GroupContentEnablerInterface $plugin */
+    /*
     $plugin = $group->getGroupType()->getContentPlugin('group_membership');
     if ($group->hasField('field_ngf_group_visibility')) {
       $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
@@ -95,6 +99,17 @@ class NGFGroupMembershipController extends GroupMembershipController {
       ]);
       return $this->entityFormBuilder->getForm($group_content, 'group-join');
     }
+    */
+    $plugin = $group->getGroupType()->getContentPlugin('group_membership');
+
+    // Pre-populate a group membership with the current user.
+    $group_content = GroupContent::create([
+      'type' => $plugin->getContentTypeConfigId(),
+      'gid' => $group->id(),
+      'entity_id' => $this->currentUser->id(),
+    ]);
+
+    return $this->entityFormBuilder->getForm($group_content, 'group-join');
 
   }
 

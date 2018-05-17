@@ -165,7 +165,8 @@
                 "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch",
                 "Members duplicated in group members list": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch",
                 "Change 'Add' and 'Create' labels and paths to make be more intuitive & follow Drupal patterns" : "https://www.drupal.org/files/issues/2683039-28.patch",
-                "Get a token of a node's parent group to create a pathauto pattern" : "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch"
+                "Get a token of a node's parent group to create a pathauto pattern" : "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch",
+                "How to redirect to the owning group after adding a gnode?": "https://www.drupal.org/files/issues/2817109-by-rachel_norfolk-ericras-How-to-redir.patch"
             },
             "drupal/geocoder": {
                 "using reverse geocoding behind a proxy": "https://www.drupal.org/files/issues/using_reverse_geocoding_behind_proxy-2796277-3.patch"
