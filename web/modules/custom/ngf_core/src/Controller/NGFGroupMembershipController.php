@@ -65,6 +65,9 @@ class NGFGroupMembershipController extends GroupMembershipController {
    *   A group join form.
    */
   public function join(GroupInterface $group) {
+    /**
+     * @todo: check if the below code is still needed for membership controlling.
+     */
     /** @var \Drupal\group\Plugin\GroupContentEnablerInterface $plugin */
     /*
     $plugin = $group->getGroupType()->getContentPlugin('group_membership');
