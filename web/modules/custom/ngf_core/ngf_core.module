@@ -210,7 +210,7 @@ function ngf_core_group_view(array &$build, EntityInterface $entity, EntityViewD
     $member_count = count($entity->getMembers());
     $items['group-members'] = Link::fromTextAndUrl(
       \Drupal::translation()->formatPlural($member_count, '1 member', '@count members', array('@count' => $member_count)),
-      Url::fromUri('http://google.pt/')
+      Url::fromUri('https://google.com/')
     )
     ->toRenderable();
     $items['group-members']['#attributes']['class'][] = 'group-members-count';
@@ -222,7 +222,7 @@ function ngf_core_group_view(array &$build, EntityInterface $entity, EntityViewD
 
     $items['group-followers'] = Link::fromTextAndUrl(
       \Drupal::translation()->formatPlural($follower_count, '1 follower', '@count followers', array('@count' => $follower_count)),
-      Url::fromUri('http://reddit.com/')
+      Url::fromUri('https://google.com/')
     )
     ->toRenderable();
     $items['group-followers']['#attributes']['class'][] = 'follow-group';
