@@ -11,8 +11,8 @@ dependencies:
 id: ngf_group_members
 label: 'Group Members'
 module: views
-description: ''
-tag: ''
+description: 'List of users that belong to a group'
+tag: NGF_Groups
 base_table: group_content_field_data
 base_field: id
 core: 8.x

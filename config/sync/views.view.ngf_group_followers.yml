@@ -12,8 +12,8 @@ dependencies:
 id: ngf_group_followers
 label: 'Group Followers'
 module: views
-description: ''
-tag: ''
+description: 'List of users that follow a group'
+tag: NGF_Groups
 base_table: groups_field_data
 base_field: id
 core: 8.x

@@ -12,8 +12,8 @@ _core:
 id: ngf_groups
 label: Groups
 module: views
-description: ''
-tag: ''
+description: 'List of groups'
+tag: NGF_Groups
 base_table: groups_field_data
 base_field: id
 core: 8.x

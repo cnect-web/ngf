@@ -11,8 +11,8 @@ dependencies:
 id: ngf_group_nodes
 label: 'Group Nodes'
 module: views
-description: ''
-tag: ''
+description: 'List of nodes that belong to a group'
+tag: NGF_Groups
 base_table: node_field_data
 base_field: nid
 core: 8.x

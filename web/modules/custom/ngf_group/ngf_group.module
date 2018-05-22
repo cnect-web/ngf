@@ -334,7 +334,7 @@ function ngf_group_user_view(array &$build, EntityInterface $entity, EntityViewD
 
     $build['groups_view']['view'] = [
       '#type' => 'view',
-      '#name' => 'group_user_groups',
+      '#name' => 'ngf_group_user_groups',
       '#display_id' => 'block_1',
       '#arguments' => [
         $entity->id(),

@@ -1,4 +1,4 @@
-uuid: 4ae9d214-a14c-4b76-98cd-c6bea972084e
+uuid: ddd2f999-c234-406b-9eb9-8281413ae616
 langcode: en
 status: true
 dependencies:
@@ -7,11 +7,11 @@ dependencies:
   module:
     - group
     - user
-id: group_user_groups
-label: 'Group User Groups'
+id: ngf_group_user_groups
+label: 'Group user groups'
 module: views
-description: ''
-tag: ''
+description: 'List of groups a user belongs to'
+tag: NGF_Groups
 base_table: groups_field_data
 base_field: id
 core: 8.x
