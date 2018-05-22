@@ -1,4 +1,4 @@
-uuid: dbddf702-2e43-459e-b749-2747a0b8e276
+uuid: bee77983-af93-49ac-8abe-6bd55de55280
 langcode: en
 status: true
 dependencies:
@@ -8,8 +8,8 @@ dependencies:
     - group
     - node
     - user
-id: group_nodes_view
-label: 'Group Nodes View'
+id: ngf_group_nodes
+label: 'Group Nodes'
 module: views
 description: ''
 tag: ''

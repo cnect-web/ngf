@@ -199,7 +199,7 @@ function ngf_group_group_view(array &$build, EntityInterface $entity, EntityView
     if ($groupVisibility == NGF_GROUP_PUBLIC || $active_member) {
       $build['group_content_view'] = [
         '#type' => 'view',
-        '#name' => 'group_nodes_view',
+        '#name' => 'ngf_group_nodes',
         '#display_id' => 'block_1',
         '#arguments' => [
           $entity->id(),
