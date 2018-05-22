@@ -3,6 +3,7 @@
 namespace Drupal\ngf_group\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\views\Views;
@@ -50,60 +51,73 @@ class GroupPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function publicationsPage() {
+  public function publicationsPage(EntityInterface $group) {
     // Add the group header.
-    $render_array['header'] = $this->groupHeader();
+    $render_array['header'] = $this->groupHeader($group);
     return $render_array;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function eventsPage() {
+  public function eventsPage(EntityInterface $group) {
     // Add the group header.
-    $render_array['header'] = $this->groupHeader();
+    $render_array['header'] = $this->groupHeader($group);
     return $render_array;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function libraryPage() {
+  public function libraryPage(EntityInterface $group) {
     // Add the group header.
-    $render_array['header'] = $this->groupHeader();
+    $render_array['header'] = $this->groupHeader($group);
     return $render_array;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function sharedContentPage() {
+  public function sharedContentPage(EntityInterface $group) {
     // Add the group header.
-    $render_array['header'] = $this->groupHeader();
+    $render_array['header'] = $this->groupHeader($group);
     return $render_array;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function membersPage() {
+  public function membersPage(EntityInterface $group) {
+
     // Add the group header.
-    $render_array['header'] = $this->groupHeader();
+    $render_array['header'] = $this->groupHeader($group);
 
     // Add the page title to the render array.
     $render_array[] = [
       '#type' => 'markup',
       '#markup' => '<h1>' . t("Members") .'</h1>',
     ];
+
+    // Add the groups view to the render array.
+    $render_array['ngf_group_members']['view'] = [
+      '#type' => 'view',
+      '#name' => 'ngf_group_members',
+      '#display_id' => 'block_1',
+      '#arguments' => [
+        $group->id(),
+      ],
+    ];
+
     return $render_array;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function followersPage() {
-    $render_array = [];
-    $render_array['header'] = $this->groupHeader();
+  public function followersPage(EntityInterface $group) {
+
+    // Add the group header.
+    $render_array['header'] = $this->groupHeader($group);
 
     // Add the page title to the render array.
     $render_array[] = [
@@ -111,25 +125,25 @@ class GroupPageController extends ControllerBase {
       '#markup' => '<h1>' . t("Followers") .'</h1>',
     ];
 
+    // Add the groups view to the render array.
+    $render_array['ngf_group_followers']['view'] = [
+      '#type' => 'view',
+      '#name' => 'ngf_group_followers',
+      '#display_id' => 'block_1',
+      '#arguments' => [
+        $group->id(),
+      ],
+    ];
+
     return $render_array;
   }
 
   /**
    * {@inheritdoc}
    */
-  public function groupHeader() {
-    $group_header = NULL;
-    $route_match = \Drupal::routeMatch();
-    if (($route = $route_match->getRouteObject()) && ($parameters = $route->getOption('parameters'))) {
-      foreach ($parameters as $name => $options) {
-        if (isset($options['type']) && strpos($options['type'], 'entity:') === 0) {
-          $entity = $route_match->getParameter($name);
-          $view_builder = \Drupal::entityManager()->getViewBuilder('group');
-          $group_header = $view_builder->view($entity, 'header');
-        }
-      }
-    }
-    return $group_header;
+  public function groupHeader(EntityInterface $group) {
+    $view_builder = \Drupal::entityManager()->getViewBuilder('group');
+    return $view_builder->view($group, 'header');
   }
 
 }

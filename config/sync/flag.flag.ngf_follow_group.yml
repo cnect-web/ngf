@@ -14,7 +14,7 @@ weight: 0
 flag_short: 'Follow group'
 flag_long: ''
 flag_message: ''
-unflag_short: 'Unfollow flag'
+unflag_short: 'Unfollow group'
 unflag_long: ''
 unflag_message: ''
 unflag_denied_text: ''
