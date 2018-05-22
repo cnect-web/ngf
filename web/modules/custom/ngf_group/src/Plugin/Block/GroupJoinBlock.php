@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_core\Plugin\Block;
+namespace Drupal\ngf_group\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;

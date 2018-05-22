@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_core\Entity\Access;
+namespace Drupal\ngf_group\Entity\Access;
 
 use Drupal\group\Entity\Access\GroupAccessControlHandler;
 use Drupal\group\Access\GroupAccessResult;
@@ -18,18 +18,14 @@ class NGFGroupAccessControlHandler extends GroupAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
-    if ($entity->hasField('field_ngf_group_visibility')) {
-      $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
-    }
-    else {
-      $groupVisibility = NGF_GROUP_PUBLIC;
-    }
-
     switch ($operation) {
       case 'view':
-        // Block access if group is private and user is not a member.
-        if ($groupVisibility == NGF_GROUP_PRIVATE && !$entity->getMember($account)) {
-          return AccessResult::forbidden();
+        $groupVisibility = NGF_GROUP_PUBLIC;
+        if ($entity->hasField('field_ngf_group_visibility')) {
+          $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
+        }
+        if ($groupVisibility == NGF_GROUP_SECRET) {
+          return GroupAccessResult::forbidden();
         }
         return GroupAccessResult::allowedIfHasGroupPermission($entity, $account, 'view group');
 

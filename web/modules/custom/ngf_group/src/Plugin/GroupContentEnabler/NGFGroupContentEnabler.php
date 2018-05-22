@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_core\Plugin\GroupContentEnabler;
+namespace Drupal\ngf_group\Plugin\GroupContentEnabler;
 
 use Drupal\group\Access\GroupAccessResult;
 use Drupal\group\Entity\GroupInterface;

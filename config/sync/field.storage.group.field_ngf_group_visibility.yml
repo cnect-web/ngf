@@ -11,7 +11,7 @@ entity_type: group
 type: list_integer
 settings:
   allowed_values: {  }
-  allowed_values_function: ngf_core_group_visiblity_allowed_values
+  allowed_values_function: ngf_group_visiblity_allowed_values
 module: options
 locked: false
 cardinality: 1

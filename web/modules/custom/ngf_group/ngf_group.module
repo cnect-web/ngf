@@ -1,0 +1,403 @@
+<?php
+
+/**
+ * @file
+ * Contains ngf_group.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\node\NodeInterface;
+use Drupal\group\Entity\GroupContent;
+
+use Drupal\Core\Access\AccessResult;
+
+use Drupal\views\Form\ViewsForm;
+use Drupal\views\Plugin\views\area\AreaPluginBase;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\PluginBase;
+use Drupal\views\Views;
+
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\field\Entity\FieldStorageConfig;
+
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+define('NGF_GROUP_PUBLIC', 0);
+define('NGF_GROUP_PRIVATE', 1);
+define('NGF_GROUP_SECRET', 2);
+
+/**
+ * Implements hook_help().
+ */
+function ngf_group_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ngf_group module.
+    case 'help.page.ngf_group':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('NGF Group') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Alter the group menu.
+ */
+function ngf_group_group_operations_alter(&$links, $group) {
+
+  // Move the Create Post action to top.
+  if (!empty($links['gnode-create-ngf_post'])) {
+    $links['gnode-create-ngf_post']['weight']--;
+  }
+
+  // Modify the action link title.
+  foreach ($links as $key => $link) {
+    $link_title_arg = $link['title']->getArguments();
+    if (!empty($link_title_arg['@type'])) {
+      $links[$key]['title'] = t('New @type', $link_title_arg);
+    }
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function ngf_group_link_alter(&$variables) {
+  $url = $variables['url'];
+
+  // Alter the Group Nodes tab title.
+  if ($url->isRouted() && $url->getRouteName() == 'view.group_nodes.page_1') {
+    $variables['text'] = t('Content');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_group_form_group_ngf_discussion_group_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Alter the submit button to something more friendly.
+  $form['actions']['submit']['#value'] = t('Create group');
+}
+
+/**
+ * Implement hook_node_load().
+ */
+function ngf_group_node_load(&$nodes) {
+  foreach ($nodes as $nid => &$node) {
+    $groups = GroupContent::loadByEntity($node);
+    if (!empty($groups)) {
+      $group = array_pop($groups)->getGroup();
+      $node->group = $group;
+    }
+  }
+}
+
+/**
+ * Implement hook_node_access().
+ */
+function ngf_group_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  if ($op === 'view') {
+    if (!empty($node->group) && $group = $node->group) {
+      $groupVisibility = NGF_GROUP_PUBLIC;
+      if ($entity->hasField('field_ngf_group_visibility')) {
+        $groupVisibility = $group->get('field_ngf_group_visibility')->getString();
+      }
+      // @todo: allow to override per node?
+      if ($groupVisibility != NGF_GROUP_PUBLIC && !$group->getMember($account)) {
+        return AccessResult::forbidden();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function ngf_group_entity_type_alter(array &$entity_types) {
+  $entity_types['group']->setHandlerClass('access', \Drupal\ngf_group\Entity\Access\NGFGroupAccessControlHandler::class);
+  //$entity_types['group_content']->setHandlerClass('access', \Drupal\ngf_group\Entity\Access\NGFGroupContentAccessControlHandler::class);
+}
+
+/**
+ * Implements hook_group_content_info_alter().
+ */
+function ngf_group_group_content_info_alter(array &$definitions) {
+  //$definitions['group_membership']['class'] = 'Drupal\ngf_group\Plugin\GroupContentEnabler\NGFGroupContentEnabler';
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function ngf_group_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['group']['ngf_discussion_group']['display']['group_content_view'] = [
+    'label' => t('Group Content View'),
+    'description' => t('List of group contents'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  $extra['group']['ngf_discussion_group']['display']['members_and_followers'] = [
+    'label' => t('Members and Followers'),
+    'description' => t('Links to members and followers'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  $extra['group']['ngf_discussion_group']['display']['join_and_follow'] = [
+    'label' => t('Join And Follow'),
+    'description' => t('Join and Follow buttons'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  $extra['group']['ngf_discussion_group']['display']['group_tabs'] = [
+    'label' => t('Group Tabs'),
+    'description' => t('Group Tabs'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  $extra['user']['user']['display']['groups_view'] = [
+    'label' => t('User Groups View'),
+    'description' => t('List of groups user belongs to'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function ngf_group_group_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+
+  $groupVisibility = NGF_GROUP_PUBLIC;
+  if ($entity->hasField('field_ngf_group_visibility')) {
+    $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
+  }
+
+  // View of group content.
+  if ($display->getComponent('group_content_view')) {
+
+    $user = \Drupal::currentUser();
+    $membership = $entity->getMember($user);
+    // @todo: Check why banned is returning active as a state.
+    $active_member = $membership->getState()->label() == 'Active';
+
+    // Only show group content view if user has an active membership.
+    if ($groupVisibility == NGF_GROUP_PUBLIC || $active_member) {
+      $build['group_content_view'] = [
+        '#type' => 'view',
+        '#name' => 'group_nodes_view',
+        '#display_id' => 'block_1',
+        '#arguments' => [
+          $entity->id(),
+        ],
+      ];
+    }
+  }
+
+  // Members and follower counts.
+  if ($display->getComponent('members_and_followers')) {
+    $items = [];
+    // @todo : links to proper places.
+
+    // Member count.
+    $member_count = count($entity->getMembers());
+    $items['group-members'] = Link::fromTextAndUrl(
+      \Drupal::translation()->formatPlural($member_count, '1 member', '@count members', array('@count' => $member_count)),
+      Url::fromRoute('ngf_group.page.members', ['group' => $entity->id()])
+    )
+    ->toRenderable();
+    $items['group-members']['#attributes']['class'][] = 'group-members-count';
+
+    // Followers count.
+    $flag_service = \Drupal::service('flag');
+    $flaggings_count = \Drupal::service('flag.count')->getEntityFlagCounts($entity);
+    $follower_count = isset($flaggings_count['ngf_follow_group']) ? $flaggings_count['ngf_follow_group'] : 0;
+
+    $items['group-followers'] = Link::fromTextAndUrl(
+      \Drupal::translation()->formatPlural($follower_count, '1 follower', '@count followers', array('@count' => $follower_count)),
+      Url::fromRoute('ngf_group.page.followers', ['group' => $entity->id()])
+    )
+    ->toRenderable();
+    $items['group-followers']['#attributes']['class'][] = 'follow-group';
+
+    $build['members_and_followers']['#title'] = '';
+    $build['members_and_followers']['#theme'] = 'item_list';
+    $build['members_and_followers']['#items'] = $items;
+    $build['members_and_followers']['#attributes']['class'][] = 'inline';
+  }
+
+  // Join and follow group buttons.
+  if ($display->getComponent('join_and_follow')) {
+    /** @var \Drupal\group\Entity\GroupInterface $group */
+    $links = $items = [];
+
+    $group = $entity;
+
+    // Retrieve the operations from the installed content plugins.
+    foreach ($group->getGroupType()->getInstalledContentPlugins() as $plugin) {
+      if ($plugin->getPluginId() == 'group_membership') {
+        /** @var \Drupal\group\Plugin\GroupContentEnablerInterface $plugin */
+        $links += $plugin->getGroupOperations($group);
+      }
+    }
+
+    if ($links) {
+      // Allow modules to alter the collection of gathered links.
+      \Drupal::moduleHandler()->alter('group_operations', $links, $group);
+
+      // Sort the operations by weight.
+      uasort($links, '\Drupal\Component\Utility\SortArray::sortByWeightElement');
+
+      foreach ($links as $key => $value) {
+        $value['title'] = str_replace(' group', '', $value['title']);
+        $items[$key]['#title'] = $value['title'];
+        $items[$key]['#url'] = $value['url'];
+        $items[$key]['#type'] = 'link';
+        $items[$key]['#attributes']['class'][] = $key;
+        $items[$key]['#attributes']['class'][] = "btn";
+        $items[$key]['#attributes']['class'][] = "button-link";
+      }
+
+      // Remove the join group link for non-public groups.
+      if ($groupVisibility != NGF_GROUP_PUBLIC) {
+        unset($items['group-join']);
+      }
+
+      // Follow group flag.
+      // @todo: add css classes.
+      if (!\Drupal::currentUser()->isAnonymous()) {
+        $items['group-follow'] = [
+          '#lazy_builder' => [
+            'flag.link_builder:build',
+            [
+              $entity->getEntityTypeId(),
+              $entity->id(),
+              'ngf_follow_group',
+            ],
+          ],
+          '#create_placeholder' => TRUE,
+        ];
+      }
+
+      // Create an operations element with all of the links.
+      $build['join_and_follow']['#title'] = '';
+      $build['join_and_follow']['#theme'] = 'item_list';
+      $build['join_and_follow']['#items'] = $items;
+      $build['join_and_follow']['#attributes']['class'][] = 'inline';
+    }
+  }
+
+  // Group tabs.
+  if ($display->getComponent('group_tabs')) {
+    if ($group = $entity) {
+      $links = [];
+
+      $links['publications'] = Link::fromTextAndUrl(t("Publications"), Url::fromRoute('ngf_group.page.publications', ['group' => $group->id()]));
+      $links['events'] = Link::fromTextAndUrl(t("Events"), Url::fromRoute('ngf_group.page.events', ['group' => $group->id()]));
+      $links['library'] = Link::fromTextAndUrl(t("Library"), Url::fromRoute('ngf_group.page.library', ['group' => $group->id()]));
+      $links['shared-content'] = Link::fromTextAndUrl(t("Shared Content"), Url::fromRoute('ngf_group.page.shared', ['group' => $group->id()]));
+
+      $build['group_tabs']['#title'] = '';
+      $build['group_tabs']['#theme'] = 'item_list';
+      $build['group_tabs']['#items'] = $links;
+      $build['group_tabs']['#attributes']['class'][] = 'inline';
+      $build['group_tabs']['#attributes']['class'][] = 'group-tabs';
+      $build['group_tabs']['#attributes']['class'][] = 'tabs';
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function ngf_group_user_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($display->getComponent('groups_view') && $view_mode === 'full') {
+
+    $build['groups_view']['title'] = [
+      '#type' => 'markup',
+      '#markup' => '<h2>' . t('My Groups') . '</h2>',
+    ];
+
+    $build['groups_view']['view'] = [
+      '#type' => 'view',
+      '#name' => 'group_user_groups',
+      '#display_id' => 'block_1',
+      '#arguments' => [
+        $entity->id(),
+      ],
+    ];
+  }
+}
+
+/**
+ * Set dynamic allowed values for the group visibility field.
+ *
+ * @param \Drupal\field\Entity\FieldStorageConfig $definition
+ *   The field definition.
+ * @param \Drupal\Core\Entity\ContentEntityInterface|null $entity
+ *   The entity being created if applicable.
+ * @param bool $cacheable
+ *   Boolean indicating if the results are cacheable.
+ *
+ * @return array
+ *   An array of possible key and value options.
+ *
+ * @see options_allowed_values()
+ */
+function ngf_group_visiblity_allowed_values(FieldStorageConfig $definition, ContentEntityInterface $entity = NULL, $cacheable){
+  return [
+    NGF_GROUP_PUBLIC => t("Public"),
+    NGF_GROUP_PRIVATE => t("Private"),
+    NGF_GROUP_SECRET => t("Secret")
+  ];
+}
+
+/**
+ * Sets the default value for the group visibility field.
+ *
+ * @param \Drupal\Core\Entity\ContentEntityInterface $entity
+ *   The entity being created.
+ * @param \Drupal\Core\Field\FieldDefinitionInterface $definition
+ *   The field definition.
+ *
+ * @return array
+ *   An array of default value keys with each entry keyed with the “value” key.
+ *
+ * @see \Drupal\Core\Field\FieldConfigBase::getDefaultValue()
+ */
+function ngf_group_visiblity_default_value(ContentEntityInterface $entity, FieldDefinitionInterface $definition) {
+  $default = NGF_GROUP_PUBLIC;
+
+  return [
+    ['value' => $default],
+  ];
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function ngf_group_menu_local_tasks_alter(&$data, $route_name) {
+  // Remove useless group tabs.
+  if ($route_name == 'entity.group.canonical' || strpos($route_name, 'ngf_group.page.') !== FALSE) {
+    unset($data['tabs'][0]['group.content']);
+    unset($data['tabs'][0]['views_view:view.group_banned_members.page_1']);
+    unset($data['tabs'][0]['views_view:view.group_members.page_1']);
+    unset($data['tabs'][0]['views_view:view.group_nodes.page_1']);
+    unset($data['tabs'][0]['views_view:view.group_pending_members.page_1']);
+  }
+}
+

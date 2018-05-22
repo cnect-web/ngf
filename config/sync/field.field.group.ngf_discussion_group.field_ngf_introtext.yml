@@ -9,7 +9,7 @@ id: group.ngf_discussion_group.field_ngf_introtext
 field_name: field_ngf_introtext
 entity_type: group
 bundle: ngf_discussion_group
-label: Introtext
+label: 'About this group'
 description: ''
 required: false
 translatable: false
