@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_core\Entity\Access;
+namespace Drupal\ngf_group\Entity\Access;
 
 use Drupal\group\Entity\Access\GroupContentAccessControlHandler;
 use Drupal\group\Entity\GroupContentType;

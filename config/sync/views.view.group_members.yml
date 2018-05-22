@@ -1,7 +1,9 @@
 uuid: d3d8bb4d-c794-4890-9d54-d5c453dbbfa4
 langcode: en
-status: true
+status: false
 dependencies:
+  config:
+    - field.storage.group_content.group_roles
   module:
     - group
     - user
@@ -705,7 +707,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+      tags:
+        - 'config:field.storage.group_content.group_roles'
   page_1:
     display_plugin: page
     id: page_1
@@ -732,4 +735,5 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-      tags: {  }
+      tags:
+        - 'config:field.storage.group_content.group_roles'

@@ -5,7 +5,6 @@ core: 8.x
 package: NGF
 
 dependencies:
-  - group
   - social_auth
   - social_auth_facebook
   - social_auth_google

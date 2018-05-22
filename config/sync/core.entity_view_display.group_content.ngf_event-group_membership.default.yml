@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.group_content.ngf_event-group_membership.group_membership_state
     - field.field.group_content.ngf_event-group_membership.group_roles
     - group.content_type.ngf_event-group_membership
 id: group_content.ngf_event-group_membership.default
@@ -10,6 +11,14 @@ targetEntityType: group_content
 bundle: ngf_event-group_membership
 mode: default
 content:
+  group_membership_state:
+    label: above
+    type: entity_reference_label
+    settings:
+      link: false
+    weight: -3
+    third_party_settings: {  }
+    region: content
   group_roles:
     label: above
     type: entity_reference_label

@@ -16,6 +16,6 @@ description: ''
 required: true
 translatable: false
 default_value: {  }
-default_value_callback: ngf_core_group_visiblity_default_value
+default_value_callback: ngf_group_visiblity_default_value
 settings: {  }
 field_type: list_integer

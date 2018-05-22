@@ -1,20 +1,20 @@
-uuid: dbddf702-2e43-459e-b749-2747a0b8e276
+uuid: 6e8ef541-a376-47fc-ab91-0b03a3089d55
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
+    - core.entity_view_mode.user.compact
+    - group.content_type.group_content_type_2a5a42d65981e
   module:
     - group
-    - node
     - user
-id: group_nodes_view
-label: 'Group Nodes View'
+id: ngf_group_members
+label: 'Group Members'
 module: views
-description: ''
-tag: ''
-base_table: node_field_data
-base_field: nid
+description: 'List of users that belong to a group'
+tag: NGF_Groups
+base_table: group_content_field_data
+base_field: id
 core: 8.x
 display:
   default:
@@ -24,9 +24,8 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
-        options:
-          perm: 'access content'
+        type: none
+        options: {  }
       cache:
         type: tag
         options: {  }
@@ -72,19 +71,13 @@ display:
       style:
         type: default
       row:
-        type: 'entity:node'
-        options:
-          relationship: none
-          view_mode: teaser
+        type: fields
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          settings:
-            link_to_entity: true
-          plugin_id: field
-          relationship: none
+        rendered_entity:
+          id: rendered_entity
+          table: users
+          field: rendered_entity
+          relationship: gc__user
           group_type: group
           admin_label: ''
           label: ''
@@ -120,7 +113,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -128,85 +121,56 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+          view_mode: compact
+          entity_type: user
+          plugin_id: rendered_entity
       filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-      title: 'Group Nodes View'
+        type:
+          id: type
+          table: group_content_field_data
+          field: type
+          value:
+            group_content_type_2a5a42d65981e: group_content_type_2a5a42d65981e
+          entity_type: group_content
+          entity_field: type
+          plugin_id: bundle
+      sorts: {  }
+      title: Members
       header: {  }
       footer: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'This group has no content yet.'
-            format: basic_html
-          plugin_id: text
+      empty: {  }
       relationships:
-        group_content:
-          id: group_content
-          table: node_field_data
-          field: group_content
+        gc__group:
+          id: gc__group
+          table: group_content_field_data
+          field: gc__group
           relationship: none
           group_type: group
-          admin_label: 'Content group content'
+          admin_label: 'Group content Group'
           required: false
           group_content_plugins:
-            'group_node:article': '0'
-            'group_node:ngf_discussion': '0'
-            'group_node:ngf_event': '0'
-            'group_node:page': '0'
-          entity_type: node
-          plugin_id: group_content_to_entity_reverse
+            'subgroup:ngf_discussion_group': '0'
+            'subgroup:ngf_event': '0'
+          entity_type: group_content
+          plugin_id: group_content_to_entity
+        gc__user:
+          id: gc__user
+          table: group_content_field_data
+          field: gc__user
+          relationship: none
+          group_type: group
+          admin_label: 'Group content User'
+          required: false
+          group_content_plugins:
+            group_membership: group_membership
+          entity_type: group_content
+          plugin_id: group_content_to_entity
       arguments:
         gid:
           id: gid
           table: group_content_field_data
           field: gid
-          relationship: group_content
+          relationship: none
           group_type: group
           admin_label: ''
           default_action: default
@@ -242,14 +206,13 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - route
         - url
         - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.user.user.compact'
+        - 'config:core.entity_view_display.user.user.default'
   block_1:
     display_plugin: block
     id: block_1
@@ -257,14 +220,14 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
+      block_category: NGF_Groups
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - route
         - url
         - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
+      tags:
+        - 'config:core.entity_view_display.user.user.compact'
+        - 'config:core.entity_view_display.user.user.default'

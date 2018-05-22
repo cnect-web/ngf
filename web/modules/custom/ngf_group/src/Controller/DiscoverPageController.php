@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_core\Controller;
+namespace Drupal\ngf_group\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;

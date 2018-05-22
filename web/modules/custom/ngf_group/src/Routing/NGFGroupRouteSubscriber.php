@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_core\Routing;
+namespace Drupal\ngf_group\Routing;
 
 use Drupal\group\Entity\GroupInterface;
 use Drupal\node\Entity\NodeType;
@@ -11,7 +11,7 @@ use Symfony\Component\Routing\RouteCollection;
 /**
  * Listens to the dynamic route events.
  */
-class NGFCoreRouteSubscriber extends RouteSubscriberBase {
+class NGFGroupRouteSubscriber extends RouteSubscriberBase {
 
   /**
    * {@inheritdoc}
@@ -26,22 +26,35 @@ class NGFCoreRouteSubscriber extends RouteSubscriberBase {
    */
   protected function alterRoutes(RouteCollection $collection) {
     if ($route = $collection->get('user.login')) {
-      $route->setDefault("_title_callback", '\Drupal\ngf_core\Routing\NGFCoreRouteSubscriber::loginTitle');
+      $route->setDefault("_title_callback", '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::loginTitle');
     }
 
     if ($route = $collection->get('entity.group_content.create_form')) {
-      $route->setDefault("_title_callback", '\Drupal\ngf_core\Routing\NGFCoreRouteSubscriber::gcCreateFormTitle');
+      $route->setDefault("_title_callback", '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::gcCreateFormTitle');
     }
 
+/*
     // Switch group paths controllers.
     if ($route = $collection->get('entity.group.join')) {
-      $route->setDefault('_controller', '\Drupal\ngf_core\Controller\NGFGroupMembershipController::join');
+      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\NGFGroupMembershipController::join');
     }
 
+    if ($route = $collection->get('entity.group_content.approve_form')) {
+      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\NGFGroupMembershipController::approveMembership');
+    }
+
+    if ($route = $collection->get('entity.group_content.reject_form')) {
+      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\NGFGroupMembershipController::rejectMembership');
+    }
+
+    if ($route = $collection->get('entity.group_content.ban_form')) {
+      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\NGFGroupMembershipController::banMembership');
+    }
     // Unset membership request route.
     if ($route = $collection->get('entity.group.request_membership')) {
       $collection->remove('entity.group.request_membership');
     }
+*/
   }
 
   /**
