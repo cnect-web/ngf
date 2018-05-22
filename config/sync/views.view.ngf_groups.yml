@@ -1,4 +1,4 @@
-uuid: 3a266cbc-ce7c-4a95-9227-2112f1f2e6dd
+uuid: eabe18a7-4cf0-4085-9afa-635eff98e547
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     - options
 _core:
   default_config_hash: a2mCii6GoVWFlH3Fr9rPOlhGWKDCOpqHqD57XIMDlLc
-id: groups
+id: ngf_groups
 label: Groups
 module: views
 description: ''
