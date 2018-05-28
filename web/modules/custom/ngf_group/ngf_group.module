@@ -6,10 +6,10 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
-
-use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+/*
+use Drupal\Core\Session\AccountInterface;
 use Drupal\node\NodeInterface;
 use Drupal\group\Entity\GroupContent;
 
@@ -21,12 +21,11 @@ use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\PluginBase;
 use Drupal\views\Views;
 
-use Drupal\Core\Entity\ContentEntityInterface;
+*/
 use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\field\Entity\FieldStorageConfig;
-
-use Drupal\Core\Url;
-use Drupal\Core\Link;
+use Drupal\ngf_group\Entity\Decorator\NGFGroup;
 
 define('NGF_GROUP_PUBLIC', 0);
 define('NGF_GROUP_PRIVATE', 1);
@@ -105,13 +104,10 @@ function ngf_group_node_load(&$nodes) {
  */
 function ngf_group_node_access(NodeInterface $node, $op, AccountInterface $account) {
   if ($op === 'view') {
-    if (!empty($node->group) && $group = $node->group) {
-      $groupVisibility = NGF_GROUP_PUBLIC;
-      if ($entity->hasField('field_ngf_group_visibility')) {
-        $groupVisibility = $group->get('field_ngf_group_visibility')->getString();
-      }
+    if (!empty($node->group) && $group = $node->group && $group->bundle() == 'ngf_discussion_group') {
+      $gD = new NGFGroup($group);
       // @todo: allow to override per node?
-      if ($groupVisibility != NGF_GROUP_PUBLIC && !$group->getMember($account)) {
+      if (!$gD->isPublic() && !$group->getMember($account)) {
         return AccessResult::forbidden();
       }
     }
@@ -181,142 +177,74 @@ function ngf_group_entity_extra_field_info() {
  * Implements hook_ENTITY_TYPE_view().
  */
 function ngf_group_group_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->bundle() == 'ngf_discussion_group') {
+    $gD = new NGFGroup($entity);
+    $groupVisibility = $gD->getGroupVisibility();
 
-  $groupVisibility = NGF_GROUP_PUBLIC;
-  if ($entity->hasField('field_ngf_group_visibility')) {
-    $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
-  }
+    // View of group content.
+    if ($display->getComponent('group_content_view')) {
 
-  // View of group content.
-  if ($display->getComponent('group_content_view')) {
+      $user = \Drupal::currentUser();
+      $membership = $entity->getMember($user);
+      // @todo: Check why banned is returning active as a state.
+      $active_member = $membership->getState()->label() == 'Active';
 
-    $user = \Drupal::currentUser();
-    $membership = $entity->getMember($user);
-    // @todo: Check why banned is returning active as a state.
-    $active_member = $membership->getState()->label() == 'Active';
-
-    // Only show group content view if user has an active membership.
-    if ($groupVisibility == NGF_GROUP_PUBLIC || $active_member) {
-      $build['group_content_view'] = [
-        '#type' => 'view',
-        '#name' => 'ngf_group_nodes',
-        '#display_id' => 'block_1',
-        '#arguments' => [
-          $entity->id(),
-        ],
-      ];
-    }
-  }
-
-  // Members and follower counts.
-  if ($display->getComponent('members_and_followers')) {
-    $items = [];
-    // @todo : links to proper places.
-
-    // Member count.
-    $member_count = count($entity->getMembers());
-    $items['group-members'] = Link::fromTextAndUrl(
-      \Drupal::translation()->formatPlural($member_count, '1 member', '@count members', array('@count' => $member_count)),
-      Url::fromRoute('ngf_group.page.members', ['group' => $entity->id()])
-    )
-    ->toRenderable();
-    $items['group-members']['#attributes']['class'][] = 'group-members-count';
-
-    // Followers count.
-    $flag_service = \Drupal::service('flag');
-    $flaggings_count = \Drupal::service('flag.count')->getEntityFlagCounts($entity);
-    $follower_count = isset($flaggings_count['ngf_follow_group']) ? $flaggings_count['ngf_follow_group'] : 0;
-
-    $items['group-followers'] = Link::fromTextAndUrl(
-      \Drupal::translation()->formatPlural($follower_count, '1 follower', '@count followers', array('@count' => $follower_count)),
-      Url::fromRoute('ngf_group.page.followers', ['group' => $entity->id()])
-    )
-    ->toRenderable();
-    $items['group-followers']['#attributes']['class'][] = 'follow-group';
-
-    $build['members_and_followers']['#title'] = '';
-    $build['members_and_followers']['#theme'] = 'item_list';
-    $build['members_and_followers']['#items'] = $items;
-    $build['members_and_followers']['#attributes']['class'][] = 'inline';
-  }
-
-  // Join and follow group buttons.
-  if ($display->getComponent('join_and_follow')) {
-    /** @var \Drupal\group\Entity\GroupInterface $group */
-    $links = $items = [];
-
-    $group = $entity;
-
-    // Retrieve the operations from the installed content plugins.
-    foreach ($group->getGroupType()->getInstalledContentPlugins() as $plugin) {
-      if ($plugin->getPluginId() == 'group_membership') {
-        /** @var \Drupal\group\Plugin\GroupContentEnablerInterface $plugin */
-        $links += $plugin->getGroupOperations($group);
-      }
-    }
-
-    if ($links) {
-      // Allow modules to alter the collection of gathered links.
-      \Drupal::moduleHandler()->alter('group_operations', $links, $group);
-
-      // Sort the operations by weight.
-      uasort($links, '\Drupal\Component\Utility\SortArray::sortByWeightElement');
-
-      foreach ($links as $key => $value) {
-        $value['title'] = str_replace(' group', '', $value['title']);
-        $items[$key]['#title'] = $value['title'];
-        $items[$key]['#url'] = $value['url'];
-        $items[$key]['#type'] = 'link';
-        $items[$key]['#attributes']['class'][] = $key;
-        $items[$key]['#attributes']['class'][] = "btn";
-        $items[$key]['#attributes']['class'][] = "button-link";
-      }
-
-      // Remove the join group link for non-public groups.
-      if ($groupVisibility != NGF_GROUP_PUBLIC) {
-        unset($items['group-join']);
-      }
-
-      // Follow group flag.
-      // @todo: add css classes.
-      if (!\Drupal::currentUser()->isAnonymous()) {
-        $items['group-follow'] = [
-          '#lazy_builder' => [
-            'flag.link_builder:build',
-            [
-              $entity->getEntityTypeId(),
-              $entity->id(),
-              'ngf_follow_group',
-            ],
+      // Only show group content view if user has an active membership.
+      if ($gD->isPublic() || $active_member) {
+        $build['group_content_view'] = [
+          '#type' => 'view',
+          '#name' => 'ngf_group_nodes',
+          '#display_id' => 'block_1',
+          '#arguments' => [
+            $entity->id(),
           ],
-          '#create_placeholder' => TRUE,
         ];
       }
+    }
+
+    // Members and follower counts.
+    if ($display->getComponent('members_and_followers')) {
+      $items = [];
+
+      // Member count.
+      $items['members'] = $gD->getMembersLink();
+      $items['members']['#attributes']['class'][] = 'group-members';
+
+      // Followers count.
+      $items['followers'] = $gD->getFollowersLink();
+      $items['followers']['#attributes']['class'][] = 'group-followers';
+
+      // Build item list.
+      $build['members_followers']['#title'] = '';
+      $build['members_followers']['#theme'] = 'item_list';
+      $build['members_followers']['#items'] = $items;
+      $build['members_followers']['#attributes']['class'][] = 'inline';
+    }
+
+    // Join and follow group buttons.
+    if ($display->getComponent('join_and_follow')) {
+      $items = $gD->getMembershipLinks();
+      $items['group-follow'] = $gD->getFollowFlag();
 
       // Create an operations element with all of the links.
-      $build['join_and_follow']['#title'] = '';
-      $build['join_and_follow']['#theme'] = 'item_list';
-      $build['join_and_follow']['#items'] = $items;
-      $build['join_and_follow']['#attributes']['class'][] = 'inline';
+      $build['join_follow']['#title'] = '';
+      $build['join_follow']['#theme'] = 'item_list';
+      $build['join_follow']['#items'] = $items;
+      $build['join_follow']['#attributes']['class'][] = 'inline';
     }
-  }
 
-  // Group tabs.
-  if ($display->getComponent('group_tabs')) {
-    if ($group = $entity) {
-      $links = [];
+    // Group tabs.
+    if ($display->getComponent('group_tabs')) {
+      if ($group = $entity) {
+        $links = $gD->getGroupTabs();
 
-      $links['publications'] = Link::fromTextAndUrl(t("Publications"), Url::fromRoute('ngf_group.page.publications', ['group' => $group->id()]));
-      $links['events'] = Link::fromTextAndUrl(t("Events"), Url::fromRoute('ngf_group.page.events', ['group' => $group->id()]));
-      $links['library'] = Link::fromTextAndUrl(t("Library"), Url::fromRoute('ngf_group.page.library', ['group' => $group->id()]));
-      $links['shared-content'] = Link::fromTextAndUrl(t("Shared Content"), Url::fromRoute('ngf_group.page.shared', ['group' => $group->id()]));
-
-      $build['group_tabs']['#title'] = '';
-      $build['group_tabs']['#theme'] = 'item_list';
-      $build['group_tabs']['#items'] = $links;
-      $build['group_tabs']['#attributes']['class'][] = 'inline';
-      $build['group_tabs']['#attributes']['class'][] = 'group-tabs';
-      $build['group_tabs']['#attributes']['class'][] = 'tabs';
+        $build['group_tabs']['#title'] = '';
+        $build['group_tabs']['#theme'] = 'item_list';
+        $build['group_tabs']['#items'] = $links;
+        $build['group_tabs']['#attributes']['class'][] = 'inline';
+        $build['group_tabs']['#attributes']['class'][] = 'group-tabs';
+        $build['group_tabs']['#attributes']['class'][] = 'tabs';
+      }
     }
   }
 }
@@ -362,7 +290,7 @@ function ngf_group_visiblity_allowed_values(FieldStorageConfig $definition, Cont
   return [
     NGF_GROUP_PUBLIC => t("Public"),
     NGF_GROUP_PRIVATE => t("Private"),
-    NGF_GROUP_SECRET => t("Secret")
+    NGF_GROUP_SECRET => t("Secret"),
   ];
 }
 
@@ -401,3 +329,18 @@ function ngf_group_menu_local_tasks_alter(&$data, $route_name) {
   }
 }
 
+/**
+ * Implements hook_preprocess_group.
+ *
+ * Prepare variables for the group templates using the group decorator class.
+ */
+function ngf_group_preprocess_group(&$variables) {
+  $group = $variables['group'];
+  if ($group->bundle() == 'ngf_discussion_group') {
+    $gD = new NGFGroup($group);
+    $variables['members']      = $gD->getMembersInfo();
+    $variables['followers']    = $gD->getFollowersInfo();
+    $variables['group_follow'] = $gD->getFollowFlag();
+    $variables['group_ops']    = $gD->getMembershipLinks();
+  }
+}
