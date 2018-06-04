@@ -15,9 +15,7 @@ label: Visibility
 description: ''
 required: true
 translatable: false
-default_value:
-  -
-    value: 0
-default_value_callback: ''
+default_value: {  }
+default_value_callback: ngf_group_visiblity_default_value
 settings: {  }
 field_type: list_integer

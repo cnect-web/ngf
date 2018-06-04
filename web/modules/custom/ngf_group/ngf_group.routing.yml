@@ -1,0 +1,79 @@
+ngf_group.page.discover:
+  path: '/discover'
+  defaults:
+    _title: 'Discover'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::discoverPage'
+  requirements:
+    _permission: 'access content'
+
+ngf_group.page.publications:
+  path: '/group/{group}/publications'
+  defaults:
+    _title: 'Publications'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::publicationsPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.events:
+  path: '/group/{group}/events'
+  defaults:
+    _title: 'Events'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::eventsPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.library:
+  path: '/group/{group}/library'
+  defaults:
+    _title: 'Library'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::libraryPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.shared:
+  path: '/group/{group}/shared-content'
+  defaults:
+    _title: 'Shared Content'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::sharedContentPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.members:
+  path: '/group/{group}/members'
+  defaults:
+    _title: 'Members'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::membersPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.followers:
+  path: '/group/{group}/followers'
+  defaults:
+    _title: 'Followers'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::followersPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_core\Controller;
+namespace Drupal\ngf_group\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityFormBuilderInterface;
@@ -65,13 +65,14 @@ class NGFGroupMembershipController extends GroupMembershipController {
    *   A group join form.
    */
   public function join(GroupInterface $group) {
+    /**
+     * @todo: check if the below code is still needed for membership controlling.
+     */
     /** @var \Drupal\group\Plugin\GroupContentEnablerInterface $plugin */
     $plugin = $group->getGroupType()->getContentPlugin('group_membership');
+    $groupVisibility = NGF_GROUP_PUBLIC;
     if ($group->hasField('field_ngf_group_visibility')) {
-      $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
-    }
-    else {
-      $groupVisibility = NGF_GROUP_PUBLIC;
+      $groupVisibility = $group->get('field_ngf_group_visibility')->getString();
     }
 
     // Membership default to active unless private group.
@@ -95,7 +96,6 @@ class NGFGroupMembershipController extends GroupMembershipController {
       ]);
       return $this->entityFormBuilder->getForm($group_content, 'group-join');
     }
-
   }
 
   /**

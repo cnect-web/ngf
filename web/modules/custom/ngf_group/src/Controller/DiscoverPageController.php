@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_core\Controller;
+namespace Drupal\ngf_group\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
@@ -15,7 +15,7 @@ class DiscoverPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function content() {
+  public function discoverPage() {
 
     $render_array = [];
     $user = \Drupal::currentUser();

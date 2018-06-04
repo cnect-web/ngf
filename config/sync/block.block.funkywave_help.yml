@@ -1,0 +1,22 @@
+uuid: d45a09c2-e7b1-4389-85bc-19540fb1c6f6
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - funkywave
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: funkywave_help
+theme: funkywave
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

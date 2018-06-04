@@ -1,0 +1,50 @@
+diff --git a/composer.json b/composer.json
+index 7aaa3a0..97c0ff4 100644
+--- a/composer.json
++++ b/composer.json
+@@ -49,7 +49,6 @@
+         "drupal/console": "^1.0.2",
+         "drupal/core": "~8.4",
+         "drupal/ctools": "^3.0",
+-        "drupal/drupal-extension": "^3.4",
+         "drupal/embed": "^1.0",
+         "drupal/entity_browser": "^2.0",
+         "drupal/entity_embed": "^1.0",
+@@ -75,7 +74,6 @@
+         "drupal/realname": "^1.0",
+         "drupal/recaptcha": "^2.3",
+         "drupal/redirect": "^1.0",
+-        "drupal/search_kint": "^1.0",
+         "drupal/social_api": "^2.0",
+         "drupal/social_auth": "^2.0",
+         "drupal/social_auth_facebook": "^2.0",
+@@ -92,7 +90,6 @@
+         "drupal/video": "^1.2",
+         "drush/drush": "^9.0.0",
+         "harvesthq/chosen": "^1.8",
+-        "henrikbjorn/lurker": "^1.2",
+         "nuvoleweb/robo-config": "^0.2",
+         "twig/extensions": "^1.5",
+         "vlucas/phpdotenv": "^2.4",
+@@ -101,9 +98,11 @@
+     },
+     "require-dev": {
+         "behat/behat": "^3.4",
++        "drupal/config_devel": "^1.2",
+         "drupal/devel": "^1.2",
++        "drupal/drupal-extension": "^3.4",
+         "drupal/kint": "^1.2",
+-        "drupal/config_devel": "^1.2",
++        "drupal/search_kint": "^1.0",
+         "webflo/drupal-core-require-dev": "~8.4"
+     },
+     "conflict": {
+@@ -181,7 +180,7 @@
+             },
+             "drupal/twig_extensions": {
+                 "Twig_Error_Syntax: The text to be translated with trans can only contain references to simple variables in Twig_Extensions_TokenParser_Trans->checkTransString()": "https://www.drupal.org/files/issues/2018-04-24/twig_extension-trans_error-2895187-16.patch",
+-                "PHP intl extension missing": "https://pastebin.com/raw/LCZD67Qv"
++                "PHP intl extension missing": "https://www.drupal.org/files/issues/2018-05-15/twig_extensions-PHP_intl_extension_missing-2972960-2-8.patch"
+             },
+             "drupal/entity_browser": {
+                 "Provide MediaFileUpload widget" : "https://www.drupal.org/files/issues/entity_browser-media-file-upload-2922885-3.patch"
