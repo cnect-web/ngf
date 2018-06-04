@@ -36,4 +36,10 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  partial_0:
+    weight: 0
+    region: content
+  partial_1:
+    weight: 0
+    region: content
 hidden: {  }

@@ -42,6 +42,9 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  flag:
+    weight: 10
+    region: content
 hidden:
   contact: true
   field_ngf_biography: true

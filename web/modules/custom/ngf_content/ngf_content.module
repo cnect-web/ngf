@@ -1,5 +1,9 @@
 <?php
 
+use Drupal\Core\Link;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
 /**
 * Implements hook_entity_extra_field_info().
 */
@@ -21,10 +25,13 @@ function ngf_content_entity_extra_field_info() {
  */
 function ngf_content_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
   if ($entity->bundle() == 'ngf_discussion') {
-    // View of group content.
+    // Show more link.
     if ($display->getComponent('show_more')) {
-
-
+      $build['show_more'] = [
+        '#type' => 'link',
+        '#url' => $entity->toUrl(),
+        '#title' => t('More')
+      ];
     }
   }
 }

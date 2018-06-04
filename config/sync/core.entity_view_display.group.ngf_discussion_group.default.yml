@@ -75,4 +75,5 @@ hidden:
   created: true
   field_ngf_description: true
   group_content_view: true
+  show_more: true
   uid: true

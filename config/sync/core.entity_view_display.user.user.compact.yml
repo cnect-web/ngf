@@ -42,6 +42,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  full_name:
+    label: hidden
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
 hidden:
   field_ngf_action_contact: true
   field_ngf_action_invite_to_event: true

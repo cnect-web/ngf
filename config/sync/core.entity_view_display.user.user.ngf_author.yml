@@ -55,6 +55,14 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
+  full_name:
+    label: hidden
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   user_picture:
     type: image
     weight: 1

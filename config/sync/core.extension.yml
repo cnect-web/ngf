@@ -53,6 +53,7 @@ module:
   migrate_plus: 0
   migrate_source_csv: 0
   migrate_tools: 0
+  ngf_content: 0
   ngf_core: 0
   ngf_geo_import: 0
   ngf_group: 0

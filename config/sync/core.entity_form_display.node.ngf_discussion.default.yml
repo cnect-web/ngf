@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.ngf_discussion.field_ngf_interests
     - field.field.node.ngf_discussion.field_ngf_introtext
     - field.field.node.ngf_discussion.field_ngf_related_content
-    - field.field.node.ngf_discussion.field_teststest
     - node.type.ngf_discussion
   module:
     - comment
@@ -84,15 +83,6 @@ content:
     region: content
   field_ngf_related_content:
     weight: 5
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_teststest:
-    weight: 27
     settings:
       match_operator: CONTAINS
       size: 60
