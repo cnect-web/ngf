@@ -5,44 +5,37 @@
  * Contains ngf_user_profile.module.
  */
 
-use Drupal\Core\Entity\Entity\EntityFormDisplay;
+use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\node\Entity\Node;
-use Drupal\message\Entity\Message;
 use Drupal\comment\Entity\Comment;
-
-/**
- * Implements hook_form_alter().
- */
-function ngf_user_profile_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // This hook gets called as base form id hook for forms like the user register
-  // one, so we need to double check the form id.
-   if ($form_id !== 'user_form') {
-     return;
-   }
-
-//   var_dump($form['field_ngf_country']);
-//    var_dump($form);
-//   exit();
-}
-
-
-
-function ngf_user_profile_entity_form_display_alter(\Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display, array $context) {
-//
-//    var_dump($form_display);
-//    exit();
-//    var_dump($context);
-//    var_dump($form_display);
-//    exit();
-}
+use Drupal\group\Entity\GroupContent;
+use Drupal\group\Entity\Group;
+use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
 
 /**
  * Implements hook_node_insert().
  */
 function ngf_user_profile_node_insert(Node $node) {
-  if (in_array($node->getType(), ['ngf_discussion', 'ngf_event'])) {
+  if (in_array($node->getType(), ['ngf_discussion'])) {
     $notification_manager = \Drupal::getContainer()->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyFollowersAboutNewContent($node);
+
+    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager->createContentUserFeed($node);
+  }
+}
+
+/**
+ * Implements hook_group_content_insert().
+ */
+function ngf_user_profile_group_content_insert(GroupContent $group_content) {
+  // Probably in the future we will need specific content type.
+  // $group_content->getGroupContentType()->getPluginId() == 'group_node:ngf_discussion'.
+  // or we will need specific group type
+  // $group_content->getGroupContentType()->getGroupType() == 'ngf_discussion_group'.
+  if ($group_content->getEntityTypeId() == 'group_content') {
+    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager->createGroupContentUserFeed($group_content);
   }
 }
 
@@ -50,8 +43,58 @@ function ngf_user_profile_node_insert(Node $node) {
  * Implements hook_comment_insert().
  */
 function ngf_user_profile_comment_insert(Comment $comment) {
-  if (in_array($comment->getCommentedEntity()->getType(), ['ngf_discussion', 'ngf_event'])) {
+  if (in_array($comment->getCommentedEntity()->getType(), ['ngf_discussion'])) {
     $notification_manager = \Drupal::getContainer()->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyOwnerAboutNewComment($comment);
+
+    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager->createCommentUserFeed($comment);
+  }
+}
+
+/**
+ * Implements hook_group_insert().
+ */
+function ngf_user_profile_group_insert(Group $group) {
+  if ($group->getGroupType()->id() == 'ngf_discussion_group') {
+      $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+      $userFeedManager->createGroupUserFeed($group);
+  }
+}
+
+function ngf_user_profile_theme($existing, $type, $theme, $path) {
+  return array(
+    'ngf_user_feed_item' => [
+      'variables' => [
+        'authorFullName' => NULL,
+        'authorProfileURL' => NULL,
+        'authorPics' => NULL,
+        'entity' => NULL,
+        'contextText' => NULL
+      ],
+      'path' => drupal_get_path('module', 'ngf_user_profile') . '/templates',
+    ]
+  );
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function ngf_user_profile_entity_base_field_info($entity_type) {
+  if ($entity_type->id() === 'user') {
+    $fields = [];
+
+    $fields['full_name'] = BaseFieldDefinition::create('string')
+      ->setName('full_name')
+      ->setLabel(t('Full name'))
+      ->setComputed(TRUE)
+      ->setClass(FullNameFieldItemList::class)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'hidden',
+        'weight' => -5,
+      ]);
+
+    return $fields;
   }
 }

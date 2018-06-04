@@ -40,8 +40,11 @@ content:
       override_labels: false
       label_singular: ''
       label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
     third_party_settings: {  }
-    type: inline_entity_form_simple
+    type: inline_entity_form_complex
     region: content
   field_ngf_description:
     type: paragraphs
@@ -86,6 +89,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
+  flag:
+    weight: 10
     region: content
   moderation_state:
     type: moderation_state_default

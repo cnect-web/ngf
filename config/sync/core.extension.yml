@@ -23,12 +23,12 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
-  dynamic_page_cache: 0
   editor: 0
   embed: 0
   entity_browser: 0
   entity_embed: 0
   entity_reference_revisions: 0
+  examples: 0
   features: 0
   field: 0
   file: 0
@@ -53,13 +53,14 @@ module:
   migrate_plus: 0
   migrate_source_csv: 0
   migrate_tools: 0
+  ngf_content: 0
   ngf_core: 0
   ngf_geo_import: 0
   ngf_group: 0
   ngf_user_profile: 0
   node: 0
   options: 0
-  page_cache: 0
+  pager_example: 0
   path: 0
   permissions_filter: 0
   quickedit: 0

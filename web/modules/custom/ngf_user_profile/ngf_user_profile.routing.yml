@@ -113,3 +113,11 @@ ngf_user_profile.remove_notification:
   requirements:
     _permission: 'access content'
     message_id: '^[0-9]+'
+
+ngf_user_profile.feed:
+  path: '/profile/feed'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::feed'
+    _title: 'User feed'
+  requirements:
+    _permission: 'access content'

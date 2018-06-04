@@ -8,10 +8,10 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\group\Entity\GroupContent;
 /*
 use Drupal\Core\Session\AccountInterface;
 use Drupal\node\NodeInterface;
-use Drupal\group\Entity\GroupContent;
 
 use Drupal\Core\Access\AccessResult;
 
@@ -170,6 +170,20 @@ function ngf_group_entity_extra_field_info() {
     'visible' => TRUE,
   ];
 
+  $extra['group']['ngf_discussion_group']['display']['show_more'] = [
+    'label' => t('Show more'),
+    'description' => t('Displays link show more items'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  $extra['group']['ngf_event']['display']['show_more'] = [
+    'label' => t('Show more'),
+    'description' => t('Displays link show more items'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
   return $extra;
 }
 
@@ -177,6 +191,16 @@ function ngf_group_entity_extra_field_info() {
  * Implements hook_ENTITY_TYPE_view().
  */
 function ngf_group_group_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->bundle() == 'ngf_event') {
+    // Show more link
+    if ($display->getComponent('show_more')) {
+      $build['show_more'] = [
+        '#type' => 'link',
+        '#url' => $entity->toUrl(),
+        '#title' => t('More')
+      ];
+    }
+  }
   if ($entity->bundle() == 'ngf_discussion_group') {
     $gD = new NGFGroup($entity);
     $groupVisibility = $gD->getGroupVisibility();
@@ -245,6 +269,15 @@ function ngf_group_group_view(array &$build, EntityInterface $entity, EntityView
         $build['group_tabs']['#attributes']['class'][] = 'group-tabs';
         $build['group_tabs']['#attributes']['class'][] = 'tabs';
       }
+    }
+
+    // Show more link
+    if ($display->getComponent('show_more')) {
+      $build['show_more'] = [
+        '#type' => 'link',
+        '#url' => $entity->toUrl(),
+        '#title' => t('More')
+      ];
     }
   }
 }

@@ -85,6 +85,9 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  flag:
+    weight: 10
+    region: content
   user_picture:
     type: image_image
     settings:

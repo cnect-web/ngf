@@ -22,16 +22,23 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  extra_text:
+    label: hidden
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
   field_ngf_biography:
     type: text_default
-    weight: 4
+    weight: 6
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_ngf_city:
     type: entity_reference_label
-    weight: 3
+    weight: 5
     region: content
     label: hidden
     settings:
@@ -47,7 +54,7 @@ content:
     region: content
   field_ngf_interests:
     type: entity_reference_label
-    weight: 5
+    weight: 0
     region: content
     label: above
     settings:
@@ -71,13 +78,21 @@ content:
     third_party_settings: {  }
     label: hidden
   flag_ngf_follow_user:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
+  full_name:
+    label: hidden
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   user_picture:
     type: image
-    weight: 0
+    weight: 4
     region: content
     label: hidden
     settings:
@@ -89,3 +104,4 @@ hidden:
   field_ngf_region: true
   groups_view: true
   member_for: true
+  ngf_extra_text: true
