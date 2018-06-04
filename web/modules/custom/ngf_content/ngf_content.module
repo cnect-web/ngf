@@ -1,0 +1,30 @@
+<?php
+
+/**
+* Implements hook_entity_extra_field_info().
+*/
+function ngf_content_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['node']['ngf_discussion']['display']['show_more'] = [
+    'label' => t('Show more'),
+    'description' => t('Displays link show more items'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function ngf_content_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->bundle() == 'ngf_discussion') {
+    // View of group content.
+    if ($display->getComponent('show_more')) {
+
+
+    }
+  }
+}
