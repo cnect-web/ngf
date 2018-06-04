@@ -23,7 +23,6 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
-  dynamic_page_cache: 0
   editor: 0
   embed: 0
   entity_browser: 0
@@ -59,7 +58,6 @@ module:
   ngf_user_profile: 0
   node: 0
   options: 0
-  page_cache: 0
   pager_example: 0
   path: 0
   permissions_filter: 0

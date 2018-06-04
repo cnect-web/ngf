@@ -10,8 +10,11 @@ dependencies:
     - field.field.node.ngf_discussion.field_ngf_interests
     - field.field.node.ngf_discussion.field_ngf_introtext
     - field.field.node.ngf_discussion.field_ngf_related_content
+    - field.field.node.ngf_discussion.field_teststest
+    - image.style.large
     - node.type.ngf_discussion
   module:
+    - media
     - user
 id: node.ngf_discussion.teaser
 targetEntityType: node
@@ -19,17 +22,17 @@ bundle: ngf_discussion
 mode: teaser
 content:
   field_ngf_cover_image:
-    type: entity_reference_entity_view
-    weight: 0
+    type: media_thumbnail
+    weight: 1
     region: content
-    label: hidden
+    label: above
     settings:
-      view_mode: default
-      link: false
+      image_style: large
+      image_link: ''
     third_party_settings: {  }
   field_ngf_introtext:
     type: basic_string
-    weight: 1
+    weight: 0
     region: content
     label: hidden
     settings: {  }
@@ -39,4 +42,7 @@ hidden:
   field_ngf_description: true
   field_ngf_interests: true
   field_ngf_related_content: true
+  field_teststest: true
+  flag_ngf_follow_content: true
+  flag_test: true
   links: true

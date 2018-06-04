@@ -92,17 +92,6 @@ class UserManager {
     return User::loadMultiple($followed_user_ids);
   }
 
-  public function getUserFlaggedItemsByFlagId($flag_id) {
-    // Use a query.
-    $query = \Drupal::database()
-      ->select('flagging', 'f')
-      ->fields('f', array())
-      ->condition('flag_id', $flag_id)
-      ->condition('uid', $this->currentUser->id());
-
-    return $query->execute()->fetchAll();
-  }
-
   /**
    * Follow user.
    *

@@ -13,4 +13,4 @@ services:
 
   ngf_user_profile.user_feed_manager:
       class: Drupal\ngf_user_profile\Manager\UserFeedManager
-      arguments: ['@current_user']
+      arguments: ['@current_user', '@flag']

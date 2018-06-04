@@ -5,12 +5,14 @@ namespace Drupal\ngf_user_profile\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\message\Entity\MessageTemplate;
 use Drupal\ngf_user_profile\Helper\UserHelper;
 use Drupal\ngf_user_profile\Manager\UserFeedManager;
 use Drupal\ngf_user_profile\Manager\UserManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\ngf_user_profile\UserFeedItem;
 
 
 
@@ -199,34 +201,50 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
   }
 
   public function feed() {
-    $this->userFeedManager->getContent();
-    exit('feed');
-//    $arr = [];
-//    for($i = 1; $i <= 100; $i++) {
-//      $arr[] = $i;
+
+    $publications = $this->userFeedManager->getContent();
+
+//    foreach($publications  as $publication) {
+//      var_dump($publication);
 //    }
-//
-//    $page = pager_find_page();
-//    $num_per_page = 10;
-//    $offset = $num_per_page * $page;
-//    $result = array_slice($arr, $offset, $num_per_page);
-//
-//    // Now that we have the total number of results, initialize the pager.
-//    pager_default_initialize(count($arr), $num_per_page);
-//
-//    // Create a render array with the search results.
+//    exit();
+    $page = pager_find_page();
+    $num_per_page = 10;
+    $offset = $num_per_page * $page;
+    $result = array_slice($publications, $offset, $num_per_page);
+
+    // Now that we have the total number of results, initialize the pager.
+    pager_default_initialize(count($publications), $num_per_page);
+
+    // Create a render array with the search results.
 //    $render = [];
-//    $render[] = [
-//      '#theme' => 'item_list',
-//      '#items' => $result,
-//    ];
+////    $render[] = [
+////      '#theme' => 'item_list',
+////      '#items' => \Drupal::entityTypeManager()->getViewBuilder('node')->viewMultiple($result, 'teaser'),
+////    ];
+//    $render[] = \Drupal::entityTypeManager()->getViewBuilder('message')->viewMultiple($result, 'teaser');
 //
 //    // Finally, add the pager to the render array, and return.
 //    $render[] = [
 //      '#type' => 'pager',
 //    ];
-//    return $render;
+//    var_dump(render($text));
+//    exit();
+    $items = [];
+    foreach($result as $publication) {
+      $userFeedItem = new UserFeedItem($publication);
+      $items[] = $userFeedItem->getView();
+    }
 
+    $render = [];
+    $render[] = [
+      '#theme' => 'item_list',
+      '#items' => $items
+    ];
+    $render[] = [
+      '#type' => 'pager',
+    ];
+    return $render;
   }
 
 }
