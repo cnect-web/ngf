@@ -81,5 +81,8 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  show_more:
+    weight: 100
+    region: content
 hidden:
   field_teststest: true
