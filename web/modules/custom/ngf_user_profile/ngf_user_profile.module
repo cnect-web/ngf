@@ -11,6 +11,7 @@ use Drupal\comment\Entity\Comment;
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
 use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
+use Drupal\message\Entity\Message;
 
 /**
  * Implements hook_node_insert().
@@ -33,7 +34,7 @@ function ngf_user_profile_group_content_insert(GroupContent $group_content) {
   // $group_content->getGroupContentType()->getPluginId() == 'group_node:ngf_discussion'.
   // or we will need specific group type
   // $group_content->getGroupContentType()->getGroupType() == 'ngf_discussion_group'.
-  if ($group_content->getEntityTypeId() == 'group_content') {
+  if ($group_content->getContentPlugin()->getPluginId() != 'group_membership') {
     $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createGroupContentUserFeed($group_content);
   }

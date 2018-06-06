@@ -5,6 +5,7 @@ namespace Drupal\ngf_user_profile\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\message\Entity\Message;
 use Drupal\message\Entity\MessageTemplate;
 use Drupal\ngf_user_profile\Helper\UserHelper;
 use Drupal\ngf_user_profile\Manager\UserFeedManager;
@@ -203,11 +204,6 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
   public function feed() {
 
     $publications = $this->userFeedManager->getContent();
-
-//    foreach($publications  as $publication) {
-//      var_dump($publication);
-//    }
-//    exit();
     $page = pager_find_page();
     $num_per_page = 10;
     $offset = $num_per_page * $page;
@@ -217,26 +213,16 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
     pager_default_initialize(count($publications), $num_per_page);
 
     // Create a render array with the search results.
-//    $render = [];
-////    $render[] = [
-////      '#theme' => 'item_list',
-////      '#items' => \Drupal::entityTypeManager()->getViewBuilder('node')->viewMultiple($result, 'teaser'),
-////    ];
-//    $render[] = \Drupal::entityTypeManager()->getViewBuilder('message')->viewMultiple($result, 'teaser');
-//
-//    // Finally, add the pager to the render array, and return.
-//    $render[] = [
-//      '#type' => 'pager',
-//    ];
-//    var_dump(render($text));
-//    exit();
+    $render = [];
+
     $items = [];
-    foreach($result as $publication) {
-      $userFeedItem = new UserFeedItem($publication);
-      $items[] = $userFeedItem->getView();
+    foreach ($result as $item) {
+      $message = \Drupal::entityTypeManager()->getViewBuilder('message')->view($item, 'full');
+      // There is a bug partial is still displayed even it's hidden i nthe view mode.
+      unset($message['partial_0']);
+      $items[] = $message;
     }
 
-    $render = [];
     $render[] = [
       '#theme' => 'item_list',
       '#items' => $items

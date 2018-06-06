@@ -9,9 +9,6 @@ text:
   -
     value: "<p>posted [time] ago in group [group]</p>\r\n"
     format: basic_html
-  -
-    value: "<p>sdfsdf</p>\r\n"
-    format: basic_html
 settings:
   'token options':
     clear: false

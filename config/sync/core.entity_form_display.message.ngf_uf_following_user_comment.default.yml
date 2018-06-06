@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.message.ngf_uf_following_user_comment.field_ngf_commented_content
     - field.field.message.ngf_uf_following_user_comment.field_ngf_created_comment
     - field.field.message.ngf_uf_following_user_comment.field_ngf_following_user
     - field.field.message.ngf_uf_following_user_comment.field_ngf_users
@@ -12,6 +13,15 @@ targetEntityType: message
 bundle: ngf_uf_following_user_comment
 mode: default
 content:
+  field_ngf_commented_content:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_ngf_created_comment:
     weight: 1
     settings:
