@@ -10,7 +10,9 @@ dependencies:
     - field.field.group.ngf_discussion_group.field_ngf_interests
     - field.field.group.ngf_discussion_group.field_ngf_introtext
     - group.type.ngf_discussion_group
+    - image.style.media_large
   module:
+    - media
     - options
 id: group.ngf_discussion_group.header
 targetEntityType: group
@@ -21,10 +23,10 @@ content:
     weight: 0
     label: hidden
     settings:
-      view_mode: media_only
-      link: false
+      image_style: media_large
+      image_link: ''
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: media_thumbnail
     region: content
   field_ngf_group_visibility:
     type: list_default
@@ -53,6 +55,11 @@ content:
     third_party_settings: {  }
   members_and_followers:
     weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  show_more:
+    weight: 100
     region: content
     settings: {  }
     third_party_settings: {  }

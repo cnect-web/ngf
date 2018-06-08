@@ -15,18 +15,21 @@ dependencies:
     - field.field.group.ngf_event.field_ngf_registration_link
     - field.field.group.ngf_event.field_ngf_venue
     - group.type.ngf_event
+    - image.style.media_large
+  module:
+    - media
 id: group.ngf_event.teaser
 targetEntityType: group
 bundle: ngf_event
 mode: teaser
 content:
   field_ngf_cover_image:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     weight: 1
     label: hidden
     settings:
-      view_mode: media_only
-      link: false
+      image_style: media_large
+      image_link: ''
     third_party_settings: {  }
     region: content
   field_ngf_introtext:

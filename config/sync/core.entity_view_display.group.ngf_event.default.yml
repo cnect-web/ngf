@@ -14,12 +14,14 @@ dependencies:
     - field.field.group.ngf_event.field_ngf_registration_link
     - field.field.group.ngf_event.field_ngf_venue
     - group.type.ngf_event
+    - image.style.media_large
   module:
     - address
     - datetime
     - entity_reference_revisions
     - geofield
     - link
+    - media
 id: group.ngf_event.default
 targetEntityType: group
 bundle: ngf_event
@@ -33,12 +35,12 @@ content:
     type: address_default
     region: content
   field_ngf_cover_image:
-    type: entity_reference_entity_view
+    type: media_thumbnail
     weight: 2
     label: above
     settings:
-      view_mode: default
-      link: false
+      image_style: media_large
+      image_link: ''
     third_party_settings: {  }
     region: content
   field_ngf_description:

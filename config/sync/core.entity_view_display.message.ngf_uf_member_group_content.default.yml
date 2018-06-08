@@ -14,32 +14,17 @@ mode: default
 content:
   field_ngf_created_content:
     weight: 0
-    label: above
+    label: hidden
     settings:
-      link: true
+      view_mode: teaser
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_ngf_following_group:
-    weight: 2
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_ngf_users:
-    weight: 1
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  partial_0:
-    weight: 0
+    type: entity_reference_entity_view
     region: content
   partial_1:
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  field_ngf_following_group: true
+  field_ngf_users: true
+  partial_0: true

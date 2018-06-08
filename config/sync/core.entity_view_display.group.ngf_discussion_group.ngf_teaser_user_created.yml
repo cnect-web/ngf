@@ -1,8 +1,9 @@
-uuid: 7214a5df-3887-4380-8496-62481d412f0a
+uuid: cc7592fe-b1d5-47bd-bd75-a9d75c4cb2ce
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.group.ngf_teaser_user_created
     - field.field.group.ngf_discussion_group.field_ngf_cover_image
     - field.field.group.ngf_discussion_group.field_ngf_description
     - field.field.group.ngf_discussion_group.field_ngf_group_visibility
@@ -12,14 +13,13 @@ dependencies:
     - image.style.media_large
   module:
     - media
-    - options
-id: group.ngf_discussion_group.default
+id: group.ngf_discussion_group.ngf_teaser_user_created
 targetEntityType: group
 bundle: ngf_discussion_group
-mode: default
+mode: ngf_teaser_user_created
 content:
   field_ngf_cover_image:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       image_style: media_large
@@ -27,47 +27,22 @@ content:
     third_party_settings: {  }
     type: media_thumbnail
     region: content
-  field_ngf_group_visibility:
-    type: list_default
-    weight: 2
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  field_ngf_interests:
-    weight: 7
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_ngf_introtext:
-    weight: 6
-    label: above
+    weight: 2
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
-  group_tabs:
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  join_and_follow:
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   label:
     label: hidden
     type: string
-    weight: 1
+    weight: 0
     region: content
     settings:
-      link_to_entity: false
+      link_to_entity: true
     third_party_settings: {  }
-  members_and_followers:
+  show_more:
     weight: 3
     region: content
     settings: {  }
@@ -76,6 +51,10 @@ hidden:
   changed: true
   created: true
   field_ngf_description: true
+  field_ngf_group_visibility: true
+  field_ngf_interests: true
   group_content_view: true
-  show_more: true
+  group_tabs: true
+  join_and_follow: true
+  members_and_followers: true
   uid: true
