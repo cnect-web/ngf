@@ -740,12 +740,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "9ab93d9ed8cd471a22589b3a87096b5ae6c59118"
+                "reference": "aeeba1ab4e5f29b85750802cfe594c2999f1617d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/9ab93d9ed8cd471a22589b3a87096b5ae6c59118",
-                "reference": "9ab93d9ed8cd471a22589b3a87096b5ae6c59118",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/aeeba1ab4e5f29b85750802cfe594c2999f1617d",
+                "reference": "aeeba1ab4e5f29b85750802cfe594c2999f1617d",
                 "shasum": ""
             },
             "require": {
@@ -760,7 +760,7 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-06-01T12:17:52+00:00"
+            "time": "2018-06-07T09:30:27+00:00"
         },
         {
             "name": "commerceguys/addressing",
@@ -1977,16 +1977,16 @@
         },
         {
             "name": "drupal-composer/drupal-scaffold",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-scaffold.git",
-                "reference": "76342f9cd22a673b0b87b5e8774613f8ee287fbc"
+                "reference": "2d6b25538ab4d7245cb8a5f01895b24bbd4d69c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-scaffold/zipball/76342f9cd22a673b0b87b5e8774613f8ee287fbc",
-                "reference": "76342f9cd22a673b0b87b5e8774613f8ee287fbc",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-scaffold/zipball/2d6b25538ab4d7245cb8a5f01895b24bbd4d69c0",
+                "reference": "2d6b25538ab4d7245cb8a5f01895b24bbd4d69c0",
                 "shasum": ""
             },
             "require": {
@@ -2015,7 +2015,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Composer Plugin for updating the Drupal scaffold files when using drupal/core",
-            "time": "2018-04-18T16:14:55+00:00"
+            "time": "2018-06-06T20:36:41+00:00"
         },
         {
             "name": "drupal/address",
@@ -3093,16 +3093,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.5.3",
+            "version": "8.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "b012f0ae51504880e920f2c6efdbdf03b6fe2129"
+                "reference": "6b4dc1cf3347761f63152a31786b4680b8ac7781"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/b012f0ae51504880e920f2c6efdbdf03b6fe2129",
-                "reference": "b012f0ae51504880e920f2c6efdbdf03b6fe2129",
+                "url": "https://api.github.com/repos/drupal/core/zipball/6b4dc1cf3347761f63152a31786b4680b8ac7781",
+                "reference": "6b4dc1cf3347761f63152a31786b4680b8ac7781",
                 "shasum": ""
             },
             "require": {
@@ -3329,7 +3329,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2018-04-25T15:39:01+00:00"
+            "time": "2018-06-06T21:02:51+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -3620,17 +3620,17 @@
         },
         {
             "name": "drupal/entity_browser",
-            "version": "2.0.0-alpha2",
+            "version": "2.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/entity_browser",
-                "reference": "8.x-2.0-alpha2"
+                "reference": "8.x-2.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.0-alpha2.zip",
-                "reference": "8.x-2.0-alpha2",
-                "shasum": "f31ad069e5c5e95db9b9410a4d71038ac0c5b370"
+                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.0-alpha3.zip",
+                "reference": "8.x-2.0-alpha3",
+                "shasum": "bd8537cda5f287ecca273a5c5a9c36b020c522fe"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -3648,8 +3648,8 @@
                     "dev-8.x-1.x": "8.1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-alpha2",
-                    "datestamp": "1512118387",
+                    "version": "8.x-2.0-alpha3",
+                    "datestamp": "1528141081",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
@@ -3806,7 +3806,9 @@
                         "message": "Covered by Drupal's security advisory policy"
                     }
                 },
-                "patches_applied": []
+                "patches_applied": {
+                    "Embed Paragraph Content in Normalized Parent Entities (REST)": "https://www.drupal.org/files/issues/embed_paragraph_content-2848878-43.patch"
+                }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -4123,17 +4125,17 @@
         },
         {
             "name": "drupal/fontawesome_menu_icons",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/fontawesome_menu_icons",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fontawesome_menu_icons-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "ed80e349db605febdbb3d1691e247dbb1ccfda4b"
+                "url": "https://ftp.drupal.org/files/projects/fontawesome_menu_icons-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "ff3d893608f95b669ebafe469e2f7e66f20e0d76"
             },
             "require": {
                 "drupal/core": "*",
@@ -4146,8 +4148,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1509629285",
+                    "version": "8.x-1.3",
+                    "datestamp": "1528229880",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7458,16 +7460,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.12",
+            "version": "v2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb"
+                "reference": "f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
-                "reference": "258c89a6b97de7dfaf5b8c7607d0478e236b04fb",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5",
+                "reference": "f6ce7dd93628088e1017fb5dd73b0b9fec7df9e5",
                 "shasum": ""
             },
             "require": {
@@ -7499,10 +7501,11 @@
             "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
             "keywords": [
                 "csprng",
+                "polyfill",
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-04-04T21:24:14+00:00"
+            "time": "2018-06-06T17:40:22+00:00"
         },
         {
             "name": "phayes/geophp",
@@ -9925,16 +9928,16 @@
         },
         {
             "name": "zendframework/zend-feed",
-            "version": "2.10.0",
+            "version": "2.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-feed.git",
-                "reference": "c3b1b86591e7e2e8bf759e2964d8638d4c5e2f02"
+                "reference": "2815c29a4c4e52bf4033128592ea310b0f4e9379"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/c3b1b86591e7e2e8bf759e2964d8638d4c5e2f02",
-                "reference": "c3b1b86591e7e2e8bf759e2964d8638d4c5e2f02",
+                "url": "https://api.github.com/repos/zendframework/zend-feed/zipball/2815c29a4c4e52bf4033128592ea310b0f4e9379",
+                "reference": "2815c29a4c4e52bf4033128592ea310b0f4e9379",
                 "shasum": ""
             },
             "require": {
@@ -9982,7 +9985,7 @@
                 "feed",
                 "zf"
             ],
-            "time": "2018-05-24T20:36:29+00:00"
+            "time": "2018-06-05T13:16:04+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -11951,16 +11954,16 @@
         },
         {
             "name": "webflo/drupal-core-require-dev",
-            "version": "8.5.3",
+            "version": "8.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webflo/drupal-core-require-dev.git",
-                "reference": "c30d704179a401601bd5fc2e45d98ead85f56ea5"
+                "reference": "87f1a4d30eea35e96465dbae786ccd81c0ea7623"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webflo/drupal-core-require-dev/zipball/c30d704179a401601bd5fc2e45d98ead85f56ea5",
-                "reference": "c30d704179a401601bd5fc2e45d98ead85f56ea5",
+                "url": "https://api.github.com/repos/webflo/drupal-core-require-dev/zipball/87f1a4d30eea35e96465dbae786ccd81c0ea7623",
+                "reference": "87f1a4d30eea35e96465dbae786ccd81c0ea7623",
                 "shasum": ""
             },
             "require": {
@@ -11968,7 +11971,7 @@
                 "behat/mink-goutte-driver": "^1.2",
                 "behat/mink-selenium2-driver": "1.3.x-dev",
                 "drupal/coder": "^8.2.12",
-                "drupal/core": "8.5.3",
+                "drupal/core": "8.5.4",
                 "jcalderonzumba/gastonjs": "^1.0.2",
                 "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
                 "mikey179/vfsstream": "^1.2",
@@ -11984,7 +11987,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "require-dev dependencies from drupal/core",
-            "time": "2018-04-25T16:50:04+00:00"
+            "time": "2018-06-06T21:31:47+00:00"
         }
     ],
     "aliases": [],

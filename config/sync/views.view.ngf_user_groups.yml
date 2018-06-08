@@ -1,13 +1,14 @@
-uuid: afa556bd-ccf8-4c8a-8096-e4ab2344e6f9
+uuid: 86c9d967-bdbc-4011-8041-e752be95f4ca
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.group.teaser
+    - group.type.ngf_discussion_group
   module:
     - group
-id: ngf_user_events
-label: 'Profile : Events'
+id: ngf_user_groups
+label: 'Profile : groups'
 module: views
 description: 'User profile events'
 tag: ''
@@ -135,8 +136,63 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-      filters: {  }
-      sorts: {  }
+      filters:
+        type:
+          id: type
+          table: groups_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            ngf_discussion_group: ngf_discussion_group
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: group
+          entity_field: type
+          plugin_id: bundle
+      sorts:
+        created:
+          id: created
+          table: groups_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: group
+          entity_field: created
+          plugin_id: date
       title: 'Profile : Events'
       header: {  }
       footer: {  }
@@ -196,7 +252,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: profile/events
+      path: profile/groups
     cache_metadata:
       max-age: -1
       contexts:
