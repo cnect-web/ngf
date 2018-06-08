@@ -1,16 +1,18 @@
-uuid: 81b828cf-341b-4d16-98fa-b0f0492b0a2f
+uuid: f9726933-4176-4031-aad0-d78b84300713
 langcode: en
 status: true
 dependencies:
   module:
+    - entity_reference_revisions
     - node
+    - paragraphs
 id: node.field_ngf_related_content
 field_name: field_ngf_related_content
 entity_type: node
-type: entity_reference
+type: entity_reference_revisions
 settings:
-  target_type: node
-module: core
+  target_type: paragraph
+module: entity_reference_revisions
 locked: false
 cardinality: -1
 translatable: true

@@ -38,9 +38,6 @@ class StepOne extends BaseStep {
     $account = $entity_manager->getStorage('user') ->create([]);
     $register_form = $entity_form_builder->getForm($account, 'register');
 
-//    var_dump($register_form['field_ngf_first_name']['weight']);
-//    var_dump($register_form['field_ngf_last_name']['weight']);
-
     $form['first_name'] = $register_form['field_ngf_first_name'];
     $form['last_name'] = $register_form['field_ngf_last_name'];
     $form['username'] = $register_form['account']['name'];

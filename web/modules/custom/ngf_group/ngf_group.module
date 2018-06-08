@@ -9,9 +9,8 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\group\Entity\GroupContent;
-/*
-use Drupal\Core\Session\AccountInterface;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Session\AccountInterface;
 
 use Drupal\Core\Access\AccessResult;
 
@@ -20,8 +19,6 @@ use Drupal\views\Plugin\views\area\AreaPluginBase;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Plugin\views\PluginBase;
 use Drupal\views\Views;
-
-*/
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\field\Entity\FieldStorageConfig;
@@ -321,9 +318,9 @@ function ngf_group_user_view(array &$build, EntityInterface $entity, EntityViewD
  */
 function ngf_group_visiblity_allowed_values(FieldStorageConfig $definition, ContentEntityInterface $entity = NULL, $cacheable){
   return [
-    NGF_GROUP_PUBLIC => t("Public"),
-    NGF_GROUP_PRIVATE => t("Private"),
-    NGF_GROUP_SECRET => t("Secret"),
+    NGF_GROUP_PUBLIC => t('Public'),
+    NGF_GROUP_PRIVATE => t('Private'),
+    NGF_GROUP_SECRET => t('Secret'),
   ];
 }
 

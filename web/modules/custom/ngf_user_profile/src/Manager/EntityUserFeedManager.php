@@ -80,10 +80,6 @@ class EntityUserFeedManager {
     }
 
     uasort($publications, [$this, 'sortPublications']);
-    foreach ($publications as $publication) {
-      var_dump(date('Y-m-d', $publication->lastUpdate) . '   -   ' . $publication->getTitle() . ' --- ' . $publication->id());
-    }
-    exit();
     return $publications;
   }
 
@@ -183,10 +179,7 @@ class EntityUserFeedManager {
   protected function getChangedDate($node) {
     $changed = $node->getChangedTime();
     $latest_comment = $this->commentStatistics->read([$node->id() => $node], 'node', FALSE);
-    var_dump($latest_comment);
-    var_dump($changed);
     if ($latest_comment && $latest_comment->last_comment_timestamp > $changed) {
-      var_dump($latest_comment->last_comment_timestamp);
       $changed = $latest_comment->last_comment_timestamp;
     }
     return $changed;
