@@ -122,15 +122,6 @@ class UserFeedManager {
       $message->set('field_ngf_following_content', $comment->getCommentedEntity());
       $message->save();
     }
-//    if ($comment->getCommentedEntity()->getOwner()->id() != $comment->getOwner()->id()) {
-//      // Create a user feed for the owner of the commented content.
-//      $this->createUserFeedItem(
-//        [$comment->getCommentedEntity()->getOwner()],
-//        $comment->getCommentedEntity(),
-//        UserFeedAction::own_content_comment,
-//        $comment
-//      );
-//    }
   }
 
   protected function createUserFeedFollowingUserNewComment(Comment $comment) {
@@ -143,14 +134,9 @@ class UserFeedManager {
       $message->set('field_ngf_users', $users);
       $message->set('field_ngf_created_comment', $comment);
       $message->set('field_ngf_following_user', $comment->getOwner());
+      $message->set('field_ngf_commented_content', $comment->getCommentedEntity());
       $message->save();
     }
-//    $this->createUserFeedItem(
-//      $this->removeAuthor($this->getUsersFollowingUser($comment->getOwner()), $comment->getOwner()),
-//      $comment->getOwner(),
-//      UserFeedAction::following_user_comment,
-//      $comment
-//    );
   }
 
   public function createContentUserFeed(Node $node) {
@@ -169,12 +155,6 @@ class UserFeedManager {
       $message->set('field_ngf_following_user', $node->getOwner());
       $message->save();
     }
-//    $this->createUserFeedItem(
-//      $this->removeAuthor($this->getUsersFollowingUser($node->getOwner()), $node->getOwner()),
-//      $node->getOwner(),
-//      UserFeedAction::following_user_content,
-//      $node
-//    );
   }
 
   public function createGroupContentUserFeed(GroupContent $group_content) {
@@ -199,13 +179,6 @@ class UserFeedManager {
       $message->set('field_ngf_following_group', $group_content->getGroup());
       $message->save();
     }
-
-//    $this->createUserFeedItem(
-//      $this->removeAuthor($this->getUsersFollowingGroup($group_content->getGroup()), $group_content->getEntity()->getOwner()),
-//      $group_content->getGroup(),
-//      UserFeedAction::following_group_content,
-//      $group_content->getEntity()
-//    );
   }
 
   protected function createUserFeedMemberGroupNewContent(GroupContent $group_content) {
@@ -221,13 +194,6 @@ class UserFeedManager {
       $message->set('field_ngf_following_group', $group_content->getGroup());
       $message->save();
     }
-
-//    $this->createUserFeedItem(
-//      $this->removeAuthor($group_content->getGroup()->getContentEntities('group_membership'), $group_content->getEntity()->getOwner()),
-//      $group_content->getGroup(),
-//      UserFeedAction::group_member_content,
-//      $group_content->getEntity()
-//    );
   }
 
   protected function getUsersFollowingContent(Node $node) {
@@ -283,12 +249,16 @@ class UserFeedManager {
   public function createGroupUserFeed(Group $group) {
     // Create a user feed for members of the group where content
     // was created.
-    $this->createUserFeedItem(
-      $this->getUsersFollowingUser($group->getOwner()),
-      $group->getOwner(),
-      UserFeedAction::following_user_created_group,
-      $group
-    );
+    $users = $this->removeAuthor($this->getUsersFollowingUser($group->getOwner()), $group->getOwner());
+    if (!empty($users)) {
+      $message = Message::create([
+        'template' => 'ngf_uf_following_user_group'
+      ]);
+      $message->set('field_ngf_users', $users);
+      $message->set('field_ngf_created_group', $group);
+      $message->set('field_ngf_following_user', $group->getOwner());
+      $message->save();
+    }
   }
 
   public function getContent() {

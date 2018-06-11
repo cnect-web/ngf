@@ -11,6 +11,7 @@ use Drupal\comment\Entity\Comment;
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
 use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
+use Drupal\message\Entity\Message;
 
 /**
  * Implements hook_node_insert().
