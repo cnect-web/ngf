@@ -64,20 +64,21 @@ function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\
 function _ngf_core_event_end_date_validate($element, &$form_state) {
   // NGF-67: Start date can't be greater than End date.
   $start_date = NULL;
-  if (!empty($form_state->getValue('field_ngf_event_start_date')[0]['value'])) {
-    $start_date = $form_state->getValue('field_ngf_event_start_date')[0]['value']->getTimestamp();
+  if (!empty($form_state->getValue('field_ngf_event_start_date')->value) && !empty($form_state->getValue('field_ngf_event_start_date')->value['object'])) {
+    var_dump($form_state->getValue('field_ngf_event_start_date')->value);
+    $start_date = $form_state->getValue('field_ngf_event_start_date')->value->getTimestamp();
   }
   $end_date = NULL;
-  if (!empty($form_state->getValue('field_ngf_event_end_date')[0]['value'])) {
-    $end_date = $form_state->getValue('field_ngf_event_end_date')[0]['value']->getTimestamp();
+  if (!empty($form_state->getValue('field_ngf_event_end_date')->value) && !empty($form_state->getValue('field_ngf_event_start_date')->value['object'])) {
+    $end_date = $form_state->getValue('field_ngf_event_end_date')->value->getTimestamp();
   }
 
   if (!empty($end_date) && !empty($start_date) && $start_date > $end_date) {
     $form_state->setError(
       $element,
       t('The event start date %start_date must be greater than the event end date %end_date.', [
-        '%start_date' => $form_state->getValue('field_ngf_event_start_date')[0]['value']->format('Y-m-d H:i:s'),
-        '%end_date' => $form_state->getValue('field_ngf_event_end_date')[0]['value']->format('Y-m-d H:i:s'),
+        '%start_date' => $form_state->getValue('field_ngf_event_start_date')->value->format('Y-m-d H:i:s'),
+        '%end_date' => $form_state->getValue('field_ngf_event_end_date')->value->format('Y-m-d H:i:s'),
       ])
     );
   }

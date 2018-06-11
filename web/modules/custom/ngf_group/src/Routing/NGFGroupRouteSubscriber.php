@@ -2,10 +2,11 @@
 
 namespace Drupal\ngf_group\Routing;
 
-use Drupal\group\Entity\GroupInterface;
-use Drupal\node\Entity\NodeType;
 use Drupal\Core\Routing\RoutingEvents;
 use Drupal\Core\Routing\RouteSubscriberBase;
+use Drupal\group\Entity\GroupInterface;
+use Drupal\group\Entity\GroupType;
+use Drupal\node\Entity\NodeType;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
@@ -26,11 +27,11 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
    */
   protected function alterRoutes(RouteCollection $collection) {
     if ($route = $collection->get('user.login')) {
-      $route->setDefault("_title_callback", '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::loginTitle');
+      $route->setDefault('_title_callback', '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::loginTitle');
     }
 
     if ($route = $collection->get('entity.group_content.create_form')) {
-      $route->setDefault("_title_callback", '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::gcCreateFormTitle');
+      $route->setDefault('_title_callback', '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::gcCreateFormTitle');
     }
 
 /*
@@ -81,9 +82,18 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
    */
   public function gcCreateFormTitle(GroupInterface $group, $plugin_id) {
     $plugin = $group->getGroupType()->getContentPlugin($plugin_id);
-    $content_type = NodeType::load($plugin->getEntityBundle());
-    $t_vars = ['@name' => $content_type->label(), '@group' => $group->label()];
-    return t('Add @name in @group', $t_vars);
+
+    if ($plugin->getEntityTypeId() == 'node') {
+      $entity_type = NodeType::load($plugin->getEntityBundle());
+    }
+    else if ($plugin->getEntityTypeId() == 'group') {
+      $entity_type = GroupType::load($plugin->getEntityBundle());
+    }
+
+    return t('Add @name in @group', [
+      '@name' => !empty($entity_type) ?  $entity_type->label() : '',
+      '@group' => $group->label(),
+    ]);
   }
 
 }
