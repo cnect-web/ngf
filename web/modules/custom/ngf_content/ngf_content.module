@@ -18,13 +18,6 @@ function ngf_content_entity_extra_field_info() {
     'visible' => TRUE,
   ];
 
-  $extra['node']['ngf_discussion']['display']['related_content'] = [
-    'label' => t('Block: related content'),
-    'description' => t('Displays related content'),
-    'weight' => 100,
-    'visible' => TRUE,
-  ];
-
   return $extra;
 }
 
@@ -40,28 +33,6 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
         '#url' => $entity->toUrl(),
         '#title' => t('More')
       ];
-    }
-
-    if ($view_mode == 'full') {
-      // Related content.
-      if ($display->getComponent('related_content')) {
-        $view = Views::getView('ngf_discussion_related_content');
-        if (is_object($view)) {
-          $args = ['parent_id' => $entity->id()];
-          $view->setArguments($args);
-          $view->setDisplay('block');
-          $view->preExecute();
-          $view->execute();
-
-          $render = $view->buildRenderable('block', $args);
-          $label = '<div class="related-content">Follow up</div>';
-          $build['related_content'] = [
-            '#type' => 'markup',
-            '#label' => 'Above Label',
-            '#markup' => $label . render($render),
-          ];
-        }
-      }
     }
   }
 }
