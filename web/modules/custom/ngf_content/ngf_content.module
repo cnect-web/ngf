@@ -53,7 +53,13 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
           $view->preExecute();
           $view->execute();
 
-          $build['related_content'] = $view->buildRenderable('block', $args);
+          $render = $view->buildRenderable('block', $args);
+          $label = '<div class="related-content">Follow up</div>';
+          $build['related_content'] = [
+            '#type' => 'markup',
+            '#label' => 'Above Label',
+            '#markup' => $label . render($render),
+          ];
         }
       }
     }
