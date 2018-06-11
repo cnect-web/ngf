@@ -97,6 +97,19 @@ function ngf_group_node_load(&$nodes) {
 }
 
 /**
+ * Implement hook_group_load().
+ */
+function ngf_group_group_load(&$groups) {
+  foreach ($groups as $gid => &$group) {
+    $group_content_items = GroupContent::loadByEntity($group);
+    if (!empty($group_content_items)) {
+      $parent_group = array_pop($group_content_items)->getGroup();
+      $group->group = $parent_group;
+    }
+  }
+}
+
+/**
  * Implement hook_node_access().
  */
 function ngf_group_node_access(NodeInterface $node, $op, AccountInterface $account) {
