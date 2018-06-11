@@ -136,20 +136,20 @@ class NGFGroup {
 
       foreach ($links as $key => $value) {
         $value['title'] = str_replace(' group', '', $value['title']);
-        $variables[$key]['#title'] = $value['title'];
-        $variables[$key]['#url'] = $value['url'];
-        $variables[$key]['#type'] = 'link';
-        $variables[$key]['#attributes']['class'][] = $key;
-        //$variables[$key]['#attributes']['class'][] = "btn";
-        //$variables[$key]['#attributes']['class'][] = "button-link";
+        $links[$key]['#title'] = $value['title'];
+        $links[$key]['#url'] = $value['url'];
+        $links[$key]['#type'] = 'link';
+        $links[$key]['#attributes']['class'][] = $key;
+        //$links[$key]['#attributes']['class'][] = "btn";
+        //$links[$key]['#attributes']['class'][] = "button-link";
       }
 
       // Remove the join group link for non-public groups.
       if (!$this->isPublic()) {
-        unset($variables['group-join']);
+        unset($links['group-join']);
       }
     }
-    return $variables;
+    return $links;
   }
 
   /**
