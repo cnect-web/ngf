@@ -1,0 +1,7 @@
+ngf_user_registration:
+  path: '/join'
+  defaults:
+    _form: '\Drupal\ngf_user_registration\Form\UserRegistrationForm'
+    _title: 'Join'
+  requirements:
+    _permission: 'access content'

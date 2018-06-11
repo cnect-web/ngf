@@ -1,5 +1,5 @@
 ngf_user_profile.profile:
-  path: '/profile/{username}'
+  path: '/profile/view/{username}'
   defaults:
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::profile'
     _title: 'User profile'
