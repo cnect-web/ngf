@@ -72,8 +72,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  related_content:
+    weight: 100
+    region: content
   show_more:
     weight: 100
     region: content
 hidden:
+  field_ngf_related_content: true
   field_teststest: true

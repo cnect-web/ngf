@@ -17,12 +17,21 @@ dependencies:
     - group.type.ngf_event
     - image.style.media_large
   module:
+    - address
+    - datetime
     - media
 id: group.ngf_event.teaser
 targetEntityType: group
 bundle: ngf_event
 mode: teaser
 content:
+  field_ngf_address:
+    type: address_default
+    weight: 5
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_ngf_cover_image:
     type: media_thumbnail
     weight: 1
@@ -32,13 +41,39 @@ content:
       image_link: ''
     third_party_settings: {  }
     region: content
-  field_ngf_introtext:
+  field_ngf_event_end_date:
+    type: datetime_default
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_ngf_event_start_date:
+    type: datetime_default
     weight: 2
+    region: content
+    label: hidden
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_ngf_introtext:
+    weight: 6
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
+  field_ngf_venue:
+    type: string
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   label:
     label: hidden
     type: string
@@ -48,19 +83,15 @@ content:
       link_to_entity: true
     third_party_settings: {  }
   show_more:
-    weight: 3
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   changed: true
   created: true
-  field_ngf_address: true
   field_ngf_description: true
-  field_ngf_event_end_date: true
-  field_ngf_event_start_date: true
   field_ngf_interests: true
   field_ngf_location: true
   field_ngf_registration_link: true
-  field_ngf_venue: true
   uid: true
