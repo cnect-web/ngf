@@ -3,6 +3,7 @@
 use Drupal\Core\Link;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\views\Views;
 
 /**
 * Implements hook_entity_extra_field_info().
@@ -24,7 +25,7 @@ function ngf_content_entity_extra_field_info() {
  * Implements hook_ENTITY_TYPE_view().
  */
 function ngf_content_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-  if ($entity->bundle() == 'ngf_discussion') {
+  if ($entity->bundle() == 'ngf_discussion' ) {
     // Show more link.
     if ($display->getComponent('show_more')) {
       $build['show_more'] = [

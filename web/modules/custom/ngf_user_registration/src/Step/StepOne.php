@@ -46,7 +46,6 @@ class StepOne extends BaseStep {
 //    $form['last_name'] = $register_form['field_ngf_last_name'];
 //    $form['username'] = $register_form['account']['name'];
 //    $form['email'] = $register_form['account']['mail'];
-
     $form['first_name'] = [
       '#type' => 'textfield',
       '#title' => t('First name'),
