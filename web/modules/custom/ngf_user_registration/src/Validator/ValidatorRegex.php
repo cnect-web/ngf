@@ -19,7 +19,7 @@ class ValidatorRegex extends BaseValidator {
    * @param string $pattern
    *   Regex pattern.
    */
-  public function __construct($error_message, $pattern) {
+  public function __construct($pattern, $error_message = null) {
     parent::__construct($error_message);
     $this->pattern = $pattern;
   }

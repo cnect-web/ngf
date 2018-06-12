@@ -71,17 +71,21 @@ class GroupJoinBlock extends BlockBase {
           $items[$key]['#title'] = $value['title'];
           $items[$key]['#url'] = $value['url'];
           $items[$key]['#type'] = 'link';
-          $items[$key]['#attributes']['class'][] = $key;
-          $items[$key]['#attributes']['class'][] = "btn";
-          $items[$key]['#attributes']['class'][] = "button-link";
+          $items[$key]['#attributes']['class'] = [
+            $key,
+            'btn',
+            'button-link',
+          ];
         }
 
         // Follow flag dummy button.
         // @todo: replace with real flag.
         $items['group-follow'] = Link::fromTextAndUrl(t('Follow'), Url::fromUri('http://ngf.dev.europa.eu/'))->toRenderable();
-        $items['group-follow']['#attributes']['class'][] = 'follow-group';
-        $items['group-follow']['#attributes']['class'][] = "btn";
-        $items['group-follow']['#attributes']['class'][] = "button-link";
+        $items['group-follow']['#attributes']['class'] = [
+          'follow-group',
+          'btn',
+          'button-link',
+        ];
 
         // Create an operations element with all of the links.
         $build['#title'] = '';
