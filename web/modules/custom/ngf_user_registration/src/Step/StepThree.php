@@ -35,13 +35,15 @@ class StepThree extends BaseStep {
    * {@inheritdoc}
    */
   public function buildStepFormElements() {
-
-    $form['linkedin'] = [
-      '#type' => 'textfield',
-      '#title' => t('What is your LinkedIn URL?'),
-      '#default_value' => isset($this->getValues()['linkedin']) ? $this->getValues()['linkedin'] : NULL,
-      '#required' => FALSE,
-    ];
+    $form['interests'] = array(
+      '#type' => 'entity_autocomplete',
+      '#target_type' => 'taxonomy_term',
+      '#selection_settings' => [
+        'include_anonymous' => FALSE,
+        'target_bundles' => array('ngf_interests'),
+      ],
+      '#default_value' => !empty($this->getValues()['interests']) ? $this->getValues()['interests'] : NULL,
+    );
 
     return $form;
   }

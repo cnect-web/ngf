@@ -34,13 +34,15 @@ class StepTwo extends BaseStep {
    * {@inheritdoc}
    */
   public function buildStepFormElements() {
-    $form['interests'] = [
-      '#type' => 'checkboxes',
-      '#title' => t('Nice to meet you! So, what are you interests?'),
-      '#options' => [1 => 'interest 1', 2 => 'interest 2', 3 => 'interest 3'],
-      '#default_value' => isset($this->getValues()['interests']) ? $this->getValues()['interests'] : [],
-      '#required' => FALSE,
-    ];
+    $form['city'] = array(
+      '#type' => 'entity_autocomplete',
+      '#target_type' => 'taxonomy_term',
+      '#selection_settings' => [
+        'include_anonymous' => FALSE,
+        'target_bundles' => array('ngf_cities'),
+      ],
+      '#default_value' => !empty($this->getValues()['city']) ? $this->getValues()['city'] : NULL,
+    );
 
     return $form;
   }
@@ -50,7 +52,7 @@ class StepTwo extends BaseStep {
    */
   public function getFieldNames() {
     return [
-      'interests',
+      'city',
     ];
   }
 
@@ -59,8 +61,8 @@ class StepTwo extends BaseStep {
    */
   public function getFieldsValidators() {
     return [
-      'interests' => [
-        new ValidatorRequired("It would be a lot easier for me if you could fill out some of your interests."),
+      'city' => [
+//        new ValidatorRequired("It would be a lot easier for me if you could fill out some of your interests."),
       ],
     ];
   }
