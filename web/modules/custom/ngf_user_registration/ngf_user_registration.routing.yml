@@ -5,3 +5,11 @@ ngf_user_registration:
     _title: 'Join'
   requirements:
     _permission: 'access content'
+
+ngf_user_registration.city_autocomplete:
+  path: 'city_autocomplete'
+  defaults:
+    _controller: 'Drupal\ngf_user_registration\Controller\UserRegistrationController::citiesAutocomplete'
+    _format: json
+  requirements:
+    _permission: 'access content'

@@ -43,7 +43,7 @@ class UserRegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function __construct() {
-    $this->stepId = StepsEnum::STEP_ONE;
+    $this->stepId = StepsEnum::STEP_TWO;
     $this->stepManager = new StepManager();
   }
 
@@ -76,10 +76,11 @@ class UserRegistrationForm extends FormBase {
     $this->step = $this->stepManager->getStep($this->stepId);
 
     // Attach step form elements.
-    $form['wrapper'] += $this->step->buildStepFormElements();
+    $form['wrapper'] += $this->step->buildStepFormElements($form_state);
 
     // Attach buttons.
     $form['wrapper']['actions']['#type'] = 'actions';
+
     $buttons = $this->step->getButtons();
     foreach ($buttons as $button) {
       /** @var \Drupal\ngf_user_registration\Button\ButtonInterface $button */
@@ -201,6 +202,11 @@ class UserRegistrationForm extends FormBase {
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
     // Submit all values to DB or do whatever you want on submit.
+  }
+
+
+  public function cityAutocomplete() {
+
   }
 
 }

@@ -53,7 +53,7 @@ class StepThree extends BaseStep {
    */
   public function getFieldNames() {
     return [
-      'linkedin',
+      'interests',
     ];
   }
 
@@ -62,9 +62,7 @@ class StepThree extends BaseStep {
    */
   public function getFieldsValidators() {
     return [
-      'linkedin' => [
-        new ValidatorRequired("Tell me where I can find your LinkedIn please."),
-        new ValidatorRegex(t("I don't think this is a valid LinkedIn URL..."), '/(ftp|http|https):\/\/(.*)linkedin(.*)/'),
+      'interests' => [
       ],
     ];
   }
