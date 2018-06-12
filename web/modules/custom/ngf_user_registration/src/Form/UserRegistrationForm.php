@@ -43,7 +43,7 @@ class UserRegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function __construct() {
-    $this->stepId = StepsEnum::STEP_TWO;
+    $this->stepId = StepsEnum::STEP_ONE;
     $this->stepManager = new StepManager();
   }
 

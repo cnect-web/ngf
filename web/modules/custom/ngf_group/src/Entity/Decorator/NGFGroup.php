@@ -40,24 +40,21 @@ class NGFGroup {
    * Return true if the group is public.
    */
   public function isPublic() {
-    $groupVisibility = $this->getGroupVisibility();
-    return $groupVisibility == NGF_GROUP_PUBLIC;
+    return $this->getGroupVisibility() == NGF_GROUP_PUBLIC;
   }
 
   /**
    * Return true if the group is private.
    */
   public function isPrivate() {
-    $groupVisibility = $this->getGroupVisibility();
-    return $groupVisibility == NGF_GROUP_PRIVATE;
+    return $this->getGroupVisibility() == NGF_GROUP_PRIVATE;
   }
 
   /**
    * Return true if the group is secret.
    */
   public function isSecret() {
-    $groupVisibility = $this->getGroupVisibility();
-    return $groupVisibility == NGF_GROUP_SECRET;
+    return $this->getGroupVisibility() == NGF_GROUP_SECRET;
   }
 
   /**
@@ -91,7 +88,6 @@ class NGFGroup {
   public function getFollowersInfo() {
     $group = $this->group;
 
-    $flag_service = \Drupal::service('flag');
     $flaggings_count = \Drupal::service('flag.count')->getEntityFlagCounts($group);
 
     $followers_count_raw    = isset($flaggings_count['ngf_follow_group']) ? $flaggings_count['ngf_follow_group'] : 0;
@@ -120,23 +116,24 @@ class NGFGroup {
     $group = $this->group;
     $links = [];
 
+    $operations = [];
     // Retrieve the operations from the installed content plugins.
     foreach ($group->getGroupType()->getInstalledContentPlugins() as $plugin) {
       if ($plugin->getPluginId() == 'group_membership') {
-        $links += $plugin->getGroupOperations($group);
+        $operations += $plugin->getGroupOperations($group);
       }
     }
 
-    if ($links) {
+    if ($operations) {
       // Allow modules to alter the collection of gathered links.
       \Drupal::moduleHandler()->alter('group_operations', $links, $group);
 
       // Sort the operations by weight.
-      uasort($links, '\Drupal\Component\Utility\SortArray::sortByWeightElement');
+      uasort($operations, '\Drupal\Component\Utility\SortArray::sortByWeightElement');
 
-      foreach ($links as $key => $value) {
-        $value['title'] = str_replace(' group', '', $value['title']);
-        $links[$key]['#title'] = $value['title'];
+      foreach ($operations as $key => $value) {
+        $title = str_replace(' group', '', $value['title']);
+        $links[$key]['#title'] = $title;
         $links[$key]['#url'] = $value['url'];
         $links[$key]['#type'] = 'link';
         $links[$key]['#attributes']['class'][] = $key;
