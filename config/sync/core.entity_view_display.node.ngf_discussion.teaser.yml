@@ -35,6 +35,9 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  related_content:
+    weight: 100
+    region: content
   show_more:
     weight: 2
     region: content
@@ -44,6 +47,7 @@ hidden:
   field_comments: true
   field_ngf_description: true
   field_ngf_interests: true
+  field_ngf_related_content: true
   flag_ngf_follow_content: true
   flag_test: true
   links: true

@@ -65,7 +65,11 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: html_list
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
       row:
         type: 'entity:group'
         options:
@@ -236,6 +240,7 @@ display:
           entity_field: uid
           plugin_id: numeric
       display_extenders: {  }
+      css_class: newsfeed
     cache_metadata:
       max-age: -1
       contexts:

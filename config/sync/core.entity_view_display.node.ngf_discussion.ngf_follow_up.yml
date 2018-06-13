@@ -21,6 +21,9 @@ content:
   flag_test:
     weight: 10
     region: content
+  related_content:
+    weight: 100
+    region: content
 hidden:
   field_comments: true
   field_ngf_cover_image: true
