@@ -3,18 +3,9 @@
 namespace Drupal\ngf_user_registration\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Link;
-use Drupal\Core\Url;
-use Drupal\message\Entity\Message;
-use Drupal\message\Entity\MessageTemplate;
-use Drupal\ngf_user_profile\Helper\UserHelper;
-use Drupal\ngf_user_profile\Manager\UserFeedManager;
-use Drupal\ngf_user_profile\Manager\UserManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\ngf_user_profile\UserFeedItem;
+use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 
 /**
@@ -28,12 +19,26 @@ class UserRegistrationController extends ControllerBase {
    * @return string
    *   Return Hello string.
    */
-  public function citiesAutocomplete() {
-    $matches = [];
-    $matches[] = array('value' => 'go1', 'label' => 'go1');
-    $matches[] = array('value' => 'my1', 'label' => 'my1');
-    $matches[] = array('value' => 'pas1', 'label' => 'pas1');
-    return new JsonResponse($matches);
+  public function citiesAutocomplete(Request $request, $country_id = null) {
+    $results = [];
+    if ($input = $request->query->get('q')) {
+      if (strlen($input) > 2) {
+        $query = \Drupal::entityQuery('taxonomy_term');
+        $query->condition('vid', 'ngf_cities');
+        $query->condition('name', '%' . $input . '%', 'LIKE');
+        if ($country_id) {
+          $query->condition('field_ngf_country', $country_id);
+        }
+        $terms = Term::LoadMultiple($query->execute());
+        foreach ($terms as $term) {
+          $results[] = [
+            'value' => $term->getName() . ' (' . $term->id() . ')',
+            'label' => $term->getName(),
+          ];
+        }
+      }
+    }
+    return new JsonResponse($results);
   }
 
 }

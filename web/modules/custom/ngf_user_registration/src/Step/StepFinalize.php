@@ -2,6 +2,8 @@
 
 namespace Drupal\ngf_user_registration\Step;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Class StepFinalize.
  *
@@ -26,7 +28,7 @@ class StepFinalize extends BaseStep {
   /**
    * {@inheritdoc}
    */
-  public function buildStepFormElements() {
+  public function buildStepFormElements(FormStateInterface $form_state) {
 
     $form['completed'] = [
       '#markup' => t('You have completed the wizard, yeah!'),

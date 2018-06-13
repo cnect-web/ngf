@@ -6,6 +6,7 @@ use Drupal\ngf_user_registration\Button\StepThreeFinishButton;
 use Drupal\ngf_user_registration\Button\StepThreePreviousButton;
 use Drupal\ngf_user_registration\Validator\ValidatorRegex;
 use Drupal\ngf_user_registration\Validator\ValidatorRequired;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Class StepThree.
@@ -34,7 +35,14 @@ class StepThree extends BaseStep {
   /**
    * {@inheritdoc}
    */
-  public function buildStepFormElements() {
+  public function buildStepFormElements(FormStateInterface $form_state) {
+
+
+    $form['my'] = array(
+      '#type' => 'textfield',
+      '#default_value' => $form_state->getValue('city') . $form_state->getValue('country'),
+    );
+
     $form['interests'] = array(
       '#type' => 'entity_autocomplete',
       '#target_type' => 'taxonomy_term',

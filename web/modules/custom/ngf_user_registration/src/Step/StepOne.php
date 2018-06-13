@@ -6,6 +6,7 @@ use Drupal\ngf_user_registration\Button\StepOneNextButton;
 use Drupal\ngf_user_registration\Validator\ValidatorRequired;
 use Drupal\ngf_user_registration\Validator\ValidatorUsername;
 use Drupal\user\RegisterForm;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Class StepOne.
@@ -33,7 +34,7 @@ class StepOne extends BaseStep {
   /**
    * {@inheritdoc}
    */
-  public function buildStepFormElements() {
+  public function buildStepFormElements(FormStateInterface $form_state) {
 //    $entity_manager = \Drupal::service('entity.manager');
 //    $entity_form_builder = \Drupal::service('entity.form_builder');
 //    $account = $entity_manager->getStorage('user') ->create([]);

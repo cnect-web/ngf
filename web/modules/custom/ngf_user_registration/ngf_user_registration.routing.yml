@@ -7,9 +7,10 @@ ngf_user_registration:
     _permission: 'access content'
 
 ngf_user_registration.city_autocomplete:
-  path: 'city_autocomplete'
+  path: 'city_autocomplete/{country_id}'
   defaults:
     _controller: 'Drupal\ngf_user_registration\Controller\UserRegistrationController::citiesAutocomplete'
     _format: json
   requirements:
     _permission: 'access content'
+    country_id: '^[0-9]+'
