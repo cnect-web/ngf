@@ -13,4 +13,3 @@ ngf_user_registration.city_autocomplete:
     _format: json
   requirements:
     _permission: 'access content'
-    country_id: '^[0-9]+'

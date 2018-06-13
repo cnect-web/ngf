@@ -43,7 +43,7 @@ class UserRegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function __construct() {
-    $this->stepId = StepsEnum::STEP_TWO;
+    $this->stepId = StepsEnum::STEP_ONE;
     $this->stepManager = new StepManager();
   }
 
@@ -140,8 +140,7 @@ class UserRegistrationForm extends FormBase {
     }
 
     // Update Form.
-    $response->addCommand(new HtmlCommand('#form-wrapper',
-      $form['wrapper']));
+    $response->addCommand(new HtmlCommand('#form-wrapper', $form['wrapper']));
 
     return $response;
   }
@@ -173,9 +172,19 @@ class UserRegistrationForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // Save filled values to step. So we can use them as default_value later on.
     $values = [];
-    foreach ($this->step->getFieldNames() as $name) {
-      $values[$name] = $form_state->getValue($name);
+    foreach ($this->step->getFieldNames() as $key => $name) {
+      if (is_array($name)) {
+        $form_value = $form_state->getValue(array_shift($name));
+        if (!empty($form_value[$key])) {
+          $values[$key] = $form_value[$key];
+        }
+      }
+      else {
+        $values[$name] = $form_state->getValue($name);
+      }
     }
+
+    ksm($values);
     $this->step->setValues($values);
     // Add step to manager.
     $this->stepManager->addStep($this->step);
@@ -185,7 +194,7 @@ class UserRegistrationForm extends FormBase {
 
     // If an extra submit handler is set, execute it.
     // We already tested if it is callable before.
-    if (isset($triggering_element['#submit_handler'])) {
+    if (!empty($triggering_element['#submit_handler'])) {
       $this->{$triggering_element['#submit_handler']}($form, $form_state);
     }
 
@@ -202,11 +211,6 @@ class UserRegistrationForm extends FormBase {
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
     // Submit all values to DB or do whatever you want on submit.
-  }
-
-
-  public function cityAutocomplete() {
-
   }
 
 }

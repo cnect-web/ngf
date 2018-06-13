@@ -61,6 +61,13 @@ abstract class BaseStep implements StepInterface {
   /**
    * {@inheritdoc}
    */
+  public function getValue($name, $default_value = NULL) {
+    return $this->values[$name] ?? $default_value;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getFieldNames() {
     return [];
   }
