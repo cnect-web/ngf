@@ -13,7 +13,6 @@ use Drupal\ngf_user_profile\Helper\UserHelper;
 use Drupal\ngf_user_profile\Entity\UserList;
 use Drupal\ngf_user_profile\FlagTrait;
 
-
 class UserManager {
 
   use FlagTrait;
@@ -74,7 +73,7 @@ class UserManager {
     }
   }
 
-  public function getList($list_id) {
+  public function getUserList($list_id) {
     $list_ids = \Drupal::entityQuery('ngf_user_list')
       ->condition('user_id', $this->currentUser->id())
       ->condition('list_id', $list_id)

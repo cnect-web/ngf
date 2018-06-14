@@ -5,15 +5,12 @@ namespace Drupal\ngf_user_profile\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
-use Drupal\message\Entity\Message;
-use Drupal\message\Entity\MessageTemplate;
 use Drupal\ngf_user_profile\Helper\UserHelper;
 use Drupal\ngf_user_profile\Manager\UserFeedManager;
 use Drupal\ngf_user_profile\Manager\UserManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\ngf_user_profile\UserFeedItem;
 
 
 
