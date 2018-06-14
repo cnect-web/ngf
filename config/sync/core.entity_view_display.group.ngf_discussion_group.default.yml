@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.ngf_group_comments.default
+    - field.field.group.ngf_discussion_group.field_ngf_comments
     - field.field.group.ngf_discussion_group.field_ngf_cover_image
     - field.field.group.ngf_discussion_group.field_ngf_description
     - field.field.group.ngf_discussion_group.field_ngf_group_visibility
@@ -11,6 +13,7 @@ dependencies:
     - group.type.ngf_discussion_group
     - image.style.media_large
   module:
+    - comment
     - media
     - options
 id: group.ngf_discussion_group.default
@@ -18,6 +21,15 @@ targetEntityType: group
 bundle: ngf_discussion_group
 mode: default
 content:
+  field_ngf_comments:
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_ngf_cover_image:
     weight: 0
     label: hidden

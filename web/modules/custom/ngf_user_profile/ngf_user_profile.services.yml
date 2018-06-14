@@ -5,7 +5,7 @@ services:
 
   ngf_user_profile.user_settings_manager:
     class: Drupal\ngf_user_profile\Manager\UserSettingsManager
-    arguments: ['@current_user', '@messenger', '@user.data']
+    arguments: ['@current_user', '@user.data']
 
   ngf_user_profile.notification_manager:
     class: Drupal\ngf_user_profile\Manager\NotificationManager

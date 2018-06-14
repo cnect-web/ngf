@@ -2,7 +2,37 @@
 
 namespace Drupal\ngf_user_profile\Manager;
 
-class UserSettingsManager extends UserManager {
+use Drupal\Core\Session\AccountInterface;
+use Drupal\user\UserDataInterface;
+
+class UserSettingsManager {
+
+  /**
+   * The current user.
+   *
+   * @var \Drupal\Core\Session\AccountInterface
+   */
+  protected $currentUser;
+
+  /**
+   * The user data service.
+   *
+   * @var \Drupal\user\UserDataInterface
+   */
+  protected $userData;
+
+  /**
+   * UserSettingsManager constructor.
+   *
+   * @param \Drupal\Core\Session\AccountInterface $current_user
+   *   The current user.
+   * @param \Drupal\user\UserDataInterface $userData
+   *   The user data service.
+   */
+  public function __construct(AccountInterface $current_user, UserDataInterface $userData) {
+    $this->currentUser = $current_user;
+    $this->userData = $userData;
+  }
 
   protected function setSetting($name, $value) {
     $this->userData->set('ngf_user_profile', $this->currentUser->id(), $name, $value);
@@ -74,6 +104,39 @@ class UserSettingsManager extends UserManager {
 
   public function getSearchPosition($value) {
     $this->getSetting('search_position', $value);
+  }
+
+  public function getList () {
+    return [
+      'action_contact' => [
+        'default_value' => 1,
+        'title' => t('Contact you'),
+      ],
+      'action_invite_to_event' => [
+        'default_value' => 1,
+        'title' => t('Invite you to groups'),
+      ],
+      'action_invite_to_group' => [
+        'default_value' => 1,
+        'title' => t('Invite you to events'),
+      ],
+      'search_email' => [
+        'default_value' => 1,
+        'title' => t('Your email'),
+      ],
+      'search_interests' => [
+        'default_value' => 1,
+        'title' => t('Your interests'),
+      ],
+      'search_location' => [
+        'default_value' => 0,
+        'title' => t('Your location'),
+      ],
+      'search_name' => [
+        'default_value' => 1,
+        'title' => t('Your name'),
+      ],
+    ];
   }
 
 

@@ -62,8 +62,9 @@ class StepThree extends BaseStep {
 //        '#default_value' => $this->getValues()['interests'][$i] ?? NULL,
       ];
 
-      ksm(!empty($this->getValues()['interests'][$i]) && $term = Term::Load($this->getValues()['interests'][$i]));
-      if (!empty($this->getValues()['interests'][$i]) && $term = Term::Load($this->getValues()['interests'][$i])) {
+      ksm($this->getValues());
+      $interest = $this->getValue('interests_wrapper')['interests'][$i] ?? NULL;
+      if (!empty($interest) && $term = Term::Load($interest)) {
         $form['interests_wrapper']['interests'][$i]['#default_value'] = $term;
       }
     }
@@ -118,20 +119,7 @@ class StepThree extends BaseStep {
    */
   public function getFieldNames() {
     return [
-      'interests' => [
-        'interests_wrapper'
-      ],
+      'interests_wrapper',
     ];
   }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getFieldsValidators() {
-    return [
-      'interests' => [
-      ],
-    ];
-  }
-
 }
