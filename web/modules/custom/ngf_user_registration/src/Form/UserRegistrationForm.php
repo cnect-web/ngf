@@ -5,6 +5,7 @@ namespace Drupal\ngf_user_registration\Form;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormState;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\ngf_user_registration\Manager\StepManager;
@@ -206,9 +207,25 @@ class UserRegistrationForm extends FormBase {
    *   Form state interface.
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
+    $container = \Drupal::getContainer();
+    $container->get('messenger')->addMessage(t('User has been successfully registered'));
+
+    $user = \Drupal\user\Entity\User::create();
+    $user->setPassword();
+    $user->enforceIsNew();
+    $user->setEmail();
+    $user->setUsername();
+
+    $formObject = \Drupal::entityTypeManager()->getFormObject('user','register');
+    $formObject->setEntity($user);
+    $formStateObject = (new FormState())->setFormObject($formObject);
+    $form = $formObject->buildForm([],$formStateObject);
+    $formObject->validateForm($form,$formStateObject);
+    $formObject->submitForm($form,$formStateObject);
+    $formObject->save($form,$formStateObject);
+
     $response = new RedirectResponse('/');
     $response->send();
-    // Submit all values to DB or do whatever you want on submit.
   }
 
 }
