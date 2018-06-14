@@ -37,26 +37,3 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
   }
 }
 
-/**
- * Implements hook_form_FORM_ID_alter().
- */
-function ngf_content_form_comment_form_alter(&$form, &$form_state) {
-
-  // Add a custom submit handler to act when the form submits.
-  $form['#submit'][] = '_ngf_content_custom_comment_submit_handler';
-//  var_dump($form);
-//  exit();
-}
-
-/**
- * Custom submit handler for the comment form.
- */
-function _ngf_content_custom_comment_submit_handler($form, &$form_state) {
-
-//  var_dump('_ngf_content_custom_comment_submit_handler');
-//  exit();
-  // Redirect the user after submission
-//  $nid = arg(2);
-//  $form_state['redirect'] = 'node/' . $nid;
-  $form_state->setRedirectUrl(\Drupal\Core\Url::fromRoute('<front>'));
-}

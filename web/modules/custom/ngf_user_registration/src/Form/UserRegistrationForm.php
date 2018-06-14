@@ -207,11 +207,11 @@ class UserRegistrationForm extends FormBase {
    *   Form state interface.
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
-    $container = \Drupal::getContainer();
-    $container->get('messenger')->addMessage(t('User has been successfully registered'));
+
 
     $user = \Drupal\user\Entity\User::create();
-    $user->setPassword();
+    //  Check \Drupal::config('user.settings')->get('verify_mail').
+    $user->setPassword(user_password());
     $user->enforceIsNew();
     $user->setEmail();
     $user->setUsername();
@@ -223,6 +223,9 @@ class UserRegistrationForm extends FormBase {
     $formObject->validateForm($form,$formStateObject);
     $formObject->submitForm($form,$formStateObject);
     $formObject->save($form,$formStateObject);
+
+    $container = \Drupal::getContainer();
+    $container->get('messenger')->addMessage(t('User has been successfully registered'));
 
     $response = new RedirectResponse('/');
     $response->send();
