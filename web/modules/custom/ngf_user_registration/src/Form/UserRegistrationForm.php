@@ -5,10 +5,14 @@ namespace Drupal\ngf_user_registration\Form;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormState;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\ngf_user_registration\Manager\StepManager;
 use Drupal\ngf_user_registration\Step\StepsEnum;
+use Drupal\redirect\Entity\Redirect;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Messenger\MessengerInterface;
 
 /**
  * Provides multi step ajax example form.
@@ -43,7 +47,7 @@ class UserRegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function __construct() {
-    $this->stepId = StepsEnum::STEP_ONE;
+    $this->stepId = StepsEnum::STEP_FOUR;
     $this->stepManager = new StepManager();
   }
 
@@ -76,10 +80,11 @@ class UserRegistrationForm extends FormBase {
     $this->step = $this->stepManager->getStep($this->stepId);
 
     // Attach step form elements.
-    $form['wrapper'] += $this->step->buildStepFormElements();
+    $form['wrapper'] += $this->step->buildStepFormElements($form_state);
 
     // Attach buttons.
     $form['wrapper']['actions']['#type'] = 'actions';
+
     $buttons = $this->step->getButtons();
     foreach ($buttons as $button) {
       /** @var \Drupal\ngf_user_registration\Button\ButtonInterface $button */
@@ -139,8 +144,7 @@ class UserRegistrationForm extends FormBase {
     }
 
     // Update Form.
-    $response->addCommand(new HtmlCommand('#form-wrapper',
-      $form['wrapper']));
+    $response->addCommand(new HtmlCommand('#form-wrapper', $form['wrapper']));
 
     return $response;
   }
@@ -175,16 +179,19 @@ class UserRegistrationForm extends FormBase {
     foreach ($this->step->getFieldNames() as $name) {
       $values[$name] = $form_state->getValue($name);
     }
+
     $this->step->setValues($values);
     // Add step to manager.
     $this->stepManager->addStep($this->step);
     // Set step to navigate to.
     $triggering_element = $form_state->getTriggeringElement();
-    $this->stepId = $triggering_element['#goto_step'];
+    if (!empty($triggering_element['#goto_step'])) {
+      $this->stepId = $triggering_element['#goto_step'];
+    }
 
     // If an extra submit handler is set, execute it.
     // We already tested if it is callable before.
-    if (isset($triggering_element['#submit_handler'])) {
+    if (!empty($triggering_element['#submit_handler'])) {
       $this->{$triggering_element['#submit_handler']}($form, $form_state);
     }
 
@@ -200,7 +207,28 @@ class UserRegistrationForm extends FormBase {
    *   Form state interface.
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
-    // Submit all values to DB or do whatever you want on submit.
+
+
+    $user = \Drupal\user\Entity\User::create();
+    //  Check \Drupal::config('user.settings')->get('verify_mail').
+    $user->setPassword(user_password());
+    $user->enforceIsNew();
+    $user->setEmail();
+    $user->setUsername();
+
+    $formObject = \Drupal::entityTypeManager()->getFormObject('user','register');
+    $formObject->setEntity($user);
+    $formStateObject = (new FormState())->setFormObject($formObject);
+    $form = $formObject->buildForm([],$formStateObject);
+    $formObject->validateForm($form,$formStateObject);
+    $formObject->submitForm($form,$formStateObject);
+    $formObject->save($form,$formStateObject);
+
+    $container = \Drupal::getContainer();
+    $container->get('messenger')->addMessage(t('User has been successfully registered'));
+
+    $response = new RedirectResponse('/');
+    $response->send();
   }
 
 }

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.group.ngf_event.field_ngf_address
+    - field.field.group.ngf_event.field_ngf_comments
     - field.field.group.ngf_event.field_ngf_cover_image
     - field.field.group.ngf_event.field_ngf_description
     - field.field.group.ngf_event.field_ngf_event_end_date
@@ -16,6 +17,7 @@ dependencies:
     - group.type.ngf_event
   module:
     - address
+    - comment
     - datetime
     - geofield
     - inline_entity_form
@@ -33,6 +35,12 @@ content:
       default_country: null
     third_party_settings: {  }
     type: address_default
+    region: content
+  field_ngf_comments:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
     region: content
   field_ngf_cover_image:
     weight: 1

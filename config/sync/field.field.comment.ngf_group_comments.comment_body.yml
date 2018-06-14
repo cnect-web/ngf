@@ -1,25 +1,23 @@
-uuid: 238b53fe-54b2-42ef-8939-1f52d819248f
+uuid: 48aa4187-ebb5-4eaa-af3d-2afa102cf45d
 langcode: en
 status: true
 dependencies:
   config:
-    - comment.type.comment
+    - comment.type.ngf_group_comments
     - field.storage.comment.comment_body
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    restricted_html: restricted_html
+    plain_text: plain_text
     basic_html: '0'
+    restricted_html: '0'
     full_html: '0'
-    plain_text: '0'
-_core:
-  default_config_hash: TmAKjNrJ7RR60YpqvJq_QqEewYe_S8Kd23n8VRCqiWs
-id: comment.comment.comment_body
+id: comment.ngf_group_comments.comment_body
 field_name: comment_body
 entity_type: comment
-bundle: comment
+bundle: ngf_group_comments
 label: Comment
 description: ''
 required: true

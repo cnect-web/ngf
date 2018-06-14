@@ -2,6 +2,8 @@
 
 namespace Drupal\ngf_user_registration\Step;
 
+use Drupal\Core\Form\FormStateInterface;
+
 /**
  * Interface StepInterface.
  *
@@ -19,7 +21,7 @@ interface StepInterface {
   /**
    * Returns a renderable form array that defines a step.
    */
-  public function buildStepFormElements();
+  public function buildStepFormElements(FormStateInterface $form_state);
 
   /**
    * Returns buttons on step.

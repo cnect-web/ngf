@@ -44,7 +44,7 @@ function ngf_user_profile_group_content_insert(GroupContent $group_content) {
  * Implements hook_comment_insert().
  */
 function ngf_user_profile_comment_insert(Comment $comment) {
-  if (in_array($comment->getCommentedEntity()->getType(), ['ngf_discussion'])) {
+  if ($comment->getCommentedEntityTypeId() == 'node' && in_array($comment->getCommentedEntity()->getType(), ['ngf_discussion'])) {
     $notification_manager = \Drupal::getContainer()->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyOwnerAboutNewComment($comment);
 

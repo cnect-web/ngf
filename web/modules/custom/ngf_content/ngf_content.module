@@ -36,3 +36,4 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
     }
   }
 }
+
