@@ -3,7 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.ngf_group_comments.default
     - field.field.group.ngf_event.field_ngf_address
+    - field.field.group.ngf_event.field_ngf_comments
     - field.field.group.ngf_event.field_ngf_cover_image
     - field.field.group.ngf_event.field_ngf_description
     - field.field.group.ngf_event.field_ngf_event_end_date
@@ -17,6 +19,7 @@ dependencies:
     - image.style.media_large
   module:
     - address
+    - comment
     - datetime
     - entity_reference_revisions
     - geofield
@@ -33,6 +36,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: address_default
+    region: content
+  field_ngf_comments:
+    weight: 10
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
     region: content
   field_ngf_cover_image:
     type: media_thumbnail
