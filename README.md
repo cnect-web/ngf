@@ -1,7 +1,7 @@
 # NGF Project
 
 
-## Composer 
+## Composer
 
 ```
 composer install
@@ -13,7 +13,7 @@ composer install
 ```
 
 
-## Configuration 
+## Configuration
 
 ```
 cp robo.yml.dist robo.yml
@@ -27,7 +27,7 @@ nano robo.yml
 ## Installation
 
 ```
-./bin/robo project:install
+./bin/robo project:install-config
 ```
 
 ## Behat
