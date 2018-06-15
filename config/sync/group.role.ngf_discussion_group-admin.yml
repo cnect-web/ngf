@@ -22,4 +22,6 @@ permissions:
   7: 'view group_membership content'
   8: 'access group_node overview'
   9: 'access subgroup overview'
-  19: 'view group_node:ngf_discussion entity'
+  10: 'view group_node:ngf_discussion entity'
+  11: 'create group_node:ngf_discussion entity'
+  24: 'create subgroup:ngf_event entity'

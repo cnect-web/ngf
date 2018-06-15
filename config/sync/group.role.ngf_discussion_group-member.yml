@@ -14,4 +14,6 @@ permissions_ui: true
 permissions:
   0: 'leave group'
   1: 'view group'
-  4: 'view group_node:ngf_discussion entity'
+  2: 'view group_node:ngf_discussion entity'
+  3: 'create group_node:ngf_discussion entity'
+  8: 'create subgroup:ngf_event entity'
