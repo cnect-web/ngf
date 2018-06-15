@@ -4,6 +4,7 @@ namespace Drupal\ngf_group\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\ngf_group\Entity\Decorator\NGFGroup;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
 use Drupal\views\Views;
@@ -16,35 +17,12 @@ class GroupPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function discoverPage() {
+  public function groupInfo(EntityInterface $group) {
 
-    $render_array = [];
-    $user = \Drupal::currentUser();
+    $gD = new NGFGroup($group);
 
-    // Check if the current user can create groups.
-    if ($user->hasPermission('create ngf discussion group group')) {
-      $url = Url::fromUri('internal:/group/add/ngf_discussion_group', []);
-      $link = Link::fromTextAndUrl(t('Create a Group'), $url);
-
-      // Add the create group link to the render array.
-      $render_array[] = [
-        '#type' => 'markup',
-        '#markup' => $link->toString()->getGeneratedLink()
-      ];
-    }
-
-    $view = Views::getView('ngf_groups');
-    $view->setDisplay('groups_block');
-
-    // Add the groups view title to the render array.
-    $render_array[] = [
-      '#type' => 'markup',
-      '#markup' => '<h1>' . $view->getTitle() .'</h1>',
-    ];
-
-    // Add the groups view to the render array.
-    $render_array[] = $view->render();
-
+    // Add the group.
+    $render_array['header'] = $this->groupView($group, 'full');
     return $render_array;
   }
 
@@ -52,8 +30,44 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function publicationsPage(EntityInterface $group) {
+
+    $gD = new NGFGroup($group);
+
     // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
+    $render_array['header'] = $this->groupView($group);
+
+    $render_array['group_tabs'] = [
+      '#title' => '',
+      '#theme' => 'item_list',
+      '#items' => $gD->getGroupTabs(),
+      '#attributes' => [
+        'class' => [
+          'inline',
+          'group-tabs',
+          'tabs'
+        ]
+      ]
+    ];
+
+    $view = Views::getView('ngf_group_publications');
+    $view->setArguments([$group->id()]);
+    $view->setDisplay('discussions');
+    $view->preExecute();
+    $view->execute();
+
+    // Add the groups view title to the render array.
+    $title = $view->getTitle();
+    if ($title) {
+      $render_array['title'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'h1',
+        '#value' => $title,
+      ];
+    }
+
+    // Add the groups view to the render array.
+    $render_array['content'] = $view->render();
+
     return $render_array;
   }
 
@@ -61,8 +75,44 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function eventsPage(EntityInterface $group) {
+
+    $gD = new NGFGroup($group);
+
     // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
+    $render_array['header'] = $this->groupView($group);
+
+    $render_array['group_tabs'] = [
+      '#title' => '',
+      '#theme' => 'item_list',
+      '#items' => $gD->getGroupTabs(),
+      '#attributes' => [
+        'class' => [
+          'inline',
+          'group-tabs',
+          'tabs'
+        ]
+      ]
+    ];
+
+    $view = Views::getView('ngf_group_events');
+    $view->setArguments([$group->id()]);
+    $view->setDisplay('events');
+    $view->preExecute();
+    $view->execute();
+
+    // Add the groups view title to the render array.
+    $title = $view->getTitle();
+    if ($title) {
+      $render_array['title'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'h1',
+        '#value' => $title,
+      ];
+    }
+
+    // Add the groups view to the render array.
+    $render_array['content'] = $view->render();
+
     return $render_array;
   }
 
@@ -71,7 +121,7 @@ class GroupPageController extends ControllerBase {
    */
   public function libraryPage(EntityInterface $group) {
     // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
+    $render_array['header'] = $this->groupView($group);
     return $render_array;
   }
 
@@ -80,7 +130,7 @@ class GroupPageController extends ControllerBase {
    */
   public function sharedContentPage(EntityInterface $group) {
     // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
+    $render_array['header'] = $this->groupView($group);
     return $render_array;
   }
 
@@ -90,7 +140,7 @@ class GroupPageController extends ControllerBase {
   public function membersPage(EntityInterface $group) {
 
     // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
+    $render_array['header'] = $this->groupView($group);
 
     // Add the page title to the render array.
     $render_array[] = [
@@ -117,7 +167,7 @@ class GroupPageController extends ControllerBase {
   public function followersPage(EntityInterface $group) {
 
     // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
+    $render_array['header'] = $this->groupView($group);
 
     // Add the page title to the render array.
     $render_array[] = [
@@ -141,9 +191,9 @@ class GroupPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function groupHeader(EntityInterface $group) {
+  public function groupView(EntityInterface $group, $view_mode = 'header') {
     $view_builder = \Drupal::entityManager()->getViewBuilder('group');
-    return $view_builder->view($group, 'header');
+    return $view_builder->view($group, $view_mode);
   }
 
 }

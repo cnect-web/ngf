@@ -88,6 +88,7 @@ function ngf_group_form_group_ngf_discussion_group_add_form_alter(&$form, \Drupa
  */
 function ngf_group_node_load(&$nodes) {
   foreach ($nodes as $nid => &$node) {
+    $node->group = NULL;
     $groups = GroupContent::loadByEntity($node);
     if (!empty($groups)) {
       $group = array_pop($groups)->getGroup();
@@ -114,13 +115,13 @@ function ngf_group_group_load(&$groups) {
  */
 function ngf_group_node_access(NodeInterface $node, $op, AccountInterface $account) {
   if ($op === 'view') {
-    if (!empty($node->group) && $group = $node->group && $group->bundle() == 'ngf_discussion_group') {
+    if (($group = $node->group) && $group->bundle() == 'ngf_discussion_group') {
       $gD = new NGFGroup($group);
-      // @todo: allow to override per node?
-      if (!$gD->isPublic() && !$group->getMember($account)) {
+      if ($gD->isPrivate() && !$group->getMember($account)) {
         return AccessResult::forbidden();
       }
     }
+    return AccessResult::allowed();
   }
 }
 

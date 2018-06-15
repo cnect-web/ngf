@@ -2,7 +2,7 @@ ngf_group.page.discover:
   path: '/discover'
   defaults:
     _title: 'Discover'
-    _controller: '\Drupal\ngf_group\Controller\GroupPageController::discoverPage'
+    _controller: '\Drupal\ngf_group\Controller\DiscoverPageController::discoverPage'
   requirements:
     _permission: 'access content'
 
@@ -47,6 +47,18 @@ ngf_group.page.shared:
   defaults:
     _title: 'Shared Content'
     _controller: '\Drupal\ngf_group\Controller\GroupPageController::sharedContentPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.info:
+  path: '/group/{group}/info'
+  defaults:
+    _title: 'Info'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::groupInfo'
   requirements:
     _permission: 'access content'
   options:

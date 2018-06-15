@@ -32,7 +32,7 @@ class DiscoverPageController extends ControllerBase {
       ];
     }
 
-    $view = Views::getView('groups');
+    $view = Views::getView('ngf_groups');
     $view->setDisplay('groups_block');
 
     // Add the groups view title to the render array.

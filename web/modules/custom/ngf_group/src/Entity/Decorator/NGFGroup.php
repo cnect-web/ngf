@@ -176,10 +176,11 @@ class NGFGroup {
   public function getGroupTabs() {
     $group = $this->group;
 
-    $links['publications'] = Link::fromTextAndUrl(t("Publications"), Url::fromRoute('ngf_group.page.publications', ['group' => $group->id()]));
+    $links['publications'] = Link::fromTextAndUrl(t("Publications"), Url::fromRoute('entity.group.canonical', ['group' => $group->id()]));
     $links['events'] = Link::fromTextAndUrl(t("Events"), Url::fromRoute('ngf_group.page.events', ['group' => $group->id()]));
     $links['library'] = Link::fromTextAndUrl(t("Library"), Url::fromRoute('ngf_group.page.library', ['group' => $group->id()]));
-    $links['shared-content'] = Link::fromTextAndUrl(t("Shared Content"), Url::fromRoute('ngf_group.page.shared', ['group' => $group->id()]));
+    $links['group-info'] = Link::fromTextAndUrl(t("Group Info"), Url::fromRoute('ngf_group.page.info', ['group' => $group->id()]));
+    //$links['shared-content'] = Link::fromTextAndUrl(t("Shared Content"), Url::fromRoute('ngf_group.page.shared', ['group' => $group->id()]));
 
     return $links;
   }

@@ -34,6 +34,11 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
       $route->setDefault('_title_callback', '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::gcCreateFormTitle');
     }
 
+    if ($route = $collection->get('entity.group.canonical')) {
+      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\GroupPageController::publicationsPage');
+    }
+
+
 /*
     // Switch group paths controllers.
     if ($route = $collection->get('entity.group.join')) {
