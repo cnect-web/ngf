@@ -221,7 +221,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'This group has no content yet.'
+            value: 'This group has no discussions yet.'
             format: basic_html
           plugin_id: text
       relationships:
