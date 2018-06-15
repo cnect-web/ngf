@@ -165,7 +165,7 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts: {  }
-      title: 'Group Events'
+      title: ''
       header: {  }
       footer: {  }
       empty: {  }
