@@ -16,6 +16,7 @@ abstract class StepsEnum {
   const STEP_TWO = 2;
   const STEP_THREE = 3;
   const STEP_FOUR = 4;
+  const STEP_FIVE = 5;
 
   /**
    * Return steps associative array.
@@ -29,6 +30,7 @@ abstract class StepsEnum {
       self::STEP_TWO => 'step-two',
       self::STEP_THREE => 'step-three',
       self::STEP_FOUR => 'step-four',
+      self::STEP_FIVE => 'step-five',
     ];
   }
 
@@ -47,6 +49,7 @@ abstract class StepsEnum {
       self::STEP_TWO => 'Drupal\\ngf_user_registration\\Step\\StepTwo',
       self::STEP_THREE => 'Drupal\\ngf_user_registration\\Step\\StepThree',
       self::STEP_FOUR => 'Drupal\\ngf_user_registration\\Step\\StepFour',
+      self::STEP_FIVE => 'Drupal\\ngf_user_registration\\Step\\StepFive',
     ];
 
     return isset($map[$step]) ? $map[$step] : FALSE;

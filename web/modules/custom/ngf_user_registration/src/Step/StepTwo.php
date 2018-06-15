@@ -81,11 +81,7 @@ class StepTwo extends BaseStep {
    * {@inheritdoc}
    */
   public function getFieldsValidators() {
-    return [
-      'city' => [
-//        new ValidatorRequired("It would be a lot easier for me if you could fill out some of your interests."),
-      ],
-    ];
+    return [];
   }
 
   public static function getCity(&$form, FormStateInterface $form_state) {

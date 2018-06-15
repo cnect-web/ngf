@@ -20,12 +20,6 @@ class StepManager {
   protected $steps;
 
   /**
-   * StepManager constructor.
-   */
-  public function __construct() {
-  }
-
-  /**
    * Add a step to the steps property.
    *
    * @param \Drupal\ngf_user_registration\Step\StepInterface $step

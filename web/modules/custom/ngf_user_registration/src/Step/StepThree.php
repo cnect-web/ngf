@@ -2,10 +2,8 @@
 
 namespace Drupal\ngf_user_registration\Step;
 
-use Drupal\ngf_user_registration\Button\StepThreeFinishButton;
+use Drupal\ngf_user_registration\Button\StepThreeNextButton;
 use Drupal\ngf_user_registration\Button\StepThreePreviousButton;
-use Drupal\ngf_user_registration\Validator\ValidatorRegex;
-use Drupal\ngf_user_registration\Validator\ValidatorRequired;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\taxonomy\Entity\Term;
 
@@ -29,7 +27,7 @@ class StepThree extends BaseStep {
   public function getButtons() {
     return [
       new StepThreePreviousButton(),
-      new StepThreeFinishButton(),
+      new StepThreeNextButton(),
     ];
   }
 
@@ -37,14 +35,13 @@ class StepThree extends BaseStep {
    * {@inheritdoc}
    */
   public function buildStepFormElements(FormStateInterface $form_state) {
-
+    $form = [];
     $form['interests_wrapper'] = [
       '#type' => 'container',
       '#attributes' => ['id' => 'interests-wrapper'],
       '#tree' => TRUE,
     ];
 
-//    $form['#tree'] = TRUE;
     $interests_items = $this->getValue('interests_items', $form_state->get('interests_items'));
     if (empty($interests_items)) {
       $interests_items = 1;
@@ -59,10 +56,8 @@ class StepThree extends BaseStep {
           'include_anonymous' => FALSE,
           'target_bundles' => ['ngf_interests'],
         ],
-//        '#default_value' => $this->getValues()['interests'][$i] ?? NULL,
       ];
 
-      ksm($this->getValues());
       $interest = $this->getValue('interests_wrapper')['interests'][$i] ?? NULL;
       if (!empty($interest) && $term = Term::Load($interest)) {
         $form['interests_wrapper']['interests'][$i]['#default_value'] = $term;
@@ -79,7 +74,6 @@ class StepThree extends BaseStep {
         'wrapper' => 'interests-wrapper',
       ],
     ];
-    $form_state->setCached(FALSE);
 
     return $form;
   }

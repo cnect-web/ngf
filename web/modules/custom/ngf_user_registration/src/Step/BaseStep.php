@@ -40,13 +40,6 @@ abstract class BaseStep implements StepInterface {
   /**
    * {@inheritdoc}
    */
-  public function isLastStep() {
-    return FALSE;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function setValues($values) {
     $this->values = $values;
   }
