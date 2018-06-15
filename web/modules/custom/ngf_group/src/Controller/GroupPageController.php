@@ -120,8 +120,25 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function libraryPage(EntityInterface $group) {
+
+    $gD = new NGFGroup($group);
+
     // Add the group header.
     $render_array['header'] = $this->groupView($group);
+
+    $render_array['group_tabs'] = [
+      '#title' => '',
+      '#theme' => 'item_list',
+      '#items' => $gD->getGroupTabs(),
+      '#attributes' => [
+        'class' => [
+          'inline',
+          'group-tabs',
+          'tabs'
+        ]
+      ]
+    ];
+
     return $render_array;
   }
 
