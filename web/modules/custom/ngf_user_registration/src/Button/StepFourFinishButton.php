@@ -29,7 +29,6 @@ class StepFourFinishButton extends BaseButton {
     return [
       '#type' => 'submit',
       '#value' => t('Finish!'),
-//      '#goto_step' => StepsEnum::STEP_FINALIZE,
       '#submit_handler' => 'submitValues',
     ];
   }

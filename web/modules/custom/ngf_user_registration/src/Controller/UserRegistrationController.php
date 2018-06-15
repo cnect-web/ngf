@@ -2,6 +2,7 @@
 
 namespace Drupal\ngf_user_registration\Controller;
 
+use Drupal\Component\Utility\Tags;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -22,17 +23,22 @@ class UserRegistrationController extends ControllerBase {
   public function citiesAutocomplete(Request $request, $country_id = null) {
     $results = [];
     if ($input = $request->query->get('q')) {
-      if (strlen($input) > 2) {
+      if (strlen($input) > 1) {
+
         $query = \Drupal::entityQuery('taxonomy_term');
         $query->condition('vid', 'ngf_cities');
         $query->condition('name', '%' . $input . '%', 'LIKE');
+
         if ($country_id) {
           $query->condition('field_ngf_country', $country_id);
         }
+
         $terms = Term::LoadMultiple($query->execute());
+
         foreach ($terms as $term) {
+          $name = Tags::encode($term->getName());
           $results[] = [
-            'value' => $term->getName() . ' (' . $term->id() . ')',
+            'value' => $name . ' (' . $term->id() . ')',
             'label' => $term->getName(),
           ];
         }

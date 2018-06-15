@@ -2,6 +2,7 @@
 
 namespace Drupal\ngf_user_registration\Form;
 
+use Drupal\Component\Utility\Tags;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
@@ -11,8 +12,10 @@ use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\ngf_user_registration\Manager\StepManager;
 use Drupal\ngf_user_registration\Step\StepsEnum;
 use Drupal\redirect\Entity\Redirect;
+use Drupal\user\RoleInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Entity\Element\EntityAutocomplete;
 
 /**
  * Provides multi step ajax example form.
@@ -47,7 +50,7 @@ class UserRegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function __construct() {
-    $this->stepId = StepsEnum::STEP_FOUR;
+    $this->stepId = StepsEnum::STEP_ONE;
     $this->stepManager = new StepManager();
   }
 
@@ -174,6 +177,7 @@ class UserRegistrationForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+
     // Save filled values to step. So we can use them as default_value later on.
     $values = [];
     foreach ($this->step->getFieldNames() as $name) {
@@ -208,24 +212,58 @@ class UserRegistrationForm extends FormBase {
    */
   public function submitValues(array &$form, FormStateInterface $form_state) {
 
+    // First step.
+    $first_step = $this->stepManager->getStep(StepsEnum::STEP_ONE);
+    $first_name = $first_step->getValue('first_name');
+    $last_name = $first_step->getValue('last_name');
+    $username = $first_step->getValue('username');
+    $email = $first_step->getValue('email');
+
+    // Second step
+    $step_two = $this->stepManager->getStep(StepsEnum::STEP_TWO);
+    $country = $step_two->getValue('country');
+    $city = EntityAutocomplete::extractEntityIdFromAutocompleteInput($step_two->getValue('city'));
+
+    // Third step
+    $interests = $this->stepManager->getStep(StepsEnum::STEP_THREE)->getValue('interests_wrapper')['interests'] ?? [];
 
     $user = \Drupal\user\Entity\User::create();
-    //  Check \Drupal::config('user.settings')->get('verify_mail').
     $user->setPassword(user_password());
     $user->enforceIsNew();
-    $user->setEmail();
-    $user->setUsername();
+    $user->setEmail($email);
+    $user->setUsername($username);
+    $user->set('init', $email);
+    $user->set('field_ngf_first_name', $first_name);
+    $user->set('field_ngf_last_name', $last_name);
+    $user->set('field_ngf_interests', $interests);
+    $user->set('field_ngf_country', $country);
+    $user->set('field_ngf_city', $city);
+    $user->addRole(null);
+    $user->activate();
 
+    // Call Drupal original submission code.
     $formObject = \Drupal::entityTypeManager()->getFormObject('user','register');
-    $formObject->setEntity($user);
-    $formStateObject = (new FormState())->setFormObject($formObject);
-    $form = $formObject->buildForm([],$formStateObject);
-    $formObject->validateForm($form,$formStateObject);
-    $formObject->submitForm($form,$formStateObject);
-    $formObject->save($form,$formStateObject);
 
-    $container = \Drupal::getContainer();
-    $container->get('messenger')->addMessage(t('User has been successfully registered'));
+    $formStateObject = new FormState();
+    $formStateObject->setFormObject($formObject)->disableRedirect();
+    $formObject->setEntity($user);
+    $form = [];
+    $form = $formObject->buildForm($form, $formStateObject);
+    $formStateObject->setValue('roles', []);
+    $formObject->validateForm($form, $formStateObject);
+
+    $formObject->save($form, $formStateObject);
+    $user = $formObject->getEntity();
+
+    // Set additional settings.
+    $forth_step = $this->stepManager->getStep(StepsEnum::STEP_FOUR);
+    $userData = \Drupal::service('user.data');
+    $userSettings = \Drupal::getContainer()->get('ngf_user_profile.user_settings_manager');
+    foreach (array_keys($userSettings->getList()) as $setting) {
+      $userData->set('ngf', $user->id(), $setting, $forth_step->getValue($setting, 0));
+    }
+
+    \Drupal::getContainer()->get('messenger')->addMessage(t('User has been successfully registered'));
 
     $response = new RedirectResponse('/');
     $response->send();

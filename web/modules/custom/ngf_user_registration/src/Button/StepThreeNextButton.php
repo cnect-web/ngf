@@ -15,7 +15,7 @@ class StepThreeNextButton extends BaseButton {
    * {@inheritdoc}
    */
   public function getKey() {
-    return 'finish';
+    return 'next';
   }
 
   /**
@@ -24,9 +24,8 @@ class StepThreeNextButton extends BaseButton {
   public function build() {
     return [
       '#type' => 'submit',
-      '#value' => t('Finish!'),
+      '#value' => t('Next'),
       '#goto_step' => StepsEnum::STEP_FOUR,
-      '#submit_handler' => 'submitValues',
     ];
   }
 

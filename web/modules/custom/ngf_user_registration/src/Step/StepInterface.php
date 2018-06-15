@@ -29,11 +29,6 @@ interface StepInterface {
   public function getButtons();
 
   /**
-   * Indicates if step is last step.
-   */
-  public function isLastStep();
-
-  /**
    * All fields name.
    *
    * @returns array of all field names.

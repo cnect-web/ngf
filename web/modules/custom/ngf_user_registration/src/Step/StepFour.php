@@ -7,7 +7,6 @@ use Drupal\ngf_user_registration\Button\StepFourPreviousButton;
 use Drupal\ngf_user_registration\Validator\ValidatorRequired;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\ngf_user_profile\UserSettingsManager;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class StepFour.
@@ -15,28 +14,6 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Drupal\ngf_user_registration\Step
  */
 class StepFour extends BaseStep {
-
-  protected $userSettings = NULL;
-
-  /**
-   * StepFour constructor.
-   *
-   * @param Drupal\ngf_user_profile\Manager\UserSettingsManager $user_settings
-   *   The user settings.
-   */
-  public function __construct() {
-    $this->userSettings = \Drupal::getContainer()->get('ngf_user_profile.user_settings_manager');
-    parent::__construct();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-
-    );
-  }
 
   /**
    * {@inheritdoc}
@@ -64,7 +41,7 @@ class StepFour extends BaseStep {
       '#type' => 'fieldset',
       '#title' => t('Private settings'),
     ];
-    $settings = $this->userSettings->getList();
+    $settings = \Drupal::getContainer()->get('ngf_user_profile.user_settings_manager')->getList();
     foreach ($settings as $key => $setting) {
       $form['setting_wrapper'][$key] = [
         '#type' => 'checkbox',
@@ -73,8 +50,6 @@ class StepFour extends BaseStep {
       ];
     }
 
-    $form_state->setCached(FALSE);
-
     return $form;
   }
 
@@ -82,7 +57,7 @@ class StepFour extends BaseStep {
    * {@inheritdoc}
    */
   public function getFieldNames() {
-    return array_keys($this->userSettings->getList());
+    return array_keys(\Drupal::getContainer()->get('ngf_user_profile.user_settings_manager')->getList());
   }
 
   /**
