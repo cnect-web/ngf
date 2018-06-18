@@ -37,30 +37,6 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
     if ($route = $collection->get('entity.group.canonical')) {
       $route->setDefault('_controller', '\Drupal\ngf_group\Controller\GroupPageController::publicationsPage');
     }
-
-
-/*
-    // Switch group paths controllers.
-    if ($route = $collection->get('entity.group.join')) {
-      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\NGFGroupMembershipController::join');
-    }
-
-    if ($route = $collection->get('entity.group_content.approve_form')) {
-      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\NGFGroupMembershipController::approveMembership');
-    }
-
-    if ($route = $collection->get('entity.group_content.reject_form')) {
-      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\NGFGroupMembershipController::rejectMembership');
-    }
-
-    if ($route = $collection->get('entity.group_content.ban_form')) {
-      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\NGFGroupMembershipController::banMembership');
-    }
-    // Unset membership request route.
-    if ($route = $collection->get('entity.group.request_membership')) {
-      $collection->remove('entity.group.request_membership');
-    }
-*/
   }
 
   /**

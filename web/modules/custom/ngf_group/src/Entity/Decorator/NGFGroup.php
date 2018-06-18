@@ -137,8 +137,6 @@ class NGFGroup {
         $links[$key]['#url'] = $value['url'];
         $links[$key]['#type'] = 'link';
         $links[$key]['#attributes']['class'][] = $key;
-        //$links[$key]['#attributes']['class'][] = "btn";
-        //$links[$key]['#attributes']['class'][] = "button-link";
       }
 
       // Remove the join group link for non-public groups.
