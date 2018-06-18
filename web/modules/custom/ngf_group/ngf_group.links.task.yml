@@ -1,6 +1,11 @@
-ngf_group.link.group_publications:
-  route_name: ngf_group.page.publications
-  title: 'Group Publications'
+entity.group.canonical:
+  route_name: entity.group.canonical
+  base_route: entity.group.canonical
+  title: 'View'
+
+ngf_group.link.publications:
+  route_name: entity.group.canonical
+  title: 'Publications'
   description: 'Group Publications'
   base_route: entity.group.canonical
   parent_id: entity.group.canonical
@@ -16,6 +21,13 @@ ngf_group.link.group_library:
   route_name: ngf_group.page.library
   title: 'Library'
   description: 'Group Library'
+  base_route: entity.group.canonical
+  parent_id: entity.group.canonical
+
+ngf_group.link.group_info:
+  route_name: ngf_group.page.info
+  title: 'Group Info'
+  description: 'Group Shared Content'
   base_route: entity.group.canonical
   parent_id: entity.group.canonical
 

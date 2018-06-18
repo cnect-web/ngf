@@ -137,8 +137,6 @@ class NGFGroup {
         $links[$key]['#url'] = $value['url'];
         $links[$key]['#type'] = 'link';
         $links[$key]['#attributes']['class'][] = $key;
-        //$links[$key]['#attributes']['class'][] = "btn";
-        //$links[$key]['#attributes']['class'][] = "button-link";
       }
 
       // Remove the join group link for non-public groups.
@@ -174,15 +172,18 @@ class NGFGroup {
    * Return the group tabs.
    */
   public function getGroupTabs() {
-    $group = $this->group;
-
-    $links['publications'] = Link::fromTextAndUrl(t("Publications"), Url::fromRoute('entity.group.canonical', ['group' => $group->id()]));
-    $links['events'] = Link::fromTextAndUrl(t("Events"), Url::fromRoute('ngf_group.page.events', ['group' => $group->id()]));
-    $links['library'] = Link::fromTextAndUrl(t("Library"), Url::fromRoute('ngf_group.page.library', ['group' => $group->id()]));
-    $links['group-info'] = Link::fromTextAndUrl(t("Group Info"), Url::fromRoute('ngf_group.page.info', ['group' => $group->id()]));
-    //$links['shared-content'] = Link::fromTextAndUrl(t("Shared Content"), Url::fromRoute('ngf_group.page.shared', ['group' => $group->id()]));
-
-    return $links;
+    $block_manager = \Drupal::service('plugin.manager.block');
+    $config = [
+      'primary' => FALSE,
+      'secondary' => TRUE
+    ];
+    $plugin_block = $block_manager->createInstance('local_tasks_block', $config);
+    $access_result = $plugin_block->access(\Drupal::currentUser());
+    if (is_object($access_result) && $access_result->isForbidden() || is_bool($access_result) && !$access_result) {
+      return [];
+    }
+    $render = $plugin_block->build();
+    return $render;
   }
 
 }

@@ -130,14 +130,6 @@ function ngf_group_node_access(NodeInterface $node, $op, AccountInterface $accou
  */
 function ngf_group_entity_type_alter(array &$entity_types) {
   $entity_types['group']->setHandlerClass('access', \Drupal\ngf_group\Entity\Access\NGFGroupAccessControlHandler::class);
-  //$entity_types['group_content']->setHandlerClass('access', \Drupal\ngf_group\Entity\Access\NGFGroupContentAccessControlHandler::class);
-}
-
-/**
- * Implements hook_group_content_info_alter().
- */
-function ngf_group_group_content_info_alter(array &$definitions) {
-  //$definitions['group_membership']['class'] = 'Drupal\ngf_group\Plugin\GroupContentEnabler\NGFGroupContentEnabler';
 }
 
 /**
@@ -271,14 +263,7 @@ function ngf_group_group_view(array &$build, EntityInterface $entity, EntityView
     // Group tabs.
     if ($display->getComponent('group_tabs')) {
       if ($group = $entity) {
-        $links = $gD->getGroupTabs();
-
-        $build['group_tabs']['#title'] = '';
-        $build['group_tabs']['#theme'] = 'item_list';
-        $build['group_tabs']['#items'] = $links;
-        $build['group_tabs']['#attributes']['class'][] = 'inline';
-        $build['group_tabs']['#attributes']['class'][] = 'group-tabs';
-        $build['group_tabs']['#attributes']['class'][] = 'tabs';
+        $build['group_tabs'] = $gD->getGroupTabs();
       }
     }
 
@@ -360,17 +345,18 @@ function ngf_group_visiblity_default_value(ContentEntityInterface $entity, Field
 }
 
 /**
- * Implements hook_menu_local_tasks_alter().
+ * Implements hook_local_tasks_alter().
  */
-function ngf_group_menu_local_tasks_alter(&$data, $route_name) {
-  // Remove useless group tabs.
-  if ($route_name == 'entity.group.canonical' || strpos($route_name, 'ngf_group.page.') !== FALSE) {
-    unset($data['tabs'][0]['group.content']);
-    unset($data['tabs'][0]['views_view:view.group_banned_members.page_1']);
-    unset($data['tabs'][0]['views_view:view.group_members.page_1']);
-    unset($data['tabs'][0]['views_view:view.group_nodes.page_1']);
-    unset($data['tabs'][0]['views_view:view.group_pending_members.page_1']);
-  }
+function ngf_group_local_tasks_alter(&$local_tasks) {
+  unset($local_tasks['group.view']);
+  unset($local_tasks['group.content']);
+  unset($local_tasks['views_view:view.group_banned_members.page_1']);
+  unset($local_tasks['views_view:view.group_members.page_1']);
+  unset($local_tasks['views_view:view.group_nodes.page_1']);
+  unset($local_tasks['views_view:view.group_pending_members.page_1']);
+  unset($local_tasks['ngf_group.link.group_shared']);
+  unset($local_tasks['ngf_group.link.group_members']);
+  unset($local_tasks['ngf_group.link.group_followers']);
 }
 
 /**
