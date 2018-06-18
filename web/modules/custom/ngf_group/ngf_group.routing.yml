@@ -6,18 +6,6 @@ ngf_group.page.discover:
   requirements:
     _permission: 'access content'
 
-ngf_group.page.publications:
-  path: '/group/{group}/publications'
-  defaults:
-    _title: 'Publications'
-    _controller: '\Drupal\ngf_group\Controller\GroupPageController::publicationsPage'
-  requirements:
-    _permission: 'access content'
-  options:
-    parameters:
-      group:
-        type: 'entity:group'
-
 ngf_group.page.events:
   path: '/group/{group}/events'
   defaults:

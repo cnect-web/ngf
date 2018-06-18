@@ -23,6 +23,8 @@ class GroupPageController extends ControllerBase {
 
     // Add the group.
     $render_array['header'] = $this->groupView($group, 'full');
+    $render_array['group_tabs'] = $gD->getGroupTabs();
+
     return $render_array;
   }
 
@@ -36,18 +38,7 @@ class GroupPageController extends ControllerBase {
     // Add the group header.
     $render_array['header'] = $this->groupView($group);
 
-    $render_array['group_tabs'] = [
-      '#title' => '',
-      '#theme' => 'item_list',
-      '#items' => $gD->getGroupTabs(),
-      '#attributes' => [
-        'class' => [
-          'inline',
-          'group-tabs',
-          'tabs'
-        ]
-      ]
-    ];
+    $render_array['group_tabs'] = $gD->getGroupTabs();
 
     $view = Views::getView('ngf_group_publications');
     $view->setArguments([$group->id()]);
@@ -81,18 +72,7 @@ class GroupPageController extends ControllerBase {
     // Add the group header.
     $render_array['header'] = $this->groupView($group);
 
-    $render_array['group_tabs'] = [
-      '#title' => '',
-      '#theme' => 'item_list',
-      '#items' => $gD->getGroupTabs(),
-      '#attributes' => [
-        'class' => [
-          'inline',
-          'group-tabs',
-          'tabs'
-        ]
-      ]
-    ];
+    $render_array['group_tabs'] = $gD->getGroupTabs();
 
     $view = Views::getView('ngf_group_events');
     $view->setArguments([$group->id()]);
@@ -126,18 +106,7 @@ class GroupPageController extends ControllerBase {
     // Add the group header.
     $render_array['header'] = $this->groupView($group);
 
-    $render_array['group_tabs'] = [
-      '#title' => '',
-      '#theme' => 'item_list',
-      '#items' => $gD->getGroupTabs(),
-      '#attributes' => [
-        'class' => [
-          'inline',
-          'group-tabs',
-          'tabs'
-        ]
-      ]
-    ];
+    $render_array['group_tabs'] = $gD->getGroupTabs();
 
     return $render_array;
   }

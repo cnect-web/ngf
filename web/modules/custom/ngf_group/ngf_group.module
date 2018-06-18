@@ -263,14 +263,7 @@ function ngf_group_group_view(array &$build, EntityInterface $entity, EntityView
     // Group tabs.
     if ($display->getComponent('group_tabs')) {
       if ($group = $entity) {
-        $links = $gD->getGroupTabs();
-
-        $build['group_tabs']['#title'] = '';
-        $build['group_tabs']['#theme'] = 'item_list';
-        $build['group_tabs']['#items'] = $links;
-        $build['group_tabs']['#attributes']['class'][] = 'inline';
-        $build['group_tabs']['#attributes']['class'][] = 'group-tabs';
-        $build['group_tabs']['#attributes']['class'][] = 'tabs';
+        $build['group_tabs'] = $gD->getGroupTabs();
       }
     }
 
