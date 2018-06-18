@@ -37,6 +37,11 @@ class StepTwo extends BaseStep {
   public function buildStepFormElements(FormStateInterface $form_state) {
     $country = $this->getValue('country', $form_state->getValue('country'));
 
+    $form['title'] = [
+      '#type' => 'item',
+      '#markup' => t('<h2>Location</h2>'),
+    ];
+
     $form['country'] = [
       '#title' => t('Country'),
       '#type' => 'select',
@@ -57,10 +62,18 @@ class StepTwo extends BaseStep {
     $city = $this->getValue('city');
     if (!empty($city) || !empty($country)) {
       $form['city_wrapper']['city'] = [
+        '#prefix' => '<div class="form__block form__block--text">',
+        '#suffix' => '</div>',
         '#type' => 'textfield',
+        '#title' => t('City'),
         '#default_value' => $city,
         '#autocomplete_route_name' => 'ngf_user_registration.city_autocomplete',
         '#autocomplete_route_parameters' => ['country_id' => $country],
+        '#attributes' => [
+          'class' => [
+            'form__input form__input--text',
+          ]
+        ],
       ];
     }
 

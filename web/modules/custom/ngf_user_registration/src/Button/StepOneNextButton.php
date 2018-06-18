@@ -26,6 +26,11 @@ class StepOneNextButton extends BaseButton {
       '#type' => 'submit',
       '#value' => t('Next'),
       '#goto_step' => StepsEnum::STEP_TWO,
+      '#attributes' => [
+        'class' => [
+          'btn btn--green',
+        ]
+      ]
     ];
   }
 

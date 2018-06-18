@@ -37,16 +37,30 @@ class StepFour extends BaseStep {
    */
   public function buildStepFormElements(FormStateInterface $form_state) {
 
+    $form['title'] = [
+      '#type' => 'item',
+      '#markup' => t('<h2>Private settings</h2>'),
+    ];
+    $form['info'] = [
+      '#type' => 'item',
+      '#markup' => t('<p>Private settings information</p>'),
+    ];
     $form['setting_wrapper'] = [
-      '#type' => 'fieldset',
-      '#title' => t('Private settings'),
+      '#type' => 'container',
     ];
     $settings = \Drupal::getContainer()->get('ngf_user_profile.user_settings_manager')->getList();
     foreach ($settings as $key => $setting) {
       $form['setting_wrapper'][$key] = [
+        '#prefix' =>  '<div class="form__block--toggle">',
+        '#suffix' =>  '</div>',
         '#type' => 'checkbox',
-        '#title' => $setting['title'],
+        '#title' => t('<span class="onoffswitch-inner"></span> <span class="label-text">@title</span>',[
+          '@title' => $setting['title'],
+        ]),
         '#default_value' => $setting['default_value'],
+        '#attributes' => [
+          'id' => 'edit-' . str_replace('_', '-', $key),
+        ],
       ];
     }
 

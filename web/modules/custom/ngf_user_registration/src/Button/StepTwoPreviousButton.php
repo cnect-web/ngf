@@ -27,6 +27,11 @@ class StepTwoPreviousButton extends BaseButton {
       '#value' => t('Previous'),
       '#goto_step' => StepsEnum::STEP_ONE,
       '#skip_validation' => TRUE,
+      '#attributes' => [
+        'class' => [
+          'btn btn--grey btn-large',
+        ]
+      ]
     ];
   }
 

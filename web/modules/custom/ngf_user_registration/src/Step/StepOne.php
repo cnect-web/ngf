@@ -35,38 +35,77 @@ class StepOne extends BaseStep {
    * {@inheritdoc}
    */
   public function buildStepFormElements(FormStateInterface $form_state) {
-    $form['first_name'] = [
-      '#type' => 'textfield',
-      '#title' => t('First name'),
-      '#required' => TRUE,
-      '#default_value' => $this->getValues()['first_name'] ?? NULL,
+    $form['title'] = [
+      '#type' => 'item',
+      '#markup' => t('<h2>Register</h2>'),
     ];
-    $form['last_name'] = [
-      '#type' => 'textfield',
-      '#title' => t('Last name'),
-      '#required' => TRUE,
-      '#default_value' => $this->getValues()['last_name'] ?? NULL,
+
+    $fields = [
+      [
+        'name' => 'first_name',
+        'title' => t('First name'),
+      ],
+      [
+        'name' => 'last_name',
+        'title' => t('Last name'),
+      ],
+      [
+        'name' => 'username',
+        'title' => t('Username'),
+      ],
+      [
+        'name' => 'email',
+        'title' => t('Email'),
+        'description' => t('All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.'),
+      ],
     ];
-    $form['username'] = [
-      '#type' => 'textfield',
-      '#title' => t('Username'),
-      '#required' => TRUE,
-      '#default_value' => $this->getValues()['username'] ?? NULL,
-    ];
-    $form['email'] = [
-      '#type' => 'email',
-      '#title' => t('Email'),
-      '#required' => TRUE,
-      '#default_value' => $this->getValues()['email'] ?? NULL,
-    ];
+
+    foreach ($fields as $field) {
+      $form[$field['name']] = $this->addTextField($field);
+    }
+
     $form['terms'] = [
+      '#prefix' => '<div class="form__block form__block--onecol form__block--ticks"><div class="form__block--checkbox">',
+      '#suffix' => '</div></div>',
       '#type' => 'checkbox',
-      '#title' => t('By clicking Register, you agree to our Terms and that you have read our Data Use Policy, including our Cookies Use'),
+      '#title' => t('<span class="onoffswitch-inner"></span> <span class="label-text">By clicking "Sign Up", you agree to our <a href="@url">Terms and Conditions and that you have read our Data Use Policy</a></span>', [
+        '@url' => '',
+      ]),
       '#required' => TRUE,
       '#default_value' => $this->getValues()['terms'] ?? NULL,
     ];
 
     return $form;
+  }
+
+  public function addTextField($field) {
+
+    $name = $field['name'] ?? NULL;
+    $title = $field['title'] ?? NULL;
+    $description = $field['description'] ?? NULL;
+
+    $array = [
+      '#prefix' => '<div class="form__block form__block--text">',
+      '#suffix' => '</div>',
+      '#type' => 'textfield',
+      '#title' => t('<label for="@name" required>@title <span class="form--required text-danger" title="This field is required."><span class="sr-only">Mandatory field</span>*</span></label>', [
+        '@name' => $name,
+        '@title' => $title,
+      ]),
+      '#required' => TRUE,
+      '#default_value' => $this->getValues()[$name] ?? NULL,
+      '#attributes' => [
+        'class' => [
+          'form__input form__input--text',
+        ]
+      ],
+    ];
+
+    if (!empty($description)) {
+      $array['#description'] = $description;
+    }
+
+    return $array;
   }
 
   /**
