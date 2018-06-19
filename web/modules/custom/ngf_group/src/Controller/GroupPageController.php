@@ -114,8 +114,8 @@ class GroupPageController extends ControllerBase {
     $render_array['group_tabs'] = $gD->getGroupTabs();
 
     // Add the view block.
-    $view = Views::getView('ngf_group_members');
-    $view->setDisplay('members');
+    $view = Views::getView('ngf_group_library');
+    $view->setDisplay('library');
     $view->setArguments([$group->id()]);
     $view->preExecute();
     $view->execute();
