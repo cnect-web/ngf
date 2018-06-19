@@ -56,6 +56,20 @@ function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\
   // NGF-65 : Set default text for registration link and make the field readonly.
   $form['field_ngf_registration_link']['widget'][0]['title']['#attributes']['readonly'] = 'readonly';
   $form['field_ngf_registration_link']['widget'][0]['title']['#value'] = t('Register');
+  $form['field_ngf_registration_link']['widget'][0]['title']['#type'] = "hidden";
+
+  // Add additional validation for end date.
+  $form['field_ngf_event_end_date']['#element_validate'][] = '_ngf_core_event_end_date_validate';
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ngf_core_form_group_ngf_event_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // NGF-65 : Set default text for registration link and make the field readonly.
+  $form['field_ngf_registration_link']['widget'][0]['title']['#attributes']['readonly'] = 'readonly';
+  $form['field_ngf_registration_link']['widget'][0]['title']['#value'] = t('Register');
+  $form['field_ngf_registration_link']['widget'][0]['title']['#type'] = "hidden";
 
   // Add additional validation for end date.
   $form['field_ngf_event_end_date']['#element_validate'][] = '_ngf_core_event_end_date_validate';
