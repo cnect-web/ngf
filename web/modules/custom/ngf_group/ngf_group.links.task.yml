@@ -24,6 +24,13 @@ ngf_group.link.group_library:
   base_route: entity.group.canonical
   parent_id: entity.group.canonical
 
+ngf_group.link.subgroups:
+  route_name: ngf_group.page.subgroups
+  title: 'Subgroups'
+  description: 'Group Subgroups'
+  base_route: entity.group.canonical
+  parent_id: entity.group.canonical
+
 ngf_group.link.group_info:
   route_name: ngf_group.page.info
   title: 'Group Info'
