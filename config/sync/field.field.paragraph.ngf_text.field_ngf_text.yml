@@ -10,9 +10,9 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    full_html: full_html
-    basic_html: '0'
+    basic_html: basic_html
     restricted_html: '0'
+    full_html: '0'
     plain_text: '0'
 id: paragraph.ngf_text.field_ngf_text
 field_name: field_ngf_text
