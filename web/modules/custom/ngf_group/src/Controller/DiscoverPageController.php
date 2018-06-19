@@ -21,7 +21,7 @@ class DiscoverPageController extends ControllerBase {
     $user = \Drupal::currentUser();
 
     // Check if the current user can create groups.
-    if ($user->hasPermission('create ngf discussion group group')) {
+    if ($user->hasPermission('create ngf_discussion_group group')) {
       $url = Url::fromUri('internal:/group/add/ngf_discussion_group', []);
       $link = Link::fromTextAndUrl(t('Create a Group'), $url);
 
