@@ -231,7 +231,6 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
   }
 
   public function interestsSettings() {
-    $this->get
     $user = \Drupal::entityTypeManager()
       ->getStorage('user')
       ->load($this->currentUser()->id());
