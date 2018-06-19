@@ -348,15 +348,23 @@ function ngf_group_visiblity_default_value(ContentEntityInterface $entity, Field
  * Implements hook_local_tasks_alter().
  */
 function ngf_group_local_tasks_alter(&$local_tasks) {
+  // Completely remove some group tabs.
   unset($local_tasks['group.view']);
   unset($local_tasks['group.content']);
   unset($local_tasks['views_view:view.group_banned_members.page_1']);
   unset($local_tasks['views_view:view.group_members.page_1']);
   unset($local_tasks['views_view:view.group_nodes.page_1']);
   unset($local_tasks['views_view:view.group_pending_members.page_1']);
-  unset($local_tasks['ngf_group.link.group_shared']);
-  unset($local_tasks['ngf_group.link.group_members']);
-  unset($local_tasks['ngf_group.link.group_followers']);
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function ngf_group_menu_local_tasks_alter(&$data, $route_name) {
+  // Hide the members and followers tab, but keep the functionality.
+  $data['tabs'][1]['ngf_group.link.group_members'] = NULL;
+  $data['tabs'][1]['ngf_group.link.group_followers'] = NULL;
+  $data['tabs'][1]['ngf_group.link.group_shared'] = NULL;
 }
 
 /**

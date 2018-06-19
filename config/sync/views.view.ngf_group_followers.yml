@@ -51,10 +51,15 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 12
+          items_per_page: 10
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -63,12 +68,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
+          quantity: 6
       style:
         type: default
       row:
@@ -130,7 +130,20 @@ display:
       title: 'Group Followers'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'This group has no followers yet.'
+            format: basic_html
+          plugin_id: text
       relationships:
         flag_relationship:
           id: flag_relationship
@@ -203,13 +216,15 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
-  block_1:
+        - 'config:core.entity_view_display.user.user.ngf_author'
+  followers:
     display_plugin: block
-    id: block_1
-    display_title: Block
+    id: followers
+    display_title: 'Group Followers'
     position: 1
     display_options:
       display_extenders: {  }
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -220,3 +235,4 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.ngf_author'
