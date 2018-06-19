@@ -129,3 +129,11 @@ ngf_user_profile.private_settings:
     _title: 'Private settings'
   requirements:
     _permission: 'access content'
+
+ngf_user_profile.private_settings:
+  path: '/profile/interests-settings'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::interestsSettings'
+    _title: 'Interests settings'
+  requirements:
+    _permission: 'access content'

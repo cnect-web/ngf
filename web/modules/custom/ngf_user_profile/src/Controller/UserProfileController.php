@@ -230,4 +230,17 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
     return $render;
   }
 
+  public function interestsSettings() {
+    $this->get
+    $user = \Drupal::entityTypeManager()
+      ->getStorage('user')
+      ->load($this->currentUser()->id());
+
+    $form = \Drupal::entityTypeManager()
+      ->getFormObject('user', 'ngf_interests')
+      ->setEntity($user);
+
+    return \Drupal::formBuilder()->getForm($form);
+  }
+
 }
