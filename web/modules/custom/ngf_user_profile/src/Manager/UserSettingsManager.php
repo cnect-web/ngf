@@ -34,12 +34,12 @@ class UserSettingsManager {
     $this->userData = $userData;
   }
 
-  protected function setSetting($name, $value) {
+  public function setSetting($name, $value) {
     $this->userData->set('ngf_user_profile', $this->currentUser->id(), $name, $value);
   }
 
-  protected function getSetting($name) {
-    $this->userData->get('ngf_user_profile', $this->currentUser->id(), $name);
+  public function getSetting($name) {
+    return $this->userData->get('ngf_user_profile', $this->currentUser->id(), $name);
   }
 
   public function setActionContact() {
