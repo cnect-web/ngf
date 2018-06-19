@@ -50,10 +50,15 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 12
+          items_per_page: 10
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -62,12 +67,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
+          quantity: 6
       style:
         type: default
       row:
@@ -213,14 +213,16 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
-  block_1:
+        - 'config:core.entity_view_display.user.user.ngf_author'
+  members:
     display_plugin: block
-    id: block_1
-    display_title: Block
+    id: members
+    display_title: 'Group Members'
     position: 1
     display_options:
       display_extenders: {  }
       block_category: NGF_Groups
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -231,3 +233,4 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.ngf_author'

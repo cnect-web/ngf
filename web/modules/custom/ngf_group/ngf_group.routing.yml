@@ -30,11 +30,11 @@ ngf_group.page.library:
       group:
         type: 'entity:group'
 
-ngf_group.page.shared:
-  path: '/group/{group}/shared-content'
+ngf_group.page.info:
+  path: '/group/{group}/info'
   defaults:
-    _title: 'Shared Content'
-    _controller: '\Drupal\ngf_group\Controller\GroupPageController::sharedContentPage'
+    _title: 'Info'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::groupInfo'
   requirements:
     _permission: 'access content'
   options:
@@ -42,11 +42,11 @@ ngf_group.page.shared:
       group:
         type: 'entity:group'
 
-ngf_group.page.info:
-  path: '/group/{group}/info'
+ngf_group.page.shared:
+  path: '/group/{group}/shared-content'
   defaults:
-    _title: 'Info'
-    _controller: '\Drupal\ngf_group\Controller\GroupPageController::groupInfo'
+    _title: 'Shared Content'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::sharedContentPage'
   requirements:
     _permission: 'access content'
   options:
