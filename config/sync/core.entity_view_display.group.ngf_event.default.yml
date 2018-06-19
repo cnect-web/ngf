@@ -10,6 +10,7 @@ dependencies:
     - field.field.group.ngf_event.field_ngf_description
     - field.field.group.ngf_event.field_ngf_event_end_date
     - field.field.group.ngf_event.field_ngf_event_start_date
+    - field.field.group.ngf_event.field_ngf_group_visibility
     - field.field.group.ngf_event.field_ngf_interests
     - field.field.group.ngf_event.field_ngf_introtext
     - field.field.group.ngf_event.field_ngf_location
@@ -25,6 +26,7 @@ dependencies:
     - geofield
     - link
     - media
+    - options
 id: group.ngf_event.default
 targetEntityType: group
 bundle: ngf_event
@@ -81,6 +83,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_ngf_group_visibility:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_ngf_interests:
     weight: 8

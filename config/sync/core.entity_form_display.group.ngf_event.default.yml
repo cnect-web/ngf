@@ -9,6 +9,7 @@ dependencies:
     - field.field.group.ngf_event.field_ngf_description
     - field.field.group.ngf_event.field_ngf_event_end_date
     - field.field.group.ngf_event.field_ngf_event_start_date
+    - field.field.group.ngf_event.field_ngf_group_visibility
     - field.field.group.ngf_event.field_ngf_interests
     - field.field.group.ngf_event.field_ngf_introtext
     - field.field.group.ngf_event.field_ngf_location
@@ -83,6 +84,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_ngf_group_visibility:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_ngf_interests:
     weight: 4
