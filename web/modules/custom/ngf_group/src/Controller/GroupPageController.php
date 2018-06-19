@@ -52,7 +52,7 @@ class GroupPageController extends ControllerBase {
     // Add the groups view title to the render array.
     $title = $view->getTitle();
     if ($title) {
-      $render_array['title'] = [
+      $render_array['view']['title'] = [
         '#type' => 'html_tag',
         '#tag' => 'h2',
         '#value' => $title,
@@ -60,7 +60,7 @@ class GroupPageController extends ControllerBase {
     }
 
     // Add the groups view to the render array.
-    $render_array['view-content'] = $view->render();
+    $render_array['view']['content'] = $view->render();
 
     return $render_array;
   }
@@ -87,7 +87,7 @@ class GroupPageController extends ControllerBase {
     // Add the groups view title to the render array.
     $title = $view->getTitle();
     if ($title) {
-      $render_array['title'] = [
+      $render_array['view']['title'] = [
         '#type' => 'html_tag',
         '#tag' => 'h2',
         '#value' => $title,
@@ -95,7 +95,7 @@ class GroupPageController extends ControllerBase {
     }
 
     // Add the groups view to the render array.
-    $render_array['view-content'] = $view->render();
+    $render_array['view']['content'] = $view->render();
 
     return $render_array;
   }
@@ -123,7 +123,7 @@ class GroupPageController extends ControllerBase {
     // Add the groups view title to the render array.
     $title = $view->getTitle();
     if ($title) {
-      $render_array['title'] = [
+      $render_array['view']['title'] = [
         '#type' => 'html_tag',
         '#tag' => 'h2',
         '#value' => $title,
@@ -131,7 +131,7 @@ class GroupPageController extends ControllerBase {
     }
 
     // Add the groups view to the render array.
-    $render_array['view-content'] = $view->render();
+    $render_array['view']['content'] = $view->render();
 
     return $render_array;
   }
@@ -168,7 +168,7 @@ class GroupPageController extends ControllerBase {
     // Add the groups view title to the render array.
     $title = $view->getTitle();
     if ($title) {
-      $render_array['title'] = [
+      $render_array['view']['title'] = [
         '#type' => 'html_tag',
         '#tag' => 'h2',
         '#value' => $title,
@@ -176,7 +176,7 @@ class GroupPageController extends ControllerBase {
     }
 
     // Add the groups view to the render array.
-    $render_array['view-content'] = $view->render();
+    $render_array['view']['content'] = $view->render();
 
     return $render_array;
   }
