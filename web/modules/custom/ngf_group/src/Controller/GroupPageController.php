@@ -225,6 +225,47 @@ class GroupPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
+  public function subgroupsPage(EntityInterface $group) {
+
+    $gD = new NGFGroup($group);
+
+    // Add the group header.
+    $render_array['header'] = $this->groupView($group);
+
+    // Add the group tabs.
+    $render_array['group_tabs'] = $gD->getGroupTabs();
+
+    // Add the view block.
+    $view = Views::getView('ngf_group_subgroups');
+    $view->setDisplay('subgroups');
+    $view->setArguments([$group->id()]);
+    $view->preExecute();
+    $view->execute();
+
+    $render_array['view'] = [
+      '#type' => 'container',
+      '#tree' => TRUE,
+    ];
+
+    // Add the groups view title to the render array.
+    $title = $view->getTitle();
+    if ($title) {
+      $render_array['view']['title'] = [
+        '#type' => 'html_tag',
+        '#tag' => 'h2',
+        '#value' => $title,
+      ];
+    }
+
+    // Add the groups view to the render array.
+    $render_array['view']['content'] = $view->render();
+
+    return $render_array;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function groupView(EntityInterface $group, $view_mode = 'header') {
     $view_builder = \Drupal::entityManager()->getViewBuilder('group');
     return $view_builder->view($group, $view_mode);

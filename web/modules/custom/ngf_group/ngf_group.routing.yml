@@ -30,6 +30,18 @@ ngf_group.page.library:
       group:
         type: 'entity:group'
 
+ngf_group.page.subgroups:
+  path: '/group/{group}/subgroups'
+  defaults:
+    _title: 'Info'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::subgroupsPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
 ngf_group.page.info:
   path: '/group/{group}/info'
   defaults:
