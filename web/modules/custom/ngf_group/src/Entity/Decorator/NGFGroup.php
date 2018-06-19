@@ -182,7 +182,19 @@ class NGFGroup {
     if (is_object($access_result) && $access_result->isForbidden() || is_bool($access_result) && !$access_result) {
       return [];
     }
-    $render = $plugin_block->build();
+
+    $render['wrapper'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'nav',
+      '#attributes' => [
+        'class' => [
+          'inpage-nav',
+        ]
+      ]
+    ];
+
+    $render['wrapper']['tabs'] = $plugin_block->build();
+
     return $render;
   }
 

@@ -181,7 +181,7 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts: {  }
-      title: ''
+      title: Events
       header: {  }
       footer: {  }
       empty:
@@ -257,6 +257,7 @@ display:
           entity_field: gid
           plugin_id: group_id
       display_extenders: {  }
+      css_class: newsfeed
     cache_metadata:
       max-age: -1
       contexts:
