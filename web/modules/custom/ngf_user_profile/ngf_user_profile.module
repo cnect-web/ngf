@@ -99,3 +99,17 @@ function ngf_user_profile_entity_base_field_info($entity_type) {
     return $fields;
   }
 }
+
+/**
+ * Implements hook_user_form_display_alter().
+ */
+function ngf_user_profile_entity_form_display_alter(&$form_display, $context) {
+  // Set custom display for authenticated users.
+  if ($context['entity_type'] == 'user' && $context['bundle'] == 'user') {
+    $user = \Drupal::currentUser();
+    if (!in_array('administrator', $user->getRoles()) && in_array('authenticated', $user->getRoles())) {
+      $storage = \Drupal::service('entity_type.manager')->getStorage('entity_form_display');
+      $form_display = $storage->load('user.user.ngf_authenticated');
+    }
+  }
+}

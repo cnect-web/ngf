@@ -121,3 +121,11 @@ ngf_user_profile.feed:
     _title: 'User feed'
   requirements:
     _permission: 'access content'
+
+ngf_user_profile.private_settings:
+  path: '/profile/private-settings'
+  defaults:
+    _form: '\Drupal\ngf_user_profile\Form\UserPrivateSettingsForm'
+    _title: 'Private settings'
+  requirements:
+    _permission: 'access content'
