@@ -203,6 +203,7 @@ display:
           entity_field: gid
           plugin_id: group_id
       display_extenders: {  }
+      css_class: newsfeed
     cache_metadata:
       max-age: -1
       contexts:
