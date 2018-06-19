@@ -1,20 +1,24 @@
-uuid: 27033424-1d46-4c07-990e-f52cc14ebf51
+uuid: ad2cd8fb-b1b6-4437-b492-0e387181409c
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
-    - node.type.ngf_discussion
+    - core.entity_view_mode.paragraph.teaser
+    - paragraphs.paragraphs_type.ngf_file
+    - paragraphs.paragraphs_type.ngf_image
+    - paragraphs.paragraphs_type.ngf_video
   module:
+    - content_moderation
     - group
     - node
-id: ngf_group_publications
-label: 'Group Publications'
+    - paragraphs
+id: ngf_group_library
+label: 'Group Library'
 module: views
-description: 'List of nodes that belong to a group'
-tag: NGF_Groups
-base_table: node_field_data
-base_field: nid
+description: ''
+tag: ''
+base_table: paragraphs_item_field_data
+base_field: id
 core: 8.x
 display:
   default:
@@ -54,11 +58,6 @@ display:
           offset: 0
           id: 0
           total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -67,21 +66,26 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 6
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          quantity: 9
       style:
         type: default
       row:
-        type: 'entity:node'
+        type: 'entity:paragraph'
         options:
           relationship: none
           view_mode: teaser
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          settings:
-            link_to_entity: true
+        moderation_state:
+          table: paragraphs_item_field_data
+          field: moderation_state
+          id: moderation_state
+          entity_type: null
+          entity_field: null
           plugin_id: field
           relationship: none
           group_type: group
@@ -128,7 +132,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: content_moderation_state
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -142,10 +147,10 @@ display:
       filters:
         status:
           value: '1'
-          table: node_field_data
+          table: paragraphs_item_field_data
           field: status
           plugin_id: boolean
-          entity_type: node
+          entity_type: paragraph
           entity_field: status
           id: status
           expose:
@@ -153,14 +158,16 @@ display:
           group: 1
         type:
           id: type
-          table: node_field_data
+          table: paragraphs_item_field_data
           field: type
           relationship: none
           group_type: group
           admin_label: ''
           operator: in
           value:
-            ngf_discussion: ngf_discussion
+            ngf_file: ngf_file
+            ngf_image: ngf_image
+            ngf_video: ngf_video
           group: 1
           exposed: false
           expose:
@@ -188,26 +195,26 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
+          entity_type: paragraph
           entity_field: type
           plugin_id: bundle
       sorts:
         created:
           id: created
-          table: node_field_data
+          table: paragraphs_item_revision_field_data
           field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
           relationship: none
           group_type: group
           admin_label: ''
+          order: DESC
           exposed: false
           expose:
             label: ''
           granularity: second
-      title: Publications
+          entity_type: paragraph
+          entity_field: created
+          plugin_id: date
+      title: Library
       header: {  }
       footer: {  }
       empty:
@@ -221,42 +228,63 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'This group has no discussions yet.'
+            value: 'This group has no media yet.'
             format: basic_html
           plugin_id: text
       relationships:
+        reverse__node__field_ngf_description:
+          id: reverse__node__field_ngf_description
+          table: paragraphs_item_field_data
+          field: reverse__node__field_ngf_description
+          relationship: none
+          group_type: group
+          admin_label: field_ngf_description
+          required: true
+          entity_type: paragraph
+          plugin_id: entity_reverse
         group_content:
           id: group_content
           table: node_field_data
           field: group_content
-          relationship: none
+          relationship: reverse__node__field_ngf_description
           group_type: group
           admin_label: 'Content group content'
-          required: false
+          required: true
           group_content_plugins:
+            'group_node:ngf_discussion': 'group_node:ngf_discussion'
             'group_node:article': '0'
-            'group_node:ngf_discussion': '0'
-            'group_node:ngf_event': '0'
             'group_node:page': '0'
           entity_type: node
           plugin_id: group_content_to_entity_reverse
-      arguments:
         gid:
           id: gid
           table: group_content_field_data
           field: gid
           relationship: group_content
           group_type: group
+          admin_label: Group
+          required: true
+          entity_type: group_content
+          entity_field: gid
+          plugin_id: standard
+      arguments:
+        id:
+          id: id
+          table: groups_field_data
+          field: id
+          relationship: gid
+          group_type: group
           admin_label: ''
-          default_action: 'not found'
+          default_action: empty
           exception:
             value: all
             title_enable: false
             title: All
           title_enable: false
           title: ''
-          default_argument_type: group_id_from_url
-          default_argument_options: {  }
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
           default_argument_skip_url: false
           summary_options:
             base_path: ''
@@ -274,25 +302,22 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
-          entity_type: group_content
-          entity_field: gid
+          entity_type: group
+          entity_field: id
           plugin_id: group_id
       display_extenders: {  }
-      css_class: newsfeed
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - route
         - url
         - url.query_args
-        - 'user.node_grants:view'
       tags: {  }
-  discussions:
+  library:
     display_plugin: block
-    id: discussions
-    display_title: Discussions
+    id: library
+    display_title: 'Group Library'
     position: 1
     display_options:
       display_extenders: {  }
@@ -302,8 +327,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - route
         - url
         - url.query_args
-        - 'user.node_grants:view'
       tags: {  }
