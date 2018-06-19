@@ -63,4 +63,33 @@ class RoboFile extends NGFTasks {
       ->run();
   }
 
+
+  /**
+   * Run QA tasks.
+   *
+   * @command tools:qa
+   * @aliases qa
+   */
+  public function qa(array $options = ['paths' => ['web/modules/custom', 'web/themes/contrib/funkywave/'], 'ops' => ['cs']]) {
+    if (in_array('cs', $options['ops'])) {
+      $this->cs($options['paths']);
+    }
+  }
+
+  /**
+   * Run QA tasks.
+   *
+   * @command tools:code-sniff
+   * @aliases cs
+   */
+  public function cs(array $paths) {
+    if ($this
+      ->taskExec("bin/phpcs --standard=phpcs-ruleset.xml " . implode(' ', $paths))
+      ->run()
+      ->wasSuccessful()
+    ) {
+      $this->say("Code sniffer finished.");
+    };
+  }
+
 }
