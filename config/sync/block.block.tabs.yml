@@ -1,0 +1,20 @@
+uuid: b8901a0f-d0e0-4cb1-9b93-ec96d7b64128
+langcode: en
+status: true
+dependencies:
+  theme:
+    - funkywave
+id: tabs
+theme: funkywave
+region: content
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: false
+  secondary: true
+visibility: {  }

@@ -90,6 +90,7 @@ content:
 hidden:
   changed: true
   created: true
+  field_ngf_comments: true
   field_ngf_description: true
   field_ngf_interests: true
   field_ngf_location: true

@@ -88,8 +88,6 @@ content:
   flag:
     weight: 10
     region: content
-    settings: {  }
-    third_party_settings: {  }
   user_picture:
     type: image_image
     settings:
