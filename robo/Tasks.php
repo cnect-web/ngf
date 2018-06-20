@@ -60,7 +60,7 @@ class Tasks extends RoboTasks {
         ->to($behat_tokens),
       $this->taskReplaceInFile($this->config('behat.destination'))
         ->from("{drupal_root}")
-        ->to($this->config('project.root') . '/web'),
+        ->to($this->config('project.root')),
       $this->taskReplaceInFile($this->config('behat.destination'))
         ->from("{base_url}")
         ->to($this->config('project.url')),
@@ -92,6 +92,14 @@ class Tasks extends RoboTasks {
       ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
       ->siteInstall('config_installer')
       ->run();
+
+    // Change folder permissions.
+    // @todo: get folder from config.
+    $this->setupFilesFolder();
+
+    // Get rid of the permissions rebuild
+    $this->nodeAccessRebuild();
+
   }
 
   /**
@@ -118,6 +126,39 @@ class Tasks extends RoboTasks {
       $this->taskWriteToFile($this->root() . '/.env')->text($content)->run();
     }
   }
+
+  /**
+   * Setup files folder.
+   *
+   * @command project:setup-files-folder
+   * @aliases sff
+   */
+  public function setupFilesFolder($folder = "web/sites/default/files") {
+    if ($this->taskExec("rm -rf {$folder}/*")->run()->wasSuccessful()) {
+      $this->say("Cleared up files folder.");
+    }
+
+    if ($this->taskExec("chmod -R 0777 {$folder}")->run()->wasSuccessful()) {
+      $this->say("Files folder permissions set.");
+    }
+  }
+
+  /**
+   * Node access rebuild.
+   *
+   * @command project:node-access-rebuild
+   * @aliases nar
+   */
+  public function nodeAccessRebuild() {
+    if ($this->taskDrushStack($this->config('bin.drush'))
+      ->arg('-r', 'web/')
+      ->exec("php-eval 'node_access_rebuild();'")
+      ->run()
+      ->wasSuccessful()) {
+        $this->say('Node access permissions rebuilt.');
+    }
+  }
+
 
   /**
    * Get installation task.

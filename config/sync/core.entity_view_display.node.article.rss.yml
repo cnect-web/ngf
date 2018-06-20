@@ -18,6 +18,9 @@ targetEntityType: node
 bundle: article
 mode: rss
 content:
+  flag_ngf_follow_content:
+    weight: 10
+    region: content
   links:
     weight: 100
     region: content

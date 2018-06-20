@@ -1,0 +1,109 @@
+<?php
+
+/**
+ * @file
+ * Contains ngf_core.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ngf_core_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ngf_core module.
+    case 'help.page.ngf_core':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Next Generation Futurium Core Functionality') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function ngf_core_link_alter(&$variables) {
+  $url = $variables['url'];
+  // Alter the login link text to "Sign In".
+  if ($url->isRouted() && $url->getRouteName() == 'user.login') {
+    $variables['text'] = t('Sign In');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_core_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Alter the registration form button text to "Sign Up".
+  if (!empty($form['actions']['submit'])) {
+    $form['actions']['submit']['#value'] = t('Sign Up');
+  }
+
+  // Add the legal agreements message.
+  $form['agreements'] = [
+    '#markup' => t("By clicking 'Sign up' or using one of the Social Media Login buttons you agree to our <a href=\"/legal/terms-and-conditions\">Terms and Conditions</a> and that you have read our <a href=\"/legal/data-use-policy\">Data Use Policy</a>."),
+    '#weight' => 99,
+  ];
+
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // NGF-65 : Set default text for registration link and make the field readonly.
+  $form['field_ngf_registration_link']['widget'][0]['title']['#attributes']['readonly'] = 'readonly';
+  $form['field_ngf_registration_link']['widget'][0]['title']['#value'] = t('Register');
+  $form['field_ngf_registration_link']['widget'][0]['title']['#type'] = "hidden";
+
+  // Add additional validation for end date.
+  $form['field_ngf_event_end_date']['#element_validate'][] = '_ngf_core_event_end_date_validate';
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ngf_core_form_group_ngf_event_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // NGF-65 : Set default text for registration link and make the field readonly.
+  $form['field_ngf_registration_link']['widget'][0]['title']['#attributes']['readonly'] = 'readonly';
+  $form['field_ngf_registration_link']['widget'][0]['title']['#value'] = t('Register');
+  $form['field_ngf_registration_link']['widget'][0]['title']['#type'] = "hidden";
+
+  // Add additional validation for end date.
+  $form['field_ngf_event_end_date']['#element_validate'][] = '_ngf_core_event_end_date_validate';
+}
+
+function _ngf_core_event_end_date_validate($element, &$form_state) {
+  // NGF-67: Start date can't be greater than End date.
+  $start_date = NULL;
+  if (!empty($form_state->getValue('field_ngf_event_start_date')->value) && !empty($form_state->getValue('field_ngf_event_start_date')->value['object'])) {
+    var_dump($form_state->getValue('field_ngf_event_start_date')->value);
+    $start_date = $form_state->getValue('field_ngf_event_start_date')->value->getTimestamp();
+  }
+  $end_date = NULL;
+  if (!empty($form_state->getValue('field_ngf_event_end_date')->value) && !empty($form_state->getValue('field_ngf_event_start_date')->value['object'])) {
+    $end_date = $form_state->getValue('field_ngf_event_end_date')->value->getTimestamp();
+  }
+
+  if (!empty($end_date) && !empty($start_date) && $start_date > $end_date) {
+    $form_state->setError(
+      $element,
+      t('The event start date %start_date must be greater than the event end date %end_date.', [
+        '%start_date' => $form_state->getValue('field_ngf_event_start_date')->value->format('Y-m-d H:i:s'),
+        '%end_date' => $form_state->getValue('field_ngf_event_end_date')->value->format('Y-m-d H:i:s'),
+      ])
+    );
+  }
+}
+
+/**
+ * Implements hook_taxonomy_term_insert().
+ */
+function ngf_core_taxonomy_term_insert(Drupal\taxonomy\Entity\Term $term) {
+  if ($term->bundle() == 'ngf_interests') {
+    $term->set('field_ngf_creator', \Drupal::currentUser()->id());
+    $term->save();
+  }
+}

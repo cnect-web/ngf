@@ -3,10 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_ngf_biography
+    - field.field.user.user.field_ngf_city
+    - field.field.user.user.field_ngf_country
+    - field.field.user.user.field_ngf_first_name
+    - field.field.user.user.field_ngf_interests
+    - field.field.user.user.field_ngf_last_name
+    - field.field.user.user.field_ngf_region
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
     - image
+    - text
     - user
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
@@ -15,10 +22,53 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  member_for:
+  extra_text:
+    label: hidden
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+  field_ngf_biography:
+    type: text_default
+    weight: 6
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_ngf_city:
+    type: entity_reference_label
     weight: 5
     region: content
-  user_picture:
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_ngf_first_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ngf_interests:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_ngf_last_name:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_user_picture:
     type: image
     weight: 0
     region: content
@@ -27,4 +77,31 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
-hidden: {  }
+  flag_ngf_follow_user:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  full_name:
+    label: hidden
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  user_picture:
+    type: image
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  field_ngf_country: true
+  field_ngf_region: true
+  groups_view: true
+  member_for: true
+  ngf_extra_text: true

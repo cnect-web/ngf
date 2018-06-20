@@ -687,7 +687,7 @@ if ($settings['hash_salt']) {
 /**
  * Load services definition file.
  */
-$settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
+// $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 
 /**
  * Override the default service container class.
@@ -816,6 +816,10 @@ switch (getenv('ENVIRONMENT')) {
     $config['config_split.config_split.dev_config']['status'] = TRUE;
     // Enable local development services.
     $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/default/development.services.yml';
+    ini_set('display_errors', TRUE);
+    ini_set('display_startup_errors', TRUE);
+    $settings['cache']['bins']['render'] = 'cache.backend.null';
+    $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
     break;
 }
 

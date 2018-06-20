@@ -17,17 +17,6 @@ class RoboFile extends NGFTasks {
    * @aliases pb
    */
   public function build($branch) {
-
-    // Generate environment file.
-    $this->projectGenerateEnv();
-    // Load .env file from project root.
-    $dotenv = new Dotenv\Dotenv($this->root() . "/../");
-    $dotenv->load();
-    var_dump(getenv("ENVIRONMENT"));
-    if (getenv("ENVIRONMENT") == 'development') {
-      $this->projectSetupBehat();
-    }
-
     // Change Branch.
     $this
       ->taskGitStack()
@@ -36,20 +25,13 @@ class RoboFile extends NGFTasks {
       ->pull()
       ->run();
 
-    $this->say(getcwd());
+    // Checkout any local changes on settings.php
+    if ($this->taskExec("git checkout -- web/sites/default/settings.php")->run()->wasSuccessful()) {
+      $this->say("Cleared up settings.php changes.");
+    }
 
     // Install website.
-    /*
-    $this->getInstallConfigTask()
-      ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
-      ->siteInstall('config_installer')
-      ->run();
-
-    $this->taskDrushStack($this->config('bin.drush'))
-      ->arg('-r', 'web/')
-      ->exec("php-eval 'node_access_rebuild();'")
-      ->run();
-    */
+    $this->projectInstallConfig();
   }
 
   /**
@@ -79,6 +61,35 @@ class RoboFile extends NGFTasks {
       ->exec('csim -y')
       ->exec('cr')
       ->run();
+  }
+
+
+  /**
+   * Run QA tasks.
+   *
+   * @command tools:qa
+   * @aliases qa
+   */
+  public function qa(array $options = ['paths' => ['web/modules/custom', 'web/themes/contrib/funkywave/'], 'ops' => ['cs']]) {
+    if (in_array('cs', $options['ops'])) {
+      $this->cs($options['paths']);
+    }
+  }
+
+  /**
+   * Run QA tasks.
+   *
+   * @command tools:code-sniff
+   * @aliases cs
+   */
+  public function cs(array $paths) {
+    if ($this
+      ->taskExec("bin/phpcs --standard=phpcs-ruleset.xml " . implode(' ', $paths))
+      ->run()
+      ->wasSuccessful()
+    ) {
+      $this->say("Code sniffer finished.");
+    };
   }
 
 }

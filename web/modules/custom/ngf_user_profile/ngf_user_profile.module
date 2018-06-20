@@ -1,0 +1,160 @@
+<?php
+
+/**
+ * @file
+ * Contains ngf_user_profile.module.
+ */
+
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\node\Entity\Node;
+use Drupal\comment\Entity\Comment;
+use Drupal\group\Entity\GroupContent;
+use Drupal\group\Entity\Group;
+use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
+use Drupal\message\Entity\Message;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_node_insert().
+ */
+function ngf_user_profile_node_insert(Node $node) {
+  if (in_array($node->getType(), ['ngf_discussion'])) {
+    $notification_manager = \Drupal::getContainer()->get('ngf_user_profile.notification_manager');
+    $notification_manager->notifyFollowersAboutNewContent($node);
+
+    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager->createContentUserFeed($node);
+  }
+}
+
+/**
+ * Implements hook_group_content_insert().
+ */
+function ngf_user_profile_group_content_insert(GroupContent $group_content) {
+  // Probably in the future we will need specific content type.
+  // $group_content->getGroupContentType()->getPluginId() == 'group_node:ngf_discussion'.
+  // or we will need specific group type
+  // $group_content->getGroupContentType()->getGroupType() == 'ngf_discussion_group'.
+  if ($group_content->getContentPlugin()->getEntityTypeId() == 'node') {
+    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager->createGroupContentUserFeed($group_content);
+  }
+}
+
+/**
+ * Implements hook_comment_insert().
+ */
+function ngf_user_profile_comment_insert(Comment $comment) {
+  if ($comment->getCommentedEntityTypeId() == 'node' && in_array($comment->getCommentedEntity()->getType(), ['ngf_discussion'])) {
+    $notification_manager = \Drupal::getContainer()->get('ngf_user_profile.notification_manager');
+    $notification_manager->notifyOwnerAboutNewComment($comment);
+
+    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager->createCommentUserFeed($comment);
+  }
+}
+
+/**
+ * Implements hook_group_insert().
+ */
+function ngf_user_profile_group_insert(Group $group) {
+  if ($group->getGroupType()->id() == 'ngf_discussion_group') {
+      $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+      $userFeedManager->createGroupUserFeed($group);
+  }
+}
+
+function ngf_user_profile_theme($existing, $type, $theme, $path) {
+  return array(
+    'ngf_user_feed_item' => [
+      'variables' => [
+        'authorFullName' => NULL,
+        'authorProfileURL' => NULL,
+        'authorPics' => NULL,
+        'entity' => NULL,
+        'contextText' => NULL
+      ],
+      'path' => drupal_get_path('module', 'ngf_user_profile') . '/templates',
+    ]
+  );
+}
+
+/**
+ * Implements hook_entity_base_field_info().
+ */
+function ngf_user_profile_entity_base_field_info($entity_type) {
+  if ($entity_type->id() === 'user') {
+    $fields = [];
+
+    $fields['full_name'] = BaseFieldDefinition::create('string')
+      ->setName('full_name')
+      ->setLabel(t('Full name'))
+      ->setComputed(TRUE)
+      ->setClass(FullNameFieldItemList::class)
+      ->setDisplayConfigurable('view', TRUE)
+      ->setDisplayOptions('view', [
+        'label' => 'hidden',
+        'weight' => -5,
+      ]);
+
+    return $fields;
+  }
+}
+
+/**
+ * Implements hook_user_form_display_alter().
+ */
+function ngf_user_profile_entity_form_display_alter(&$form_display, $context) {
+  // Set custom display for authenticated users.
+  if ($context['entity_type'] == 'user' && $context['bundle'] == 'user') {
+    $user = \Drupal::currentUser();
+    if (!in_array('administrator', $user->getRoles()) && in_array('authenticated', $user->getRoles())) {
+      $storage = \Drupal::service('entity_type.manager')->getStorage('entity_form_display');
+      $form_display = $storage->load('user.user.ngf_authenticated');
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_type_build().
+ */
+function ngf_user_profile_entity_type_build(array &$entity_types) {
+  // We set ngf_interests form view mode. So, we can load as a separate form
+  // in the custom page.
+  $entity_types['user']->setFormClass('ngf_interests', 'Drupal\user\ProfileForm');
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ngf_user_profile_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_ngf_interests_form') {
+    $form['field_ngf_interests']['widget']['add_more']['#attributes']['class'][] = 'btn btn--blue';
+    $form['actions']['submit']['#attributes']['class'][] = 'btn btn--green';
+//        kint($form);
+//        exit();
+
+  }
+}
+
+
+
+function ngf_user_profile_field_widget_form_alter(&$element, FormStateInterface &$form_state, $context) {
+//  var_dump($context['widget']);
+//  var_dump($context['form']);
+//  kint(get_defined_vars());
+//  exit();
+//  var_dump($element);
+//  exit();
+//  if (get_class($context['widget']) === 'Drupal\link\Plugin\Field\FieldWidget\LinkWidget' && !empty($context['form']['#attributes'])) {
+//    $description = $element['#description'];
+//    unset($element['#description']);
+//    $element['title']['#description'] = $description;
+//    return;
+//  }
+}
+
+//function ngf_user_profile_field_widget_multivalue_form_alter(array &$elements, ormStateInterface $form_state, array $context) {
+//  var_dump();
+//  exit();
+//}
