@@ -84,8 +84,6 @@ abstract class BaseStep implements StepInterface {
     $options = $field['options'] ?? [];
 
     $array = [
-      '#prefix' => '<div class="form__block form__block--text">',
-      '#suffix' => '</div>',
       '#type' => 'textfield',
       '#title' => t('<label for="@name" required>@title <span class="form--required text-danger" title="This field is required."><span class="sr-only">Mandatory field</span>*</span></label>', [
         '@name' => $name,

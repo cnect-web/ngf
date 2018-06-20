@@ -2,23 +2,12 @@
 
 namespace Drupal\ngf_user_profile\Form;
 
-use Drupal\Component\Utility\Tags;
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
-use Drupal\Core\Form\FormState;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\ngf_user_registration\Manager\StepManager;
-use Drupal\ngf_user_registration\Step\StepsEnum;
-use Drupal\redirect\Entity\Redirect;
-use Drupal\user\RoleInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Drupal\Core\Messenger\MessengerInterface;
-use Drupal\Core\Entity\Element\EntityAutocomplete;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\ngf_user_profile\Manager\UserSettingsManager;
-use Drupal\user\UserData;
 
 /**
  * Provides multi step ajax example form.
@@ -34,16 +23,10 @@ class UserPrivateSettingsForm extends FormBase {
   protected $userSettingsManager;
 
   /**
-   * @var UserData $userData
-   */
-  protected $userData;
-
-  /**
    * Class constructor.
    */
-  public function __construct(UserSettingsManager $userSettingsManager, UserData $userData) {
+  public function __construct(UserSettingsManager $userSettingsManager) {
     $this->userSettingsManager = $userSettingsManager;
-    $this->userData = $userData;
   }
 
   /**
