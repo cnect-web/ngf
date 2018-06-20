@@ -2,6 +2,7 @@
 
 namespace Drupal\ngf_group\Controller;
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\ngf_group\Entity\Decorator\NGFGroup;
@@ -13,6 +14,13 @@ use Drupal\views\Views;
  * Discover page controller.
  */
 class GroupPageController extends ControllerBase {
+
+  public function accessCheck(EntityInterface $group) {
+    if ($group->bundle() == 'ngf_discussion_group') {
+      return AccessResult::allowed();
+    }
+    return AccessResult::forbidden();
+  }
 
   /**
    * {@inheritdoc}
@@ -34,18 +42,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function publicationsPage(EntityInterface $group) {
-
-    $gD = new NGFGroup($group);
-
-    // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
-
-    // Add the group tabs.
-    $render_array['group_tabs'] = $gD->getGroupTabs();
-
-    // Add the view block.
-    $render_array['content'] = $this->getContentView('ngf_group_publications', 'discussions', $group->id());
-
+    $render_array = $this->getPageContent($group, 'publications');
     return $render_array;
   }
 
@@ -53,18 +50,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function eventsPage(EntityInterface $group) {
-
-    $gD = new NGFGroup($group);
-
-    // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
-
-    // Add the group tabs.
-    $render_array['group_tabs'] = $gD->getGroupTabs();
-
-    // Add the view block.
-    $render_array['content'] = $this->getContentView('ngf_group_events', 'events', $group->id());
-
+    $render_array = $this->getPageContent($group, 'events');
     return $render_array;
   }
 
@@ -72,18 +58,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function libraryPage(EntityInterface $group) {
-
-    $gD = new NGFGroup($group);
-
-    // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
-
-    // Add the group tabs.
-    $render_array['group_tabs'] = $gD->getGroupTabs();
-
-    // Add the view block.
-    $render_array['content'] = $this->getContentView('ngf_group_library', 'library', $group->id());
-
+    $render_array = $this->getPageContent($group, 'library');
     return $render_array;
   }
 
@@ -100,18 +75,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function membersPage(EntityInterface $group) {
-
-    $gD = new NGFGroup($group);
-
-    // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
-
-    // Add the group tabs.
-    $render_array['group_tabs'] = $gD->getGroupTabs();
-
-    // Add the view block.
-    $render_array['content'] = $this->getContentView('ngf_group_members', 'members', $group->id());
-
+    $render_array = $this->getPageContent($group, 'members');
     return $render_array;
   }
 
@@ -119,18 +83,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function followersPage(EntityInterface $group) {
-
-    $gD = new NGFGroup($group);
-
-    // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
-
-    // Add the group tabs.
-    $render_array['group_tabs'] = $gD->getGroupTabs();
-
-    // Add the view block.
-    $render_array['content'] = $this->getContentView('ngf_group_followers', 'followers', $group->id());
-
+    $render_array = $this->getPageContent($group, 'followers');
     return $render_array;
   }
 
@@ -138,17 +91,26 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function subgroupsPage(EntityInterface $group) {
+    $render_array = $this->getPageContent($group, 'subgroups');
+    return $render_array;
+  }
 
+  /**
+   *
+   */
+  public function getPageContent(EntityInterface $group, $page) {
     $gD = new NGFGroup($group);
 
-    // Add the group header.
+    // Add the group.
     $render_array['header'] = $this->groupHeader($group);
 
-    // Add the group tabs.
-    $render_array['group_tabs'] = $gD->getGroupTabs();
+    if ($this->accessCheck($group) == AccessResult::allowed()) {
+      // Add the group tabs.
+      $render_array['group_tabs'] = $gD->getGroupTabs();
 
-    // Add the view block.
-    $render_array['content'] = $this->getContentView('ngf_group_subgroups', 'subgroups', $group->id());
+      // Add the view block.
+      $render_array['content'] = $this->getContentView('ngf_group_' . $page, $page, $group->id());
+    }
 
     return $render_array;
   }
