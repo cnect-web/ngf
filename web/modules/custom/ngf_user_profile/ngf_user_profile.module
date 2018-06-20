@@ -131,15 +131,21 @@ function ngf_user_profile_form_alter(&$form, FormStateInterface $form_state, $fo
   if ($form_id == 'user_ngf_interests_form') {
     $form['field_ngf_interests']['widget']['add_more']['#attributes']['class'][] = 'btn btn--blue';
     $form['actions']['submit']['#attributes']['class'][] = 'btn btn--green';
-//        kint($form);
-//        exit();
-
   }
 }
 
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function ngf_user_profile_entity_extra_field_info() {
+  $extra = [];
 
-function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
-//  ksm($route_name);
-//  ksm($data);
+  $extra['user']['user']['display']['location_info'] = [
+    'label' => t('Location info'),
+    'description' => t('Displays location information'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra;
 }
-

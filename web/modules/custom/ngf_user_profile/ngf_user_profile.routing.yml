@@ -93,14 +93,6 @@ ngf_user_profile.user_lists:
   requirements:
     _permission: 'access content'
 
-ngf_user_profile.private_settings:
-  path: '/profile/private-settings'
-  defaults:
-    _form: '\Drupal\ngf_user_profile\Form\UserPrivateSettingsForm'
-    _title: 'Private settings'
-  requirements:
-    _permission: 'access content'
-
 ngf_user_profile.user_list_items:
   path: '/profile/user-list-items/{list_id}'
   defaults:
@@ -118,19 +110,35 @@ ngf_user_profile.user_notifications:
   requirements:
     _permission: 'access content'
 
-ngf_user_profile.interests_settings:
+ngf_user_profile.page.general_settings:
+  path: '/profile/general-settings'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::generalSettings'
+    _title: 'General settings'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.interests_settings:
   path: '/profile/interests-settings'
   defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::interestsSettings'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::interestsSettings'
     _title: 'Interests settings'
   requirements:
     _permission: 'access content'
 
-ngf_user_profile.location_settings:
+ngf_user_profile.page.location_settings:
   path: '/profile/location-settings'
   defaults:
-    _form: '\Drupal\ngf_user_profile\Form\UserLocationSettingsForm'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::locationSettings'
     _title: 'Location settings'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.private_settings:
+  path: '/profile/private-settings'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::privateSettings'
+    _title: 'Private settings'
   requirements:
     _permission: 'access content'
 
@@ -176,6 +184,14 @@ ngf_user_profile.page.following:
 
 ngf_user_profile.page.feed:
   path: '/profile/feed'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
+    _title: 'User feed'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.profile:
+  path: '/profile'
   defaults:
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
     _title: 'User feed'

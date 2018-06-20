@@ -1,47 +1,83 @@
+# Content tabs
+ngf_user_profile.page.profile:
+  title: 'Content'
+  description: 'My content'
+  route_name: ngf_user_profile.page.profile
+  base_route: ngf_user_profile.page.profile
+
 ngf_user_profile.page.feed:
   title: 'Feed'
   description: 'My feed'
-  route_name: ngf_user_profile.page.feed
-  base_route: ngf_user_profile.page.feed
-
-ngf_user_profile.page.feed1:
-  title: 'Feed 1'
-  description: 'My Feed 1'
-  route_name: ngf_user_profile.page.feed
-  base_route: ngf_user_profile.page.feed
-  parent_id: ngf_user_profile.page.feed
+  route_name: ngf_user_profile.page.profile
+  base_route: ngf_user_profile.page.profile
+  parent_id: ngf_user_profile.page.profile
 
 ngf_user_profile.link.publications:
   title: 'Publications'
   description: 'My Publications'
   route_name: ngf_user_profile.page.publications
-  base_route: ngf_user_profile.page.feed
-  parent_id: ngf_user_profile.page.feed
+  base_route: ngf_user_profile.page.profile
+  parent_id: ngf_user_profile.page.profile
 
 ngf_user_profile.link.events:
   title: 'Events'
   description: 'My Events'
   route_name: ngf_user_profile.page.events
-  base_route: ngf_user_profile.page.feed
-  parent_id: ngf_user_profile.page.feed
+  base_route: ngf_user_profile.page.profile
+  parent_id: ngf_user_profile.page.profile
 
 ngf_user_profile.link.groups:
   title: 'Groups'
   description: 'My Groups'
   route_name: ngf_user_profile.page.groups
-  base_route: ngf_user_profile.page.feed
-  parent_id: ngf_user_profile.page.feed
+  base_route: ngf_user_profile.page.profile
+  parent_id: ngf_user_profile.page.profile
 
 ngf_user_profile.link.followers:
   title: 'Followers'
   description: 'My Followers'
   route_name: ngf_user_profile.page.followers
-  base_route: ngf_user_profile.page.feed
-  parent_id: ngf_user_profile.page.feed
+  base_route: ngf_user_profile.page.profile
+  parent_id: ngf_user_profile.page.profile
 
 ngf_user_profile.link.following:
   title: 'Following users'
   description: 'My following users'
   route_name: ngf_user_profile.page.following
-  base_route: ngf_user_profile.page.feed
-  parent_id: ngf_user_profile.page.feed
+  base_route: ngf_user_profile.page.profile
+  parent_id: ngf_user_profile.page.profile
+
+# Settings tabs
+ngf_user_profile.page.settings:
+  title: 'Settings'
+  description: 'My settings'
+  route_name: ngf_user_profile.page.general_settings
+  base_route: ngf_user_profile.page.profile
+
+ngf_user_profile.page.general_settings:
+  title: 'General settings'
+  description: 'My settings'
+  route_name: ngf_user_profile.page.general_settings
+  base_route: ngf_user_profile.page.general_settings
+  parent_id: ngf_user_profile.page.settings
+
+ngf_user_profile.page.interest_settings:
+  title: 'Interests'
+  description: 'My interests'
+  route_name: ngf_user_profile.page.interests_settings
+  base_route: ngf_user_profile.page.general_settings
+  parent_id: ngf_user_profile.page.settings
+
+ngf_user_profile.page.location_settings:
+  title: 'Location'
+  description: 'My location'
+  route_name: ngf_user_profile.page.location_settings
+  base_route: ngf_user_profile.page.general_settings
+  parent_id: ngf_user_profile.page.settings
+
+ngf_user_profile.page.private_settings:
+  title: 'Private settings'
+  description: 'My private settings'
+  route_name: ngf_user_profile.page.private_settings
+  base_route: ngf_user_profile.page.general_settings
+  parent_id: ngf_user_profile.page.settings

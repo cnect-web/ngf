@@ -97,6 +97,48 @@ class UserProfilePageController extends ControllerBase {
     return $this->getContent($this->getContentView('ngf_following', 'following'));
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function generalSettings() {
+    return $this->getContent(
+      [
+        '#type' => 'markup',
+        '#markup' => 'General settings page'
+      ]
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function privateSettings() {
+    var_dump(Drupal\ngf_user_profile\Form\UserPrivateSettingsForm::class);
+    $form = \Drupal::formBuilder()->getForm('Drupal\ngf_user_profile\Form\UserPrivateSettingsForm');
+    return $this->getContent($form);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function locationSettings() {
+    return $this->getContent([
+      '#type' => 'markup',
+      '#markup' => 'Location settings page'
+    ]);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function interestsSettings() {
+    return $this->getContent([
+      '#type' => 'markup',
+      '#markup' => 'Interests settings page'
+    ]);
+  }
+
+
   public function getContent($content) {
     return [
       'header' => $this->getHeader($this->getCurrentUserAccount()),
@@ -152,7 +194,7 @@ class UserProfilePageController extends ControllerBase {
   public function getTabs() {
     $block_manager = \Drupal::service('plugin.manager.block');
     $config = [
-      'primary' => TRUE,
+      'primary' => FALSE,
       'secondary' => TRUE
     ];
     $plugin_block = $block_manager->createInstance('local_tasks_block', $config);
