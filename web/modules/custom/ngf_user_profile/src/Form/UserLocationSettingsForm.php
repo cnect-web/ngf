@@ -20,6 +20,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\ngf_user_profile\Manager\UserSettingsManager;
 use Drupal\user\UserData;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\user\Entity\User;
+use Drupal\taxonomy\Entity\Term;
 
 /**
  * Provides location settings form.
@@ -29,18 +31,13 @@ use Drupal\Core\Session\AccountInterface;
 class UserLocationSettingsForm extends FormBase {
   use StringTranslationTrait;
 
-  /**
-   * The current user.
-   *
-   * @var \Drupal\Core\Session\AccountInterface
-   */
   protected $currentUser;
 
   /**
    * Class constructor.
    */
-  public function __construct(AccountInterface $currentUser) {
-    $this->currentUser = $currentUser;
+  public function __construct() {
+    $this->currentUser = User::load(\Drupal::getContainer()->get('current_user')->id());
   }
 
   /**
@@ -63,18 +60,38 @@ class UserLocationSettingsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $country = $this->getValue('country', $form_state->getValue('country'));
+    $city = NULL;
+    $country = NULL;
+    $country = $form_state->getValue('country') ?? $this->currentUser->get('field_ngf_country')->target_id;
+
+    if (!empty($form_state->getValue('city'))) {
+      if ($form_state->getValue('country') == $this->currentUser->get('field_ngf_country')->target_id) {
+        $city = $form_state->getValue('city');
+      }
+    }
+    else {
+      if (!empty($this->currentUser->get('field_ngf_city')->target_id)) {
+        $city_term = Term::load($this->currentUser->get('field_ngf_city')->target_id);
+        if ($city_term) {
+          $city = $city_term->getName() . ' (' . $city_term->id() . ')';
+        }
+      }
+    }
+
     $form['title'] = [
       '#type' => 'item',
       '#markup' => t('<h2>Location settings</h2>'),
     ];
+
     $form['country'] = [
       '#title' => t('Country'),
       '#type' => 'select',
       '#options' => $this->getCountryOptions(),
       '#default_value' => $country,
       '#ajax' => [
-        'callback' => [get_class($this), 'getCity'],
+        'callback' => [
+          get_class($this), 'getCity'
+        ],
         'event' => 'change',
         'wrapper' => 'city-wrapper',
       ],
@@ -85,8 +102,7 @@ class UserLocationSettingsForm extends FormBase {
       '#attributes' => ['id' => 'city-wrapper'],
     ];
 
-    $city = $this->getValue('city');
-    if (!empty($city) || !empty($country)) {
+    if (!empty($country)) {
       $form['city_wrapper']['city'] = [
         '#type' => 'textfield',
         '#title' => t('City'),
@@ -101,6 +117,17 @@ class UserLocationSettingsForm extends FormBase {
       ];
     }
 
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => t('Save'),
+      '#attributes' => [
+        'class' => [
+          'btn btn--green btn-large',
+        ]
+      ],
+    ];
+    $form['#attached']['library'][] = 'ngf_user_profile/user_profile_location';
+
     return $form;
 
   }
@@ -109,13 +136,16 @@ class UserLocationSettingsForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-
+    // TODO: Add validation for this values
+    $this->currentUser->set('field_ngf_country', $form_state->getValue('country'));
+    $this->currentUser->set('field_ngf_city', EntityAutocomplete::extractEntityIdFromAutocompleteInput($form_state->getValue('city')));
+    $this->currentUser->save();
 
     \Drupal::getContainer()->get('messenger')->addMessage(t('Your location settings have been updated'));
   }
 
   public static function getCity(&$form, FormStateInterface $form_state) {
-    return $form['wrapper']['city_wrapper'];
+    return $form['city_wrapper'];
   }
 
   public function getCountryOptions() {
@@ -131,3 +161,5 @@ class UserLocationSettingsForm extends FormBase {
   }
 
 }
+
+
