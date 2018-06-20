@@ -130,10 +130,18 @@ ngf_user_profile.private_settings:
   requirements:
     _permission: 'access content'
 
-ngf_user_profile.private_settings:
+ngf_user_profile.interests_settings:
   path: '/profile/interests-settings'
   defaults:
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::interestsSettings'
     _title: 'Interests settings'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.location_settings:
+  path: '/profile/location-settings'
+  defaults:
+    _form: '\Drupal\ngf_user_profile\Form\UserLocationSettingsForm'
+    _title: 'Location settings'
   requirements:
     _permission: 'access content'
