@@ -58,9 +58,6 @@ class StepFour extends BaseStep {
           '@title' => $setting['title'],
         ]),
         '#default_value' => $setting['default_value'],
-        '#attributes' => [
-          'id' => 'edit-' . str_replace('_', '-', $key),
-        ],
       ];
     }
 
