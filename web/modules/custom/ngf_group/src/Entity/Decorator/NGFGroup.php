@@ -5,6 +5,7 @@ namespace Drupal\ngf_group\Entity\Decorator;
 use Drupal\group\Entity\Group;
 use Drupal\Core\Url;
 use Drupal\Core\Link;
+use Drupal\views\Views;
 
 class NGFGroup {
 
@@ -107,6 +108,38 @@ class NGFGroup {
   public function getFollowersLink() {
     $followers = $this->getFollowersInfo();
     return Link::fromTextAndUrl($followers['text'], $followers['url'])->toRenderable();
+  }
+
+  /**
+   * Return info about group subgroups.
+   */
+  public function getSubgroupsInfo() {
+    $group = $this->group;
+
+    // Add the view block.
+    $view = Views::getView('ngf_group_subgroups');
+    $view->setDisplay('subgroups');
+    $view->setArguments([$group->id()]);
+    $view->preExecute();
+    $view->execute();
+
+    $subgroups_count_raw    = $view->total_rows;
+    $subgroups_count_string = \Drupal::translation()->formatPlural($subgroups_count_raw, '1 subgroup', '@count subgroups', array('@count' => $subgroups_count_raw));
+    $subgroups_page_url     = Url::fromRoute('ngf_group.page.subgroups', ['group' => $group->id()]);
+
+    $subgroups['count'] = $subgroups_count_raw;
+    $subgroups['text']  = $subgroups_count_string;
+    $subgroups['url']   = $subgroups_page_url;
+
+    return $subgroups;
+  }
+
+  /**
+   * Return info about group subgroups.
+   */
+  public function getSubgroupsLink() {
+    $subgroups = $this->getSubgroupsInfo();
+    return Link::fromTextAndUrl($subgroups['text'], $subgroups['url'])->toRenderable();
   }
 
   /**

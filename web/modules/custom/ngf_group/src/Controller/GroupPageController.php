@@ -22,10 +22,10 @@ class GroupPageController extends ControllerBase {
     $gD = new NGFGroup($group);
 
     // Add the group.
-    $render_array['header'] = $this->groupView($group, 'full');
+    $render_array['header'] = $this->groupHeader($group, 'full');
 
     // Add the group tabs.
-    // $render_array['group_tabs'] = $gD->getGroupTabs();
+    $render_array['group_tabs'] = $gD->getGroupTabs();
 
     return $render_array;
   }
@@ -38,29 +38,13 @@ class GroupPageController extends ControllerBase {
     $gD = new NGFGroup($group);
 
     // Add the group header.
-    $render_array['header'] = $this->groupView($group);
+    $render_array['header'] = $this->groupHeader($group);
 
     // Add the group tabs.
     $render_array['group_tabs'] = $gD->getGroupTabs();
 
-    $view = Views::getView('ngf_group_publications');
-    $view->setDisplay('discussions');
-    $view->setArguments([$group->id()]);
-    $view->preExecute();
-    $view->execute();
-
-    // Add the groups view title to the render array.
-    $title = $view->getTitle();
-    if ($title) {
-      $render_array['view']['title'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'h2',
-        '#value' => $title,
-      ];
-    }
-
-    // Add the groups view to the render array.
-    $render_array['view']['content'] = $view->render();
+    // Add the view block.
+    $render_array['content'] = $this->getContentView('ngf_group_publications', 'discussions', $group->id());
 
     return $render_array;
   }
@@ -73,29 +57,13 @@ class GroupPageController extends ControllerBase {
     $gD = new NGFGroup($group);
 
     // Add the group header.
-    $render_array['header'] = $this->groupView($group);
+    $render_array['header'] = $this->groupHeader($group);
 
     // Add the group tabs.
     $render_array['group_tabs'] = $gD->getGroupTabs();
 
-    $view = Views::getView('ngf_group_events');
-    $view->setDisplay('events');
-    $view->setArguments([$group->id()]);
-    $view->preExecute();
-    $view->execute();
-
-    // Add the groups view title to the render array.
-    $title = $view->getTitle();
-    if ($title) {
-      $render_array['view']['title'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'h2',
-        '#value' => $title,
-      ];
-    }
-
-    // Add the groups view to the render array.
-    $render_array['view']['content'] = $view->render();
+    // Add the view block.
+    $render_array['content'] = $this->getContentView('ngf_group_events', 'events', $group->id());
 
     return $render_array;
   }
@@ -108,30 +76,13 @@ class GroupPageController extends ControllerBase {
     $gD = new NGFGroup($group);
 
     // Add the group header.
-    $render_array['header'] = $this->groupView($group);
+    $render_array['header'] = $this->groupHeader($group);
 
     // Add the group tabs.
     $render_array['group_tabs'] = $gD->getGroupTabs();
 
     // Add the view block.
-    $view = Views::getView('ngf_group_library');
-    $view->setDisplay('library');
-    $view->setArguments([$group->id()]);
-    $view->preExecute();
-    $view->execute();
-
-    // Add the groups view title to the render array.
-    $title = $view->getTitle();
-    if ($title) {
-      $render_array['view']['title'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'h2',
-        '#value' => $title,
-      ];
-    }
-
-    // Add the groups view to the render array.
-    $render_array['view']['content'] = $view->render();
+    $render_array['content'] = $this->getContentView('ngf_group_library', 'library', $group->id());
 
     return $render_array;
   }
@@ -141,7 +92,7 @@ class GroupPageController extends ControllerBase {
    */
   public function sharedContentPage(EntityInterface $group) {
     // Add the group header.
-    $render_array['header'] = $this->groupView($group);
+    $render_array['header'] = $this->groupHeader($group);
     return $render_array;
   }
 
@@ -153,30 +104,13 @@ class GroupPageController extends ControllerBase {
     $gD = new NGFGroup($group);
 
     // Add the group header.
-    $render_array['header'] = $this->groupView($group);
+    $render_array['header'] = $this->groupHeader($group);
 
     // Add the group tabs.
     $render_array['group_tabs'] = $gD->getGroupTabs();
 
     // Add the view block.
-    $view = Views::getView('ngf_group_members');
-    $view->setDisplay('members');
-    $view->setArguments([$group->id()]);
-    $view->preExecute();
-    $view->execute();
-
-    // Add the groups view title to the render array.
-    $title = $view->getTitle();
-    if ($title) {
-      $render_array['view']['title'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'h2',
-        '#value' => $title,
-      ];
-    }
-
-    // Add the groups view to the render array.
-    $render_array['view']['content'] = $view->render();
+    $render_array['content'] = $this->getContentView('ngf_group_members', 'members', $group->id());
 
     return $render_array;
   }
@@ -189,35 +123,13 @@ class GroupPageController extends ControllerBase {
     $gD = new NGFGroup($group);
 
     // Add the group header.
-    $render_array['header'] = $this->groupView($group);
+    $render_array['header'] = $this->groupHeader($group);
 
     // Add the group tabs.
     $render_array['group_tabs'] = $gD->getGroupTabs();
 
     // Add the view block.
-    $view = Views::getView('ngf_group_followers');
-    $view->setDisplay('followers');
-    $view->setArguments([$group->id()]);
-    $view->preExecute();
-    $view->execute();
-
-    $render_array['view'] = [
-      '#type' => 'container',
-      '#tree' => TRUE,
-    ];
-
-    // Add the groups view title to the render array.
-    $title = $view->getTitle();
-    if ($title) {
-      $render_array['view']['title'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'h2',
-        '#value' => $title,
-      ];
-    }
-
-    // Add the groups view to the render array.
-    $render_array['view']['content'] = $view->render();
+    $render_array['content'] = $this->getContentView('ngf_group_followers', 'followers', $group->id());
 
     return $render_array;
   }
@@ -230,15 +142,34 @@ class GroupPageController extends ControllerBase {
     $gD = new NGFGroup($group);
 
     // Add the group header.
-    $render_array['header'] = $this->groupView($group);
+    $render_array['header'] = $this->groupHeader($group);
 
     // Add the group tabs.
     $render_array['group_tabs'] = $gD->getGroupTabs();
 
     // Add the view block.
-    $view = Views::getView('ngf_group_subgroups');
-    $view->setDisplay('subgroups');
-    $view->setArguments([$group->id()]);
+    $render_array['content'] = $this->getContentView('ngf_group_subgroups', 'subgroups', $group->id());
+
+    return $render_array;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function groupHeader(EntityInterface $group, $view_mode = 'header') {
+    $view_builder = \Drupal::entityManager()->getViewBuilder('group');
+    return $view_builder->view($group, $view_mode);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getContentView($view_name, $display_name, $group_id) {
+
+    // Add the view block.
+    $view = Views::getView($view_name);
+    $view->setDisplay($display_name);
+    $view->setArguments([$group_id]);
     $view->preExecute();
     $view->execute();
 
@@ -260,15 +191,8 @@ class GroupPageController extends ControllerBase {
     // Add the groups view to the render array.
     $render_array['view']['content'] = $view->render();
 
-    return $render_array;
-  }
+    return $render_array['view'];
 
-  /**
-   * {@inheritdoc}
-   */
-  public function groupView(EntityInterface $group, $view_mode = 'header') {
-    $view_builder = \Drupal::entityManager()->getViewBuilder('group');
-    return $view_builder->view($group, $view_mode);
   }
 
 }
