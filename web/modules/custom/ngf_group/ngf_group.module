@@ -366,10 +366,12 @@ function ngf_group_local_tasks_alter(&$local_tasks) {
  */
 function ngf_group_menu_local_tasks_alter(&$data, $route_name) {
   // Hide the members and followers tab, but keep the functionality.
+/*
   $data['tabs'][1]['ngf_group.link.group_members'] = NULL;
   $data['tabs'][1]['ngf_group.link.group_followers'] = NULL;
   $data['tabs'][1]['ngf_group.link.group_subgroups'] = NULL;
   $data['tabs'][1]['ngf_group.link.group_shared'] = NULL;
+*/
 }
 
 /**

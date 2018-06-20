@@ -9,10 +9,10 @@ dependencies:
     - flag
     - user
 id: ngf_followers
-label: Followers
+label: 'Profile : Followers'
 module: views
 description: 'List of user which follow you'
-tag: ''
+tag: profile
 base_table: flagging
 base_field: id
 core: 8.x
@@ -142,7 +142,20 @@ display:
       title: Followers
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'You don''t follow any users'
+            format: basic_html
+          plugin_id: text
       relationships:
         uid:
           id: uid
@@ -207,14 +220,15 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+        - 'config:core.entity_view_display.user.user.ngf_author'
+  followers:
+    display_plugin: block
+    id: followers
+    display_title: followers
     position: 1
     display_options:
       display_extenders: {  }
-      path: profile/followers
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -225,3 +239,4 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.ngf_author'

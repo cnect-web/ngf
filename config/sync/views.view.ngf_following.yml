@@ -9,10 +9,10 @@ dependencies:
     - flag
     - user
 id: ngf_following
-label: Following
+label: 'Profile : Following'
 module: views
-description: 'List of user which follow you'
-tag: ''
+description: 'List of user which  you are following'
+tag: profile
 base_table: flagging
 base_field: id
 core: 8.x
@@ -139,10 +139,23 @@ display:
           entity_field: flag_id
           plugin_id: bundle
       sorts: {  }
-      title: Followers
+      title: 'Following users'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No users are following you'
+            format: basic_html
+          plugin_id: text
       relationships:
         uid:
           id: uid
@@ -203,14 +216,15 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+        - 'config:core.entity_view_display.user.user.ngf_author'
+  following:
+    display_plugin: block
+    id: following
+    display_title: following
     position: 1
     display_options:
       display_extenders: {  }
-      path: profile/following
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -221,3 +235,4 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.ngf_author'

@@ -1,3 +1,4 @@
+# Any user profile pages
 ngf_user_profile.profile:
   path: '/profile/view/{username}'
   defaults:
@@ -7,6 +8,7 @@ ngf_user_profile.profile:
     _permission: 'access content'
     username: '^[a-zA-Z0-9_]+'
 
+# Handlers
 ngf_user_profile.follow:
   path: '/profile/follow/{username}'
   defaults:
@@ -24,22 +26,6 @@ ngf_user_profile.unfollow:
   requirements:
     _permission: 'access content'
     username: '^[a-zA-Z0-9_]+'
-
-ngf_user_profile.followed:
-  path: '/profile/followed'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::followed'
-    _title: 'Users you follow'
-  requirements:
-    _permission: 'access content'
-
-ngf_user_profile.user_lists:
-  path: '/profile/user-lists'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::userLists'
-    _title: 'Your lists of users'
-  requirements:
-    _permission: 'access content'
 
 ngf_user_profile.add_user_list:
   path: '/profile/user-list/add/{name}'
@@ -79,23 +65,6 @@ ngf_user_profile.add_user_list_item:
     list_id: '^[0-9]+'
     username: '^[a-zA-Z0-9_]+'
 
-ngf_user_profile.user_list_items:
-  path: '/profile/user-list-items/{list_id}'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::userListItems'
-    _title: 'User list items'
-  requirements:
-    _permission: 'access content'
-    list_id: '^[0-9]+'
-
-ngf_user_profile.user_notifications:
-  path: '/profile/notifications'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::notifications'
-    _title: 'User notifications'
-  requirements:
-    _permission: 'access content'
-
 ngf_user_profile.mark_as_read_notification:
   path: '/profile/notification/markasread/{message_id}'
   defaults:
@@ -114,11 +83,13 @@ ngf_user_profile.remove_notification:
     _permission: 'access content'
     message_id: '^[0-9]+'
 
-ngf_user_profile.feed:
-  path: '/profile/feed'
+# Current user profile pages
+
+ngf_user_profile.user_lists:
+  path: '/profile/user-lists'
   defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::feed'
-    _title: 'User feed'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::userLists'
+    _title: 'Your lists of users'
   requirements:
     _permission: 'access content'
 
@@ -127,6 +98,23 @@ ngf_user_profile.private_settings:
   defaults:
     _form: '\Drupal\ngf_user_profile\Form\UserPrivateSettingsForm'
     _title: 'Private settings'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.user_list_items:
+  path: '/profile/user-list-items/{list_id}'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::userListItems'
+    _title: 'User list items'
+  requirements:
+    _permission: 'access content'
+    list_id: '^[0-9]+'
+
+ngf_user_profile.user_notifications:
+  path: '/profile/notifications'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::notifications'
+    _title: 'User notifications'
   requirements:
     _permission: 'access content'
 
@@ -143,5 +131,53 @@ ngf_user_profile.location_settings:
   defaults:
     _form: '\Drupal\ngf_user_profile\Form\UserLocationSettingsForm'
     _title: 'Location settings'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.publications:
+  path: '/profile/publications'
+  defaults:
+    _title: 'My publications'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::publications'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.events:
+  path: '/profile/events'
+  defaults:
+    _title: 'My events'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::events'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.groups:
+  path: '/profile/groups'
+  defaults:
+    _title: 'My events'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::groups'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.followers:
+  path: '/profile/followers'
+  defaults:
+    _title: 'My followers'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::followers'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.following:
+  path: '/profile/following'
+  defaults:
+    _title: 'My following users'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::following'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.feed:
+  path: '/profile/feed'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
+    _title: 'User feed'
   requirements:
     _permission: 'access content'

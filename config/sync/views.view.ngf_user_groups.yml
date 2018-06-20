@@ -8,10 +8,10 @@ dependencies:
   module:
     - group
 id: ngf_user_groups
-label: 'Profile : groups'
+label: 'Profile : Groups'
 module: views
-description: 'User profile events'
-tag: ''
+description: 'User profile groups'
+tag: profile
 base_table: groups_field_data
 base_field: id
 core: 8.x
@@ -193,10 +193,23 @@ display:
           entity_type: group
           entity_field: created
           plugin_id: date
-      title: 'Profile : Events'
+      title: Groups
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There are no groups yet'
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments:
         uid:
@@ -245,14 +258,14 @@ display:
         - url.query_args
         - user
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+  groups:
+    display_plugin: block
+    id: groups
+    display_title: groups
     position: 1
     display_options:
       display_extenders: {  }
-      path: profile/groups
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:

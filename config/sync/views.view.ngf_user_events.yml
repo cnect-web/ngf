@@ -200,7 +200,20 @@ display:
       title: 'Profile : Events'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There are no events yet'
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments:
         uid:
@@ -250,14 +263,14 @@ display:
         - url.query_args
         - user
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+  events:
+    display_plugin: block
+    id: events
+    display_title: events
     position: 1
     display_options:
       display_extenders: {  }
-      path: profile/events
+      display_description: 'User events on the profile page'
     cache_metadata:
       max-age: -1
       contexts:

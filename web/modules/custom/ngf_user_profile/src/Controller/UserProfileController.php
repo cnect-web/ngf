@@ -12,8 +12,6 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-
-
 /**
  * Class UserProfileController.
  */
@@ -48,7 +46,7 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
     UserFeedManager $user_feed_manager
   ) {
     $this->userManager = $user_manager;
-    $this->userFeedManager = $user_feed_manager;
+
   }
 
   /**
@@ -56,8 +54,7 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('ngf_user_profile.user_manager'),
-      $container->get('ngf_user_profile.user_feed_manager')
+      $container->get('ngf_user_profile.user_manager')
     );
   }
 
@@ -196,38 +193,6 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
     $notification_manager = $this->container->get('ngf_user_profile.notification_manager');
     $notification_manager->removeNotification($message_id);
     return $this->redirect('ngf_user_profile.user_notifications');
-  }
-
-  public function feed() {
-
-    $publications = $this->userFeedManager->getContent();
-    $page = pager_find_page();
-    $num_per_page = 10;
-    $offset = $num_per_page * $page;
-    $result = array_slice($publications, $offset, $num_per_page);
-
-    // Now that we have the total number of results, initialize the pager.
-    pager_default_initialize(count($publications), $num_per_page);
-
-    // Create a render array with the search results.
-    $render = [];
-
-    $items = [];
-    foreach ($result as $item) {
-      $message = \Drupal::entityTypeManager()->getViewBuilder('message')->view($item, 'full');
-      // There is a bug partial is still displayed even it's hidden i nthe view mode.
-      unset($message['partial_0']);
-      $items[] = $message;
-    }
-
-    $render[] = [
-      '#theme' => 'item_list',
-      '#items' => $items
-    ];
-    $render[] = [
-      '#type' => 'pager',
-    ];
-    return $render;
   }
 
   public function interestsSettings() {

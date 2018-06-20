@@ -11,10 +11,10 @@ dependencies:
     - taxonomy
     - user
 id: ngf_my_publications
-label: Publications
+label: 'Profile: Publications'
 module: views
-description: 'Display the publications of the current user'
-tag: ''
+description: 'User publications on the profile page'
+tag: profile
 base_table: node_field_data
 base_field: nid
 core: 8.x
@@ -241,7 +241,20 @@ display:
       title: Publications
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'There is no publications yet'
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments:
         uid:
@@ -296,14 +309,14 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+  publications:
+    display_plugin: block
+    id: publications
+    display_title: Publications
     position: 1
     display_options:
       display_extenders: {  }
-      path: profile/publications
+      display_description: 'User publication on profile page'
     cache_metadata:
       max-age: -1
       contexts:

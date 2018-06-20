@@ -1,0 +1,47 @@
+ngf_user_profile.page.feed:
+  title: 'Feed'
+  description: 'My feed'
+  route_name: ngf_user_profile.page.feed
+  base_route: ngf_user_profile.page.feed
+
+ngf_user_profile.page.feed1:
+  title: 'Feed 1'
+  description: 'My Feed 1'
+  route_name: ngf_user_profile.page.feed
+  base_route: ngf_user_profile.page.feed
+  parent_id: ngf_user_profile.page.feed
+
+ngf_user_profile.link.publications:
+  title: 'Publications'
+  description: 'My Publications'
+  route_name: ngf_user_profile.page.publications
+  base_route: ngf_user_profile.page.feed
+  parent_id: ngf_user_profile.page.feed
+
+ngf_user_profile.link.events:
+  title: 'Events'
+  description: 'My Events'
+  route_name: ngf_user_profile.page.events
+  base_route: ngf_user_profile.page.feed
+  parent_id: ngf_user_profile.page.feed
+
+ngf_user_profile.link.groups:
+  title: 'Groups'
+  description: 'My Groups'
+  route_name: ngf_user_profile.page.groups
+  base_route: ngf_user_profile.page.feed
+  parent_id: ngf_user_profile.page.feed
+
+ngf_user_profile.link.followers:
+  title: 'Followers'
+  description: 'My Followers'
+  route_name: ngf_user_profile.page.followers
+  base_route: ngf_user_profile.page.feed
+  parent_id: ngf_user_profile.page.feed
+
+ngf_user_profile.link.following:
+  title: 'Following users'
+  description: 'My following users'
+  route_name: ngf_user_profile.page.following
+  base_route: ngf_user_profile.page.feed
+  parent_id: ngf_user_profile.page.feed

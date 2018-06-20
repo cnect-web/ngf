@@ -157,7 +157,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function groupHeader(EntityInterface $group, $view_mode = 'header') {
-    $view_builder = \Drupal::entityManager()->getViewBuilder('group');
+    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('group');
     return $view_builder->view($group, $view_mode);
   }
 
