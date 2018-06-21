@@ -52,11 +52,6 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
-  flag_ngf_follow_user:
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   followers_panel:
     weight: 4
     region: content
@@ -91,6 +86,7 @@ hidden:
   field_ngf_interests: true
   field_ngf_last_name: true
   field_ngf_region: true
+  flag_ngf_follow_user: true
   groups_view: true
   member_for: true
   ngf_extra_text: true

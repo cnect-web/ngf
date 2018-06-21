@@ -185,6 +185,22 @@ function ngf_user_profile_user_view(
   if ($view_mode == 'profile') {
     // Show action panel
     if ($display->getComponent('action_panel')) {
+      $items = [];
+       if ($entity->id() == \Drupal::currentUser()->id()) {
+
+       } else {
+         $items[] = [
+           '#lazy_builder' => [
+             'flag.link_builder:build',
+             [
+               $entity->getEntityTypeId(),
+               $entity->id(),
+               'ngf_follow_user',
+             ],
+           ],
+           '#create_placeholder' => TRUE,
+         ];
+       }
 //      $items[] = [
 //        '#type' => 'link',
 //        '#url' => Url::fromRoute(),
@@ -216,23 +232,24 @@ function ngf_user_profile_user_view(
 //        ],
 //      ];
 //
-//      $build['action_panel'] = [
-//        '#theme' => 'item_list',
-//        '#items' => $items,
-//        '#attributes' => [
-//          'class' => [
-//            'profile__actions',
-//          ],
-//        ],
-//      ];
+      $build['action_panel'] = [
+        '#theme' => 'item_list',
+        '#items' => $items,
+        '#attributes' => [
+          'class' => [
+            'profile__actions',
+          ],
+        ],
+      ];
     }
 
     // Show followers panel
     if ($display->getComponent('followers_panel')) {
+      $items = [];
       $items[] = [
         '#type' => 'link',
         '#url' => Url::fromRoute('ngf_user_profile.page.following'),
-        '#title' => _ngf_user_profile_get_following(),
+        '#title' => _ngf_user_profile_get_following($entity),
         '#attributes' => [
           'class' => [
             'profile__networks__item profile__following',
@@ -242,7 +259,7 @@ function ngf_user_profile_user_view(
       $items[] = [
         '#type' => 'link',
         '#url' => Url::fromRoute('ngf_user_profile.page.followers'),
-        '#title' => _ngf_user_profile_get_followers(),
+        '#title' => _ngf_user_profile_get_followers($entity),
         '#attributes' => [
           'class' => [
             'profile__networks__item profile__followers',
@@ -263,13 +280,13 @@ function ngf_user_profile_user_view(
   }
 }
 
-function _ngf_user_profile_get_following() {
-  $count = \Drupal::getContainer()->get('ngf_user_profile.user_manager')->getCountFollowingUsersList();
+function _ngf_user_profile_get_following($user) {
+  $count = \Drupal::getContainer()->get('ngf_user_profile.user_manager')->getCountFollowingUsersList($user);
   return \Drupal::translation()->formatPlural($count, '1 follower', '@count followers', array('@count' => $count));
 }
 
-function _ngf_user_profile_get_followers() {
-  $count = \Drupal::getContainer()->get('ngf_user_profile.user_manager')->getCountFollowersUsersList();
+function _ngf_user_profile_get_followers($user) {
+  $count = \Drupal::getContainer()->get('ngf_user_profile.user_manager')->getCountFollowersUsersList($user);
   return t('@count following', ['@count' => $count]);
 }
 
