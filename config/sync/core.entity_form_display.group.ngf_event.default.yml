@@ -19,12 +19,12 @@ dependencies:
   module:
     - address
     - comment
-    - datetime
     - geofield
     - inline_entity_form
     - link
     - paragraphs
     - path
+    - single_datetime
 id: group.ngf_event.default
 targetEntityType: group
 bundle: ngf_event
@@ -53,6 +53,9 @@ content:
       allow_new: true
       allow_existing: false
       match_operator: CONTAINS
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content
@@ -75,15 +78,35 @@ content:
     region: content
   field_ngf_event_end_date:
     weight: 6
-    settings: {  }
+    settings:
+      hour_format: 24h
+      allow_times: '15'
+      disable_days: {  }
+      exclude_date: ''
+      inline: false
+      datetimepicker_theme: default
+      min_date: ''
+      max_date: ''
+      year_start: ''
+      year_end: ''
     third_party_settings: {  }
-    type: datetime_default
+    type: single_date_time_widget
     region: content
   field_ngf_event_start_date:
     weight: 5
-    settings: {  }
+    settings:
+      hour_format: 24h
+      allow_times: '15'
+      disable_days: {  }
+      exclude_date: ''
+      inline: false
+      datetimepicker_theme: default
+      min_date: ''
+      max_date: ''
+      year_start: ''
+      year_end: ''
     third_party_settings: {  }
-    type: datetime_default
+    type: single_date_time_widget
     region: content
   field_ngf_group_visibility:
     weight: 13
