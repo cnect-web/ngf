@@ -245,10 +245,22 @@ function ngf_user_profile_user_view(
 
     // Show followers panel
     if ($display->getComponent('followers_panel')) {
+      if ($entity->id() == \Drupal::currentUser()->id()) {
+        $url_followers = Url::fromRoute('ngf_user_profile.page.followers');
+        $url_following = Url::fromRoute('ngf_user_profile.page.following');
+      } else {
+        $url_followers = Url::fromRoute('ngf_user_profile.page.user_followers', [
+          'user' => $entity->id(),
+        ]);
+        $url_following = Url::fromRoute('ngf_user_profile.page.user_following', [
+          'user' => $entity->id(),
+        ]);
+      }
+
       $items = [];
       $items[] = [
         '#type' => 'link',
-        '#url' => Url::fromRoute('ngf_user_profile.page.following'),
+        '#url' => $url_followers,
         '#title' => _ngf_user_profile_get_following($entity),
         '#attributes' => [
           'class' => [
@@ -258,7 +270,7 @@ function ngf_user_profile_user_view(
       ];
       $items[] = [
         '#type' => 'link',
-        '#url' => Url::fromRoute('ngf_user_profile.page.followers'),
+        '#url' => $url_following,
         '#title' => _ngf_user_profile_get_followers($entity),
         '#attributes' => [
           'class' => [
