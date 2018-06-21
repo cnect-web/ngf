@@ -180,6 +180,9 @@
             "drupal/entity_reference_revisions": {
                 "Embed Paragraph Content in Normalized Parent Entities (REST)": "https://www.drupal.org/files/issues/embed_paragraph_content-2848878-43.patch"
             },
+            "drupal/inline_entity_form": {
+                "Remove revision log messages from other entities than nodes": "https://www.drupal.org/files/issues/2018-03-23/remove_revision_log_message-2927884-2.patch"
+            },
             "drupal/message": {
                 "Notice: Undefined index: #cardinality": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
             },

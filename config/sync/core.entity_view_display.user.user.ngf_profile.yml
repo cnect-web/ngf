@@ -1,8 +1,9 @@
-uuid: f618a5c1-aa07-4f47-82ed-2a8ac81889de
+uuid: 1c08828b-80b9-457f-86a5-826cb8473622
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.user.ngf_profile
     - field.field.user.user.field_ngf_biography
     - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_country
@@ -14,16 +15,17 @@ dependencies:
     - image.style.thumbnail
   module:
     - image
+    - ngf_user_profile
     - user
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
-id: user.user.default
+id: user.user.ngf_profile
 targetEntityType: user
 bundle: user
-mode: default
+mode: ngf_profile
 content:
   action_panel:
-    weight: 100
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -34,6 +36,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: text_default
+  field_ngf_city:
+    type: ngf_location_info_field_formatter
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_user_picture:
     type: image
     weight: 0
@@ -44,12 +53,12 @@ content:
     third_party_settings: {  }
     label: hidden
   flag_ngf_follow_user:
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   followers_panel:
-    weight: 100
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -77,7 +86,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_ngf_biography: true
-  field_ngf_city: true
   field_ngf_country: true
   field_ngf_first_name: true
   field_ngf_interests: true
