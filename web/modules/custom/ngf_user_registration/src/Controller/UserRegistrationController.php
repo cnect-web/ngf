@@ -4,6 +4,7 @@ namespace Drupal\ngf_user_registration\Controller;
 
 use Drupal\Component\Utility\Tags;
 use Drupal\Core\Controller\ControllerBase;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,6 +46,16 @@ class UserRegistrationController extends ControllerBase {
       }
     }
     return new JsonResponse($results);
+  }
+
+  /**
+   * User register redirect.
+   *
+   * @return string
+   *   Return Another route
+   */
+  public function redirectJoin() {
+    return $this->redirect('ngf_user_registration');
   }
 
 }
