@@ -110,6 +110,65 @@ ngf_user_profile.user_notifications:
   requirements:
     _permission: 'access content'
 
+ngf_user_profile.page.publications:
+  path: '/profile/publications'
+  defaults:
+    _title: 'My publications'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::publications'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.events:
+  path: '/profile/events'
+  defaults:
+    _title: 'My events'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::events'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.groups:
+  path: '/profile/groups'
+  defaults:
+    _title: 'My events'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::groups'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.followers:
+  path: '/profile/followers'
+  defaults:
+    _title: 'Followers'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::followers'
+    _description: 'Users following me'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.following:
+  path: '/profile/following'
+  defaults:
+    _title: 'Following'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::following'
+    _description: 'Users I follow'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.feed:
+  path: '/profile/feed'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
+    _title: 'User feed'
+  requirements:
+    _permission: 'access content'
+
+ngf_user_profile.page.profile:
+  path: '/profile'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
+    _title: 'User feed'
+  requirements:
+    _permission: 'access content'
+
+# User settings pages
 ngf_user_profile.page.general_settings:
   path: '/profile/general-settings'
   defaults:
@@ -142,58 +201,40 @@ ngf_user_profile.page.private_settings:
   requirements:
     _permission: 'access content'
 
-ngf_user_profile.page.publications:
-  path: '/profile/publications'
+
+# Any user profile page
+ngf_user_profile.page.user_publications:
+  path: '/profile/{user}/publications'
   defaults:
-    _title: 'My publications'
+    _title: 'Publications'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::publications'
   requirements:
     _permission: 'access content'
+  options:
+    parameters:
+      user:
+        type: 'entity:user'
 
-ngf_user_profile.page.events:
-  path: '/profile/events'
+ngf_user_profile.page.user_events:
+  path: '/profile/{user}/events'
   defaults:
-    _title: 'My events'
+    _title: 'Events'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::events'
   requirements:
     _permission: 'access content'
+  options:
+    parameters:
+      user:
+        type: 'entity:user'
 
-ngf_user_profile.page.groups:
-  path: '/profile/groups'
+ngf_user_profile.page.user_groups:
+  path: '/profile/{user}/groups'
   defaults:
-    _title: 'My events'
+    _title: 'Events'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::groups'
   requirements:
     _permission: 'access content'
-
-ngf_user_profile.page.followers:
-  path: '/profile/followers'
-  defaults:
-    _title: 'My followers'
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::followers'
-  requirements:
-    _permission: 'access content'
-
-ngf_user_profile.page.following:
-  path: '/profile/following'
-  defaults:
-    _title: 'My following users'
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::following'
-  requirements:
-    _permission: 'access content'
-
-ngf_user_profile.page.feed:
-  path: '/profile/feed'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
-    _title: 'User feed'
-  requirements:
-    _permission: 'access content'
-
-ngf_user_profile.page.profile:
-  path: '/profile'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
-    _title: 'User feed'
-  requirements:
-    _permission: 'access content'
+  options:
+    parameters:
+      user:
+        type: 'entity:user'

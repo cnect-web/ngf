@@ -27,23 +27,13 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
   protected $userManager;
 
   /**
-   * The user feed manager service.
-   *
-   * @var Drupal\ngf_user_profile\Manager\userFeedManager
-   */
-  protected $userFeedManager;
-
-  /**
    * UserProfileController constructor.
    *
    * @param Drupal\ngf_user_profile\Manager\UserManager $user_manager
    *   The user manager.
-   * @param Drupal\ngf_user_profile\Manager\UserFeedManager $user_feed_manager
-   *   The user manager.
    */
   public function __construct(
-    userManager $user_manager,
-    UserFeedManager $user_feed_manager
+    userManager $user_manager
   ) {
     $this->userManager = $user_manager;
 
