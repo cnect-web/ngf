@@ -22,6 +22,11 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  action_panel:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   extra_text:
     label: hidden
     weight: 3
@@ -40,6 +45,11 @@ content:
     label: hidden
   flag_ngf_follow_user:
     weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  followers_panel:
+    weight: 100
     region: content
     settings: {  }
     third_party_settings: {  }
