@@ -207,28 +207,23 @@ function ngf_user_profile_user_view(
 ) {
 
   if ($view_mode == 'profile') {
+    $user_id = $entity->id();
     // Show action panel
     if ($display->getComponent('action_panel')) {
       $items = [];
-       if ($entity->id() == \Drupal::currentUser()->id()) {
+      if ($entity->id() == \Drupal::currentUser()->id()) {
 
-       } else {
-         $items[] = [
-           '#lazy_builder' => [
-             'flag.link_builder:build',
-             [
-               $entity->getEntityTypeId(),
-               $entity->id(),
-               'ngf_follow_user',
-             ],
-           ],
-           '#create_placeholder' => TRUE,
-         ];
+      }
+      else {
+        $flag_builder = \Drupal::service('flag.link_builder');
+        $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');
+        $link['#attributes']['class'][] = 'profile__actions--follow';
+        $items[] = $link;
 
         $items[] = [
           '#type' => 'link',
           '#url' => Url::fromRoute('ngf_user_profile.page.user_contact', [
-            'user' => $entity->id(),
+            'user' => $user_id,
           ]),
           '#title' => t('Contact'),
           '#attributes' => [
@@ -237,18 +232,18 @@ function ngf_user_profile_user_view(
             ],
           ],
         ];
-       }
-//      $items[] = [
-//        '#type' => 'link',
-//        '#url' => $entity->toUrl(),
-//        '#title' => t('Add to list'),
-//        '#attributes' => [
-//          'class' => [
-//            'profile__actions--contact',
-//          ],
-//        ],
-//      ];
-//
+      }
+      //      $items[] = [
+      //        '#type' => 'link',
+      //        '#url' => $entity->toUrl(),
+      //        '#title' => t('Add to list'),
+      //        '#attributes' => [
+      //          'class' => [
+      //            'profile__actions--contact',
+      //          ],
+      //        ],
+      //      ];
+      //
       $build['action_panel'] = [
         '#theme' => 'item_list',
         '#items' => $items,
@@ -265,13 +260,19 @@ function ngf_user_profile_user_view(
       if ($entity->id() == \Drupal::currentUser()->id()) {
         $url_followers = Url::fromRoute('ngf_user_profile.page.followers');
         $url_following = Url::fromRoute('ngf_user_profile.page.following');
-      } else {
-        $url_followers = Url::fromRoute('ngf_user_profile.page.user_followers', [
-          'user' => $entity->id(),
-        ]);
-        $url_following = Url::fromRoute('ngf_user_profile.page.user_following', [
-          'user' => $entity->id(),
-        ]);
+      }
+      else {
+        $user_options = [
+          'user' => $user_id,
+        ];
+        $url_followers = Url::fromRoute(
+          'ngf_user_profile.page.user_followers',
+          $user_options
+        );
+        $url_following = Url::fromRoute(
+          'ngf_user_profile.page.user_following',
+          $user_options
+        );
       }
 
       $items = [];
@@ -310,12 +311,18 @@ function ngf_user_profile_user_view(
 }
 
 function _ngf_user_profile_get_following($user) {
-  $count = \Drupal::getContainer()->get('ngf_user_profile.user_manager')->getCountFollowingUsersList($user);
-  return \Drupal::translation()->formatPlural($count, '1 follower', '@count followers', array('@count' => $count));
+  $count = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_manager')
+    ->getCountFollowingUsersList($user);
+  return \Drupal::translation()
+    ->formatPlural($count, '1 follower', '@count followers',
+      ['@count' => $count]);
 }
 
 function _ngf_user_profile_get_followers($user) {
-  $count = \Drupal::getContainer()->get('ngf_user_profile.user_manager')->getCountFollowersUsersList($user);
+  $count = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_manager')
+    ->getCountFollowersUsersList($user);
   return t('@count following', ['@count' => $count]);
 }
 
