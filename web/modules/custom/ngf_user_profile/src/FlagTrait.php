@@ -28,12 +28,12 @@ trait FlagTrait {
     return $flag;
   }
 
-  protected function getUserFlaggedItemsByFlagId($flag_id) {
+  protected function getUserFlaggedItemsByFlagId($flag_id, $user_id) {
     $query = \Drupal::database()
       ->select('flagging', 'f')
       ->fields('f', array())
       ->condition('flag_id', $flag_id)
-      ->condition('uid', $this->currentUser->id());
+      ->condition('uid', $user_id);
 
     return $query->execute()->fetchAll();
   }

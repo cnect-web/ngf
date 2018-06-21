@@ -89,18 +89,11 @@ class UserManager {
     return UserList::loadMultiple($list_ids);
   }
 
-  public function getFollowedList() {
-    // TODO :remove or replace with getFollowingUsersList
-    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user');
-    $followed_user_ids = [];
-    foreach ($followed_user_items as $user_item) {
-      $followed_user_ids[] = $user_item->entity_id;
+  public function getFollowingUsersList($user) {
+    if (empty($user)) {
+      $user = $this->getCurrentUserAccount();
     }
-    return User::loadMultiple($followed_user_ids);
-  }
-
-  public function getFollowingUsersList() {
-    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $this->getCurrentUserAccount());
+    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user);
     $user_ids = [];
     foreach ($following_user_items as $user_item) {
       $user_ids[] = $user_item->get('uid')->target_id;
@@ -108,8 +101,11 @@ class UserManager {
     return User::loadMultiple($user_ids);
   }
 
-  public function getFollowersUsersList() {
-    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user');
+  public function getFollowersUsersList($user) {
+    if (empty($user)) {
+      $user = $this->getCurrentUserAccount();
+    }
+    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
     $user_ids = [];
     foreach ($followed_user_items as $user_item) {
       $user_ids[] = $user_item->entity_id;
@@ -117,12 +113,12 @@ class UserManager {
     return User::loadMultiple($user_ids);
   }
 
-  public function getCountFollowingUsersList() {
-    return count($this->flag->getEntityFlaggings($this->getFollowUserFlag(), $this->getCurrentUserAccount()));
+  public function getCountFollowingUsersList($user) {
+    return count($this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user));
   }
 
-  public function getCountFollowersUsersList() {
-    return count($this->getUserFlaggedItemsByFlagId('ngf_follow_user'));
+  public function getCountFollowersUsersList($user) {
+    return count($this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id()));
   }
 
   /**

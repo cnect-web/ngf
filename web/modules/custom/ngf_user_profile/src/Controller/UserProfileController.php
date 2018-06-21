@@ -94,7 +94,7 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
   }
 
   public function followed() {
-    $followed_user_items = $this->userManager->getFollowedList();
+    $followed_user_items = $this->userManager->getFollowingUsersList();
     $list = [];
     foreach ($followed_user_items as $user_item) {
         $list[] = $this->entityTypeManager()->getViewBuilder($user_item->getEntityTypeId())->view($user_item);

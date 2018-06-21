@@ -111,27 +111,18 @@ class UserProfilePageController extends ControllerBase {
     return $this->getViewContent('groups', $user);
   }
 
-  public function getViewContent($content_name, EntityInterface $user = NULL) {
-    $prefix = !empty($user) ? 'user_' : 'your_';
-    return $this->getContent($this->getView(
-      'ngf_user_' . $content_name,
-      $prefix . $content_name,
-      !empty($user) ? $user->id() : $this->currentUser->id()
-    ));
+  /**
+   * {@inheritdoc}
+   */
+  public function followers(EntityInterface $user = NULL) {
+    return $this->getContent($this->getUserList($this->userManager->getFollowersUsersList($user)), $user);
   }
 
   /**
    * {@inheritdoc}
    */
-  public function followers() {
-    return $this->getContent($this->getUserList($this->userManager->getFollowersUsersList()));
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function following() {
-    return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList()));
+  public function following(EntityInterface $user = NULL) {
+    return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList($user)), $user);
   }
 
   protected function getUserList($users) {
@@ -151,11 +142,15 @@ class UserProfilePageController extends ControllerBase {
     ];
   }
 
+  public function contact(EntityInterface $user) {
+    return $this->getContent($this->getEntityForm('default'));
+  }
+
   /**
    * {@inheritdoc}
    */
   public function generalSettings() {
-    return $this->getContent($this->getUserForm('default'));
+    return $this->getContent($this->getEntityForm('default'));
   }
 
   /**
@@ -176,21 +171,21 @@ class UserProfilePageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function interestsSettings() {
-    return $this->getContent($this->getUserForm('ngf_interests'));
+    return $this->getContent($this->getEntityForm('ngf_interests'));
   }
 
-  public function getUserForm($form_view_mode) {
+  public function getEntityForm($form_view_mode, $entity_type = 'user') {
     $form = $this->entityTypeManager
-      ->getFormObject('user', $form_view_mode)
+      ->getFormObject($entity_type, $form_view_mode)
       ->setEntity($this->getCurrentUserAccount());
 
     return $this->formBuilder->getForm($form);
   }
 
 
-  public function getContent($content) {
+  public function getContent($content, $user = NULL) {
     return [
-      'header' => $this->getHeader($this->getCurrentUserAccount()),
+      'header' => $this->getHeader($user ?? $this->getCurrentUserAccount()),
       'tabs' => $this->getTabs(),
       'content' => $content,
     ];
@@ -208,7 +203,6 @@ class UserProfilePageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function getView($view_name, $display_name, $user_id) {
-    ksm($user_id);
     // Add the view block.
     $view = Views::getView($view_name);
     $view->setDisplay($display_name);
@@ -296,6 +290,15 @@ class UserProfilePageController extends ControllerBase {
       '#type' => 'pager',
     ];
     return $this->getContent($render);
+  }
+
+  public function getViewContent($content_name, EntityInterface $user = NULL) {
+    $prefix = !empty($user) ? 'user_' : 'your_';
+    return $this->getContent($this->getView(
+      'ngf_user_' . $content_name,
+      $prefix . $content_name,
+      !empty($user) ? $user->id() : $this->currentUser->id()
+    ), $user);
   }
 
 }
