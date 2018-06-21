@@ -145,10 +145,34 @@ function ngf_user_profile_form_alter(
   FormStateInterface $form_state,
   $form_id
 ) {
-  if ($form_id == 'user_ngf_interests_form') {
-    $form['field_ngf_interests']['widget']['add_more']['#attributes']['class'][] = 'btn btn--blue';
-    $form['actions']['submit']['#attributes']['class'][] = 'btn btn--green';
-  }
+  // TODO : Remove hook later
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_user_profile_form_user_ngf_interests_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['field_ngf_interests']['widget']['add_more']['#attributes']['class'][] = 'btn btn--blue';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn btn--green';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_user_profile_form_contact_message_personal_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['mail']['#access'] = FALSE;
+  $form['recipient']['#access'] = FALSE;
+  $form['name']['#access'] = FALSE;
+  $form['copy']['#access'] = FALSE;
+  $form['actions']['preview']['#access'] = FALSE;
 }
 
 /**
@@ -200,27 +224,20 @@ function ngf_user_profile_user_view(
            ],
            '#create_placeholder' => TRUE,
          ];
+
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_profile.page.user_contact', [
+            'user' => $entity->id(),
+          ]),
+          '#title' => t('Contact'),
+          '#attributes' => [
+            'class' => [
+              'profile__actions--contact',
+            ],
+          ],
+        ];
        }
-//      $items[] = [
-//        '#type' => 'link',
-//        '#url' => Url::fromRoute(),
-//        '#title' => t('Contact'),
-//        '#attributes' => [
-//          'class' => [
-//            'profile__actions--contact',
-//          ],
-//        ],
-//      ];
-//      $items[] = [
-//        '#type' => 'link',
-//        '#url' => Url::fromRoute(),
-//        '#title' => t('Follow'),
-//        '#attributes' => [
-//          'class' => [
-//            'profile__actions--contact',
-//          ],
-//        ],
-//      ];
 //      $items[] = [
 //        '#type' => 'link',
 //        '#url' => $entity->toUrl(),
@@ -309,4 +326,9 @@ function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
   // Hide the members and followers tab, but keep the functionality.
   $data['tabs'][1]['ngf_user_profile.link.followers'] = NULL;
   $data['tabs'][1]['ngf_user_profile.link.following'] = NULL;
+
+  // Hide contact, members and followers tab, but keep the functionality.
+  $data['tabs'][1]['ngf_user_profile.link.user_contact'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.user_followers'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.user_following'] = NULL;
 }

@@ -42,7 +42,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function publicationsPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'publications');
+    $render_array = $this->getPageContent($group, 'discussions');
     return $render_array;
   }
 

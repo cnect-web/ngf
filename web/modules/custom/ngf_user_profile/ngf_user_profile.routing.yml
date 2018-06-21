@@ -275,7 +275,6 @@ ngf_user_profile.page.user_following:
       user:
         type: 'entity:user'
 
-
 ngf_user_profile.page.user_contact:
   path: '/profile/{user}/contact'
   defaults:

@@ -143,7 +143,19 @@ class UserProfilePageController extends ControllerBase {
   }
 
   public function contact(EntityInterface $user) {
-    return $this->getContent($this->getEntityForm('default'));
+    $message = $this
+      ->entityTypeManager
+      ->getStorage('contact_message')
+      ->create(array(
+        'contact_form' => 'personal',
+        'recipient' => $user
+          ->id(),
+      ));
+    $form = $this
+      ->entityFormBuilder()
+      ->getForm($message);
+
+    return $this->getContent($form);
   }
 
   /**
