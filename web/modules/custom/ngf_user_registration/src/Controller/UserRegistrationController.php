@@ -4,7 +4,6 @@ namespace Drupal\ngf_user_registration\Controller;
 
 use Drupal\Component\Utility\Tags;
 use Drupal\Core\Controller\ControllerBase;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
