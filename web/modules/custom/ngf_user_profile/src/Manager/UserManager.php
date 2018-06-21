@@ -93,10 +93,10 @@ class UserManager {
     if (empty($user)) {
       $user = $this->getCurrentUserAccount();
     }
-    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user);
+    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
     $user_ids = [];
-    foreach ($following_user_items as $user_item) {
-      $user_ids[] = $user_item->get('uid')->target_id;
+    foreach ($followed_user_items as $user_item) {
+      $user_ids[] = $user_item->entity_id;
     }
     return User::loadMultiple($user_ids);
   }
@@ -105,10 +105,11 @@ class UserManager {
     if (empty($user)) {
       $user = $this->getCurrentUserAccount();
     }
-    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
+
+    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user);
     $user_ids = [];
-    foreach ($followed_user_items as $user_item) {
-      $user_ids[] = $user_item->entity_id;
+    foreach ($following_user_items as $user_item) {
+      $user_ids[] = $user_item->get('uid')->target_id;
     }
     return User::loadMultiple($user_ids);
   }
