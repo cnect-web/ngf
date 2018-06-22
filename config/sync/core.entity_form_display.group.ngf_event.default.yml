@@ -31,14 +31,14 @@ bundle: ngf_event
 mode: default
 content:
   field_ngf_address:
-    weight: 7
+    weight: 8
     settings:
-      default_country: null
+      default_country: ''
     third_party_settings: {  }
     type: address_default
     region: content
   field_ngf_comments:
-    weight: 12
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: comment_default
@@ -116,7 +116,7 @@ content:
     type: single_date_time_widget
     region: content
   field_ngf_group_visibility:
-    weight: 13
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -139,14 +139,13 @@ content:
     type: string_textarea
     region: content
   field_ngf_location:
-    weight: 8
-    settings:
-      html5_geolocation: false
-    third_party_settings: {  }
-    type: geofield_latlon
+    type: geofield_default
+    weight: 13
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_ngf_registration_link:
-    weight: 10
+    weight: 9
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -154,7 +153,7 @@ content:
     type: link_default
     region: content
   field_ngf_venue:
-    weight: 9
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -171,7 +170,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

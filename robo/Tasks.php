@@ -146,15 +146,29 @@ class Tasks extends RoboTasks {
   public function setCustomConfig() {
     $settings = $this->config('environment.settings');
     if (!empty($settings)) {
-      $path = $this->root() . '/web/sites/default/settings.local.php';
-      $this->taskWriteToFile($path)->text("<?php\n")->run();
+
+      $settings_folder = $this->root() . "/web/sites/default";
+      $settings_file = "{$settings_folder}/settings.local.php";
+
+      $this->changeFilePerms($settings_folder, '0777');
+      $this->changeFilePerms($settings_file, '0777');
+
+      $this->taskWriteToFile($settings_file)->text("<?php\n")->run();
       if (!empty($settings)) {
-        $string = $this->recursive_print('$settings', $settings);
+        $this->recursive_print('$settings', $settings);
       }
+
+      $this->changeFilePerms($settings_folder, '0555');
+      $this->changeFilePerms($settings_file, '0555');
     }
     else {
       $this->say("No custom settings to add.");
     }
+  }
+
+  private function changeFilePerms($file, $perms = '0555', $recursive = FALSE) {
+    $r = ($recursive) ? '-R' : '';
+    return $this->taskExec("chmod {$r} {$perms} {$file}")->run();
   }
 
   /**
@@ -189,11 +203,13 @@ class Tasks extends RoboTasks {
    * @aliases sff
    */
   public function setupFilesFolder($folder = "web/sites/default/files") {
+    /*
     if ($this->taskExec("rm -rf {$folder}/*")->run()->wasSuccessful()) {
       $this->say("Cleared up files folder.");
     }
+    */
 
-    if ($this->taskExec("chmod -R 0777 {$folder}")->run()->wasSuccessful()) {
+    if ($this->changeFilePerms($folder, "0777", TRUE)->wasSuccessful()) {
       $this->say("Files folder permissions set.");
     }
   }
@@ -274,7 +290,7 @@ class Tasks extends RoboTasks {
    * Helper to print settings arrays.
    */
   public function recursive_print($varname, $varval) {
-    $path = $this->root() . '/settings.local.php';
+    $path = $this->root() . '/web/sites/default/settings.local.php';
     if (!is_array($varval)) {
       $this->taskWriteToFile($path)->text($varname . " = \"" . $varval . "\";\n")
         ->append(true)
