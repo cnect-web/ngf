@@ -186,6 +186,16 @@ class UserProfilePageController extends ControllerBase {
     return $this->getContent($this->getEntityForm('ngf_interests'));
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function about() {
+    return $this->getContent([
+      '#type' => 'markup',
+      '#markup' => 'about page',
+    ]);
+  }
+
   public function getEntityForm($form_view_mode, $entity_type = 'user') {
     $form = $this->entityTypeManager
       ->getFormObject($entity_type, $form_view_mode)

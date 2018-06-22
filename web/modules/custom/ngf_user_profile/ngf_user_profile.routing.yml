@@ -203,6 +203,18 @@ ngf_user_profile.page.private_settings:
 
 
 # Any user profile page
+ngf_user_profile.page.user_profile:
+  path: '/profile/{user}'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::publications'
+    _title: 'User profile'
+  requirements:
+    _permission: 'access content'
+  options:
+      parameters:
+        user:
+          type: 'entity:user'
+
 ngf_user_profile.page.user_publications:
   path: '/profile/{user}/publications'
   defaults:
@@ -280,6 +292,18 @@ ngf_user_profile.page.user_contact:
   defaults:
     _title: 'Following'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::contact'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      user:
+        type: 'entity:user'
+
+ngf_user_profile.page.user_contact:
+  path: '/profile/{user}/about'
+  defaults:
+    _title: 'About'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::about'
   requirements:
     _permission: 'access content'
   options:
