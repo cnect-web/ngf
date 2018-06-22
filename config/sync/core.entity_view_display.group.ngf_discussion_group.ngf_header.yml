@@ -1,9 +1,9 @@
-uuid: 5aa190a5-b8a4-466e-8cfc-d0a3f2266f9f
+uuid: db0c0fb8-cfb1-4e0d-9c19-ed12c4946f52
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.group.header
+    - core.entity_view_mode.group.ngf_header
     - field.field.group.ngf_discussion_group.field_ngf_comments
     - field.field.group.ngf_discussion_group.field_ngf_cover_image
     - field.field.group.ngf_discussion_group.field_ngf_description
@@ -15,10 +15,10 @@ dependencies:
   module:
     - media
     - options
-id: group.ngf_discussion_group.header
+id: group.ngf_discussion_group.ngf_header
 targetEntityType: group
 bundle: ngf_discussion_group
-mode: header
+mode: ngf_header
 content:
   field_ngf_cover_image:
     weight: 0
