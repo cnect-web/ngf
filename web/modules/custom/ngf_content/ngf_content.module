@@ -3,6 +3,7 @@
 use Drupal\Core\Link;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
 
 /**
@@ -36,4 +37,3 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
     }
   }
 }
-

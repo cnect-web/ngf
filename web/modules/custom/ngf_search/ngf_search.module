@@ -1,0 +1,19 @@
+<?php
+
+use Drupal\Core\Link;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Views;
+
+function ngf_content_views_pre_render(ViewExecutable $view) {
+
+  // Scramble the order of the rows shown on this result page.
+  // Note that this could be done earlier, but not later in the view execution
+  // process.
+  if ($view->id() == 'ngf_publications_search') {
+    kint($view->result);
+    exit();
+  }
+}
+
