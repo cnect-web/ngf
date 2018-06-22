@@ -72,7 +72,7 @@ display:
         type: default
         options:
           row_class: ''
-          default_row_class: false
+          default_row_class: true
           uses_fields: false
       row:
         type: 'entity:node'

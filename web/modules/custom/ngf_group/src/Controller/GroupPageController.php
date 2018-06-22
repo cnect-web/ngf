@@ -26,40 +26,28 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function groupInfo(EntityInterface $group) {
-
-    $gD = new NGFGroup($group);
-
-    // Add the group.
-    $render_array['header'] = $this->groupHeader($group, 'full');
-
-    // Add the group tabs.
-    $render_array['group_tabs'] = $gD->getGroupTabs();
-
-    return $render_array;
+    return $this->getPageContent($group, $this->groupDisplay($group, 'ngf_about'));
   }
 
   /**
    * {@inheritdoc}
    */
   public function publicationsPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'publications');
-    return $render_array;
+    return $this->getViewContent($group, 'publications');
   }
 
   /**
    * {@inheritdoc}
    */
   public function eventsPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'events');
-    return $render_array;
+    return $this->getViewContent($group, 'events');
   }
 
   /**
    * {@inheritdoc}
    */
   public function libraryPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'library');
-    return $render_array;
+    return $this->getViewContent($group, 'library');
   }
 
   /**
@@ -67,49 +55,52 @@ class GroupPageController extends ControllerBase {
    */
   public function sharedContentPage(EntityInterface $group) {
     // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
-    return $render_array;
+    return $this->getPageContent($group, [
+      '#type' => 'markup',
+      '#markup' => 'There is no shared content'
+    ]);
   }
 
   /**
    * {@inheritdoc}
    */
   public function membersPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'members');
-    return $render_array;
+    return $this->getViewContent($group, 'members');
   }
 
   /**
    * {@inheritdoc}
    */
   public function followersPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'followers');
-    return $render_array;
+    return $this->getViewContent($group, 'followers');
   }
 
   /**
    * {@inheritdoc}
    */
   public function subgroupsPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'subgroups');
-    return $render_array;
+    return $this->getViewContent($group, 'subgroups');
+  }
+
+  public function getViewContent(EntityInterface $group, $page) {
+    return $this->getPageContent($group, $this->getContentView('ngf_group_' . $page, $page, $group->id()));
   }
 
   /**
    *
    */
-  public function getPageContent(EntityInterface $group, $page) {
-    $gD = new NGFGroup($group);
+  public function getPageContent(EntityInterface $group, $content) {
 
     // Add the group.
-    $render_array['header'] = $this->groupHeader($group);
+    $render_array['header'] = $this->groupDisplay($group);
 
     if ($this->accessCheck($group) == AccessResult::allowed()) {
+      $gD = new NGFGroup($group);
       // Add the group tabs.
       $render_array['group_tabs'] = $gD->getGroupTabs();
 
       // Add the view block.
-      $render_array['content'] = $this->getContentView('ngf_group_' . $page, $page, $group->id());
+      $render_array['content'] = $content;
     }
 
     return $render_array;
@@ -118,7 +109,7 @@ class GroupPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function groupHeader(EntityInterface $group, $view_mode = 'header') {
+  public function groupDisplay(EntityInterface $group, $view_mode = 'ngf_header') {
     $view_builder = \Drupal::entityTypeManager()->getViewBuilder('group');
     return $view_builder->view($group, $view_mode);
   }

@@ -145,10 +145,34 @@ function ngf_user_profile_form_alter(
   FormStateInterface $form_state,
   $form_id
 ) {
-  if ($form_id == 'user_ngf_interests_form') {
-    $form['field_ngf_interests']['widget']['add_more']['#attributes']['class'][] = 'btn btn--blue';
-    $form['actions']['submit']['#attributes']['class'][] = 'btn btn--green';
-  }
+  // TODO : Remove hook later
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_user_profile_form_user_ngf_interests_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['field_ngf_interests']['widget']['add_more']['#attributes']['class'][] = 'btn btn--blue';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn btn--green';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_user_profile_form_contact_message_personal_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['mail']['#access'] = FALSE;
+  $form['recipient']['#access'] = FALSE;
+  $form['name']['#access'] = FALSE;
+  $form['copy']['#access'] = FALSE;
+  $form['actions']['preview']['#access'] = FALSE;
 }
 
 /**
@@ -183,55 +207,43 @@ function ngf_user_profile_user_view(
 ) {
 
   if ($view_mode == 'profile') {
+    $user_id = $entity->id();
     // Show action panel
     if ($display->getComponent('action_panel')) {
       $items = [];
-       if ($entity->id() == \Drupal::currentUser()->id()) {
+      if ($entity->id() == \Drupal::currentUser()->id()) {
 
-       } else {
-         $items[] = [
-           '#lazy_builder' => [
-             'flag.link_builder:build',
-             [
-               $entity->getEntityTypeId(),
-               $entity->id(),
-               'ngf_follow_user',
-             ],
-           ],
-           '#create_placeholder' => TRUE,
-         ];
-       }
-//      $items[] = [
-//        '#type' => 'link',
-//        '#url' => Url::fromRoute(),
-//        '#title' => t('Contact'),
-//        '#attributes' => [
-//          'class' => [
-//            'profile__actions--contact',
-//          ],
-//        ],
-//      ];
-//      $items[] = [
-//        '#type' => 'link',
-//        '#url' => Url::fromRoute(),
-//        '#title' => t('Follow'),
-//        '#attributes' => [
-//          'class' => [
-//            'profile__actions--contact',
-//          ],
-//        ],
-//      ];
-//      $items[] = [
-//        '#type' => 'link',
-//        '#url' => $entity->toUrl(),
-//        '#title' => t('Add to list'),
-//        '#attributes' => [
-//          'class' => [
-//            'profile__actions--contact',
-//          ],
-//        ],
-//      ];
-//
+      }
+      else {
+        $flag_builder = \Drupal::service('flag.link_builder');
+        $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');
+        $link['#attributes']['class'][] = 'profile__actions--follow';
+        $items[] = $link;
+
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_profile.page.user_contact', [
+            'user' => $user_id,
+          ]),
+          '#title' => t('Contact'),
+          '#attributes' => [
+            'class' => [
+              'profile__actions--contact',
+            ],
+          ],
+        ];
+      }
+      //      $items[] = [
+      //        '#type' => 'link',
+      //        '#url' => $entity->toUrl(),
+      //        '#title' => t('Add to list'),
+      //        '#attributes' => [
+      //          'class' => [
+      //            'profile__actions--contact',
+      //          ],
+      //        ],
+      //      ];
+      //
       $build['action_panel'] = [
         '#theme' => 'item_list',
         '#items' => $items,
@@ -248,13 +260,19 @@ function ngf_user_profile_user_view(
       if ($entity->id() == \Drupal::currentUser()->id()) {
         $url_followers = Url::fromRoute('ngf_user_profile.page.followers');
         $url_following = Url::fromRoute('ngf_user_profile.page.following');
-      } else {
-        $url_followers = Url::fromRoute('ngf_user_profile.page.user_followers', [
-          'user' => $entity->id(),
-        ]);
-        $url_following = Url::fromRoute('ngf_user_profile.page.user_following', [
-          'user' => $entity->id(),
-        ]);
+      }
+      else {
+        $user_options = [
+          'user' => $user_id,
+        ];
+        $url_followers = Url::fromRoute(
+          'ngf_user_profile.page.user_followers',
+          $user_options
+        );
+        $url_following = Url::fromRoute(
+          'ngf_user_profile.page.user_following',
+          $user_options
+        );
       }
 
       $items = [];
@@ -293,12 +311,18 @@ function ngf_user_profile_user_view(
 }
 
 function _ngf_user_profile_get_following($user) {
-  $count = \Drupal::getContainer()->get('ngf_user_profile.user_manager')->getCountFollowingUsersList($user);
-  return \Drupal::translation()->formatPlural($count, '1 follower', '@count followers', array('@count' => $count));
+  $count = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_manager')
+    ->getCountFollowingUsersList($user);
+  return \Drupal::translation()
+    ->formatPlural($count, '1 follower', '@count followers',
+      ['@count' => $count]);
 }
 
 function _ngf_user_profile_get_followers($user) {
-  $count = \Drupal::getContainer()->get('ngf_user_profile.user_manager')->getCountFollowersUsersList($user);
+  $count = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_manager')
+    ->getCountFollowersUsersList($user);
   return t('@count following', ['@count' => $count]);
 }
 
@@ -309,4 +333,10 @@ function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
   // Hide the members and followers tab, but keep the functionality.
   $data['tabs'][1]['ngf_user_profile.link.followers'] = NULL;
   $data['tabs'][1]['ngf_user_profile.link.following'] = NULL;
+
+  // Hide contact, members and followers tab, but keep the functionality.
+  $data['tabs'][1]['ngf_user_profile.link.user_contact'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.user_followers'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.user_following'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.user_about'] = NULL;
 }
