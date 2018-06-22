@@ -11,4 +11,6 @@ internal: true
 audience: member
 group_type: ngf_event
 permissions_ui: true
-permissions: {  }
+permissions:
+  - 'view group'
+  - 'leave group'
