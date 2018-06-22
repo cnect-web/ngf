@@ -3,4 +3,3 @@ services:
     class: Drupal\ngf_group\Routing\NGFGroupRouteSubscriber
     tags:
       - { name: event_subscriber }
-

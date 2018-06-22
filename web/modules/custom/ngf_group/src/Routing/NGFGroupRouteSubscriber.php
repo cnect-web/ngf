@@ -35,7 +35,7 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
     }
 
     if ($route = $collection->get('entity.group.canonical')) {
-      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\GroupPageController::publicationsPage');
+      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\GroupPageController::landingPage');
     }
   }
 
@@ -49,7 +49,7 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
    *   A string to use as the title.
    */
   public function loginTitle() {
-    return t('Sign In');
+    return $this->t('Sign In');
   }
 
   /**
@@ -67,12 +67,12 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
     if ($plugin->getEntityTypeId() == 'node') {
       $entity_type = NodeType::load($plugin->getEntityBundle());
     }
-    else if ($plugin->getEntityTypeId() == 'group') {
+    elseif ($plugin->getEntityTypeId() == 'group') {
       $entity_type = GroupType::load($plugin->getEntityBundle());
     }
 
-    return t('Add @name in @group', [
-      '@name' => !empty($entity_type) ?  $entity_type->label() : '',
+    return $this->t('Add @name in @group', [
+      '@name' => !empty($entity_type) ? $entity_type->label() : '',
       '@group' => $group->label(),
     ]);
   }

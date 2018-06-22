@@ -2,7 +2,6 @@
 
 namespace Drupal\ngf_group\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityFormBuilderInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\group\Entity\GroupContent;
@@ -65,9 +64,7 @@ class NGFGroupMembershipController extends GroupMembershipController {
    *   A group join form.
    */
   public function join(GroupInterface $group) {
-    /**
-     * @todo: check if the below code is still needed for membership controlling.
-     */
+    // @todo: check if the below code is still needed for membership controlling.
     /** @var \Drupal\group\Plugin\GroupContentEnablerInterface $plugin */
     $plugin = $group->getGroupType()->getContentPlugin('group_membership');
     $groupVisibility = NGF_GROUP_PUBLIC;
@@ -77,7 +74,6 @@ class NGFGroupMembershipController extends GroupMembershipController {
 
     // Membership default to active unless private group.
     if ($groupVisibility == NGF_GROUP_PRIVATE && !$group->getMember($this->currentUser)) {
-      $membership_state = $group->getGroupType()->getPendingMembershipStateId();
       $group_content = GroupContent::create([
         'type' => $plugin->getContentTypeConfigId(),
         'gid' => $group->id(),
@@ -92,7 +88,7 @@ class NGFGroupMembershipController extends GroupMembershipController {
         'type' => $plugin->getContentTypeConfigId(),
         'gid' => $group->id(),
         'entity_id' => $this->currentUser->id(),
-        'group_membership_state' => $group->getGroupType()->getActiveMembershipStateId()
+        'group_membership_state' => $group->getGroupType()->getActiveMembershipStateId(),
       ]);
       return $this->entityFormBuilder->getForm($group_content, 'group-join');
     }

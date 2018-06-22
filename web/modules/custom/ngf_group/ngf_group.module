@@ -11,14 +11,7 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\group\Entity\GroupContent;
 use Drupal\node\NodeInterface;
 use Drupal\Core\Session\AccountInterface;
-
 use Drupal\Core\Access\AccessResult;
-
-use Drupal\views\Form\ViewsForm;
-use Drupal\views\Plugin\views\area\AreaPluginBase;
-use Drupal\views\ViewExecutable;
-use Drupal\views\Plugin\views\PluginBase;
-use Drupal\views\Views;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\field\Entity\FieldStorageConfig;
@@ -366,12 +359,10 @@ function ngf_group_local_tasks_alter(&$local_tasks) {
  */
 function ngf_group_menu_local_tasks_alter(&$data, $route_name) {
   // Hide the members and followers tab, but keep the functionality.
-/*
   $data['tabs'][1]['ngf_group.link.group_members'] = NULL;
   $data['tabs'][1]['ngf_group.link.group_followers'] = NULL;
   $data['tabs'][1]['ngf_group.link.group_subgroups'] = NULL;
   $data['tabs'][1]['ngf_group.link.group_shared'] = NULL;
-*/
 }
 
 /**

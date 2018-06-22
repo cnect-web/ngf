@@ -6,15 +6,62 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\ngf_group\Entity\Decorator\NGFGroup;
-use Drupal\Core\Url;
-use Drupal\Core\Link;
 use Drupal\views\Views;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\group\Cache\Context\GroupCacheContext;
+use Drupal\Core\Entity\EntityTypeManager;
 
 /**
  * Discover page controller.
  */
 class GroupPageController extends ControllerBase {
 
+  /**
+   * The current group.
+   *
+   * @var \Drupal\Core\Entity\EntityInterface
+   */
+  protected $currentGroup;
+
+  /**
+   * The current group decorator.
+   *
+   * @var \Drupal\ngf_group\Entity\Decorator\NGFGroup
+   */
+  protected $gd;
+
+  /**
+   * Entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(
+    GroupCacheContext $group,
+    EntityTypeManager $entityTypeManager
+  ) {
+    $this->currentGroup = $group->getBestCandidate();
+    $this->entityTypeManager = $entityTypeManager;
+    $this->gd = new NGFGroup($this->currentGroup);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('cache_context.group'),
+      $container->get('entity_type.manager')
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function accessCheck(EntityInterface $group) {
     if ($group->bundle() == 'ngf_discussion_group') {
       return AccessResult::allowed();
@@ -25,93 +72,94 @@ class GroupPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
+  public function landingPage(EntityInterface $group) {
+    switch ($group->bundle()) {
+      case 'ngf_discussion_group':
+        return $this->publicationsPage($group);
+
+      case 'ngf_event':
+        return $this->eventPage($group);
+
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function groupInfo(EntityInterface $group) {
-
-    $gD = new NGFGroup($group);
-
-    // Add the group.
-    $render_array['header'] = $this->groupHeader($group, 'full');
-
-    // Add the group tabs.
-    $render_array['group_tabs'] = $gD->getGroupTabs();
-
-    return $render_array;
+    return $this->getPageContent($group, 'info', 'full');
   }
 
   /**
    * {@inheritdoc}
    */
   public function publicationsPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'publications');
-    return $render_array;
+    return $this->getPageContent($group, 'publications');
   }
 
   /**
    * {@inheritdoc}
    */
   public function eventsPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'events');
-    return $render_array;
+    return $this->getPageContent($group, 'events');
   }
 
   /**
    * {@inheritdoc}
    */
   public function libraryPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'library');
-    return $render_array;
+    return $this->getPageContent($group, 'library');
   }
 
   /**
    * {@inheritdoc}
    */
   public function sharedContentPage(EntityInterface $group) {
-    // Add the group header.
-    $render_array['header'] = $this->groupHeader($group);
-    return $render_array;
+    return $this->groupHeader($group);
   }
 
   /**
    * {@inheritdoc}
    */
   public function membersPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'members');
-    return $render_array;
+    return $this->getPageContent($group, 'members');
   }
 
   /**
    * {@inheritdoc}
    */
   public function followersPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'followers');
-    return $render_array;
+    return $this->getPageContent($group, 'followers');
   }
 
   /**
    * {@inheritdoc}
    */
   public function subgroupsPage(EntityInterface $group) {
-    $render_array = $this->getPageContent($group, 'subgroups');
-    return $render_array;
+    return $this->getPageContent($group, 'subgroups');
   }
 
   /**
-   *
+   * {@inheritdoc}
    */
-  public function getPageContent(EntityInterface $group, $page) {
-    $gD = new NGFGroup($group);
+  public function eventPage(EntityInterface $event) {
+    return $this->groupHeader($event, 'full');
+  }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function getPageContent(EntityInterface $group, $page, $view_mode = 'header') {
     // Add the group.
-    $render_array['header'] = $this->groupHeader($group);
+    $render_array['header'] = $this->groupHeader($group, $view_mode);
 
-    if ($this->accessCheck($group) == AccessResult::allowed()) {
+    if ($page != 'info' && $this->accessCheck($group) == AccessResult::allowed()) {
       // Add the group tabs.
-      $render_array['group_tabs'] = $gD->getGroupTabs();
+      $render_array['group_tabs'] = $this->gd->getGroupTabs();
 
       // Add the view block.
       $render_array['content'] = $this->getContentView('ngf_group_' . $page, $page, $group->id());
     }
-
     return $render_array;
   }
 
@@ -119,7 +167,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function groupHeader(EntityInterface $group, $view_mode = 'header') {
-    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('group');
+    $view_builder = $this->entityTypeManager->getViewBuilder('group');
     return $view_builder->view($group, $view_mode);
   }
 

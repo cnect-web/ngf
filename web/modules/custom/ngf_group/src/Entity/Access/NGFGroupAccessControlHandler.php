@@ -5,7 +5,6 @@ namespace Drupal\ngf_group\Entity\Access;
 use Drupal\group\Entity\Access\GroupAccessControlHandler;
 use Drupal\group\Access\GroupAccessResult;
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 

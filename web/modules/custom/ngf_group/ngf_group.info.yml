@@ -4,4 +4,4 @@ description: 'NGF Group'
 core: 8.x
 package: 'NGF'
 dependencies:
-  - group
+  - drupal:group
