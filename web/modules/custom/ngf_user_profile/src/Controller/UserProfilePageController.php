@@ -189,11 +189,8 @@ class UserProfilePageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function about() {
-    return $this->getContent([
-      '#type' => 'markup',
-      '#markup' => 'about page',
-    ]);
+  public function about(EntityInterface $user) {
+    return $this->getContent($this->getUserDisplay($user, 'ngf_about'));
   }
 
   public function getEntityForm($form_view_mode, $entity_type = 'user') {
@@ -207,7 +204,7 @@ class UserProfilePageController extends ControllerBase {
 
   public function getContent($content, $user = NULL) {
     return [
-      'header' => $this->getHeader($user ?? $this->getCurrentUserAccount()),
+      'header' => $this->getUserDisplay($user ?? $this->getCurrentUserAccount(), 'ngf_profile'),
       'tabs' => $this->getTabs(),
       'content' => $content,
     ];
@@ -216,7 +213,7 @@ class UserProfilePageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function getHeader(EntityInterface $entity, $view_mode = 'profile') {
+  public function getUserDisplay(EntityInterface $entity, $view_mode = 'ngf_profile') {
     $view_builder = $this->entityTypeManager->getViewBuilder('user');
     return $view_builder->view($entity, $view_mode);
   }
@@ -295,20 +292,15 @@ class UserProfilePageController extends ControllerBase {
 
     // Create a render array with the search results.
     $render = [];
-
-    $items = [];
+    $render['content']['#prefix'] = '<div class="newsfeed"><div class="view-content">';
+    $render['content']['#suffix'] = '</div></div>';
     foreach ($result as $item) {
       $message = $this->entityTypeManager->getViewBuilder('message')->view($item, 'full');
       // There is a bug partial is still displayed even it's hidden in the view mode.
       unset($message['partial_0']);
-      $items[] = $message;
+      $render['content'][] = $message;
     }
-
-    $render[] = [
-      '#theme' => 'item_list',
-      '#items' => $items
-    ];
-    $render[] = [
+    $render['content'][] = [
       '#type' => 'pager',
     ];
     return $this->getContent($render);

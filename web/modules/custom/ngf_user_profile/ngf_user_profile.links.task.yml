@@ -116,3 +116,10 @@ ngf_user_profile.link.user_contact:
   route_name: ngf_user_profile.page.user_contact
   base_route: ngf_user_profile.page.user_publications
   parent_id: ngf_user_profile.link.user_content
+
+ngf_user_profile.link.user_about:
+  title: 'About'
+  description: 'About'
+  route_name: ngf_user_profile.page.user_about
+  base_route: ngf_user_profile.page.user_publications
+  parent_id: ngf_user_profile.link.user_content

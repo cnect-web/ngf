@@ -299,7 +299,7 @@ ngf_user_profile.page.user_contact:
       user:
         type: 'entity:user'
 
-ngf_user_profile.page.user_contact:
+ngf_user_profile.page.user_about:
   path: '/profile/{user}/about'
   defaults:
     _title: 'About'
