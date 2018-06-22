@@ -66,7 +66,11 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: html_list
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
       row:
         type: 'entity:group'
         options:
