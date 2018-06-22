@@ -145,10 +145,15 @@ class Tasks extends RoboTasks {
    */
   public function setCustomConfig() {
     $settings = $this->config('environment.settings');
-    $path = $this->root() . '/web/sites/default/settings.local.php';
-    $this->taskWriteToFile($path)->text("<?php\n")->run();
     if (!empty($settings)) {
-      $string = $this->recursive_print('$settings', $settings);
+      $path = $this->root() . '/web/sites/default/settings.local.php';
+      $this->taskWriteToFile($path)->text("<?php\n")->run();
+      if (!empty($settings)) {
+        $string = $this->recursive_print('$settings', $settings);
+      }
+    }
+    else {
+      $this->say("No custom settings to add.");
     }
   }
 
