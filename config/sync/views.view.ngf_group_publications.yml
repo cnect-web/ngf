@@ -292,7 +292,7 @@ display:
   publications:
     display_plugin: block
     id: publications
-    display_title: Discussions
+    display_title: Publications
     position: 1
     display_options:
       display_extenders: {  }

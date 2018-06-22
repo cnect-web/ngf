@@ -5,6 +5,8 @@
  * Contains ngf_user_profile.module.
  */
 
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\node\Entity\Node;
 use Drupal\comment\Entity\Comment;
@@ -13,16 +15,19 @@ use Drupal\group\Entity\Group;
 use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
 use Drupal\message\Entity\Message;
 use Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Url;
 
 /**
  * Implements hook_node_insert().
  */
 function ngf_user_profile_node_insert(Node $node) {
   if (in_array($node->getType(), ['ngf_discussion'])) {
-    $notification_manager = \Drupal::getContainer()->get('ngf_user_profile.notification_manager');
+    $notification_manager = \Drupal::getContainer()
+      ->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyFollowersAboutNewContent($node);
 
-    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager = \Drupal::getContainer()
+      ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createContentUserFeed($node);
   }
 }
@@ -36,7 +41,8 @@ function ngf_user_profile_group_content_insert(GroupContent $group_content) {
   // or we will need specific group type
   // $group_content->getGroupContentType()->getGroupType() == 'ngf_discussion_group'.
   if ($group_content->getContentPlugin()->getEntityTypeId() == 'node') {
-    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager = \Drupal::getContainer()
+      ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createGroupContentUserFeed($group_content);
   }
 }
@@ -45,11 +51,14 @@ function ngf_user_profile_group_content_insert(GroupContent $group_content) {
  * Implements hook_comment_insert().
  */
 function ngf_user_profile_comment_insert(Comment $comment) {
-  if ($comment->getCommentedEntityTypeId() == 'node' && in_array($comment->getCommentedEntity()->getType(), ['ngf_discussion'])) {
-    $notification_manager = \Drupal::getContainer()->get('ngf_user_profile.notification_manager');
+  if ($comment->getCommentedEntityTypeId() == 'node' && in_array($comment->getCommentedEntity()
+      ->getType(), ['ngf_discussion'])) {
+    $notification_manager = \Drupal::getContainer()
+      ->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyOwnerAboutNewComment($comment);
 
-    $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager = \Drupal::getContainer()
+      ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createCommentUserFeed($comment);
   }
 }
@@ -59,24 +68,25 @@ function ngf_user_profile_comment_insert(Comment $comment) {
  */
 function ngf_user_profile_group_insert(Group $group) {
   if ($group->getGroupType()->id() == 'ngf_discussion_group') {
-      $userFeedManager = \Drupal::getContainer()->get('ngf_user_profile.user_feed_manager');
-      $userFeedManager->createGroupUserFeed($group);
+    $userFeedManager = \Drupal::getContainer()
+      ->get('ngf_user_profile.user_feed_manager');
+    $userFeedManager->createGroupUserFeed($group);
   }
 }
 
 function ngf_user_profile_theme($existing, $type, $theme, $path) {
-  return array(
+  return [
     'ngf_user_feed_item' => [
       'variables' => [
         'authorFullName' => NULL,
         'authorProfileURL' => NULL,
         'authorPics' => NULL,
         'entity' => NULL,
-        'contextText' => NULL
+        'contextText' => NULL,
       ],
       'path' => drupal_get_path('module', 'ngf_user_profile') . '/templates',
-    ]
-  );
+    ],
+  ];
 }
 
 /**
@@ -108,8 +118,10 @@ function ngf_user_profile_entity_form_display_alter(&$form_display, $context) {
   // Set custom display for authenticated users.
   if ($context['entity_type'] == 'user' && $context['bundle'] == 'user') {
     $user = \Drupal::currentUser();
-    if (!in_array('administrator', $user->getRoles()) && in_array('authenticated', $user->getRoles())) {
-      $storage = \Drupal::service('entity_type.manager')->getStorage('entity_form_display');
+    if (!in_array('administrator',
+        $user->getRoles()) && in_array('authenticated', $user->getRoles())) {
+      $storage = \Drupal::service('entity_type.manager')
+        ->getStorage('entity_form_display');
       $form_display = $storage->load('user.user.ngf_authenticated');
     }
   }
@@ -121,40 +133,210 @@ function ngf_user_profile_entity_form_display_alter(&$form_display, $context) {
 function ngf_user_profile_entity_type_build(array &$entity_types) {
   // We set ngf_interests form view mode. So, we can load as a separate form
   // in the custom page.
-  $entity_types['user']->setFormClass('ngf_interests', 'Drupal\user\ProfileForm');
+  $entity_types['user']->setFormClass('ngf_interests',
+    'Drupal\user\ProfileForm');
 }
 
 /**
  * Implements hook_form_alter().
  */
-function ngf_user_profile_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'user_ngf_interests_form') {
-    $form['field_ngf_interests']['widget']['add_more']['#attributes']['class'][] = 'btn btn--blue';
-    $form['actions']['submit']['#attributes']['class'][] = 'btn btn--green';
-//        kint($form);
-//        exit();
+function ngf_user_profile_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  // TODO : Remove hook later
+}
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_user_profile_form_user_ngf_interests_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['field_ngf_interests']['widget']['add_more']['#attributes']['class'][] = 'btn btn--blue';
+  $form['actions']['submit']['#attributes']['class'][] = 'btn btn--green';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_user_profile_form_contact_message_personal_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['mail']['#access'] = FALSE;
+  $form['recipient']['#access'] = FALSE;
+  $form['name']['#access'] = FALSE;
+  $form['copy']['#access'] = FALSE;
+  $form['actions']['preview']['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function ngf_user_profile_entity_extra_field_info() {
+  $extra = [];
+  $extra['user']['user']['display']['action_panel'] = [
+    'label' => t('Action panel'),
+    'description' => t('Display the button to perform some actions'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+  $extra['user']['user']['display']['followers_panel'] = [
+    'label' => t('Followers'),
+    'description' => t('Display the number of users you follow and which follow you'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function ngf_user_profile_user_view(
+  array &$build,
+  EntityInterface $entity,
+  EntityViewDisplayInterface $display,
+  $view_mode
+) {
+
+  if ($view_mode == 'profile') {
+    $user_id = $entity->id();
+    // Show action panel
+    if ($display->getComponent('action_panel')) {
+      $items = [];
+      if ($entity->id() == \Drupal::currentUser()->id()) {
+
+      }
+      else {
+        $flag_builder = \Drupal::service('flag.link_builder');
+        $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');
+        $link['#attributes']['class'][] = 'profile__actions--follow';
+        $items[] = $link;
+
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_profile.page.user_contact', [
+            'user' => $user_id,
+          ]),
+          '#title' => t('Contact'),
+          '#attributes' => [
+            'class' => [
+              'profile__actions--contact',
+            ],
+          ],
+        ];
+      }
+      //      $items[] = [
+      //        '#type' => 'link',
+      //        '#url' => $entity->toUrl(),
+      //        '#title' => t('Add to list'),
+      //        '#attributes' => [
+      //          'class' => [
+      //            'profile__actions--contact',
+      //          ],
+      //        ],
+      //      ];
+      //
+      $build['action_panel'] = [
+        '#theme' => 'item_list',
+        '#items' => $items,
+        '#attributes' => [
+          'class' => [
+            'profile__actions',
+          ],
+        ],
+      ];
+    }
+
+    // Show followers panel
+    if ($display->getComponent('followers_panel')) {
+      if ($entity->id() == \Drupal::currentUser()->id()) {
+        $url_followers = Url::fromRoute('ngf_user_profile.page.followers');
+        $url_following = Url::fromRoute('ngf_user_profile.page.following');
+      }
+      else {
+        $user_options = [
+          'user' => $user_id,
+        ];
+        $url_followers = Url::fromRoute(
+          'ngf_user_profile.page.user_followers',
+          $user_options
+        );
+        $url_following = Url::fromRoute(
+          'ngf_user_profile.page.user_following',
+          $user_options
+        );
+      }
+
+      $items = [];
+      $items[] = [
+        '#type' => 'link',
+        '#url' => $url_followers,
+        '#title' => _ngf_user_profile_get_following($entity),
+        '#attributes' => [
+          'class' => [
+            'profile__networks__item profile__following',
+          ],
+        ],
+      ];
+      $items[] = [
+        '#type' => 'link',
+        '#url' => $url_following,
+        '#title' => _ngf_user_profile_get_followers($entity),
+        '#attributes' => [
+          'class' => [
+            'profile__networks__item profile__followers',
+          ],
+        ],
+      ];
+
+      $build['followers_panel'] = [
+        '#theme' => 'item_list',
+        '#items' => $items,
+        '#attributes' => [
+          'class' => [
+            'profile__networks',
+          ],
+        ],
+      ];
+    }
   }
 }
 
-
-
-function ngf_user_profile_field_widget_form_alter(&$element, FormStateInterface &$form_state, $context) {
-//  var_dump($context['widget']);
-//  var_dump($context['form']);
-//  kint(get_defined_vars());
-//  exit();
-//  var_dump($element);
-//  exit();
-//  if (get_class($context['widget']) === 'Drupal\link\Plugin\Field\FieldWidget\LinkWidget' && !empty($context['form']['#attributes'])) {
-//    $description = $element['#description'];
-//    unset($element['#description']);
-//    $element['title']['#description'] = $description;
-//    return;
-//  }
+function _ngf_user_profile_get_following($user) {
+  $count = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_manager')
+    ->getCountFollowingUsersList($user);
+  return \Drupal::translation()
+    ->formatPlural($count, '1 follower', '@count followers',
+      ['@count' => $count]);
 }
 
-//function ngf_user_profile_field_widget_multivalue_form_alter(array &$elements, ormStateInterface $form_state, array $context) {
-//  var_dump();
-//  exit();
-//}
+function _ngf_user_profile_get_followers($user) {
+  $count = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_manager')
+    ->getCountFollowersUsersList($user);
+  return t('@count following', ['@count' => $count]);
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
+  // Hide the members and followers tab, but keep the functionality.
+  $data['tabs'][1]['ngf_user_profile.link.followers'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.following'] = NULL;
+
+  // Hide contact, members and followers tab, but keep the functionality.
+  $data['tabs'][1]['ngf_user_profile.link.user_contact'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.user_followers'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.user_following'] = NULL;
+  $data['tabs'][1]['ngf_user_profile.link.user_about'] = NULL;
+}

@@ -67,6 +67,13 @@ class UserManager {
     $this->checkAccess();
   }
 
+  protected function getCurrentUserAccount() {
+    if (empty($this->currentUserAccount)) {
+      $this->currentUserAccount = User::load($this->currentUser->id());
+    }
+    return $this->currentUserAccount;
+  }
+
   protected function checkAccess() {
     if ($this->currentUser->isAnonymous()) {
       throw new AccessDeniedHttpException();
@@ -82,13 +89,37 @@ class UserManager {
     return UserList::loadMultiple($list_ids);
   }
 
-  public function getFollowedList() {
-    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user');
-    $followed_user_ids = [];
-    foreach ($followed_user_items as $user_item) {
-      $followed_user_ids[] = $user_item->entity_id;
+  public function getFollowingUsersList($user) {
+    if (empty($user)) {
+      $user = $this->getCurrentUserAccount();
     }
-    return User::loadMultiple($followed_user_ids);
+    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
+    $user_ids = [];
+    foreach ($followed_user_items as $user_item) {
+      $user_ids[] = $user_item->entity_id;
+    }
+    return User::loadMultiple($user_ids);
+  }
+
+  public function getFollowersUsersList($user) {
+    if (empty($user)) {
+      $user = $this->getCurrentUserAccount();
+    }
+
+    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user);
+    $user_ids = [];
+    foreach ($following_user_items as $user_item) {
+      $user_ids[] = $user_item->get('uid')->target_id;
+    }
+    return User::loadMultiple($user_ids);
+  }
+
+  public function getCountFollowingUsersList($user) {
+    return count($this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user));
+  }
+
+  public function getCountFollowersUsersList($user) {
+    return count($this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id()));
   }
 
   /**

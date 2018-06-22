@@ -1,9 +1,10 @@
-uuid: 5aa190a5-b8a4-466e-8cfc-d0a3f2266f9f
+uuid: db0c0fb8-cfb1-4e0d-9c19-ed12c4946f52
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.group.header
+    - core.entity_view_mode.group.ngf_header
+    - field.field.group.ngf_discussion_group.field_ngf_comments
     - field.field.group.ngf_discussion_group.field_ngf_cover_image
     - field.field.group.ngf_discussion_group.field_ngf_description
     - field.field.group.ngf_discussion_group.field_ngf_group_visibility
@@ -14,10 +15,10 @@ dependencies:
   module:
     - media
     - options
-id: group.ngf_discussion_group.header
+id: group.ngf_discussion_group.ngf_header
 targetEntityType: group
 bundle: ngf_discussion_group
-mode: header
+mode: ngf_header
 content:
   field_ngf_cover_image:
     weight: 0
@@ -58,11 +59,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  show_more:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   changed: true
   created: true
@@ -71,4 +67,5 @@ hidden:
   field_ngf_interests: true
   field_ngf_introtext: true
   group_content_view: true
+  show_more: true
   uid: true
