@@ -100,6 +100,56 @@ class Tasks extends RoboTasks {
     // Get rid of the permissions rebuild
     $this->nodeAccessRebuild();
 
+    // Run the importers of content.
+    $this->runImporters();
+
+  }
+
+  /**
+   * Run the country, cities and region importers.
+   *
+   * @command project:run-importers
+   * @aliases rip
+   */
+  private function runImporters() {
+    if ($this->taskDrushStack($this->config('bin.drush'))
+      ->arg('-r', 'web/')
+      ->exec("mim ngf_countries")
+      ->run()
+      ->wasSuccessful()) {
+        $this->say('Imported Countries.');
+    }
+
+    if ($this->taskDrushStack($this->config('bin.drush'))
+      ->arg('-r', 'web/')
+      ->exec("mim ngf_cities")
+      ->run()
+      ->wasSuccessful()) {
+        $this->say('Imported Cities');
+    }
+
+    if ($this->taskDrushStack($this->config('bin.drush'))
+      ->arg('-r', 'web/')
+      ->exec("mim ngf_regions")
+      ->run()
+      ->wasSuccessful()) {
+        $this->say('Imported Regions');
+    }
+  }
+
+  /**
+   * Set up custom config.
+   *
+   * @command project:set-custom-config
+   * @aliases pscc
+   */
+  public function setCustomConfig() {
+    $settings = $this->config('environment.settings');
+    $path = $this->root() . '/web/sites/default/settings.local.php';
+    $this->taskWriteToFile($path)->text("<?php\n")->run();
+    if (!empty($settings)) {
+      $string = $this->recursive_print('$settings', $settings);
+    }
   }
 
   /**
@@ -213,6 +263,23 @@ class Tasks extends RoboTasks {
    */
   protected function root() {
     return getcwd();
+  }
+
+  /**
+   * Helper to print settings arrays.
+   */
+  public function recursive_print($varname, $varval) {
+    $path = $this->root() . '/settings.local.php';
+    if (!is_array($varval)) {
+      $this->taskWriteToFile($path)->text($varname . " = \"" . $varval . "\";\n")
+        ->append(true)
+        ->run();
+    }
+    else {
+      foreach ($varval as $key => $val) {
+        $this->recursive_print ($varname . "['" . $key . "']", $val);
+      }
+    }
   }
 
 }

@@ -44,3 +44,9 @@ settings:
   config_directories:
     sync: ../config/sync
 
+# Environment
+#environment:
+#  settings:
+#    http_client_config:
+#      proxy:
+#        http:
