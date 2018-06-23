@@ -1,0 +1,11 @@
+entity.search.canonical:
+  route_name: entity.search.canonical
+  base_route: entity.search.canonical
+  title: 'View'
+
+ngf_search.link.publications:
+  route_name: entity.search.canonical
+  title: 'Publications'
+  description: 'search Publications'
+  base_route: entity.search.canonical
+  parent_id: entity.search.canonical

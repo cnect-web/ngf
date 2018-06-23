@@ -4,8 +4,6 @@ status: true
 dependencies:
   module:
     - taxonomy
-_core:
-  default_config_hash: Es1YiR-AzLqqtxK2RiwOYEvt_AzcjLJIk75wEYEgI_I
 id: taxonomy_term.field_ngf_iso_code
 field_name: field_ngf_iso_code
 entity_type: taxonomy_term

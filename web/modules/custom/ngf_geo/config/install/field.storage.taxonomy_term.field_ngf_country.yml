@@ -4,8 +4,6 @@ status: true
 dependencies:
   module:
     - taxonomy
-_core:
-  default_config_hash: MFpyjwYKKoyemHyMmjvSufmt-z5NqwcQD7B4NBTzDoo
 id: taxonomy_term.field_ngf_country
 field_name: field_ngf_country
 entity_type: taxonomy_term

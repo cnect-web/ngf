@@ -1,0 +1,4 @@
+services:
+  ngf_search.group_access_manager:
+    class: Drupal\ngf_search\Manager\GroupAccessManager
+    arguments: ['@current_user']

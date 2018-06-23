@@ -1,7 +1,9 @@
-uuid: 51fad6c2-6ec5-4bd2-93f1-38f1efed9b79
+uuid: 9c5e8adf-deda-4c2e-9863-1d4f1c078a27
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: p6dV799Sng4eymGCqURklyy3yozUoYAdgI0W5cmaHak
 name: Regions
 vid: ngf_regions
 description: ''

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_ngf_region
-    - taxonomy.vocabulary.ngf_regions
   module:
     - user
 id: user.user.field_ngf_region
@@ -20,8 +19,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      ngf_regions: ngf_regions
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

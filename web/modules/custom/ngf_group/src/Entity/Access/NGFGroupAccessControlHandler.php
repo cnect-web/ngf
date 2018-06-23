@@ -18,22 +18,28 @@ class NGFGroupAccessControlHandler extends GroupAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
-    switch ($operation) {
-      case 'view':
-        $groupVisibility = NGF_GROUP_PUBLIC;
-        if ($entity->hasField('field_ngf_group_visibility')) {
-          $groupVisibility = $entity->get('field_ngf_group_visibility')->getString();
-        }
-        if ($groupVisibility == NGF_GROUP_SECRET) {
-          return GroupAccessResult::forbidden();
-        }
-        return GroupAccessResult::allowedIfHasGroupPermission($entity, $account, 'view group');
+    if (in_array('administrator', $account->getRoles())) {
+      return AccessResult::allowed();
+    } else {
+      switch ($operation) {
+        case 'view':
+          $groupVisibility = NGF_GROUP_PUBLIC;
+          if ($entity->hasField('field_ngf_group_visibility')) {
+            $groupVisibility = $entity->get('field_ngf_group_visibility')
+              ->getString();
+          }
 
-      case 'update':
-        return GroupAccessResult::allowedIfHasGroupPermission($entity, $account, 'edit group');
+          if (!$entity->getMember($account) && $groupVisibility == NGF_GROUP_SECRET) {
+            return GroupAccessResult::forbidden();
+          }
+          return GroupAccessResult::allowedIfHasGroupPermission($entity, $account, 'view group');
 
-      case 'delete':
-        return GroupAccessResult::allowedIfHasGroupPermission($entity, $account, 'delete group');
+        case 'update':
+          return GroupAccessResult::allowedIfHasGroupPermission($entity, $account, 'edit group');
+
+        case 'delete':
+          return GroupAccessResult::allowedIfHasGroupPermission($entity, $account, 'delete group');
+      }
     }
 
     return AccessResult::neutral();

@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Contains ngf_search.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Views;
+
+function ngf_search_views_pre_render(ViewExecutable $view) {
+    $group_access_manager = \Drupal::getContainer()->get('ngf_search.group_access_manager');
+    // Scramble the order of the rows shown on this result page.
+    // Note that this could be done earlier, but not later in the view execution
+    // process.
+    if ($view->id() == 'ngf_publications_search') {
+//        kint($view->result);
+//        exit();
+    }
+
+    if ($view->id() == 'ngf_groups_search' || $view->id() == 'ngf_events_search') {
+//      foreach ($view->result as $key => $resultRow) {
+//        if (!$group_access_manager->checkGroup($resultRow->_entity)) {
+//          unset($view->result[$key]);
+//        }
+//
+//      }
+    }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ngf_search_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+//  var_dump($form_id);
+  // TODO : Remove hook later
+}

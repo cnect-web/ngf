@@ -1,16 +1,15 @@
-uuid: bb43ca52-2a5a-4833-89ff-bab465ec332a
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_ngf_city
-  module:
-    - user
-id: user.user.field_ngf_city
-field_name: field_ngf_city
-entity_type: user
-bundle: user
-label: City
+    - field.storage.taxonomy_term.field_ngf_country
+    - taxonomy.vocabulary.ngf_countries
+    - taxonomy.vocabulary.ngf_regions
+id: taxonomy_term.ngf_regions.field_ngf_country
+field_name: field_ngf_country
+entity_type: taxonomy_term
+bundle: ngf_regions
+label: Country
 description: ''
 required: false
 translatable: false
@@ -19,7 +18,8 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      ngf_countries: ngf_countries
     sort:
       field: name
       direction: asc

@@ -1,4 +1,3 @@
-uuid: 4e179a45-ada5-4707-bf82-94a764da0862
 langcode: en
 status: true
 dependencies:
@@ -7,8 +6,6 @@ dependencies:
     - taxonomy.vocabulary.ngf_regions
   module:
     - text
-_core:
-  default_config_hash: 2zw_YgTOcPDxxgytxTcwh_-UAgIqbkkZMg5YwVQBBJc
 id: taxonomy_term.ngf_regions.default
 targetEntityType: taxonomy_term
 bundle: ngf_regions
