@@ -34,6 +34,7 @@
         "drupal/entity_browser": "^2.0",
         "drupal/entity_embed": "^1.0",
         "drupal/entity_reference_revisions": "^1.0",
+        "drupal/entity_reference_validators": "^1.0",
         "drupal/features": "^3.5",
         "drupal/field_group": "^3.0",
         "drupal/flag": "^4.0@alpha",
@@ -171,7 +172,11 @@
             },
             "drupal/entity_browser": {
                 "Provide MediaFileUpload widget" : "https://www.drupal.org/files/issues/entity_browser-media-file-upload-2922885-3.patch"
+            },
+            "drupal/entity_reference_validators": {
+                "Add duplication constraint" : "https://www.drupal.org/files/issues/2825868-6.patch"
             }
+
         }
     },
         "repositories": [

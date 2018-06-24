@@ -218,9 +218,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  page_1:
+  publication_search:
     display_plugin: page
-    id: page_1
+    id: publication_search
     display_title: Page
     position: 1
     display_options:

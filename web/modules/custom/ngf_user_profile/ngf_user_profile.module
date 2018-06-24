@@ -16,6 +16,7 @@ use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
 use Drupal\message\Entity\Message;
 use Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Url;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_node_insert().
@@ -342,5 +343,24 @@ function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
   ];
   foreach ($local_tasks as $local_task) {
     $data['tabs'][1][$local_task] = NULL;
+  }
+}
+
+function ngf_user_profile_views_pre_render(ViewExecutable $view) {
+  $group_access_manager = \Drupal::getContainer()->get('ngf_group.group_access_manager');
+  if ($view->id() == 'ngf_user_publications') {
+    foreach ($view->result as $key => $resultRow) {
+      if (!$group_access_manager->checkNode($resultRow->_entity)) {
+        unset($view->result[$key]);
+      }
+    }
+  }
+
+  if ($view->id() == 'ngf_user_groups' || $view->id() == 'ngf_user_events') {
+    foreach ($view->result as $key => $resultRow) {
+      if (!$group_access_manager->checkGroup($resultRow->_entity)) {
+        unset($view->result[$key]);
+      }
+    }
   }
 }

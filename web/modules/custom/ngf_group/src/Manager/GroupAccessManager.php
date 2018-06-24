@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nikolay
- * Date: 6/22/18
- * Time: 10:35 PM
- */
 
-namespace Drupal\ngf_search\Manager;
-
+namespace Drupal\ngf_group\Manager;
 
 use Drupal\group\Entity\GroupInterface;
 use Drupal\group\Entity\GroupContent;
@@ -45,6 +38,29 @@ class GroupAccessManager
     }
 
     public function checkNode(NodeInterface $node) {
+      if ($this->isAdmin()) {
+        return TRUE;
+      }
+
+      $group_to_check = NULL;
+      $result = TRUE;
+      if ($parent_group_contents = GroupContent::loadByEntity($node)) {
+        $parent_group_content = array_shift($parent_group_contents);
+        $group_to_check = $parent_group_content->getGroup();
+
+        if (!empty($group_to_check)) {
+          if ($group_to_check->get('field_ngf_group_visibility')->value != NGF_GROUP_SECRET && $parent_group_contents = GroupContent::loadByEntity($group_to_check)) {
+            // We take only first group, because we allow users to add content
+            // in a single group.
+            $parent_group_content = array_shift($parent_group_contents);
+            $group_to_check = $parent_group_content->getGroup();
+
+          }
+        }
+
+        $result = $this->checkGroupAccess($group_to_check);
+      }
+      return $result;
 
     }
 
@@ -55,9 +71,11 @@ class GroupAccessManager
         }
 
         $group_to_check = $group;
-        if ($group->get('field_ngf_group_visibility')->value != NGF_GROUP_SECRET && $group_content = GroupContent::loadByEntity($group)) {
-          kint($group_content);
-            $group_to_check = $group_content->getGroup();
+        if ($group->get('field_ngf_group_visibility')->value != NGF_GROUP_SECRET && $parent_group_contents = GroupContent::loadByEntity($group)) {
+            // We take only first group, because we allow users to add content
+            // in a single group.
+            $parent_group_content = array_shift($parent_group_contents);
+            $group_to_check = $parent_group_content->getGroup();
         }
         return $this->checkGroupAccess($group_to_check);
     }

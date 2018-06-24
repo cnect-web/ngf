@@ -6,7 +6,11 @@ dependencies:
     - field.storage.user.field_ngf_interests
     - taxonomy.vocabulary.ngf_interests
   module:
+    - entity_reference_validators
     - user
+third_party_settings:
+  entity_reference_validators:
+    duplicate_reference: true
 id: user.user.field_ngf_interests
 field_name: field_ngf_interests
 entity_type: user
