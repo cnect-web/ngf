@@ -28,6 +28,7 @@ module:
   entity_browser: 0
   entity_embed: 0
   entity_reference_revisions: 0
+  entity_reference_validators: 0
   features: 0
   field: 0
   file: 0
@@ -54,8 +55,9 @@ module:
   migrate_tools: 0
   ngf_content: 0
   ngf_core: 0
-  ngf_geo_import: 0
+  ngf_geo: 0
   ngf_group: 0
+  ngf_search: 0
   ngf_user_profile: 0
   ngf_user_registration: 0
   node: 0

@@ -1,4 +1,4 @@
-uuid: 5c778e87-0f60-4ff9-aa69-35cc9d0eb4c3
+uuid: e253d3d3-9021-42ac-8a06-081bff32b1ee
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - taxonomy.vocabulary.ngf_cities
   module:
     - text
+_core:
+  default_config_hash: o7eGBLYAKAwLfBJkE1ihSVgUxT5XdO2T21frHVqVkMA
 id: taxonomy_term.ngf_cities.default
 targetEntityType: taxonomy_term
 bundle: ngf_cities
