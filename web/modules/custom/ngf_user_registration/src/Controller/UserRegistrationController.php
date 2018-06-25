@@ -47,4 +47,14 @@ class UserRegistrationController extends ControllerBase {
     return new JsonResponse($results);
   }
 
+  /**
+   * User register redirect.
+   *
+   * @return string
+   *   Return Another route
+   */
+  public function redirectJoin() {
+    return $this->redirect('ngf_user_registration');
+  }
+
 }
