@@ -3,7 +3,7 @@ entity.group.canonical:
   base_route: entity.group.canonical
   title: 'View'
 
-ngf_group.link.publications:
+ngf_group.link.group_publications:
   route_name: entity.group.canonical
   title: 'Publications'
   description: 'Group Publications'
