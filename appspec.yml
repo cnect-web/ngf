@@ -5,5 +5,5 @@ files:
     destination: /var/www/html/yurop
 hooks:
   AfterInstall:
-    - location: Scripts/deployments/Initial.sh
+    - location: scripts/deployments/Initial.sh
       timeout: 180
