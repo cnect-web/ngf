@@ -36,6 +36,10 @@ module:
   flag: 0
   fontawesome: 0
   fontawesome_menu_icons: 0
+  geocoder: 0
+  geocoder_address: 0
+  geocoder_field: 0
+  geocoder_geofield: 0
   geofield: 0
   ggroup: 0
   gnode: 0
