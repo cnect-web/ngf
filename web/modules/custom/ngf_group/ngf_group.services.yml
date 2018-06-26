@@ -4,3 +4,7 @@ services:
     tags:
       - { name: event_subscriber }
 
+  ngf_group.group_access_manager:
+    class: Drupal\ngf_group\Manager\GroupAccessManager
+    arguments: ['@current_user']
+

@@ -1,4 +1,4 @@
-uuid: 0425d58c-262b-4d11-ad01-9e2029527ceb
+uuid: c478ead3-3a85-4cda-8c22-0b9b1f82b477
 langcode: en
 status: true
 dependencies:
@@ -7,6 +7,8 @@ dependencies:
     - taxonomy.vocabulary.ngf_countries
   module:
     - text
+_core:
+  default_config_hash: m1M6zxYpR4Mc8R4c8KK4USSkvskijGjUUlhhbzsa2ac
 id: taxonomy_term.ngf_countries.default
 targetEntityType: taxonomy_term
 bundle: ngf_countries

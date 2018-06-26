@@ -1,4 +1,4 @@
-uuid: 285bde0f-ca49-44bb-ba31-4aa50e5d1bcb
+uuid: 8fb465b6-b7ae-4ad9-981d-41b61d704a79
 langcode: en
 status: true
 dependencies:
@@ -8,6 +8,8 @@ dependencies:
   module:
     - path
     - text
+_core:
+  default_config_hash: 0nnqx5UAKOS4C6_uekVHHSKzjyF-vrlELj1t9TLWoeg
 id: taxonomy_term.ngf_cities.default
 targetEntityType: taxonomy_term
 bundle: ngf_cities

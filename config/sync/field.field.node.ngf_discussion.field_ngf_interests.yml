@@ -6,6 +6,11 @@ dependencies:
     - field.storage.node.field_ngf_interests
     - node.type.ngf_discussion
     - taxonomy.vocabulary.ngf_interests
+  module:
+    - entity_reference_validators
+third_party_settings:
+  entity_reference_validators:
+    duplicate_reference: true
 id: node.ngf_discussion.field_ngf_interests
 field_name: field_ngf_interests
 entity_type: node

@@ -117,7 +117,6 @@ AT,Wattens
 AT,Wattenberg
 AT,Wartmannstetten
 AT,Warth
-AT,Warth
 AT,Wartberg
 AT,Wängle
 AT,Wang
@@ -827,7 +826,6 @@ AT,Mühlgraben
 AT,Mühlen
 AT,Mühldorf bei Feldbach
 AT,Mühldorf
-AT,Mühldorf
 AT,Mühlbach am Hochkönig
 AT,Muggendorf
 AT,Mötz
@@ -1320,7 +1318,6 @@ AT,Gnas
 AT,Gnadendorf
 AT,Gmunden
 AT,Gmünd
-AT,Gmünd
 AT,Glojach
 AT,Gloggnitz
 AT,Glödnitz
@@ -1480,7 +1477,6 @@ AT,Eberschwang
 AT,Eberndorf
 AT,Ebergassing
 AT,Eberau
-AT,Ebenthal
 AT,Ebenthal
 AT,Ebensee
 AT,Eben im Pongau
@@ -2039,7 +2035,6 @@ BE,Lendelede
 BE,Léglise
 BE,Ledegem
 BE,Ledeberg
-BE,Ledeberg
 BE,Lede
 BE,Lebbeke
 BE,La Roche-en-Ardenne
@@ -2493,7 +2488,6 @@ BG,Kocherinovo
 BG,Knezha
 BG,Klisura
 BG,Kiten
-BG,Kiten
 BG,Kirkovo
 BG,Kilifarevo
 BG,Tsar Kaloyan
@@ -2534,7 +2528,6 @@ BG,Glavinitsa
 BG,Dolni Chiflik
 BG,General Toshevo
 BG,Gara Hitrino
-BG,Gabrovo
 BG,Gabrovo
 BG,Etropole
 BG,Elkhovo
@@ -2762,7 +2755,6 @@ CZ,Všenory
 CZ,Všemina
 CZ,Vroutek
 CZ,Vresina
-CZ,Vresina
 CZ,Vrdy
 CZ,Vrchlabí
 CZ,Vrbovec
@@ -2781,7 +2773,6 @@ CZ,Vodnany
 CZ,Vnorovy
 CZ,Vlkoš
 CZ,Vlcnov
-CZ,Vlcnov
 CZ,Vlašim
 CZ,Vladislav
 CZ,Vlachovo Brezí
@@ -2794,8 +2785,6 @@ CZ,Vintírov
 CZ,Vinicné Šumice
 CZ,Vinarice
 CZ,Vimperk
-CZ,Vilémov
-CZ,Vilémov
 CZ,Vilémov
 CZ,Vikýrovice
 CZ,Vidnava
@@ -2850,7 +2839,6 @@ CZ,Vápenná
 CZ,Vamberk
 CZ,Valtice
 CZ,Valdice
-CZ,Valdice
 CZ,Valašské Mezirící
 CZ,Valašské Klobouky
 CZ,Valašská Polanka
@@ -2868,7 +2856,6 @@ CZ,Úpice
 CZ,Unicov
 CZ,Unhošt
 CZ,Únanov
-CZ,Újezd
 CZ,Újezd
 CZ,Uhlírské Janovice
 CZ,Uherský Ostroh
@@ -2973,7 +2960,6 @@ CZ,Stežery
 CZ,Štetí
 CZ,Šternberk
 CZ,Štepánov
-CZ,Štepánov
 CZ,Štepánkovice
 CZ,Štenovice
 CZ,Štechovice
@@ -2984,9 +2970,6 @@ CZ,Starý Jicín
 CZ,Starý Bohumín
 CZ,Staríc
 CZ,Staré Nechanice
-CZ,Staré Mesto
-CZ,Staré Mesto
-CZ,Staré Mesto
 CZ,Staré Mesto
 CZ,Staré Krecany
 CZ,Staré Hradište
@@ -3039,7 +3022,6 @@ CZ,Semily
 CZ,Sedlnice
 CZ,Sedlište
 CZ,Sedlice
-CZ,Sedlice
 CZ,Sedlec
 CZ,Sedlcany
 CZ,Sec
@@ -3064,7 +3046,6 @@ CZ,Rudná
 CZ,Ruda nad Moravou
 CZ,Rtyne v Podkrkonoší
 CZ,Roztoky
-CZ,Roztoky
 CZ,Rožnov pod Radhoštem
 CZ,Rožmitál pod Tremšínem
 CZ,Roždalovice
@@ -3074,7 +3055,6 @@ CZ,Roudnice nad Labem
 CZ,Rouchovany
 CZ,Rotava
 CZ,Rosice
-CZ,Rosice
 CZ,Ropice
 CZ,Ronov nad Doubravou
 CZ,Rokytnice v Orlických Horách
@@ -3082,7 +3062,6 @@ CZ,Rokytnice nad Jizerou
 CZ,Rokytnice
 CZ,Rokycany
 CZ,Rohatec
-CZ,Rícany
 CZ,Rícany
 CZ,Rež
 CZ,Revnicov
@@ -3177,10 +3156,8 @@ CZ,Planá nad Lužnicí
 CZ,Planá
 CZ,Píšt
 CZ,Písek
-CZ,Písek
 CZ,Písecná
 CZ,Pilníkov
-CZ,Petrvald
 CZ,Petrvald
 CZ,Petrovice u Karviné
 CZ,Petrovice
@@ -3215,7 +3192,6 @@ CZ,Oslavany
 CZ,Oskava
 CZ,Osík
 CZ,Osek nad Becvou
-CZ,Osek
 CZ,Osek
 CZ,Osecná
 CZ,Orlová
@@ -3312,7 +3288,6 @@ CZ,Moravská Nová Ves
 CZ,Morávka
 CZ,Moravicany
 CZ,Moravany
-CZ,Moravany
 CZ,Mokré Lazce
 CZ,Mokrá Hora
 CZ,Mohelno
@@ -3352,7 +3327,6 @@ CZ,Mesto
 CZ,Mestec Králové
 CZ,Mestecko Trnávka
 CZ,Mešice
-CZ,Merklín
 CZ,Merklín
 CZ,Merín
 CZ,Menín
@@ -3398,7 +3372,6 @@ CZ,Loštice
 CZ,Lom u Mostu
 CZ,Lomnice nad Popelkou
 CZ,Lomnice nad Lužnicí
-CZ,Lomnice
 CZ,Lomnice
 CZ,Loket
 CZ,Lodenice
@@ -3476,7 +3449,6 @@ CZ,Krenovice
 CZ,Kremže
 CZ,Kravare
 CZ,Krásná Lípa
-CZ,Krásná Lípa
 CZ,Krásná Hora nad Vltavou
 CZ,Kraslice
 CZ,Králuv Dvur
@@ -3547,7 +3519,6 @@ CZ,Kamenné Žehrovice
 CZ,Kamenický Šenov
 CZ,Kamenice nad Lipou
 CZ,Kamenice
-CZ,Kamenice
 CZ,Kájov
 CZ,Kadan
 CZ,Kacice
@@ -3570,7 +3541,6 @@ CZ,Jevišovice
 CZ,Jevícko
 CZ,Jeseník nad Odrou
 CZ,Jeseník
-CZ,Jesenice
 CZ,Jesenice
 CZ,Jenec
 CZ,Jemnice
@@ -3618,11 +3588,8 @@ CZ,Hrob
 CZ,Hrebec
 CZ,Hrdejovice
 CZ,Hranice
-CZ,Hranice
 CZ,Hradištko
 CZ,Hrádek nad Nisou
-CZ,Hrádek
-CZ,Hrádek
 CZ,Hrádek
 CZ,Hradec nad Svitavou
 CZ,Hradec Králové
@@ -3632,7 +3599,6 @@ CZ,Hovorcovice
 CZ,Hovorany
 CZ,Hovezí
 CZ,Hostoun
-CZ,Hostomice
 CZ,Hostomice
 CZ,Hoštka
 CZ,Hostivice
@@ -3691,7 +3657,6 @@ CZ,Hevlín
 CZ,Hermanuv Mestec
 CZ,Hermanova Hut
 CZ,Herálec
-CZ,Herálec
 CZ,Hejnice
 CZ,Hazlov
 CZ,Havlíckuv Brod
@@ -3727,7 +3692,6 @@ CZ,Dubicko
 CZ,Dubí
 CZ,Dubá
 CZ,Drnovice
-CZ,Drnovice
 CZ,Drnholec
 CZ,Driten
 CZ,Drevohostice
@@ -3741,7 +3705,6 @@ CZ,Domanín
 CZ,Doloplazy
 CZ,Dolní Životice
 CZ,Dolní Žandov
-CZ,Dolní Újezd
 CZ,Dolní Újezd
 CZ,Dolní Studénky
 CZ,Dolní Sloupnice
@@ -3771,7 +3734,6 @@ CZ,Dolní Berkovice
 CZ,Dolní Benešov
 CZ,Dolní Becva
 CZ,Dolany
-CZ,Doksy
 CZ,Doksy
 CZ,Dobšice
 CZ,Dobruška
@@ -3869,7 +3831,6 @@ CZ,Bzenec
 CZ,Bystrice pod Hostýnem
 CZ,Bystrice nad Pernštejnem
 CZ,Bystrice
-CZ,Bystrice
 CZ,Bystrec
 CZ,Bystré
 CZ,Bystrany
@@ -3896,11 +3857,8 @@ CZ,Brloh
 CZ,Bridlicná
 CZ,Brezová nad Svitavou
 CZ,Brezová
-CZ,Brezová
-CZ,Brezová
 CZ,Brezolupy
 CZ,Brezno
-CZ,Breznice
 CZ,Breznice
 CZ,Brezí
 CZ,Breclav
@@ -4001,7 +3959,6 @@ DE,Zschorlau
 DE,Zschopau
 DE,Zscherndorf
 DE,Zscherben
-DE,Zscherben
 DE,Zschepplin
 DE,Zschadrass
 DE,Zossen
@@ -4041,7 +3998,6 @@ DE,Zell am Main
 DE,Zella-Mehlis
 DE,Zell im Fichtelgebirge
 DE,Zell
-DE,Zell
 DE,Zeitz
 DE,Zeitlofs
 DE,Zeitlarn
@@ -4067,7 +4023,6 @@ DE,Xanten
 DE,Wyk auf Föhr
 DE,Wyhl
 DE,Wutöschingen
-DE,Wustrow
 DE,Wustrow
 DE,Wusterwitz
 DE,Wustermark
@@ -4116,7 +4071,6 @@ DE,Worbis
 DE,Wonsees
 DE,Wonfurt
 DE,Woltersdorf
-DE,Woltersdorf
 DE,Wolsdorf
 DE,Wölpinghausen
 DE,Wolpertswende
@@ -4157,7 +4111,6 @@ DE,Witzhave
 DE,Witzenhausen
 DE,Wittstock
 DE,Wittorf
-DE,Wittorf
 DE,Wittnau
 DE,Wittmund
 DE,Wittmar
@@ -4192,7 +4145,6 @@ DE,Winterhude
 DE,Winterhausen
 DE,Winterberg
 DE,Winterbach
-DE,Winsen
 DE,Winsen
 DE,Winnweiler
 DE,Winningen
@@ -4238,7 +4190,6 @@ DE,Wilhelmstadt
 DE,Wilhelmsruh
 DE,Wilhelmshaven
 DE,Wilhelmsfeld
-DE,Wilhelmsdorf
 DE,Wilhelmsdorf
 DE,Wilgartswiesen
 DE,Wildsteig
@@ -4302,7 +4253,6 @@ DE,Wetter
 DE,Wetschen
 DE,Westhofen
 DE,Westheim
-DE,Westheim
 DE,Westhausen
 DE,Westerstetten
 DE,Westerstede
@@ -4313,13 +4263,11 @@ DE,Westerkappeln
 DE,Westerhorn
 DE,Westerholt
 DE,Westerheim
-DE,Westerheim
 DE,Westerhausen
 DE,Westergellersen
 DE,Westeregeln
 DE,Westerburg
 DE,Westensee
-DE,Westendorf
 DE,Westendorf
 DE,Westend
 DE,Weste
@@ -4403,7 +4351,6 @@ DE,Weißenburg in Bayern
 DE,Weißenbrunn
 DE,Weißenborn-Lüderode
 DE,Weißenborn
-DE,Weißenborn
 DE,Weißenberg
 DE,Weißdorf
 DE,Weißbach
@@ -4418,11 +4365,8 @@ DE,Weisel
 DE,Weischlitz
 DE,Weinstadt-Endersbach
 DE,Weinsheim
-DE,Weinsheim
 DE,Weinsberg
 DE,Weinheim
-DE,Weingarten
-DE,Weingarten
 DE,Weingarten
 DE,Weinböhla
 DE,Weinbach
@@ -4431,7 +4375,6 @@ DE,Weiltingen
 DE,Weilmünster
 DE,Weil im Schönbuch
 DE,Weilheim an der Teck
-DE,Weilheim
 DE,Weilheim
 DE,Weilerswist
 DE,Weilerbach
@@ -4460,7 +4403,6 @@ DE,Weibern
 DE,Weißensee
 DE,Wehringen
 DE,Wehrheim
-DE,Wehr
 DE,Wehr
 DE,Wehingen
 DE,Wegscheid
@@ -4497,7 +4439,6 @@ DE,Wasbüttel
 DE,Wasbek
 DE,Wartmannsroth
 DE,Warthausen
-DE,Wartenberg
 DE,Wartenberg
 DE,Warstein
 DE,Warnow
@@ -4537,8 +4478,6 @@ DE,Wallwitz
 DE,Wallmerod
 DE,Wallmenroth
 DE,Wallhausen
-DE,Wallhausen
-DE,Wallhausen
 DE,Wallgau
 DE,Wallertheim
 DE,Wallerstein
@@ -4550,12 +4489,10 @@ DE,Wallenfels
 DE,Wallendorf
 DE,Walldürn
 DE,Walldorf
-DE,Walldorf
 DE,Walkertshofen
 DE,Walkenried
 DE,Walheim
 DE,Waldthurn
-DE,Waldstetten
 DE,Waldstetten
 DE,Waldsieversdorf
 DE,Waldshut-Tiengen
@@ -4567,7 +4504,6 @@ DE,Waldmohr
 DE,Wald-Michelbach
 DE,Waldkraiburg
 DE,Waldkirchen
-DE,Waldkirchen
 DE,Waldkirch
 DE,Waldkappel
 DE,Waldheim
@@ -4575,7 +4511,6 @@ DE,Waldfischbach-Burgalben
 DE,Waldfeucht
 DE,Waldershof
 DE,Walderbach
-DE,Waldenburg
 DE,Waldenburg
 DE,Waldenbuch
 DE,Waldeck
@@ -4587,8 +4522,6 @@ DE,Waldbreitbach
 DE,Waldböckelheim
 DE,Waldaschaff
 DE,Waldalgesheim
-DE,Wald
-DE,Wald
 DE,Wald
 DE,Walchum
 DE,Waischenfeld
@@ -4646,7 +4579,6 @@ DE,Volkenschwand
 DE,Volkach
 DE,Voigtstedt
 DE,Vöhringen
-DE,Vöhringen
 DE,Vöhrenbach
 DE,Vöhl
 DE,Vohenstrauß
@@ -4692,7 +4624,6 @@ DE,Velpke
 DE,Vellberg
 DE,Velgast
 DE,Velen
-DE,Velden
 DE,Velden
 DE,Velburg
 DE,Velbert
@@ -4774,7 +4705,6 @@ DE,Unkel
 DE,Ungerhausen
 DE,Undenheim
 DE,Ummern
-DE,Ummendorf
 DE,Ummendorf
 DE,Umkirch
 DE,Ulrichstein
@@ -4908,7 +4838,6 @@ DE,Tiergarten
 DE,Tiefenort
 DE,Tiefenbronn
 DE,Tiefenbach
-DE,Tiefenbach
 DE,Tiddische
 DE,Thyrnau
 DE,Thurnau
@@ -4938,7 +4867,6 @@ DE,Thannhausen
 DE,Thalmässing
 DE,Thalmassing
 DE,Thallwitz
-DE,Thalheim
 DE,Thalheim
 DE,Thaleischweiler-Fröschen
 DE,Thale
@@ -4980,8 +4908,6 @@ DE,Tauscha
 DE,Taura
 DE,Taunusstein
 DE,Taufkirchen
-DE,Taufkirchen
-DE,Taufkirchen
 DE,Tauche
 DE,Taucha
 DE,Tauberbischofsheim
@@ -4999,14 +4925,11 @@ DE,Tannenbergsthal
 DE,Tannenberg
 DE,Tanna
 DE,Tann
-DE,Tann
-DE,Tangstedt
 DE,Tangstedt
 DE,Tangermünde
 DE,Tangerhütte
 DE,Tamm
 DE,Tambach-Dietharz
-DE,Talheim
 DE,Talheim
 DE,Tagmersheim
 DE,Täferrot
@@ -5026,9 +4949,7 @@ DE,Süplingen
 DE,Sundern
 DE,Sünching
 DE,Sulzheim
-DE,Sulzheim
 DE,Sulzfeld am Main
-DE,Sulzfeld
 DE,Sulzfeld
 DE,Sulzemoos
 DE,Sulzdorf
@@ -5037,7 +4958,6 @@ DE,Sulzberg
 DE,Sulzbach-Rosenberg
 DE,Sulzbach an der Murr
 DE,Sulzbach am Main
-DE,Sulzbach
 DE,Sulzbach
 DE,Sulz am Neckar
 DE,Sulingen
@@ -5090,12 +5010,10 @@ DE,Stolpen
 DE,Stolpe
 DE,Stollberg
 DE,Stolberg
-DE,Stolberg
 DE,Stödtlen
 DE,Stockstadt am Main
 DE,Stockstadt am Rhein
 DE,Stöckse
-DE,Stockheim
 DE,Stockheim
 DE,Stockelsdorf
 DE,Stockach
@@ -5120,7 +5038,6 @@ DE,Steinweiler
 DE,Steinsfeld
 DE,Steinmauern
 DE,Steinkirchen
-DE,Steinkirchen
 DE,Steinigtwolmsdorf
 DE,Steinhorst
 DE,Steinhöring
@@ -5128,14 +5045,10 @@ DE,Steinhöfel
 DE,Steinheim am der Murr
 DE,Steinheim am Albuch
 DE,Steinheim
-DE,Steinheim
 DE,Steinheid
-DE,Steinhagen
 DE,Steinhagen
 DE,Steingaden
 DE,Steinfurt
-DE,Steinfeld
-DE,Steinfeld
 DE,Steinfeld
 DE,Steinenbronn
 DE,Steinen
@@ -5145,10 +5058,7 @@ DE,Stein
 DE,Steinbach-Hallenberg
 DE,Steinbach am Taunus
 DE,Steinbach
-DE,Steinbach
 DE,Steinau an der Straße
-DE,Steinach
-DE,Steinach
 DE,Steinach
 DE,Steina
 DE,Steimel
@@ -5171,7 +5081,6 @@ DE,Starnberg
 DE,Stapelfeld
 DE,Stapelburg
 DE,Stamsried
-DE,Stammham
 DE,Stammham
 DE,Stammbach
 DE,Stallwang
@@ -5276,7 +5185,6 @@ DE,Sindelfingen
 DE,Simmozheim
 DE,Simmersfeld
 DE,Simmern
-DE,Simmern
 DE,Simmertal
 DE,Simmerath
 DE,Simmelsdorf
@@ -5323,10 +5231,8 @@ DE,Sengenthal
 DE,Senftenberg
 DE,Sendenhorst
 DE,Senden
-DE,Senden
 DE,Sembach
 DE,Selzen
-DE,Selters
 DE,Selters
 DE,Selsingen
 DE,Selmsdorf
@@ -5355,16 +5261,13 @@ DE,Seelbach
 DE,Seehof
 DE,Seehausen am Staffelsee
 DE,Seehausen
-DE,Seehausen
 DE,Seeg
 DE,Seefeld
-DE,Seedorf
 DE,Seedorf
 DE,Seeburg
 DE,Seebergen
 DE,Seebad Heringsdorf
 DE,Seebad Bansin
-DE,Seebach
 DE,Seebach
 DE,Seckach
 DE,Seck
@@ -5376,7 +5279,6 @@ DE,Schwetzingen
 DE,Schwerte
 DE,Schwerin
 DE,Schwepnitz
-DE,Schwenningen
 DE,Schwenningen
 DE,Schwendi
 DE,Schwelm
@@ -5399,7 +5301,6 @@ DE,Schwarzenbach an der Saale
 DE,Schwarzenbach
 DE,Spiegelau
 DE,Schwarzach
-DE,Schwarzach
 DE,Schwarza
 DE,Schwarmstedt
 DE,Schwarme
@@ -5408,7 +5309,6 @@ DE,Schwanfeld
 DE,Schwanewede
 DE,Schwanebeck
 DE,Schwandorf in Bayern
-DE,Schwalmtal
 DE,Schwalmtal
 DE,Schwalmstadt
 DE,Schwallungen
@@ -5445,11 +5345,9 @@ DE,Schotten
 DE,Schortens
 DE,Schornsheim
 DE,Schorndorf
-DE,Schorndorf
 DE,Schöppingen
 DE,Schöppenstedt
 DE,Schopp
-DE,Schopfloch
 DE,Schopfloch
 DE,Schopfheim
 DE,Schönwalde am Bungsberg
@@ -5477,17 +5375,13 @@ DE,Schondra
 DE,Schönburg
 DE,Schönborn
 DE,Schönberg
-DE,Schönberg
 DE,Schönbach
 DE,Schönau-Berzdorf
-DE,Schönau
-DE,Schönau
 DE,Schönau
 DE,Schönau im Schwarzwald
 DE,Schönau am Königssee
 DE,Schönaich
 DE,Schonach im Schwarzwald
-DE,Schömberg
 DE,Schömberg
 DE,Schöllnach
 DE,Schöllkrippen
@@ -5617,7 +5511,6 @@ DE,Sassenberg
 DE,Sasel
 DE,Sasbachwalden
 DE,Sasbach
-DE,Sasbach
 DE,Sarstedt
 DE,Sankt Wolfgang
 DE,Sankt Wendel
@@ -5686,7 +5579,6 @@ DE,Saara
 DE,Saalfeld
 DE,Saal an der Saale
 DE,Saal
-DE,Saal
 DE,Rüthen
 DE,Rutesheim
 DE,Rust
@@ -5722,7 +5614,6 @@ DE,Rudersberg
 DE,Ruderatshofen
 DE,Rudelzhausen
 DE,Rückersdorf
-DE,Rückersdorf
 DE,Rübeland
 DE,Roxheim
 DE,Rövershagen
@@ -5737,7 +5628,6 @@ DE,Rottenburg
 DE,Rottenbuch
 DE,Rottenbach
 DE,Röttenbach
-DE,Röttenbach
 DE,Rottenacker
 DE,Rottach-Egern
 DE,Rott
@@ -5751,7 +5641,6 @@ DE,Rothenberg
 DE,Röthenbach an der Pegnitz
 DE,Röthenbach
 DE,Rötha
-DE,Roth
 DE,Roth
 DE,Rötgesbüttel
 DE,Roetgen
@@ -5771,7 +5660,6 @@ DE,Rossbach
 DE,Rösrath
 DE,Roskow
 DE,Rositz
-DE,Rosenthal
 DE,Rosenthal
 DE,Rosenow
 DE,Rosenheim
@@ -5795,11 +5683,7 @@ DE,Röhrnbach
 DE,Röhrmoos
 DE,Rohrenfels
 DE,Rohrdorf
-DE,Rohrdorf
 DE,Rohrbach
-DE,Rohrbach
-DE,Rohr
-DE,Rohr
 DE,Rohr
 DE,Roggentin
 DE,Roggendorf
@@ -5811,7 +5695,6 @@ DE,Rödinghausen
 DE,Roding
 DE,Rodewisch
 DE,Rodenberg
-DE,Rodenbach
 DE,Rodenbach
 DE,Roden
 DE,Rödelsee
@@ -5834,7 +5717,6 @@ DE,Rimsting
 DE,Rimschweiler
 DE,Rimpar
 DE,Rimbach
-DE,Rimbach
 DE,Rietz Neuendorf
 DE,Rietschen
 DE,Riethnordhausen
@@ -5856,8 +5738,6 @@ DE,Riederich
 DE,Rieder
 DE,Riedenburg
 DE,Rieden an der Kötz
-DE,Rieden
-DE,Rieden
 DE,Rieden
 DE,Riede
 DE,Ried
@@ -5884,18 +5764,15 @@ DE,Rheinbach
 DE,Rheinau
 DE,Rheden
 DE,Rhede
-DE,Rhede
 DE,Rheda-Wiedenbrück
 DE,Rhaunen
 DE,Rhade
 DE,Reutlingen
 DE,Reuth
-DE,Reuth
 DE,Reut
 DE,Reußen
 DE,Retzstadt
 DE,Rettenberg
-DE,Rettenbach
 DE,Rettenbach
 DE,Retschow
 DE,Rethen
@@ -5912,7 +5789,6 @@ DE,Renchen
 DE,Remse
 DE,Remscheid
 DE,Remptendorf
-DE,Remlingen
 DE,Remlingen
 DE,Remagen
 DE,Rellingen
@@ -5947,7 +5823,6 @@ DE,Reichenbach an der Fils
 DE,Reichenbach
 DE,Reichenbach/Vogtland
 DE,Reichenbach
-DE,Reichelsheim
 DE,Reichelsheim
 DE,Reichartshausen
 DE,Reichardtswerben
@@ -6011,7 +5886,6 @@ DE,Ramstein-Miesenbach
 DE,Ramsin
 DE,Ramsen
 DE,Ramsau
-DE,Ramsau
 DE,Rammingen
 DE,Rammenau
 DE,Rammelsbach
@@ -6022,7 +5896,6 @@ DE,Ralingen
 DE,Raitenbuch
 DE,Raisting
 DE,Raisdorf
-DE,Rain
 DE,Rain
 DE,Rahnsdorf
 DE,Rahden
@@ -6096,7 +5969,6 @@ DE,Prenzlauer Berg
 DE,Prenzlau
 DE,Premnitz
 DE,Preetz
-DE,Preetz
 DE,Prebitz
 DE,Prackenbach
 DE,Pracht
@@ -6116,14 +5988,12 @@ DE,Porschdorf
 DE,Pörnbach
 DE,Poppenricht
 DE,Poppenhausen
-DE,Poppenhausen
 DE,Poppenbüttel
 DE,Ponitz
 DE,Pommersfelden
 DE,Pommelsbrunn
 DE,Pölzig
 DE,Polsingen
-DE,Polling
 DE,Polling
 DE,Pollhagen
 DE,Polleben
@@ -6201,13 +6071,11 @@ DE,Pfaffen-Schwabenheim
 DE,Pfaffenhofen an der Roth
 DE,Pfaffenhofen an der Ilm
 DE,Pfaffenhofen
-DE,Pfaffenhofen
 DE,Pfaffenhausen
 DE,Pettstadt
 DE,Petting
 DE,Pettendorf
 DE,Petershausen
-DE,Petershagen
 DE,Petershagen
 DE,Petersdorf
 DE,Petersberg
@@ -6231,7 +6099,6 @@ DE,Peitz
 DE,Peiting
 DE,Peißenberg
 DE,Peißen
-DE,Peißen
 DE,Peine
 DE,Pegnitz
 DE,Pegau
@@ -6252,7 +6119,6 @@ DE,Parsau
 DE,Parkstetten
 DE,Parkstein
 DE,Parchim
-DE,Pappenheim
 DE,Pappenheim
 DE,Papendorf
 DE,Papenburg
@@ -6293,7 +6159,6 @@ DE,Otter
 DE,Ottenstein
 DE,Ottensoos
 DE,Ottensen
-DE,Ottenhofen
 DE,Ottenhofen
 DE,Ottendorf-Okrilla
 DE,Ottenbach
@@ -6344,7 +6209,6 @@ DE,Osburg
 DE,Ortrand
 DE,Ortenburg
 DE,Ortenberg
-DE,Ortenberg
 DE,Orsingen-Nenzingen
 DE,Orscholz
 DE,Ornbau
@@ -6370,8 +6234,6 @@ DE,Oelixdorf
 DE,Olfen
 DE,Oldisleben
 DE,Oldenswort
-DE,Oldendorf
-DE,Oldendorf
 DE,Oldendorf
 DE,Oldenburg in Holstein
 DE,Oldenburg
@@ -6400,7 +6262,6 @@ DE,Oettingen in Bayern
 DE,Oerlinghausen
 DE,Oer-Erkenschwick
 DE,Oelsnitz
-DE,Oelsnitz
 DE,Oelde
 DE,Oedheim
 DE,Oederan
@@ -6416,7 +6277,6 @@ DE,Ochtrup
 DE,Ochtendung
 DE,Ochsenhausen
 DE,Ochsenfurt
-DE,Obrigheim
 DE,Obrigheim
 DE,Obing
 DE,Obhausen
@@ -6459,7 +6319,6 @@ DE,Oberrieden
 DE,Oberried
 DE,Oberreute
 DE,Oberreichenbach
-DE,Oberreichenbach
 DE,Ober-Ramstadt
 DE,Oberpöring
 DE,Oberpleichfeld
@@ -6474,8 +6333,6 @@ DE,Obernkirchen
 DE,Obernheim-Kirchenarnbach
 DE,Obernheim
 DE,Obernfeld
-DE,Oberndorf
-DE,Oberndorf
 DE,Oberndorf
 DE,Obernburg am Main
 DE,Obernbreit
@@ -6496,8 +6353,6 @@ DE,Oberkirch
 DE,Oberjettingen
 DE,Oberhof
 DE,Oberhausen-Rheinhausen
-DE,Oberhausen
-DE,Oberhausen
 DE,Oberhausen
 DE,Oberharmersbach
 DE,Oberhaid
@@ -6556,7 +6411,6 @@ DE,Nordleda
 DE,Nordkirchen
 DE,Nordhorn
 DE,Nordholz
-DE,Nordheim
 DE,Nordheim
 DE,Nordhausen
 DE,Nordhastedt
@@ -6697,8 +6551,6 @@ DE,Neuötting
 DE,Neunkirchen am Sand
 DE,Neunkirchen am Main
 DE,Neunkirchen
-DE,Neunkirchen
-DE,Neunkirchen
 DE,Neunkhausen
 DE,Neundorf
 DE,Neunburg vorm Wald
@@ -6713,12 +6565,6 @@ DE,Neuler
 DE,Neukloster
 DE,Neukirchen-Balbini
 DE,Neukirchen
-DE,Neukirchen
-DE,Neukirchen
-DE,Neukirchen
-DE,Neukirchen
-DE,Neukirchen
-DE,Neukirchen
 DE,Neukirch
 DE,Neukirch/Lausitz
 DE,Neukirch
@@ -6732,8 +6578,6 @@ DE,Neuhof an der Zenn
 DE,Neuhof
 DE,Neuhaus-Schierschnitz
 DE,Neuhausen auf den Fildern
-DE,Neuhausen
-DE,Neuhausen
 DE,Neuhausen
 DE,Neuhäusel
 DE,Neuhaus an der Pegnitz
@@ -6756,12 +6600,6 @@ DE,Neuensalz
 DE,Neuenrade
 DE,Neuenmarkt
 DE,Neuenkirchen
-DE,Neuenkirchen
-DE,Neuenkirchen
-DE,Neuenkirchen
-DE,Neuenkirchen
-DE,Neuenkirchen
-DE,Neuenkirchen
 DE,Neuenhagen
 DE,Neuendettelsau
 DE,Neuenbürg
@@ -6773,13 +6611,9 @@ DE,Neudenau
 DE,Neu Darchau
 DE,Neuburg an der Donau
 DE,Neuburg
-DE,Neuburg
-DE,Neuburg
-DE,Neuburg
 DE,Neubulach
 DE,Neubukow
 DE,Neubrunn
-DE,Neubrück
 DE,Neubrück
 DE,Neubrandenburg
 DE,Neubörger
@@ -6797,7 +6631,6 @@ DE,Neschwitz
 DE,Nersingen
 DE,Neresheim
 DE,Nerchau
-DE,Nentershausen
 DE,Nentershausen
 DE,Nennslingen
 DE,Nennhausen
@@ -6823,7 +6656,6 @@ DE,Nauroth
 DE,Nauort
 DE,Naunhof
 DE,Naundorf
-DE,Naumburg
 DE,Naumburg
 DE,Nauendorf
 DE,Nauen
@@ -6861,8 +6693,6 @@ DE,Münsterhausen
 DE,Münsterdorf
 DE,Munster
 DE,Münster
-DE,Münster
-DE,Münster
 DE,Münsingen
 DE,Münsing
 DE,Munningen
@@ -6893,9 +6723,6 @@ DE,Mühlingen
 DE,Mühlheim am Bach
 DE,Mühlheim am Main
 DE,Stuttgart Mühlhausen
-DE,Mühlhausen
-DE,Mühlhausen
-DE,Mühlhausen
 DE,Mühlhausen
 DE,Mühlen Eichsen
 DE,Mühlenbach
@@ -7015,7 +6842,6 @@ DE,Michelsneukirchen
 DE,Michelfeld
 DE,Michelbach an der Bilz
 DE,Michelau
-DE,Michelau
 DE,Meyenburg
 DE,Meuselwitz
 DE,Meuselbach
@@ -7024,7 +6850,6 @@ DE,Metzingen
 DE,Mettmann
 DE,Mettlach
 DE,Mettingen
-DE,Mettenheim
 DE,Mettenheim
 DE,Mettendorf
 DE,Metten
@@ -7089,7 +6914,6 @@ DE,Meiderich
 DE,Mehrstetten
 DE,Mehringen
 DE,Mehring
-DE,Mehring
 DE,Mehrhoog
 DE,Mehren
 DE,Mehltheuer
@@ -7106,7 +6930,6 @@ DE,Medebach
 DE,Meddersheim
 DE,Mecklenburg
 DE,Meckesheim
-DE,Meckenheim
 DE,Meckenheim
 DE,Meckenbeuren
 DE,Mechterstädt
@@ -7204,7 +7027,6 @@ DE,Mammelzen
 DE,Malterdingen
 DE,Malsfeld
 DE,Malschwitz
-DE,Malsch
 DE,Malsch
 DE,Malliß
 DE,Malgersdorf
@@ -7309,7 +7131,6 @@ DE,Lohsa
 DE,Lohra
 DE,Lohr am Main
 DE,Lohne
-DE,Lohne
 DE,Löhne
 DE,Löhnberg
 DE,Lohmen
@@ -7350,8 +7171,6 @@ DE,Lindenberg
 DE,Linden
 DE,Lindberg
 DE,Lindau
-DE,Lindau
-DE,Lindau
 DE,Linau
 DE,Limburgerhof
 DE,Limburg an der Lahn
@@ -7366,18 +7185,12 @@ DE,Lieberose
 DE,Liebenwalde
 DE,Liebenburg
 DE,Liebenau
-DE,Liebenau
 DE,Lichterfelde
 DE,Lichtentanne
 DE,Lichtenstein
 DE,Lichtenrade
 DE,Lichtenfels
 DE,Lichtenberg
-DE,Lichtenberg
-DE,Lichtenberg
-DE,Lichtenberg
-DE,Lichtenau
-DE,Lichtenau
 DE,Lichtenau
 DE,Lichte
 DE,Lich
@@ -7388,18 +7201,15 @@ DE,Leutershausen
 DE,Leutersdorf
 DE,Leutenberg
 DE,Leutenbach
-DE,Leutenbach
 DE,Leupoldsgrün
 DE,Leuna
 DE,Leun
 DE,Leuchtenberg
 DE,Leubsdorf
-DE,Leubsdorf
 DE,Leubnitz
 DE,Letzlingen
 DE,Letschin
 DE,Leopoldshöhe
-DE,Leonberg
 DE,Leonberg
 DE,Lenzkirch
 DE,Lenzen
@@ -7407,7 +7217,6 @@ DE,Lentföhrden
 DE,Lensahn
 DE,Lennestadt
 DE,Lenggries
-DE,Lengerich
 DE,Lengerich
 DE,Lengenwang
 DE,Lengenfeld
@@ -7448,7 +7257,6 @@ DE,Lehe
 DE,Legden
 DE,Legau
 DE,Leezen
-DE,Leezen
 DE,Leezdorf
 DE,Leese
 DE,Leer
@@ -7464,7 +7272,6 @@ DE,Lauterhofen
 DE,Lauterecken
 DE,Lauterbach
 DE,Lauterbach/Schwarzwald
-DE,Lauter
 DE,Lauter
 DE,Lautenbach
 DE,Laußnitz
@@ -7485,14 +7292,11 @@ DE,Lauenburg
 DE,Lauenbrück
 DE,Lauenau
 DE,Laudenbach
-DE,Laudenbach
 DE,Lauchröden
 DE,Lauchheim
 DE,Lauchhammer
 DE,Laucha
 DE,Lauben
-DE,Lauben
-DE,Laubach
 DE,Laubach
 DE,Lathen
 DE,Lastrup
@@ -7503,7 +7307,6 @@ DE,Lanstrop
 DE,Lankwitz
 DE,Lankow
 DE,Langweid
-DE,Langwedel
 DE,Langwedel
 DE,Langula
 DE,Langsur
@@ -7529,7 +7332,6 @@ DE,Langenhorn
 DE,Langenhahn
 DE,Langenhagen
 DE,Langenfeld
-DE,Langenfeld
 DE,Langenenslingen
 DE,Langeneichstädt
 DE,Langendorf
@@ -7542,8 +7344,6 @@ DE,Langenbach
 DE,Langenau
 DE,Langenargen
 DE,Langenaltheim
-DE,Langen
-DE,Langen
 DE,Langen
 DE,Langelsheim
 DE,Langeln
@@ -7574,7 +7374,6 @@ DE,Lahr
 DE,Lahnstein
 DE,Lähden
 DE,Lägerdorf
-DE,Lage
 DE,Lage
 DE,Bad Laer
 DE,Laer
@@ -7713,11 +7512,9 @@ DE,Königswartha
 DE,Königswalde
 DE,Königstein im Taunus
 DE,Königstein
-DE,Königstein
 DE,Königslutter am Elm
 DE,Bad Königshofen im Grabfeld
 DE,Königshain
-DE,Königsfeld
 DE,Königsfeld
 DE,Königsfeld im Schwarzwald
 DE,Königsee
@@ -7738,7 +7535,6 @@ DE,Kolitzheim
 DE,Kölbingen
 DE,Kolbingen
 DE,Kolbermoor
-DE,Kohlberg
 DE,Kohlberg
 DE,Köfering
 DE,Ködnitz
@@ -7826,9 +7622,6 @@ DE,Kirchheim an der Weinstraße
 DE,Kirchheim am Ries
 DE,Kirchheim am Neckar
 DE,Kirchheim
-DE,Kirchheim
-DE,Kirchheim
-DE,Kirchheim
 DE,Kirchhaslach
 DE,Kirchham
 DE,Kirchhain
@@ -7844,16 +7637,10 @@ DE,Kirchehrenbach
 DE,Kirchdorf im Wald
 DE,Kirchdorf am Inn
 DE,Kirchdorf
-DE,Kirchdorf
-DE,Kirchdorf
-DE,Kirchdorf
 DE,Kirchbrak
 DE,Kirchberg an der Murr
 DE,Kirchberg an der Jagst
 DE,Kirchberg an der Iller
-DE,Kirchberg
-DE,Kirchberg
-DE,Kirchberg
 DE,Kirchberg
 DE,Kirchardt
 DE,Kirchanschöring
@@ -7904,7 +7691,6 @@ DE,Kayna
 DE,Kayhude
 DE,Kavelstorf
 DE,Kaulsdorf
-DE,Kaulsdorf
 DE,Kaufering
 DE,Kaufbeuren
 DE,Kaub
@@ -7913,8 +7699,6 @@ DE,Katzhütte
 DE,Katzenelnbogen
 DE,Katharinenberg
 DE,Kastorf
-DE,Kastl
-DE,Kastl
 DE,Kastl
 DE,Kastellaun
 DE,Kassel
@@ -8036,7 +7820,6 @@ DE,Irxleben
 DE,Irsee
 DE,Irschenberg
 DE,Irsch
-DE,Irsch
 DE,Irrel
 DE,Irlbach
 DE,Irchenrieth
@@ -8074,7 +7857,6 @@ DE,Ilmenau
 DE,Illschwang
 DE,Illmensee
 DE,Illingen
-DE,Illingen
 DE,Illertissen
 DE,Illerrieden
 DE,Ilfeld
@@ -8103,7 +7885,6 @@ DE,Hüttisheim
 DE,Hutthurm
 DE,Hüttenrode
 DE,Hütschenhausen
-DE,Husum
 DE,Husum
 DE,Hürup
 DE,Hürth
@@ -8170,13 +7951,11 @@ DE,Hopferau
 DE,Hoogstede
 DE,Homburg
 DE,Homberg
-DE,Homberg
 DE,Holzwickede
 DE,Holzweißig
 DE,Holzminden
 DE,Holzmaden
 DE,Holzkirchen
-DE,Holzheim
 DE,Holzheim
 DE,Holzhausen an der Haide
 DE,Bad Holzhausen
@@ -8238,14 +8017,12 @@ DE,Höheinöd
 DE,Hohburg
 DE,Hohberg
 DE,Hofstetten
-DE,Hofstetten
 DE,Hofkirchen
 DE,Hofheim in Unterfranken
 DE,Hofheim am Taunus
 DE,Hofgeismar
 DE,Höfen an der Enz
 DE,Hofbieber
-DE,Hof
 DE,Hof
 DE,Hodenhagen
 DE,Hockenheim
@@ -8262,7 +8039,6 @@ DE,Höchheim
 DE,Hochfeld
 DE,Höchenschwand
 DE,Hochdorf
-DE,Hochdorf
 DE,Hochdonn
 DE,Höchberg
 DE,Hitzhusen
@@ -8270,7 +8046,6 @@ DE,Hitzacker
 DE,Hirzenhain
 DE,Hirschhorn
 DE,Hirschfelde
-DE,Hirschfeld
 DE,Hirschfeld
 DE,Hirschbach
 DE,Hirschau
@@ -8353,16 +8128,12 @@ DE,Heroldsberg
 DE,Heroldsbach
 DE,Herne
 DE,Hermsdorf
-DE,Hermsdorf
-DE,Hermsdorf
-DE,Hermsdorf
 DE,Hermeskeil
 DE,Hermersberg
 DE,Hermaringen
 DE,Hermannsburg
 DE,Herleshausen
 DE,Heringsdorf
-DE,Heringen
 DE,Heringen
 DE,Hergisdorf
 DE,Hergensweiler
@@ -8391,7 +8162,6 @@ DE,Hemsbünde
 DE,Hemsbach
 DE,Hemmoor
 DE,Hemmingstedt
-DE,Hemmingen
 DE,Hemmingen
 DE,Hemhofen
 DE,Hemer
@@ -8425,7 +8195,6 @@ DE,Heimertingen
 DE,Heimenkirch
 DE,Heimbuchenthal
 DE,Heimbach
-DE,Heimbach
 DE,Heilsbronn
 DE,Heiligkreuzsteinach
 DE,Heiligenstedten
@@ -8445,7 +8214,6 @@ DE,Heidesheim
 DE,Heidenheim an der Brenz
 DE,Heidenheim
 DE,Heidenau
-DE,Heidenau
 DE,Heiden
 DE,Heidelberg
 DE,Heideck
@@ -8456,7 +8224,6 @@ DE,Heeslingen
 DE,Heemsen
 DE,Heek
 DE,Heede
-DE,Hedersleben
 DE,Hedersleben
 DE,Heddesheim
 DE,Hecklingen
@@ -8474,10 +8241,6 @@ DE,Hauswalde
 DE,Hausham
 DE,Häusern
 DE,Hausen
-DE,Hausen
-DE,Hausen
-DE,Hausen
-DE,Hausen
 DE,Hausach
 DE,Hauptstuhl
 DE,Haunsheim
@@ -8489,7 +8252,6 @@ DE,Hattstedt
 DE,Hattorf
 DE,Hattingen
 DE,Hattersheim
-DE,Hattenhofen
 DE,Hattenhofen
 DE,Hatten
 DE,Haste
@@ -8514,11 +8276,9 @@ DE,Hasbergen
 DE,Harzgerode
 DE,Harxheim
 DE,Hartmannsdorf
-DE,Hartmannsdorf
 DE,Hartheim
 DE,Harthausen
 DE,Hartha
-DE,Hartenstein
 DE,Hartenstein
 DE,Hartenholm
 DE,Harsum
@@ -8533,7 +8293,6 @@ DE,Haren
 DE,Hardt
 DE,Hardheim
 DE,Hardegsen
-DE,Harburg
 DE,Harburg
 DE,Harbke
 DE,Happurg
@@ -8556,7 +8315,6 @@ DE,Hammerbrücke
 DE,Hammelburg
 DE,Hammah
 DE,Hamm
-DE,Hamm
 DE,Hameln
 DE,Hamdorf
 DE,Wandsbek
@@ -8578,12 +8336,10 @@ DE,Hallstadt
 DE,Hallerndorf
 DE,Hallenberg
 DE,Halle
-DE,Halle
 DE,Halle (Saale)
 DE,Hallbergmoos
 DE,Halfing
 DE,Halensee
-DE,Haldenwang
 DE,Haldenwang
 DE,Haldensleben I
 DE,Halblech
@@ -8597,13 +8353,11 @@ DE,Hainichen
 DE,Hain-Gründau
 DE,Hainewalde
 DE,Haina
-DE,Haina
 DE,Haiming
 DE,Haimhausen
 DE,Haigerloch
 DE,Haiger
 DE,Haidmühle
-DE,Haibach
 DE,Haibach
 DE,Hahnstätten
 DE,Hähnichen
@@ -8615,7 +8369,6 @@ DE,Hagen im Bremischen
 DE,Hagenburg
 DE,Hagenbüchach
 DE,Hagenbach
-DE,Hagen
 DE,Hagen
 DE,Hagelstadt
 DE,Hage
@@ -8637,7 +8390,6 @@ DE,Guttau
 DE,Gütersloh
 DE,Gutenstetten
 DE,Gutenberg
-DE,Gutenberg
 DE,Gütenbach
 DE,Gutach im Breisgau
 DE,Gutach (Schwarzwaldbahn)
@@ -8655,8 +8407,6 @@ DE,Guntersblum
 DE,Gundremmingen
 DE,Gundersheim
 DE,Gundelsheim
-DE,Gundelsheim
-DE,Gundelfingen
 DE,Gundelfingen
 DE,Gumtow
 DE,Gummersbach
@@ -8786,7 +8536,6 @@ DE,Großaitingen
 DE,Grönwohld
 DE,Gröningen
 DE,Gronau
-DE,Gronau
 DE,Grömitz
 DE,Grolsheim
 DE,Groitzsch
@@ -8895,7 +8644,6 @@ DE,Goldenstedt
 DE,Goldberg
 DE,Goldbeck
 DE,Goldbach
-DE,Goldbach
 DE,Goel
 DE,Göggingen
 DE,Göda
@@ -8920,7 +8668,6 @@ DE,Glauburg
 DE,Glaubitz
 DE,Glatten
 DE,Glattbach
-DE,Glashütten
 DE,Glashütten
 DE,Glashütte
 DE,Glan-Münchweiler
@@ -8967,7 +8714,6 @@ DE,Gersten
 DE,Gersheim
 DE,Gersfeld
 DE,Gersdorf
-DE,Gersdorf
 DE,Gerolzhofen
 DE,Gerolstein
 DE,Gerolsheim
@@ -8977,7 +8723,6 @@ DE,Geroldshausen
 DE,Geroldsgrün
 DE,Gernsheim
 DE,Gernsbach
-DE,Gernrode
 DE,Gernrode
 DE,Germersheim
 DE,Germering
@@ -9090,7 +8835,6 @@ DE,Furtwangen im Schwarzwald
 DE,Furth im Wald
 DE,Fürthen
 DE,Fürth
-DE,Fürth
 DE,Furth
 DE,Fürstenzell
 DE,Fürstenwalde
@@ -9098,7 +8842,6 @@ DE,Fürstenstein
 DE,Fürstenhausen
 DE,Fürstenfeldbruck
 DE,Fürsteneck
-DE,Fürstenberg
 DE,Fürstenberg
 DE,Fürstenau
 DE,Fürfeld
@@ -9134,11 +8877,8 @@ DE,Friedrichsdorf
 DE,Friedrichsbrunn
 DE,Friedrichroda
 DE,Friedland
-DE,Friedland
 DE,Gemeinde Friedland
 DE,Friedewald
-DE,Friedewald
-DE,Friedersdorf
 DE,Friedersdorf
 DE,Friedenweiler
 DE,Friedenfels
@@ -9146,11 +8886,9 @@ DE,Friedenau
 DE,Friedelsheim
 DE,Friedeburg
 DE,Friedberg
-DE,Friedberg
 DE,Fridolfing
 DE,Fridingen an der Donau
 DE,Frickingen
-DE,Frickenhausen
 DE,Frickenhausen
 DE,Freyung
 DE,Freystadt
@@ -9158,8 +8896,6 @@ DE,Freyburg
 DE,Freudental
 DE,Freudenstadt
 DE,Freudenburg
-DE,Freudenberg
-DE,Freudenberg
 DE,Freudenberg
 DE,Freren
 DE,Frensdorf
@@ -9175,7 +8911,6 @@ DE,Freihung
 DE,Freienwill
 DE,Freiensteinau
 DE,Freienbessingen
-DE,Freiburg
 DE,Freiburg
 DE,Freiberg am Neckar
 DE,Freiberg
@@ -9198,22 +8933,17 @@ DE,Frankfurt am Main
 DE,Frankfurt (Oder)
 DE,Frankenwinheim
 DE,Frankenthal
-DE,Frankenthal
-DE,Frankenstein
 DE,Frankenstein
 DE,Frankenheim
-DE,Frankenberg
 DE,Frankenberg
 DE,Frankenau
 DE,Frammersbach
 DE,Framersheim
 DE,Forstinning
 DE,Forst
-DE,Forst
 DE,Föritz
 DE,Förderstedt
 DE,Forchtenberg
-DE,Forchheim
 DE,Forchheim
 DE,Forbach
 DE,Föhren
@@ -9274,13 +9004,9 @@ DE,Farchant
 DE,Fambach
 DE,Bad Fallingbostel
 DE,Falkenstein
-DE,Falkenstein
 DE,Falkensee
 DE,Falkenhain
 DE,Falkenfels
-DE,Falkenberg
-DE,Falkenberg
-DE,Falkenberg
 DE,Falkenberg
 DE,Falkenau
 DE,Faid
@@ -9299,7 +9025,6 @@ DE,Eutin
 DE,Eußenheim
 DE,Euskirchen
 DE,Eurasburg
-DE,Eurasburg
 DE,Euerdorf
 DE,Euerbach
 DE,Etzenricht
@@ -9309,17 +9034,14 @@ DE,Ettringen
 DE,Ettlingen
 DE,Ettenheim
 DE,Estorf
-DE,Estorf
 DE,Esthal
 DE,Esterwegen
 DE,Estenfeld
 DE,Esslingen
 DE,Essingen
-DE,Essingen
 DE,Essing
 DE,Essenheim
 DE,Essenbach
-DE,Essen
 DE,Essen
 DE,Esselbach
 DE,Essel
@@ -9358,8 +9080,6 @@ DE,Erlensee
 DE,Erlenmoos
 DE,Erlenbach am Main
 DE,Erlenbach
-DE,Erlenbach
-DE,Erlbach
 DE,Erlbach
 DE,Erlau
 DE,Erlangen
@@ -9386,7 +9106,6 @@ DE,Erding
 DE,Erbes-Büdesheim
 DE,Erbendorf
 DE,Erbach
-DE,Erbach
 DE,Eppstein
 DE,Eppishausen
 DE,Eppingen
@@ -9399,7 +9118,6 @@ DE,Eppelborn
 DE,Epfendorf
 DE,Epfenbach
 DE,Enzklösterle
-DE,Ensdorf
 DE,Ensdorf
 DE,Ennigerloh
 DE,Ennetach
@@ -9426,7 +9144,6 @@ DE,Emsdetten
 DE,Emsbüren
 DE,Empfingen
 DE,Emmering
-DE,Emmering
 DE,Emmerich
 DE,Emmendingen
 DE,Emmelshausen
@@ -9435,7 +9152,6 @@ DE,Emkendorf
 DE,Emersacker
 DE,Emden
 DE,Embsen
-DE,Elze
 DE,Elze
 DE,Elzach
 DE,Elz
@@ -9454,10 +9170,8 @@ DE,Elsenfeld
 DE,Elsendorf
 DE,Elsdorf-Westermühlen
 DE,Elsdorf
-DE,Elsdorf
 DE,Elmstein
 DE,Elmshorn
-DE,Elmenhorst
 DE,Elmenhorst
 DE,Ellzee
 DE,Ellwangen
@@ -9483,11 +9197,9 @@ DE,Eiterfeld
 DE,Eitelborn
 DE,Eislingen
 DE,Eisingen
-DE,Eisingen
 DE,Eisfeld
 DE,Eisenhüttenstadt
 DE,Eisenburg
-DE,Eisenberg
 DE,Eisenberg
 DE,Eisenbach
 DE,Eisenach
@@ -9524,11 +9236,9 @@ DE,Ehrenburg
 DE,Ehningen
 DE,Ehlscheid
 DE,Ehingen
-DE,Ehingen
 DE,Ehekirchen
 DE,Egmating
 DE,Egloffstein
-DE,Egling
 DE,Egling
 DE,Eging
 DE,Eggstätt
@@ -9542,7 +9252,6 @@ DE,Eggenstein-Leopoldshafen
 DE,Eggenfelden
 DE,Eggebek
 DE,Egg an der Günz
-DE,Egestorf
 DE,Egestorf
 DE,Egenhofen
 DE,Egenhausen
@@ -9566,8 +9275,6 @@ DE,Eckernförde
 DE,Eckartsberga
 DE,Echzell
 DE,Eching
-DE,Eching
-DE,Eching
 DE,Echem
 DE,Ebstorf
 DE,Ebringen
@@ -9577,10 +9284,8 @@ DE,Ebertsheim
 DE,Eberswalde
 DE,Eberstadt
 DE,Ebersdorf
-DE,Ebersdorf
 DE,Ebersberg
 DE,Ebersbach an der Fils
-DE,Ebersbach
 DE,Ebersbach
 DE,Ebernhahn
 DE,Ebermannstadt
@@ -9764,7 +9469,6 @@ DE,Dersum
 DE,Dersekow
 DE,Derschen
 DE,Dernbach
-DE,Dernbach
 DE,Dernau
 DE,Dermbach
 DE,Derenburg
@@ -9820,11 +9524,9 @@ DE,Dalheim
 DE,Daisendorf
 DE,Dahn
 DE,Dahme
-DE,Dahme
 DE,Dahlenwarsleben
 DE,Dahlenburg
 DE,Dahlen
-DE,Dahlem
 DE,Dahlem
 DE,Dägeling
 DE,Dachwig
@@ -9847,7 +9549,6 @@ DE,Creglingen
 DE,Crawinkel
 DE,Crailsheim
 DE,Cottbus
-DE,Coswig
 DE,Coswig
 DE,Cornberg
 DE,Coppenbrügge
@@ -9968,7 +9669,6 @@ DE,Büdingen
 DE,Budenheim
 DE,Büdelsdorf
 DE,Buckow
-DE,Buckow
 DE,Buckenhof
 DE,Bücken
 DE,Bückeburg
@@ -9976,7 +9676,6 @@ DE,Buchloe
 DE,Büchlberg
 DE,Buchholz in der Nordheide
 DE,Französisch Buchholz
-DE,Buchholz
 DE,Buchholz
 DE,Buchheim
 DE,Büchenbeuren
@@ -9993,8 +9692,6 @@ DE,Buch am Buchrain
 DE,Buch am Ahorn
 DE,Bucha
 DE,Buch
-DE,Buch
-DE,Buch
 DE,Bubsheim
 DE,Bubesheim
 DE,Bubenreuth
@@ -10004,19 +9701,14 @@ DE,Brunsbüttel
 DE,Brunnthal
 DE,Brunnen
 DE,Brunn
-DE,Brunn
 DE,Brumby
 DE,Brühl
-DE,Brühl
-DE,Brüggen
 DE,Brüggen
 DE,Brügge
 DE,Brüel
 DE,Bruckmühl
 DE,Bruck in der Oberpfalz
 DE,Brücken
-DE,Brücken
-DE,Bruckberg
 DE,Bruckberg
 DE,Brück
 DE,Bruck
@@ -10032,7 +9724,6 @@ DE,Brokdorf
 DE,Broderstorf
 DE,Brockum
 DE,Brockel
-DE,Britz
 DE,Britz
 DE,Britten
 DE,Brilon
@@ -10063,12 +9754,8 @@ DE,Breitengüßbach
 DE,Breitenfelde
 DE,Breitenburg
 DE,Breitenbrunn
-DE,Breitenbrunn
-DE,Breitenbrunn
 DE,Breitenberg
 DE,Breitenbach
-DE,Breitenbach
-DE,Breitbrunn
 DE,Breitbrunn
 DE,Breisach am Rhein
 DE,Breiholz
@@ -10106,7 +9793,6 @@ DE,Brackenheim
 DE,Brackel
 DE,Brachbach
 DE,Boxberg
-DE,Boxberg
 DE,Bovenden
 DE,Bovenau
 DE,Bous
@@ -10132,14 +9818,12 @@ DE,Börnichen
 DE,Bornich
 DE,Bornhöved
 DE,Bornheim
-DE,Bornheim
 DE,Borne
 DE,Borna
 DE,Born
 DE,Borkwalde
 DE,Borkum
 DE,Borkheide
-DE,Borken
 DE,Borken
 DE,Borgstedt
 DE,Borgholzhausen
@@ -10189,7 +9873,6 @@ DE,Bodenfelde
 DE,Bodelshausen
 DE,Bockhorst
 DE,Bockhorn
-DE,Bockhorn
 DE,Bockenheim
 DE,Bockenem
 DE,Bockenau
@@ -10207,7 +9890,6 @@ DE,Bobbau
 DE,Blumberg
 DE,Blowatz
 DE,Blomberg
-DE,Blomberg
 DE,Blindheim
 DE,Blieskastel
 DE,Bliesdorf
@@ -10222,10 +9904,8 @@ DE,Blaubeuren
 DE,Blankensee
 DE,Blankenrath
 DE,Blankenheim
-DE,Blankenheim
 DE,Blankenhain
 DE,Blankenfelde
-DE,Blankenburg
 DE,Blankenburg
 DE,Blaichach
 DE,Blaibach
@@ -10255,8 +9935,6 @@ DE,Bad Birnbach
 DE,Birlenbach
 DE,Birkenwerder
 DE,Birkenheide
-DE,Birkenfeld
-DE,Birkenfeld
 DE,Birkenfeld
 DE,Birkenau
 DE,Birgte
@@ -10317,8 +9995,6 @@ DE,Berthelsdorf
 DE,Berstadt
 DE,Bersenbrück
 DE,Bernstadt
-DE,Bernstadt
-DE,Bernsdorf
 DE,Bernsdorf
 DE,Bernsbach
 DE,Bernried
@@ -10354,16 +10030,9 @@ DE,Berghaupten
 DE,Bergen auf Rügen
 DE,Bergen an der Dumme
 DE,Bergen
-DE,Bergen
-DE,Bergen
-DE,Bergen
 DE,Berge
 DE,Bergatreute
 DE,Berga
-DE,Berga
-DE,Berg
-DE,Berg
-DE,Berg
 DE,Berg
 DE,Berchtesgaden
 DE,Berching
@@ -10389,7 +10058,6 @@ DE,Belm
 DE,Bellheim
 DE,Bellenberg
 DE,Belleben
-DE,Bell
 DE,Bell
 DE,Belgershain
 DE,Belgern
@@ -10424,7 +10092,6 @@ DE,Bayrischzell
 DE,Bayreuth
 DE,Bayerisch Gmain
 DE,Bayerisch Eisenstein
-DE,Bayerbach
 DE,Bayerbach
 DE,Bayenthal
 DE,Bawinkel
@@ -10461,7 +10128,6 @@ DE,Bark
 DE,Bargteheide
 DE,Bargstedt
 DE,Bargfeld-Stegen
-DE,Bärenstein
 DE,Bärenstein
 DE,Barendorf
 DE,Barenburg
@@ -10613,7 +10279,6 @@ DE,Bacharach
 DE,Bach
 DE,Babensham
 DE,Babenhausen
-DE,Babenhausen
 DE,Baalberge
 DE,Aystetten
 DE,Ayl
@@ -10636,8 +10301,6 @@ DE,Auggen
 DE,Aufseß
 DE,Aufhausen
 DE,Auerbach
-DE,Auerbach
-DE,Auerbach
 DE,Aue
 DE,Aub
 DE,Au am Rhein
@@ -10654,17 +10317,14 @@ DE,Asselfingen
 DE,Assamstadt
 DE,Asperg
 DE,Asendorf
-DE,Asendorf
 DE,Aschheim
 DE,Aschersleben
-DE,Ascheberg
 DE,Ascheberg
 DE,Aschau am Inn
 DE,Aschaffenburg
 DE,Ascha
 DE,Asbach
 DE,Arzfeld
-DE,Arzberg
 DE,Arzberg
 DE,Arzbach
 DE,Artlenburg
@@ -10718,7 +10378,6 @@ DE,Amerang
 DE,Amendingen
 DE,Amelinghausen
 DE,Amberg
-DE,Amberg
 DE,Alzey
 DE,Alzenau in Unterfranken
 DE,Alveslohe
@@ -10746,8 +10405,6 @@ DE,Altentreptow
 DE,Altenthann
 DE,Altensteig
 DE,Altenstadt
-DE,Altenstadt
-DE,Altenstadt
 DE,Altenriet
 DE,Altenpleen
 DE,Altenmünster
@@ -10755,8 +10412,6 @@ DE,Altenmedingen
 DE,Altenmarkt
 DE,Altenkunstadt
 DE,Altenkrempe
-DE,Altenkirchen
-DE,Altenkirchen
 DE,Altenkirchen
 DE,Altenholz
 DE,Altengottern
@@ -10777,9 +10432,6 @@ DE,Alteglofsheim
 DE,Altefähr
 DE,Alt Duvenstedt
 DE,Altdorf
-DE,Altdorf
-DE,Altdorf
-DE,Altdorf
 DE,Altdöbern
 DE,Altbach
 DE,Ammerthal
@@ -10788,7 +10440,6 @@ DE,Alsleben
 DE,Alsheim
 DE,Alsfeld
 DE,Alsenz
-DE,Alsdorf
 DE,Alsdorf
 DE,Alpirsbach
 DE,Alpenrod
@@ -10806,7 +10457,6 @@ DE,Alheim
 DE,Algermissen
 DE,Alfter
 DE,Alfhausen
-DE,Alfeld
 DE,Alfeld
 DE,Alfdorf
 DE,Bad Alexandersbad
@@ -10893,7 +10543,6 @@ DE,Abensberg
 DE,Abenberg
 DE,Abbesbüttel
 DE,Aalen
-DE,Aach
 DE,Aach
 DE,Eggermühlen
 DE,Thalfang
@@ -11352,7 +11001,6 @@ DK,Hørsholm
 DK,Hørning
 DK,Høng
 DK,Højby
-DK,Højby
 DK,Holte
 DK,Holsted
 DK,Holstebro
@@ -11406,7 +11054,6 @@ DK,Frederiksværk
 DK,Frederikssund
 DK,Frederikshavn
 DK,Frederiksberg
-DK,Frederiksberg
 DK,Fredericia
 DK,Fredensborg
 DK,Framlev
@@ -11421,8 +11068,6 @@ DK,Faxe
 DK,Faaborg
 DK,Espergærde
 DK,Esbjerg
-DK,Ejby
-DK,Ejby
 DK,Ejby
 DK,Egtved
 DK,Ebeltoft
@@ -11616,11 +11261,9 @@ EE,Kuusalu
 EE,Kuressaare
 EE,Kurepalu
 EE,Kunda
-EE,Kunda
 EE,Kullamaa
 EE,Kuldre
 EE,Krootuse
-EE,Kose
 EE,Kose
 EE,Kõrveküla
 EE,Koonga
@@ -12416,7 +12059,6 @@ ES,Munera
 ES,Mula
 ES,Mutxamel
 ES,Moya
-ES,Moya
 ES,Motril
 ES,Motilleja
 ES,Motilla del Palancar
@@ -12843,7 +12485,6 @@ ES,Garlitos
 ES,Garbayuela
 ES,Garafía
 ES,Garachico
-ES,Garachico
 ES,Garaballa
 ES,Gandia
 ES,Gálvez
@@ -12883,7 +12524,6 @@ ES,Fuenllana
 ES,Fuenlabrada de los Montes
 ES,Fuengirola
 ES,Fuencaliente de la Palma
-ES,Fuencaliente
 ES,Fuencaliente
 ES,Frontera
 ES,Frigiliana
@@ -12988,7 +12628,6 @@ ES,Dos Aguas
 ES,Don Benito
 ES,Doña Mencía
 ES,Don Álvaro
-ES,Domingo Pérez
 ES,Domingo Pérez
 ES,Domeño
 ES,Dolores
@@ -13653,7 +13292,6 @@ ES,Aguilar
 ES,Agudo
 ES,Aigües
 ES,Aguadulce
-ES,Aguadulce
 ES,Agrón
 ES,Agres
 ES,Agost
@@ -14031,7 +13669,6 @@ ES,Villafáfila
 ES,Villaespasa
 ES,Villaescusa la Sombría
 ES,Villaescusa de Roa
-ES,Villaescusa
 ES,Villaescusa
 ES,Villaeles de Valdavia
 ES,Villadoz
@@ -14608,7 +14245,6 @@ ES,Solarana
 ES,Solanillos del Extremo
 ES,Sojuela
 ES,Sobrado
-ES,Sobrado
 ES,Sobradillo
 ES,Sobradiel
 ES,Sober
@@ -14783,7 +14419,6 @@ ES,Santa Eulàlia de Ronçana
 ES,Santa Eulalia de Oscos
 ES,Santa Eulalia de Gállego
 ES,Santa Eulalia Bajera
-ES,Santa Eulalia
 ES,Santa Eulalia
 ES,Santa Eugènia de Berga
 ES,Santa Eufemia del Barco
@@ -15310,7 +14945,6 @@ ES,Pozalmuro
 ES,Pozal de Gallinas
 ES,Poza de la Vega
 ES,Poza de la Sal
-ES,Poio
 ES,Poio
 ES,Poyales del Hoyo
 ES,Poveda de la Sierra
@@ -15966,7 +15600,6 @@ ES,Mijares
 ES,Migueláñez
 ES,Mieza
 ES,Mieres
-ES,Mieres
 ES,Miengo
 ES,Miedes de Atienza
 ES,Micieces de Ojeda
@@ -16213,7 +15846,6 @@ ES,Llançà
 ES,Llano de Olmedo
 ES,Llano de Bureba
 ES,Llanes
-ES,Llanera
 ES,Llanera
 ES,Llambilles
 ES,Llamas de la Ribera
@@ -16819,7 +16451,6 @@ ES,Fontanar
 ES,Fonsagrada
 ES,Fonollosa
 ES,Fonfría
-ES,Fonfría
 ES,Foncea
 ES,Fompedraza
 ES,Fombuena
@@ -17011,7 +16642,6 @@ ES,Daroca
 ES,Darnius
 ES,Daganzo de Arriba
 ES,Cuzcurrita de Río Tirón
-ES,Curtis
 ES,Curtis
 ES,Curiel de Duero
 ES,Cuntis
@@ -17217,7 +16847,6 @@ ES,Checa
 ES,Chapinería
 ES,Chantada
 ES,Chañe
-ES,Chamartín
 ES,Chamartín
 ES,Chalamera
 ES,Cevico Navero
@@ -17977,7 +17606,6 @@ ES,Avilés
 ES,Ávila
 ES,Avià
 ES,Avellanosa de Muñó
-ES,Avellaneda
 ES,Avellaneda
 ES,Aveinte
 ES,Autol
@@ -18750,7 +18378,6 @@ FI,Pyhäranta
 FI,Pyhäntä
 FI,Pyhäjoki
 FI,Pyhäjärvi
-FI,Pyhäjärvi
 FI,Puumala
 FI,Puolanka
 FI,Punkalaidun
@@ -18821,7 +18448,6 @@ FI,Muurame
 FI,Muonio
 FI,Munkkiniemi
 FI,Multia
-FI,Muhos
 FI,Muhos
 FI,Mouhijärvi
 FI,Mikkeli
@@ -18915,7 +18541,6 @@ FI,Kittilä
 FI,Kitee
 FI,Kisko
 FI,Kinnula
-FI,Kinnula
 FI,Kimito
 FI,Kiiminki
 FI,Kiikoinen
@@ -18939,11 +18564,9 @@ FI,Kauhava
 FI,Kauhajoki
 FI,Kaskinen
 FI,Karvia
-FI,Karvia
 FI,Karttula
 FI,Karstula
 FI,Kärsämäki
-FI,Kärkölä
 FI,Kärkölä
 FI,Karkkila
 FI,Karjalohja
@@ -19005,7 +18628,6 @@ FI,Humppila
 FI,Huittinen
 FI,Houtskär
 FI,Honkajoki
-FI,Hollola
 FI,Hollola
 FI,Hirvensalmi
 FI,Himanka
@@ -19175,8 +18797,6 @@ FR,Voulx
 FR,Voulangis
 FR,Voujeaucourt
 FR,Vouillé
-FR,Vouillé
-FR,Vougy
 FR,Vougy
 FR,Vorey
 FR,Voreppe
@@ -19233,7 +18853,6 @@ FR,Vinon-sur-Verdon
 FR,Vinneuf
 FR,Vineuil-Saint-Firmin
 FR,Vineuil
-FR,Vineuil
 FR,Vincey
 FR,Vincennes
 FR,Vinça
@@ -19285,12 +18904,10 @@ FR,Villers-Écalles
 FR,Villers-Cotterêts
 FR,Villers-Bretonneux
 FR,Villers-Bocage
-FR,Villers-Bocage
 FR,Villereversure
 FR,Villerest
 FR,Villeréal
 FR,Villepreux
-FR,Villepinte
 FR,Villepinte
 FR,Villeparisis
 FR,Villenoy
@@ -19318,9 +18935,6 @@ FR,Villeneuve-de-Rivière
 FR,Villeneuve-de-Marsan
 FR,Villeneuve-de-la-Raho
 FR,Villeneuve-de-Berg
-FR,Villeneuve
-FR,Villeneuve
-FR,Villeneuve
 FR,Villeneuve
 FR,Villenave-d’Ornon
 FR,Villenauxe-la-Grande
@@ -19459,7 +19073,6 @@ FR,Vern-sur-Seiche
 FR,Vernoux-en-Vivarais
 FR,Vernou-la-Celle-sur-Seine
 FR,Vernou-sur-Brenne
-FR,Vernouillet
 FR,Vernouillet
 FR,Vernosc-lès-Annonay
 FR,Vernon
@@ -19606,7 +19219,6 @@ FR,Valensole
 FR,Valencin
 FR,Valenciennes
 FR,Valence-sur-Baïse
-FR,Valence
 FR,Valence
 FR,Valençay
 FR,Valdoie
@@ -19770,7 +19382,6 @@ FR,Torreilles
 FR,Torigni-sur-Vire
 FR,Torfou
 FR,Torcy
-FR,Torcy
 FR,Torcé
 FR,Tonquédec
 FR,Tonnerre
@@ -19818,7 +19429,6 @@ FR,Thônes
 FR,Thomery
 FR,Thoissey
 FR,Thoiry
-FR,Thoiry
 FR,Thizy-les-Bourgs
 FR,Thiviers
 FR,Thiverval-Grignon
@@ -19828,7 +19438,6 @@ FR,Thiron Gardais
 FR,Thionville
 FR,Thilouze
 FR,Thilay
-FR,Thil
 FR,Thil
 FR,Thierville-sur-Meuse
 FR,Thiers-sur-Thève
@@ -20017,7 +19626,6 @@ FR,Solignac-sur-Loire
 FR,Solignac
 FR,Soliers
 FR,Solgne
-FR,Solesmes
 FR,Solesmes
 FR,Solers
 FR,Solaize
@@ -20330,7 +19938,6 @@ FR,Saint-Vincent-sur-Graon
 FR,Saint-Vincent-de-Tyrosse
 FR,Saint-Vincent-des-Landes
 FR,Saint-Vincent-de-Paul
-FR,Saint-Vincent-de-Paul
 FR,Saint-Vincent-de-Mercuze
 FR,Saint-Vigor-le-Grand
 FR,Saint-Victurnien
@@ -20342,12 +19949,10 @@ FR,Saint-Viaud
 FR,Saint-Viâtre
 FR,Saint-Viance
 FR,Saint-Vérand
-FR,Saint-Vérand
 FR,Saint-Venant
 FR,Saint-Vaury
 FR,Saint-Varent
 FR,Saint-Vallier-de-Thiey
-FR,Saint-Vallier
 FR,Saint-Vallier
 FR,Saint-Valery-sur-Somme
 FR,Saint-Valery-en-Caux
@@ -20356,7 +19961,6 @@ FR,Saint-Vaast-la-Hougue
 FR,Saint-Uze
 FR,Saint-Usuge
 FR,Saint-Usage
-FR,Saint-Urbain
 FR,Saint-Urbain
 FR,Saint-Tropez
 FR,Saint-Trojan-les-Bains
@@ -20370,7 +19974,6 @@ FR,Saint-Thibault-des-Vignes
 FR,Saint-Thégonnec
 FR,Saint-Symphorien-sur-Coise
 FR,Saint-Symphorien-de-Lay
-FR,Saint-Symphorien
 FR,Saint-Symphorien
 FR,Saint-Sylvestre-sur-Lot
 FR,Saint-Sylvestre-Pragoulin
@@ -20407,8 +20010,6 @@ FR,Saint-Sébastien-de-Morsent
 FR,Saint-Savournin
 FR,Saint-Savinien
 FR,Saint-Savin
-FR,Saint-Savin
-FR,Saint-Savin
 FR,Saint-Sauveur-sur-École
 FR,Saint-Sauveur-le-Vicomte
 FR,Saint-Sauveur-Lendelin
@@ -20416,20 +20017,12 @@ FR,Saint-Sauveur-en-Rue
 FR,Saint-Sauveur-des-Landes
 FR,Saint-Sauveur-de-Montagut
 FR,Saint-Sauveur
-FR,Saint-Sauveur
-FR,Saint-Sauveur
-FR,Saint-Sauveur
-FR,Saint-Sauveur
-FR,Saint-Sauveur
-FR,Saint-Sauveur
 FR,Saint-Sauves-d'Auvergne
 FR,Saint-Sauvant
 FR,Saint-Saulve
 FR,Saint-Saturnin-sur-Loire
 FR,Saint-Saturnin-lès-Avignon
 FR,Saint-Saturnin-lès-Apt
-FR,Saint-Saturnin
-FR,Saint-Saturnin
 FR,Saint-Saturnin
 FR,Saint-Satur
 FR,Saint-Samson-sur-Rance
@@ -20456,7 +20049,6 @@ FR,Saint-Rémy-en-Rollat
 FR,Saint-Rémy-en-Mauges
 FR,Saint-Rémy-de-Provence
 FR,Saint-Rémy
-FR,Saint-Rémy
 FR,Saint-Rémy-de-Maurienne
 FR,Saint-Raphaël
 FR,Saint-Rambert-en-Bugey
@@ -20477,11 +20069,9 @@ FR,Saint-Prix
 FR,Saint-Privat-la-Montagne
 FR,Saint-Privat-des-Vieux
 FR,Saint-Privat
-FR,Saint-Privat
 FR,Saint-Priest-Taurion
 FR,Saint-Priest-sous-Aixe
 FR,Saint-Priest-en-Jarez
-FR,Saint-Priest
 FR,Saint-Priest
 FR,Saint-Prest
 FR,Saint-Pourçain-sur-Sioule
@@ -20547,7 +20137,6 @@ FR,Saint-Paul-de-Jarrat
 FR,Saint-Paul-de-Fenouillet
 FR,Saint-Paul-Cap-de-Joux
 FR,Saint-Paul
-FR,Saint-Paul
 FR,Saint-Paul-de-Vence
 FR,Saint-Pathus
 FR,Saint-Paterne-Racan
@@ -20573,8 +20162,6 @@ FR,Saint-Ouen-de-Thouberville
 FR,Saint-Ouën-des-Toits
 FR,Saint-Ouen-des-Alleux
 FR,Saint-Ouen
-FR,Saint-Ouen
-FR,Saint-Ouen
 FR,Saint-Orens-de-Gameville
 FR,Saint-Omer-en-Chaussée
 FR,Saint-Omer
@@ -20592,7 +20179,6 @@ FR,Saint-Nicolas
 FR,Saint-Nazaire
 FR,Saint-Nazaire-les-Eymes
 FR,Saint-Nazaire
-FR,Saint-Nazaire
 FR,Saint-Nauphary
 FR,Saint-Nabord
 FR,Saint-Morillon
@@ -20605,7 +20191,6 @@ FR,Saint-Michel-Mont-Mercure
 FR,Saint-Michel-le-Cloucq
 FR,Saint-Michel-de-Maurienne
 FR,Saint-Michel-Chef-Chef
-FR,Saint-Michel
 FR,Saint-Michel
 FR,Saint-Mexant
 FR,Saint-Mesmin
@@ -20658,7 +20243,6 @@ FR,Saint-Martin-en-Bresse
 FR,Saint-Martin-du-Vivier
 FR,Saint-Martin-du-Var
 FR,Saint-Martin-du-Tertre
-FR,Saint-Martin-du-Tertre
 FR,Saint-Martin-du-Mont
 FR,Saint-Martin-du-Manoir
 FR,Saint-Martin-du-Frêne
@@ -20668,7 +20252,6 @@ FR,Saint-Martin-de-Valgalgues
 FR,Saint-Martin-de-Valamas
 FR,Saint-Martin-des-Noyers
 FR,Saint-Martin-de-Seignanx
-FR,Saint-Martin-des-Champs
 FR,Saint-Martin-des-Champs
 FR,Saint-Martin-des-Besaces
 FR,Saint-Martin-de-Ré
@@ -20699,8 +20282,6 @@ FR,Saint-Marcellin
 FR,Saint-Marcel-lès-Valence
 FR,Saint-Marcel-lès-Sauzet
 FR,Saint-Marcel-lès-Annonay
-FR,Saint-Marcel
-FR,Saint-Marcel
 FR,Saint-Marcel
 FR,Saint-Marcel-sur-Aude
 FR,Saint-Manvieu
@@ -20733,8 +20314,6 @@ FR,Saint-Lizier
 FR,Saint-Leu-la-Forêt
 FR,Saint-Leu
 FR,Saint-Léonard-de-Noblat
-FR,Saint-Léonard
-FR,Saint-Léonard
 FR,Saint-Léonard
 FR,Saint-Léger-sur-Roanne
 FR,Saint-Léger-sur-Dheune
@@ -20779,7 +20358,6 @@ FR,Saint-Just-en-Chaussée
 FR,Saint-Just-de-Claix
 FR,Saint-Just-Chaleyssin
 FR,Saint-Just
-FR,Saint-Just
 FR,Saint-Just-Luzac
 FR,Saint-Just-d'Ardèche
 FR,Saint-Just
@@ -20796,8 +20374,6 @@ FR,Saint-Julien-des-Landes
 FR,Saint-Julien-de-Peyrolas
 FR,Saint-Julien-de-Concelles
 FR,Saint-Julien-Chapteuil
-FR,Saint-Julien
-FR,Saint-Julien
 FR,Saint-Julien
 FR,Saint-Juéry
 FR,Saint-Jouvent
@@ -20851,7 +20427,6 @@ FR,Saint-Jean-Cap-Ferrat
 FR,Saint-Jean-Brévelay
 FR,Saint-Jean-Bonnefonds
 FR,Saint-Jean
-FR,Saint-Jean
 FR,Saint-Jans-Cappel
 FR,Saint-James
 FR,Saint-Jacut-les-Pins
@@ -20859,9 +20434,6 @@ FR,Saint-Jacques-sur-Darnétal
 FR,Saint-Jacques-de-la-Lande
 FR,Saint-Ismier
 FR,Saint-Hippolyte-du-Fort
-FR,Saint-Hippolyte
-FR,Saint-Hippolyte
-FR,Saint-Hippolyte
 FR,Saint-Hippolyte
 FR,Saint-Hilaire-Saint-Mesmin
 FR,Saint-Hilaire-Petitville
@@ -20879,7 +20451,6 @@ FR,Saint-Hilaire-de-Clisson
 FR,Saint-Hilaire-de-Chaléons
 FR,Saint-Hilaire-de-Brethmas
 FR,Saint-Hilaire
-FR,Saint-Hilaire
 FR,Saint-Herblon
 FR,Saint-Herblain
 FR,Saint-Hélen
@@ -20891,7 +20462,6 @@ FR,Saint-Gobain
 FR,Saint-Girons
 FR,Saint-Gilles-Croix-de-Vie
 FR,Saint-Gilles
-FR,Saint-Gilles
 FR,Saint-Gildas-des-Bois
 FR,Saint-Gildas-de-Rhuys
 FR,Saint-Gervasy
@@ -20900,7 +20470,6 @@ FR,Saint-Gervais-les-Bains
 FR,Saint-Gervais-la-Forêt
 FR,Saint-Gervais-en-Belin
 FR,Saint-Gervais-d’Auvergne
-FR,Saint-Gervais
 FR,Saint-Gervais
 FR,Saint-Germer-de-Fly
 FR,Saint-Germain-Village
@@ -20914,7 +20483,6 @@ FR,Saint-Germain-les-Belles
 FR,Saint-Germain-lès-Arpajon
 FR,Saint-Germain-Lembron
 FR,Saint-Germain-Laval
-FR,Saint-Germain-Laval
 FR,Saint-Germain-Laprade
 FR,Saint-Germain-la-Blanche-Herbe
 FR,Saint-Germain-en-Laye
@@ -20925,13 +20493,11 @@ FR,Saint-Germain-du-Plain
 FR,Saint-Germain-du-Corbéis
 FR,Saint-Germain-du-Bois
 FR,Saint-Germain-des-Prés
-FR,Saint-Germain-des-Prés
 FR,Saint-Germain-des-Fossés
 FR,Saint-Germain-de-Prinçay
 FR,Saint-Germain-de-Marencennes
 FR,Saint-Germain-de-Lusignan
 FR,Saint-Germain-de-la-Grange
-FR,Saint-Germain
 FR,Saint-Germain
 FR,Saint-Géréon
 FR,Saint-Gérand-le-Puy
@@ -20944,7 +20510,6 @@ FR,Saint-Georges-sur-Allier
 FR,Saint-Georges-les-Bains
 FR,Saint-Georges-lès-Baillargeaux
 FR,Saint-Georges-Haute-Ville
-FR,Saint-Georges-du-Bois
 FR,Saint-Georges-du-Bois
 FR,Saint-Georges-des-Groseillers
 FR,Saint-Georges-des-Coteaux
@@ -21009,7 +20574,6 @@ FR,Saint-Étienne-en-Coglès
 FR,Saint-Étienne-du-Rouvray
 FR,Saint-Étienne-du-Grès
 FR,Saint-Étienne-du-Bois
-FR,Saint-Étienne-du-Bois
 FR,Saint-Etienne-de-Tulmont
 FR,Saint-Étienne-de-Saint-Geoirs
 FR,Saint-Étienne-de-Montluc
@@ -21023,7 +20587,6 @@ FR,Saint-Étienne-au-Mont
 FR,Saint-Étienne
 FR,Sainte-Terre
 FR,Sainte-Suzanne
-FR,Sainte-Suzanne
 FR,Saint-Estève
 FR,Saint-Estèphe
 FR,Sainte-Soulle
@@ -21035,7 +20598,6 @@ FR,Saintes
 FR,Saint-Erme-Outre-et-Ramecourt
 FR,Sainte-Reine-de-Bretagne
 FR,Saint-Erblon
-FR,Sainte-Radegonde
 FR,Sainte-Radegonde
 FR,Sainte-Pazanne
 FR,Saint-Épain
@@ -21066,9 +20628,7 @@ FR,Sainte-Honorine-du-Fay
 FR,Sainte-Hermine
 FR,Sainte-Hélène-sur-Isère
 FR,Sainte-Hélène
-FR,Sainte-Hélène
 FR,Sainte-Geneviève-sur-Argence
-FR,Sainte-Geneviève-des-Bois
 FR,Sainte-Geneviève-des-Bois
 FR,Sainte-Geneviève
 FR,Sainte-Gemmes-sur-Loire
@@ -21091,7 +20651,6 @@ FR,Sainte-Croix-aux-Mines
 FR,Sainte-Consorce
 FR,Sainte-Colombe-en-Bruilhois
 FR,Sainte-Colombe
-FR,Sainte-Colombe
 FR,Sainte-Cécile-les-Vignes
 FR,Sainte-Cécile
 FR,Sainte-Catherine
@@ -21113,7 +20672,6 @@ FR,Saint-Didier-sous-Riverie
 FR,Saint-Didier-en-Velay
 FR,Saint-Didier-de-la-Tour
 FR,Saint-Didier-de-Formans
-FR,Saint-Didier
 FR,Saint-Didier
 FR,Saint-Désir
 FR,Saint-Denis-sur-Sarthon
@@ -21139,7 +20697,6 @@ FR,Saint-Cyr-en-Bourg
 FR,Saint-Cyr
 FR,Saint-Cyprien-Plage
 FR,Saint-Cyprien
-FR,Saint-Cyprien
 FR,Saint-Crespin-sur-Moine
 FR,Saint-Crépin-Ibouvillers
 FR,Saint-Coulomb
@@ -21148,7 +20705,6 @@ FR,Saint-Contest
 FR,Saint-Cloud
 FR,Saint-Clément-des-Levées
 FR,Saint-Clément-de-la-Place
-FR,Saint-Clément
 FR,Saint-Clément
 FR,Saint-Clément-de-Rivière
 FR,Saint-Claude-de-Diray
@@ -21302,7 +20858,6 @@ FR,Sailly-Flibeaucourt
 FR,Saignon
 FR,Sahurs
 FR,Sagy
-FR,Sagy
 FR,Saffré
 FR,Sadirac
 FR,Sacy-le-Grand
@@ -21311,7 +20866,6 @@ FR,Saclas
 FR,Saché
 FR,Sabres
 FR,Sabran
-FR,Sablons
 FR,Sablons
 FR,Sablonceaux
 FR,Sablet
@@ -21349,7 +20903,6 @@ FR,Rozier-en-Donzy
 FR,Rozérieulles
 FR,Rozay-en-Brie
 FR,Roye
-FR,Roye
 FR,Roybon
 FR,Royat
 FR,Royan
@@ -21357,7 +20910,6 @@ FR,Rouziers-de-Touraine
 FR,Rouxmesnil-Bouteilles
 FR,Rouvroy
 FR,Rousson
-FR,Roussillon
 FR,Roussillon
 FR,Rousset
 FR,Roussay
@@ -21393,7 +20945,6 @@ FR,Rosières-près-Troyes
 FR,Rosières-en-Santerre
 FR,Rosières-aux-Salines
 FR,Rosières
-FR,Rosières
 FR,Rosheim
 FR,Rosenau
 FR,Roscoff
@@ -21403,7 +20954,6 @@ FR,Roquettes
 FR,Roquetoire
 FR,Roquemaure
 FR,Roquefort-la-Bédoule
-FR,Roquefort
 FR,Roquefort
 FR,Roquecourbe
 FR,Roquebrune-sur-Argens
@@ -21491,7 +21041,6 @@ FR,Riez
 FR,Rieux-Minervois
 FR,Rieux-en-Cambrésis
 FR,Rieux
-FR,Rieux
 FR,Rieux-Volvestre
 FR,Rieupeyroux
 FR,Rieumes
@@ -21509,7 +21058,6 @@ FR,Ribeauvillé
 FR,Ribaute-les-Tavernes
 FR,Riantec
 FR,Rians
-FR,Rians
 FR,Riaillé
 FR,Ria-Sirach
 FR,Rhinau
@@ -21521,7 +21069,6 @@ FR,Revin
 FR,Réville
 FR,Revigny-sur-Ornain
 FR,Reventin-Vaugris
-FR,Revel
 FR,Revel
 FR,Reuilly
 FR,Reugny
@@ -21680,7 +21227,6 @@ FR,Prix-lès-Mézières
 FR,Privas
 FR,Prissé
 FR,Prinquiau
-FR,Pringy
 FR,Pringy
 FR,Prigonrieux
 FR,Priay
@@ -22078,7 +21624,6 @@ FR,Pernes-les-Fontaines
 FR,Pernes
 FR,Périgueux
 FR,Périgny
-FR,Périgny
 FR,Périgneux
 FR,Pérignat-sur-Allier
 FR,Pérignat-lès-Sarliève
@@ -22294,7 +21839,6 @@ FR,Nueil-sur-Layon
 FR,Nueil-les-Aubiers
 FR,Nuaillé
 FR,Nozay
-FR,Nozay
 FR,Noyon
 FR,Noyers-sur-Cher
 FR,Noyen-sur-Sarthe
@@ -22414,7 +21958,6 @@ FR,Neuville-en-Ferrain
 FR,Neuville-de-Poitou
 FR,Neuville-aux-Bois
 FR,Neuvic-Entier
-FR,Neuvic
 FR,Neuvic
 FR,Neuves-Maisons
 FR,Neuvéglise
@@ -22630,7 +22173,6 @@ FR,Montréjeau
 FR,Montredon-Labessonnié
 FR,Montréal-la-Cluse
 FR,Montréal
-FR,Montréal
 FR,Montrabé
 FR,Mont-près-Chambord
 FR,Montpont-en-Bresse
@@ -22695,7 +22237,6 @@ FR,Montfort-sur-Meu
 FR,Montfort-le-Gesnois
 FR,Montfort-en-Chalosse
 FR,Montferrier-sur-Lez
-FR,Montferrat
 FR,Montferrat
 FR,Montferrand-le-Château
 FR,Montfermeil
@@ -22783,7 +22324,6 @@ FR,Mons-en-Pévèle
 FR,Mons-en-Barœul
 FR,Monsempron-Libos
 FR,Monségur
-FR,Mons
 FR,Mons
 FR,Monnières
 FR,Monnetier-Mornex
@@ -22921,7 +22461,6 @@ FR,Méry
 FR,Merxheim
 FR,Merville-Franceville-Plage
 FR,Merville
-FR,Merville
 FR,Mervent
 FR,Mervans
 FR,Méru
@@ -22936,7 +22475,6 @@ FR,Mérignac
 FR,Mériel
 FR,Méricourt
 FR,Méribel
-FR,Méréville
 FR,Méréville
 FR,Méreau
 FR,Méré
@@ -23021,7 +22559,6 @@ FR,Mauguio
 FR,Maubourguet
 FR,Maubeuge
 FR,Maubec
-FR,Maubec
 FR,Matzenheim
 FR,Matour
 FR,Matignon
@@ -23081,7 +22618,6 @@ FR,Marnay
 FR,Marmoutier
 FR,Marmande
 FR,Marmagne
-FR,Marmagne
 FR,Marly
 FR,Marly-le-Roi
 FR,Marly-la-Ville
@@ -23115,7 +22651,6 @@ FR,Mareuil-sur-Ay
 FR,Mareuil-lès-Meaux
 FR,Mareuil-le-Port
 FR,Maretz
-FR,Marennes
 FR,Marennes
 FR,Mareil-sur-Mauldre
 FR,Mareil-Marly
@@ -23472,7 +23007,6 @@ FR,Lévis-Saint-Nom
 FR,Lévignac
 FR,Le Vigen
 FR,Le Vigan
-FR,Le Vigan
 FR,Levier
 FR,Le Vieil-Baugé
 FR,Levet
@@ -23633,8 +23167,6 @@ FR,Le Plessis-Belleville
 FR,Le Pizou
 FR,Le Pin-en-Mauges
 FR,Le Pin
-FR,Le Pin
-FR,Le Pin
 FR,Le Pian-Médoc
 FR,Le Petit-Quevilly
 FR,Petit-Couronne
@@ -23701,7 +23233,6 @@ FR,Léhon
 FR,Le Havre
 FR,Le Haillan
 FR,Léguevin
-FR,Le Gua
 FR,Le Gua
 FR,Le Grau-du-Roi
 FR,Le Grand-Quevilly
@@ -23882,7 +23413,6 @@ FR,Laroque
 FR,La Romagne
 FR,La Roche-Vineuse
 FR,La Rochette
-FR,La Rochette
 FR,La Roche-sur-Yon
 FR,La Roche-sur-Foron
 FR,Laroche-Saint-Cydroine
@@ -23956,13 +23486,11 @@ FR,Lannion
 FR,Lannilis
 FR,Lannemezan
 FR,Lanmeur
-FR,Lanmeur
 FR,Languidic
 FR,Langueux
 FR,Langrune-sur-Mer
 FR,Langres
 FR,Langonnet
-FR,Langon
 FR,Langon
 FR,Langoiran
 FR,Langogne
@@ -24628,7 +24156,6 @@ FR,Grisolles
 FR,Grimaud
 FR,Grillon
 FR,Grigny
-FR,Grigny
 FR,Grignon
 FR,Grignols
 FR,Grignan
@@ -24645,7 +24172,6 @@ FR,Gresswiller
 FR,Gréoux-les-Bains
 FR,Grenoble
 FR,Grendelbruch
-FR,Grenay
 FR,Grenay
 FR,Grenade
 FR,Gréasque
@@ -24890,7 +24416,6 @@ FR,Franois
 FR,Frangy
 FR,Franconville
 FR,Francheville
-FR,Francheville
 FR,Francheleins
 FR,Fraize
 FR,Fraisses
@@ -24989,7 +24514,6 @@ FR,Fleury-sur-Andelle
 FR,Fleury-Mérogis
 FR,Fleury-les-Aubrais
 FR,Fleury-la-Vallée
-FR,Fleury
 FR,Fleury
 FR,Fleurines
 FR,Fleurieu-sur-Saône
@@ -25235,7 +24759,6 @@ FR,Ensisheim
 FR,Ennezat
 FR,Ennevelin
 FR,Ennetières-en-Weppes
-FR,Ennery
 FR,Ennery
 FR,Englefontaine
 FR,Enghien-les-Bains
@@ -25767,7 +25290,6 @@ FR,Colpo
 FR,Colomiers
 FR,Colombiès
 FR,Colombiers
-FR,Colombiers
 FR,Colombier-Fontaine
 FR,Colombey-les-Belles
 FR,Colombes
@@ -25895,7 +25417,6 @@ FR,Cheval-Blanc
 FR,Chevaigné
 FR,Cheux
 FR,Chessy
-FR,Chessy
 FR,Cherveux
 FR,Cherrueix
 FR,Cherré
@@ -25977,10 +25498,8 @@ FR,Châtillon-en-Michaille
 FR,Châtillon
 FR,Châtillon-Coligny
 FR,Châtillon
-FR,Châtillon
 FR,Châtenoy-le-Royal
 FR,Châtenois-les-Forges
-FR,Châtenois
 FR,Châtenois
 FR,Châtenay-sur-Seine
 FR,Châtenay-Malabry
@@ -26050,18 +25569,15 @@ FR,Charquemont
 FR,Chârost
 FR,Charolles
 FR,Charny
-FR,Charny
 FR,Charnècles
 FR,Charnay-lès-Mâcon
 FR,Charnay
 FR,Charmes-sur-Rhône
 FR,Charmes
-FR,Charmes
 FR,Charly-sur-Marne
 FR,Charly
 FR,Charlieu
 FR,Charleville-Mézières
-FR,Charleval
 FR,Charleval
 FR,Chargé
 FR,Charenton-le-Pont
@@ -26099,7 +25615,6 @@ FR,Chanonat
 FR,Chaniers
 FR,Changy-les-Bois
 FR,Changis-sur-Marne
-FR,Changé
 FR,Changé
 FR,Chandon
 FR,Chancenay
@@ -26245,7 +25760,6 @@ FR,Celle-Lévescault
 FR,Cébazat
 FR,Ceaucé
 FR,Cazouls-lès-Béziers
-FR,Cazilhac
 FR,Cazilhac
 FR,Cazes-Mondenard
 FR,Cazères
@@ -26393,7 +25907,6 @@ FR,Caluire-et-Cuire
 FR,Calonne-sur-la-Lys
 FR,Calonne-Ricouart
 FR,Calmont
-FR,Calmont
 FR,Callian
 FR,Callas
 FR,Callac
@@ -26406,7 +25919,6 @@ FR,Cailloux-sur-Fontaines
 FR,Cahuzac-sur-Vère
 FR,Cahors
 FR,Cahagnes
-FR,Cagny
 FR,Cagny
 FR,Cagnes-sur-Mer
 FR,Cagnac-les-Mines
@@ -26454,7 +25966,6 @@ FR,Burie
 FR,Bures-sur-Yvette
 FR,Burbure
 FR,Bully-les-Mines
-FR,Bully
 FR,Bully
 FR,Bullion
 FR,Bulgnéville
@@ -26537,7 +26048,6 @@ FR,Breuilpont
 FR,Breuil-Magné
 FR,Breuil-le-Vert
 FR,Breuillet
-FR,Breuillet
 FR,Breuil-le-Sec
 FR,Bretteville-sur-Odon
 FR,Bretteville-sur-Laize
@@ -26547,7 +26057,6 @@ FR,Brette-les-Pins
 FR,Bretoncelles
 FR,Brétigny-sur-Orge
 FR,Bretignolles-sur-Mer
-FR,Breteuil
 FR,Breteuil
 FR,Bretenoux
 FR,Breteil
@@ -26573,7 +26082,6 @@ FR,Bray-sur-Somme
 FR,Bray-sur-Seine
 FR,Bray-en-Val
 FR,Bray-Dunes
-FR,Brax
 FR,Brax
 FR,Braud-et-Saint-Louis
 FR,Brassac-les-Mines
@@ -26931,7 +26439,6 @@ FR,Belle-Isle-en-Terre
 FR,Bellegarde-sur-Valserine
 FR,Bellegarde-en-Forez
 FR,Bellegarde
-FR,Bellegarde
 FR,Bellaing
 FR,Bellac
 FR,Belin-Béliet
@@ -26971,11 +26478,9 @@ FR,Beausoleil
 FR,Beausemblant
 FR,Beaurevoir
 FR,Beaurepaire
-FR,Beaurepaire
 FR,Beaurainville
 FR,Beaurains
 FR,Beauquesne
-FR,Beaupuy
 FR,Beaupuy
 FR,Beaupréau
 FR,Beaune-la-Rolande
@@ -26993,8 +26498,6 @@ FR,Beaumont-du-Gâtinais
 FR,Beaumont-du-Périgord
 FR,Beaumont-de-Pertuis
 FR,Beaumont-de-Lomagne
-FR,Beaumont
-FR,Beaumont
 FR,Beaumont
 FR,Beaumetz-lès-Loges
 FR,Beaumes-de-Venise
@@ -27053,7 +26556,6 @@ FR,Bastia
 FR,Bassussarry
 FR,Bassillac
 FR,Bassens
-FR,Bassens
 FR,Indre
 FR,Basse-Ham
 FR,Basse-Goulaine
@@ -27109,11 +26611,9 @@ FR,Balazé
 FR,Balaruc-le-Vieux
 FR,Balaruc-les-Bains
 FR,Balan
-FR,Balan
 FR,Balagny-sur-Thérain
 FR,Baixas
 FR,Baisieux
-FR,Bais
 FR,Bais
 FR,Bainville-sur-Madon
 FR,Bains-sur-Oust
@@ -27153,7 +26653,6 @@ FR,Bachant
 FR,Baccarat
 FR,Azille
 FR,Azé
-FR,Azé
 FR,Azay-sur-Cher
 FR,Azay-le-Rideau
 FR,Azay-le-Ferron
@@ -27168,7 +26667,6 @@ FR,Aydoilles
 FR,Aydat
 FR,Ay
 FR,Ax-les-Thermes
-FR,Avrillé
 FR,Avrillé
 FR,Avrechy
 FR,Avranches
@@ -27358,7 +26856,6 @@ FR,Armenonville-les-Gâtineaux
 FR,Armbouts-Cappel
 FR,Arleux
 FR,Arles
-FR,Arles
 FR,Arlanc
 FR,Arinthod
 FR,Argent-sur-Sauldre
@@ -27463,7 +26960,6 @@ FR,Andouillé
 FR,Andolsheim
 FR,Andlau
 FR,Andilly
-FR,Andilly
 FR,Andeville
 FR,Andernos-les-Bains
 FR,Andelnans
@@ -27481,7 +26977,6 @@ FR,Amplepuis
 FR,Amou
 FR,Amnéville
 FR,Ammerschwihr
-FR,Amilly
 FR,Amilly
 FR,Amiens
 FR,Amfreville-la-Mi-Voie
@@ -27512,7 +27007,6 @@ FR,Althen-des-Paluds
 FR,Alsting
 FR,Allouagne
 FR,Allonzier-la-Caille
-FR,Allonnes
 FR,Allonnes
 FR,Allonne
 FR,Allinges
@@ -27859,7 +27353,6 @@ HR,Punat
 HR,Pula
 HR,Pucišca
 HR,Privlaka
-HR,Privlaka
 HR,Primošten
 HR,Primorski Dolac
 HR,Prigorje Brdovecko
@@ -27913,7 +27406,6 @@ HR,Pakoštane
 HR,Pag
 HR,Ozalj
 HR,Otok
-HR,Otok
 HR,Otocac
 HR,Oštarije
 HR,Osijek
@@ -27945,7 +27437,6 @@ HR,Novi Vinodolski
 HR,Novi Marof
 HR,Novigrad Podravski
 HR,Novigrad
-HR,Novigrad
 HR,Novi Golubovec
 HR,Nova Raca
 HR,Novalja
@@ -27974,7 +27465,6 @@ HR,Ðulovac
 HR,Milna
 HR,Mikleuš
 HR,Mihovljan
-HR,Mihovljan
 HR,Micevec
 HR,Metkovic
 HR,Medulin
@@ -27986,7 +27476,6 @@ HR,Markušica
 HR,Markovac Našicki
 HR,Marjanci
 HR,Marinici
-HR,Marina
 HR,Marina
 HR,Marija Gorica
 HR,Marija Bistrica
@@ -28105,7 +27594,6 @@ HR,Kali
 HR,Josipovac
 HR,Josipdol
 HR,Ježdovec
-HR,Jesenice
 HR,Jesenice
 HR,Jelsa
 HR,Jelisavac
@@ -28244,7 +27732,6 @@ HR,Cetingrad
 HR,Cestica
 HR,Cerovlje
 HR,Cernik
-HR,Cernik
 HR,Cerna
 HR,Ceric
 HR,Cepin
@@ -28284,7 +27771,6 @@ HR,Borovo
 HR,Bol
 HR,Bogdanovci
 HR,Bobota
-HR,Blato
 HR,Blato
 HR,Bjelovar
 HR,Bizovac
@@ -29480,7 +28966,6 @@ IE,Blessington
 IE,Blarney
 IE,Blanchardstown
 IE,Blackrock
-IE,Blackrock
 IE,Birr
 IE,Belturbet
 IE,Belmullet
@@ -29503,7 +28988,6 @@ IE,Ballyboden
 IE,Ballivor
 IE,Ballinrobe
 IE,Ballinasloe
-IE,Ballina
 IE,Ballina
 IE,Ballaghaderreen
 IE,Baldoyle
@@ -29664,7 +29148,6 @@ IT,Trabia
 IT,Tortorici
 IT,Tortora
 IT,Tortolì
-IT,Torretta
 IT,Torretta
 IT,Campora San Giovanni
 IT,Torrenova
@@ -30116,7 +29599,6 @@ IT,Modica
 IT,Mistretta
 IT,Misterbianco
 IT,Misilmeri
-IT,Mirto
 IT,Mirto
 IT,Mirabella Imbaccari
 IT,Mineo
@@ -30773,8 +30255,6 @@ IT,Villanova d'Asti
 IT,Villanova d'Ardenghi
 IT,Villanova d'Albenga
 IT,Villanova
-IT,Villanova
-IT,Villanova
 IT,Villammare
 IT,Villa Minozzo
 IT,Villamarzana
@@ -30827,7 +30307,6 @@ IT,Vigo di Fassa
 IT,Vigo di Cadore
 IT,Vigodarzere
 IT,Vignolo
-IT,Vignola
 IT,Vignola
 IT,Vignate
 IT,Vignanello
@@ -31251,7 +30730,6 @@ IT,Tiana
 IT,Thiesi
 IT,Thiene
 IT,Tezze
-IT,Tezze
 IT,Teti
 IT,Testico
 IT,Tessera
@@ -31301,7 +30779,6 @@ IT,Tavullia
 IT,Tavoleto
 IT,Tavernole
 IT,Tavernola Bergamasca
-IT,Tavernelle
 IT,Tavernelle
 IT,Taverne D'Arbia
 IT,Tavenna
@@ -31475,13 +30952,11 @@ IT,Solbiate Arno
 IT,Solarolo Rainerio
 IT,Solarolo
 IT,Solaro
-IT,Solaro
 IT,Solagna
 IT,Sogliano Cavour
 IT,Sogliano al Rubicone
 IT,Soddì
 IT,Soci
-IT,Soave
 IT,Soave
 IT,Sluderno
 IT,Sizzano
@@ -31714,7 +31189,6 @@ IT,San Vito dei Normanni
 IT,San Vito Chietino
 IT,San Vito al Tagliamento
 IT,San Vito
-IT,San Vito
 IT,San Vincenzo Valle Roveto
 IT,San Vincenzo
 IT,San Vero Milis
@@ -31776,7 +31250,6 @@ IT,Roncofreddo-Santa Paola
 IT,Sant'Antonino di Susa
 IT,Sant'Antonio Abate
 IT,Sant'Antonio
-IT,Sant'Antonio
 IT,Sant'Antonio di Gallura
 IT,Sant'Antimo
 IT,Sant'Anna d'Alfaedo
@@ -31809,7 +31282,6 @@ IT,Sant'Ambrogio di Torino
 IT,Santa Marinella
 IT,Santa Marina
 IT,Santa Maria Nuova
-IT,Santa Maria Nuova
 IT,Santa Maria Maggiore
 IT,Santa Maria Maddalena
 IT,Santa Maria la Longa
@@ -31834,7 +31306,6 @@ IT,Sant'Albano Stura
 IT,Sant'Agostino
 IT,Sant'Agnello
 IT,Santa Giustina in Colle
-IT,Santa Giustina
 IT,Santa Giustina
 IT,Santa Giuletta
 IT,Sant'Agata sul Santerno
@@ -31907,7 +31378,6 @@ IT,San Paolo Albanese
 IT,San Paolo
 IT,San Panfilo d'Ocre
 IT,San Pancrazio Salentino
-IT,San Pancrazio
 IT,San Pancrazio
 IT,San Niccolò di Celle
 IT,San Nicola Baronia
@@ -32059,7 +31529,6 @@ IT,San Felice del Molise
 IT,San Felice del Benaco
 IT,San Felice Circeo
 IT,San Felice
-IT,San Felice
 IT,San Fele
 IT,San Fedele Superiore
 IT,Sandrigo
@@ -32081,7 +31550,6 @@ IT,San Costanzo
 IT,San Costantino Albanese
 IT,San Colombano al Lambro
 IT,San Clemente
-IT,San Clemente
 IT,San Cipriano Po
 IT,San Cipriano Picentino
 IT,San Chirico Raparo
@@ -32090,7 +31558,6 @@ IT,San Cesario sul Panaro
 IT,San Cesario di Lecce
 IT,San Cesareo
 IT,San Castrese
-IT,San Cassiano
 IT,San Cassiano
 IT,San Casciano in Val di Pesa
 IT,San Casciano dei Bagni
@@ -32199,7 +31666,6 @@ IT,Rovigo
 IT,Roviano
 IT,Rovetta
 IT,Rovereto
-IT,Rovereto
 IT,Roveredo in Piano
 IT,Roverè della Luna
 IT,Roverbella
@@ -32226,7 +31692,6 @@ IT,Roseto Valfortore
 IT,Roseto degli Abruzzi
 IT,Rosello
 IT,Roscigno
-IT,Rosciano
 IT,Rosciano
 IT,Rosate
 IT,Rosasco
@@ -32739,7 +32204,6 @@ IT,Piuro
 IT,Piumazzo
 IT,Piubega
 IT,Pitigliano
-IT,Pitigliano
 IT,Piteglio
 IT,Pistrino
 IT,Pistoia
@@ -32837,8 +32301,6 @@ IT,Piazzola sul Brenta
 IT,Piazzatorre
 IT,Piazza Brembana
 IT,Piazza al Serchio-San Michele
-IT,Piazza
-IT,Piazza
 IT,Piazza
 IT,Piateda Centro
 IT,Piasco
@@ -32985,7 +32447,6 @@ IT,Paruzzaro
 IT,Parre
 IT,Parrano
 IT,Parona
-IT,Parona
 IT,Parolise
 IT,Parma
 IT,Parella
@@ -33101,8 +32562,6 @@ IT,Ospitale di Cadore
 IT,Ospedalicchio
 IT,Ospedaletto Euganeo
 IT,Ospedaletto d'Alpinolo
-IT,Ospedaletto
-IT,Ospedaletto
 IT,Ospedaletto
 IT,Ospedaletti
 IT,Osoppo
@@ -33557,7 +33016,6 @@ IT,Montalto di Castro
 IT,Montalto delle Marche
 IT,Montalenghe
 IT,Montale
-IT,Montale
 IT,Montalcino
 IT,Montalbano Jonico
 IT,Montaione
@@ -33662,7 +33120,6 @@ IT,Mignanego
 IT,Miglionico
 IT,Migliaro
 IT,Migliarino
-IT,Migliarino
 IT,Migliarina
 IT,Miglianico
 IT,Micigliano
@@ -33675,7 +33132,6 @@ IT,Mezzolara
 IT,Mezzogoro
 IT,Mezzocorona
 IT,Mezzano Inferiore
-IT,Mezzano
 IT,Mezzano
 IT,Mezzanino
 IT,Mezzanego
@@ -33763,8 +33219,6 @@ IT,Massafra
 IT,Massa Fiscaglia
 IT,Massa Fermana
 IT,Massa d'Albe-Corona
-IT,Massa
-IT,Massa
 IT,Massa
 IT,Masone
 IT,Maslianico
@@ -33879,7 +33333,6 @@ IT,Malborghetto
 IT,Malalbergo
 IT,Maissana
 IT,Mairano
-IT,Mairano
 IT,Maiori
 IT,Serra di Maiolo
 IT,Maiolati Spontini
@@ -33928,7 +33381,6 @@ IT,Luson - Luesen
 IT,Lusiana
 IT,Lusia
 IT,Lusevera
-IT,Luserna
 IT,Luserna
 IT,Lurate Caccivio
 IT,Luras
@@ -34009,7 +33461,6 @@ IT,Lizzano
 IT,Lizzanello
 IT,Livorno Ferraris
 IT,Livorno
-IT,Livo
 IT,Livo
 IT,Livinallongo del Col di Lana
 IT,Livigno
@@ -34094,7 +33545,6 @@ IT,Lavello
 IT,La Valle Agordina
 IT,Lavagna
 IT,Lauzacco
-IT,Lauro
 IT,Lauro
 IT,Laurito
 IT,Laurino
@@ -34398,7 +33848,6 @@ IT,Gemona
 IT,Gemmano
 IT,Gazzuolo
 IT,Gazzo
-IT,Gazzo
 IT,Gazzaniga
 IT,Gazoldo degli Ippoliti
 IT,Gavorrano
@@ -34472,7 +33921,6 @@ IT,Gaby
 IT,Gabicce Mare
 IT,Gabiano
 IT,Futani
-IT,Fusine
 IT,Fusine
 IT,Fusignano
 IT,Furore
@@ -35206,7 +34654,6 @@ IT,Cesano Maderno
 IT,Cesano
 IT,Cesana Torinese
 IT,Cesa
-IT,Cesa
 IT,Cervo
 IT,Cervino
 IT,Cervignano del Friuli
@@ -35532,7 +34979,6 @@ IT,Casorezzo
 IT,Casorate Sempione
 IT,Casorate Primo
 IT,Casoni
-IT,Casoli
 IT,Casoli
 IT,Casole d'Elsa
 IT,Casola Valsenio
@@ -35871,7 +35317,6 @@ IT,Caltana
 IT,Calolziocorte
 IT,Calò
 IT,Calliano
-IT,Calliano
 IT,Calizzano
 IT,Calitri
 IT,Calimera
@@ -36121,7 +35566,6 @@ IT,Bonito
 IT,Bonferraro
 IT,Bonefro
 IT,Bonea
-IT,Bondeno
 IT,Bondeno
 IT,Bonavigo
 IT,Bonavicina
@@ -40138,7 +39582,6 @@ NL,Valthermond
 NL,Valthe
 NL,Valkenswaard
 NL,Valkenburg
-NL,Valkenburg
 NL,Valendries
 NL,Valburg
 NL,Vaassen
@@ -40209,7 +39652,6 @@ NL,Stompetoren
 NL,Stolwijk
 NL,Stiens
 NL,Stepekolk
-NL,Stein
 NL,Stein
 NL,Stegeslag
 NL,Steenwijkerwold
@@ -40320,7 +39762,6 @@ NL,Rottevalle
 NL,Rotterdam
 NL,Rothem
 NL,Rossum
-NL,Rossum
 NL,Roosteren
 NL,Roosendaal
 NL,Rolde
@@ -40328,7 +39769,6 @@ NL,Roermond
 NL,Roelofarendsveen
 NL,Roden
 NL,Rockanje
-NL,Rijswijk
 NL,Rijswijk
 NL,Rijsoord
 NL,Rijsbergen
@@ -40435,7 +39875,6 @@ NL,Eastermar
 NL,Oostermeenthe
 NL,Oosterland
 NL,Oosterhout
-NL,Oosterhout
 NL,Oosterhoogebrug
 NL,Oosterholt
 NL,Oosterhesselen
@@ -40526,7 +39965,6 @@ NL,Nieuw-Buinen
 NL,Nieuw-Beijerland
 NL,Niekerk
 NL,Nes
-NL,Nes
 NL,Neerkant
 NL,Neerbeek
 NL,Andel
@@ -40599,7 +40037,6 @@ NL,Malta
 NL,Malburgen West
 NL,Malberg
 NL,Makkum
-NL,Makkum
 NL,Magele
 NL,Made
 NL,Maastricht
@@ -40666,7 +40103,6 @@ NL,Leens
 NL,Leende
 NL,Leek
 NL,Lauradorp
-NL,Laren
 NL,Laren
 NL,Langweer
 NL,Langenoord
@@ -40769,7 +40205,6 @@ NL,Hoge Mors
 NL,Hoge Vucht
 NL,Hofgeest
 NL,Hoeven
-NL,Hoeven
 NL,Hoensbroek
 NL,Hoek van Holland
 NL,Hippolytushoef
@@ -40779,7 +40214,6 @@ NL,Hilvarenbeek
 NL,Hillegom
 NL,Heythuysen
 NL,Heusdenhout
-NL,Heusden
 NL,Heusden
 NL,Heumen
 NL,Heugem
@@ -40793,7 +40227,6 @@ NL,Herkenbosch
 NL,Hensbroek
 NL,Hengstdal
 NL,Hengevelde
-NL,Hengelo
 NL,Hengelo
 NL,Hendrik-Ido-Ambacht
 NL,Hem
@@ -40850,7 +40283,6 @@ NL,Hapert
 NL,Handel
 NL,Halsteren
 NL,Hallum
-NL,Halfweg
 NL,Halfweg
 NL,Haelen
 NL,Haastrecht
@@ -41017,7 +40449,6 @@ NL,Domburg
 NL,Dokkum
 NL,Doetinchem
 NL,Doesburg
-NL,Doesburg
 NL,Doenrade
 NL,Dirksland
 NL,Dirkshorn
@@ -41145,7 +40576,6 @@ NL,Bocholtz
 NL,Blokzijl
 NL,Bloemhof
 NL,Bloemendaal
-NL,Bloemendaal
 NL,Blitterswijck
 NL,Blijham
 NL,Bleskensgraaf
@@ -41184,7 +40614,6 @@ NL,Berg en Dal
 NL,Berg en Bos
 NL,Bergen
 NL,Berg
-NL,Berg
 NL,Benthuizen
 NL,Bennekom
 NL,Bennebroek
@@ -41201,7 +40630,6 @@ NL,Beersdal
 NL,Beers
 NL,Beekbergen
 NL,Beek gem Montferland
-NL,Beek
 NL,Beek
 NL,Beegden
 NL,Bedum
@@ -41274,7 +40702,6 @@ NL,Abcoude
 NL,Abbekerk
 NL,Aardenburg
 NL,Aalten
-NL,Aalst
 NL,Aalst
 NL,Aalsmeer
 NL,Aalden
@@ -41356,7 +40783,6 @@ PL,Zólkiewka
 PL,Zoliborz
 PL,Zmiennica
 PL,Zlota
-PL,Zlota
 PL,Zielonka
 PL,Zglobien
 PL,Zelechów
@@ -41366,7 +40792,6 @@ PL,Zbuczyn
 PL,Zbójna
 PL,Zawichost
 PL,Zatory
-PL,Zarzecze
 PL,Zarzecze
 PL,Zarszyn
 PL,Zarnów
@@ -41378,7 +40803,6 @@ PL,Zaleszany
 PL,Zalesie Górne
 PL,Zalesie
 PL,Zakrzówek
-PL,Zakrzew
 PL,Zakrzew
 PL,Zakroczym
 PL,Zaklików
@@ -41431,7 +40855,6 @@ PL,Wlochy
 PL,Wizna
 PL,Wisznice
 PL,Wisniowa
-PL,Wisniowa
 PL,Wisniew
 PL,Wislica
 PL,Wiskitki
@@ -41451,13 +40874,11 @@ PL,Wieniawa
 PL,Wielopole Skrzynskie
 PL,Wielkie Oczy
 PL,Wielka Wies
-PL,Wielka Wies
 PL,Wieliszew
 PL,Wieliczka
 PL,Wielbark
 PL,Wieczfnia Koscielna
 PL,Wiazownica
-PL,Wesola
 PL,Wesola
 PL,Werbkowice
 PL,Wegrzce Wielkie
@@ -41505,15 +40926,12 @@ PL,Trzebownisko
 PL,Trzebieszów
 PL,Trzcinica
 PL,Trzciana
-PL,Trzciana
-PL,Trzciana
 PL,Tryncza
 PL,Truskaw
 PL,Troszyn
 PL,Trojanów
 PL,Trawniki
 PL,Trablice
-PL,Trabki
 PL,Trabki
 PL,Tomaszów Mazowiecki
 PL,Tomaszów Lubelski
@@ -41523,7 +40941,6 @@ PL,Terespol
 PL,Teresin
 PL,Telatyn
 PL,Tczów
-PL,Tarnowiec
 PL,Tarnowiec
 PL,Tarnów
 PL,Tarnogród
@@ -41554,14 +40971,11 @@ PL,Szaflary
 PL,Sypniewo
 PL,Swilcza
 PL,Swietajno
-PL,Swietajno
-PL,Swietajno
 PL,Swidnik
 PL,Suwalki
 PL,Susiec
 PL,Suraz
 PL,Suprasl
-PL,Sulów
 PL,Sulów
 PL,Sulkowice
 PL,Sulejówek
@@ -41648,12 +41062,10 @@ PL,Sieradza
 PL,Sienno
 PL,Siennica
 PL,Sieniawa
-PL,Sieniawa
 PL,Siemien
 PL,Siemiechów
 PL,Siemiatycze
 PL,Siemiatkowo
-PL,Siedliska
 PL,Siedliska
 PL,Siedleczka
 PL,Siedlce
@@ -41680,7 +41092,6 @@ PL,Rzeszów
 PL,Rzepiennik Strzyzewski
 PL,Rzepedz
 PL,Rzekun
-PL,Rzeczyca
 PL,Rzeczyca
 PL,Rzeczniów
 PL,Rzasnik
@@ -41713,7 +41124,6 @@ PL,Ropa
 PL,Rokitno
 PL,Rokietnica
 PL,Rogózno
-PL,Rogózno
 PL,Rogów
 PL,Reszel
 PL,Repki
@@ -41732,7 +41142,6 @@ PL,Radzyn Podlaski
 PL,Radzymin
 PL,Radzilów
 PL,Radziejowice
-PL,Radzanów
 PL,Radzanów
 PL,Radymno
 PL,Radoszyce
@@ -41776,7 +41185,6 @@ PL,Pozezdrze
 PL,Potworów
 PL,Potok Wielki
 PL,Potok Górny
-PL,Poswietne
 PL,Poswietne
 PL,Poronin
 PL,Poreba Spytkowska
@@ -41825,7 +41233,6 @@ PL,Parysów
 PL,Parczew
 PL,Paradyz
 PL,Paprotnia
-PL,Paprotnia
 PL,Pantalowice
 PL,Padew Narodowa
 PL,Pacanów
@@ -41839,8 +41246,6 @@ PL,Ostrów Mazowiecka
 PL,Ostrów Lubelski
 PL,Ostrowiec Swietokrzyski
 PL,Ostrówek
-PL,Ostrówek
-PL,Ostrów
 PL,Ostrów
 PL,Ostroleka
 PL,Osiek Jasielski
@@ -41907,7 +41312,6 @@ PL,Niemce
 PL,Nielisz
 PL,Niedzwiedz
 PL,Niedzwiada
-PL,Niedzwiada
 PL,Niedzica
 PL,Niedrzwica Duza
 PL,Niedomice
@@ -41931,7 +41335,6 @@ PL,Muszyna
 PL,Mszczonów
 PL,Mszana Górna
 PL,Mszana Dolna
-PL,Mrozy
 PL,Mrozy
 PL,Mragowo
 PL,Moszczenica
@@ -41970,8 +41373,6 @@ PL,Michalowo
 PL,Michalowice
 PL,Michalów-Reginów
 PL,Michalów
-PL,Michalów
-PL,Michalów
 PL,Miastków Koscielny
 PL,Miaczyn
 PL,Melgiew
@@ -41997,7 +41398,6 @@ PL,Luzna
 PL,Lutowiska
 PL,Lutoryz
 PL,Lukowica
-PL,Lukowa
 PL,Lukowa
 PL,Luków
 PL,Ludwin
@@ -42027,7 +41427,6 @@ PL,Lipsko
 PL,Lipsk
 PL,Lipowiec Koscielny
 PL,Lipinki
-PL,Lipnik
 PL,Lipnik
 PL,Lipnica Wielka
 PL,Lipnica
@@ -42095,7 +41494,6 @@ PL,Krasnobród
 PL,Krasnik
 PL,Krasniczyn
 PL,Krasne
-PL,Krasne
 PL,Krasiczyn
 PL,Kramarzówka
 PL,Kraczkowa
@@ -42144,7 +41542,6 @@ PL,Klwów
 PL,Kluszkowce
 PL,Kloczew
 PL,Klimontów
-PL,Klimontów
 PL,Kleszczele
 PL,Klembów
 PL,Klaj
@@ -42173,13 +41570,11 @@ PL,Kaluszyn
 PL,Kadzidlo
 PL,Kabaty
 PL,Józefów
-PL,Józefów
 PL,Józefów nad Wisla
 PL,Józefów
 PL,Józefoslaw
 PL,Jonkowo
 PL,Joniec
-PL,Jodlówka
 PL,Jodlówka
 PL,Jodlowa
 PL,Jezowe
@@ -42193,7 +41588,6 @@ PL,Jedlinsk
 PL,Jedlicze
 PL,Jawornik Polski
 PL,Jawornik
-PL,Jastrzebia
 PL,Jastrzebia
 PL,Jastrzab
 PL,Jastków
@@ -42219,7 +41613,6 @@ PL,Jadowniki Mokre
 PL,Jadowniki
 PL,Jadów
 PL,Jablonna Lacka
-PL,Jablonna
 PL,Jablonna
 PL,Jablonka
 PL,Jablonica Polska
@@ -42273,11 +41666,9 @@ PL,Gowarczów
 PL,Goszczyn
 PL,Goscieradów
 PL,Gorzyce
-PL,Gorzyce
 PL,Górzno
 PL,Gorzków
 PL,Górowo Ilaweckie
-PL,Górno
 PL,Górno
 PL,Gorliczyna
 PL,Gorlice
@@ -42292,7 +41683,6 @@ PL,Godziszów
 PL,Godzianów
 PL,Gnojno
 PL,Gnojnik
-PL,Gluchów
 PL,Gluchów
 PL,Glogów Malopolski
 PL,Glinojeck
@@ -42356,7 +41746,6 @@ PL,Debowiec
 PL,Debowa Kloda
 PL,Debów
 PL,Debno
-PL,Debno
 PL,Deblin
 PL,Debica
 PL,Debe Wielkie
@@ -42367,7 +41756,6 @@ PL,Dabrowa Tarnowska
 PL,Dabrowa Bialostocka
 PL,Czyzew
 PL,Czudec
-PL,Czerwonka
 PL,Czerwonka
 PL,Czerwinsk Nad Wisla
 PL,Czerwin
@@ -42383,8 +41771,6 @@ PL,Czarnochowice
 PL,Czarnia
 PL,Czarna Góra
 PL,Czarna Bialostocka
-PL,Czarna
-PL,Czarna
 PL,Czarna
 PL,Cyców
 PL,Cmolas
@@ -42404,7 +41790,6 @@ PL,Choroszcz
 PL,Chorkówka
 PL,Chodel
 PL,Chmielnik
-PL,Chmielnik
 PL,Chlewiska
 PL,Chelmiec
 PL,Chelm
@@ -42423,7 +41808,6 @@ PL,Brzozów
 PL,Brzóza Stadnicka
 PL,Brzóza Królewska
 PL,Brzostek
-PL,Brzeznica
 PL,Brzeznica
 PL,Brzeziny
 PL,Brzesko
@@ -42469,16 +41853,12 @@ PL,Bilgoraj
 PL,Bieniewice
 PL,Bielsk Podlaski
 PL,Bieliny
-PL,Bieliny
-PL,Bielany
 PL,Bielany
 PL,Biecz
 PL,Bialystok
 PL,Bialy Dunajec
 PL,Bialowieza
 PL,Bialoleka
-PL,Bialobrzegi
-PL,Bialobrzegi
 PL,Bialobrzegi
 PL,Bialka Tatrzanska
 PL,Biala Rawska
@@ -42543,8 +41923,6 @@ PL,Zelów
 PL,Zelistrzewo
 PL,Zelazków
 PL,Zebrzydowice
-PL,Zebrzydowice
-PL,Zebrzydowice
 PL,Zebowice
 PL,Zdzieszowice
 PL,Zduny
@@ -42562,10 +41940,8 @@ PL,Zawidów
 PL,Zawadzkie
 PL,Zator
 PL,Zarzecze
-PL,Zarzecze
 PL,Zary
 PL,Zarów
-PL,Zarki
 PL,Zarki
 PL,Zapolice
 PL,Zaniemysl
@@ -42584,14 +41960,11 @@ PL,Zadzim
 PL,Zabrzeg
 PL,Zabrze
 PL,Zaborze
-PL,Zaborze
 PL,Zabór
 PL,Zabnica
 PL,Zablocie
 PL,Zabkowice Slaskie
 PL,Zabierzów
-PL,Wysoka
-PL,Wysoka
 PL,Wysoka
 PL,Wyrzysk
 PL,Wyry
@@ -42603,7 +41976,6 @@ PL,Wronki
 PL,Wroclaw
 PL,Wróblew
 PL,Wreczyca Wielka
-PL,Wozniki
 PL,Wozniki
 PL,Wolsztyn
 PL,Wolowice
@@ -42637,8 +42009,6 @@ PL,Witanowice
 PL,Wisla
 PL,Winsko
 PL,Wilkowice
-PL,Wilkowice
-PL,Wilków
 PL,Wilków
 PL,Wilczyn
 PL,Wilczogóra
@@ -42653,7 +42023,6 @@ PL,Wierzchlas
 PL,Wierzbno
 PL,Wierzbinek
 PL,Wieruszów
-PL,Wieprz
 PL,Wieprz
 PL,Wielun
 PL,Wielowies
@@ -42696,7 +42065,6 @@ PL,Uniejów
 PL,Ujsoly
 PL,Ujscie
 PL,Ujazd
-PL,Ujazd
 PL,Udanin
 PL,Uciechów
 PL,Tyniec Maly
@@ -42718,7 +42086,6 @@ PL,Tuchola
 PL,Trzemeszno
 PL,Trzebunia
 PL,Trzebnica
-PL,Trzebinia
 PL,Trzebinia
 PL,Trzebielino
 PL,Trzebiel
@@ -42769,7 +42136,6 @@ PL,Szamocin
 PL,Szadek
 PL,Syrynia
 PL,Sypniewo
-PL,Sypniewo
 PL,Syców
 PL,Swinoujscie
 PL,Swinna
@@ -42792,7 +42158,6 @@ PL,Swiecie
 PL,Swiebodzice
 PL,Swidwin
 PL,Swidnica
-PL,Swidnica
 PL,Swiatniki Górne
 PL,Swarzedz
 PL,Suszec
@@ -42800,8 +42165,6 @@ PL,Susz
 PL,Sulów
 PL,Suloszowa
 PL,Sulmierzyce
-PL,Sulmierzyce
-PL,Sulkowice
 PL,Sulkowice
 PL,Borne Sulinowo
 PL,Sulików
@@ -42817,7 +42180,6 @@ PL,Subkowy
 PL,Studzionka
 PL,Studzienice
 PL,Strzyzowice
-PL,Strzelno
 PL,Strzelno
 PL,Strzelin
 PL,Strzeleczki
@@ -42858,13 +42220,11 @@ PL,Stara Kiszewa
 PL,Stara Kamienica
 PL,Stara Dabrowa
 PL,Stanowice
-PL,Stanowice
 PL,Stanislaw Górny
 PL,Stanislaw Dolny
 PL,Sroda Wielkopolska
 PL,Sroda Slaska
 PL,Srem
-PL,Spytkowice
 PL,Spytkowice
 PL,Sosnówka
 PL,Sosnowiec
@@ -42893,10 +42253,8 @@ PL,Slupia pod Kepnem
 PL,Slupia
 PL,Slupca
 PL,Slubice
-PL,Slubice
 PL,Slonsk
 PL,Sliwice
-PL,Slesin
 PL,Slesin
 PL,Slemien
 PL,Slawoborze
@@ -42933,15 +42291,12 @@ PL,Sieradz
 PL,Siepraw
 PL,Sieniawa Zarska
 PL,Sieniawa
-PL,Sieniawa
 PL,Siemkowice
 PL,Siemianowice Slaskie
 PL,Siekierczyn
 PL,Siedlisko
 PL,Siedlec
 PL,Siechnice
-PL,Sidzina
-PL,Sidzina
 PL,Sidzina
 PL,Sicienko
 PL,Sianów
@@ -42985,8 +42340,6 @@ PL,Rudziniec
 PL,Rudziczka
 PL,Rudy
 PL,Rudniki
-PL,Rudniki
-PL,Rudnik
 PL,Rudnik
 PL,Rudna
 PL,Rudawa
@@ -42998,13 +42351,10 @@ PL,Rosciszewo
 PL,Rokitno Szlacheckie
 PL,Rokietnica
 PL,Rokiciny
-PL,Rokiciny
 PL,Rogózno
 PL,Rogozno
 PL,Rogoznik
 PL,Rogowo
-PL,Rogowo
-PL,Rogów
 PL,Rogów
 PL,Rogalinek
 PL,Roczyny
@@ -43057,9 +42407,6 @@ PL,Pszczyna
 PL,Pszczólki
 PL,Pszczew
 PL,Psary
-PL,Psary
-PL,Psary
-PL,Psary
 PL,Przywidz
 PL,Przytoczna
 PL,Przytkowice
@@ -43068,7 +42415,6 @@ PL,Przystajn
 PL,Przyrów
 PL,Przykona
 PL,Przygodzice
-PL,Przyborów
 PL,Przyborów
 PL,Przybiernów
 PL,Przodkowo
@@ -43135,7 +42481,6 @@ PL,Pleszew
 PL,Plaza
 PL,Plawno
 PL,Pisarzowice
-PL,Pisarzowice
 PL,Piotrków Trybunalski
 PL,Piotrków Kujawski
 PL,Pilica
@@ -43195,7 +42540,6 @@ PL,Ostrowy
 PL,Ostrowy nad Oksza
 PL,Ostrów Wielkopolski
 PL,Ostrowite
-PL,Ostrowite
 PL,Ostroszowice
 PL,Ostroróg
 PL,Ostróda
@@ -43209,10 +42553,6 @@ PL,Osielec
 PL,Osiek nad Notecia
 PL,Osiek Maly
 PL,Osiek
-PL,Osiek
-PL,Osiek
-PL,Osiek
-PL,Osiek
 PL,Osieczna
 PL,Osieciny
 PL,Osie
@@ -43224,7 +42564,6 @@ PL,Orchowo
 PL,Oporów
 PL,Opole
 PL,Opatówek
-PL,Opatów
 PL,Opatów
 PL,Opalenica
 PL,Olza
@@ -43282,7 +42621,6 @@ PL,Naprawa
 PL,Namyslów
 PL,Naklo nad Notecia
 PL,Naklo
-PL,Naklo
 PL,Myszków
 PL,Myslowice
 PL,Myslibórz
@@ -43301,7 +42639,6 @@ PL,Mrozów
 PL,Mrocza
 PL,Moszczenica
 PL,Moszczanka
-PL,Mosty
 PL,Mosty
 PL,Mosina
 PL,Moryn
@@ -43333,11 +42670,9 @@ PL,Mieroszów
 PL,Mielno
 PL,Mieleszyn
 PL,Miekinia
-PL,Miekinia
 PL,Miejska Górka
 PL,Miedzyzdroje
 PL,Miedzyrzecz
-PL,Miedzylesie
 PL,Miedzylesie
 PL,Miedzychód
 PL,Miedzybrodzie Bialskie
@@ -43353,7 +42688,6 @@ PL,Miasteczko Krajenskie
 PL,Metków
 PL,Mazancowice
 PL,Maszewo Duze
-PL,Maszewo
 PL,Maszewo
 PL,Marklowice
 PL,Marianowo
@@ -43381,9 +42715,7 @@ PL,Ludwikowice Klodzkie
 PL,Lubsza
 PL,Lubsko
 PL,Lubrza
-PL,Lubrza
 PL,Lubraniec
-PL,Lubowo
 PL,Lubowo
 PL,Lubowidz
 PL,Lubon
@@ -43421,7 +42753,6 @@ PL,Lisewo
 PL,Lipusz
 PL,Lipowa
 PL,Lipno
-PL,Lipno
 PL,Lipnica Wielka
 PL,Lipnica Mala
 PL,Lipnica
@@ -43444,7 +42775,6 @@ PL,Lewin Brzeski
 PL,Leszno
 PL,Lesnica
 PL,Lesna
-PL,Lesna
 PL,Lencze
 PL,Lelów
 PL,Leknica
@@ -43459,7 +42789,6 @@ PL,Leczyca
 PL,Lebork
 PL,Leba
 PL,Lazy
-PL,Lazy
 PL,Laziska Górne
 PL,Laziska
 PL,Lask
@@ -43470,7 +42799,6 @@ PL,Lanckorona
 PL,Lambinowice
 PL,Laliki
 PL,Laka Prudnicka
-PL,Lagów
 PL,Lagów
 PL,Lagiewniki
 PL,Ladek-Zdrój
@@ -43508,10 +42836,8 @@ PL,Krzykosy
 PL,Krzeszyce
 PL,Krzeszowice
 PL,Krzeszów
-PL,Krzeszów
 PL,Krzepice
 PL,Krzemieniewo
-PL,Krzecin
 PL,Krzecin
 PL,Krzczonów
 PL,Krzanowice
@@ -43554,7 +42880,6 @@ PL,Koszecin
 PL,Koscierzyna
 PL,Koscielisko
 PL,Koscielec
-PL,Koscielec
 PL,Koscian
 PL,Kosakowo
 PL,Koronowo
@@ -43585,7 +42910,6 @@ PL,Kolbaskowo
 PL,Koczala
 PL,Kochanowice
 PL,Kobylnica
-PL,Kobylnica
 PL,Kobylin
 PL,Kobylanka
 PL,Kobyla Góra
@@ -43599,7 +42923,6 @@ PL,Kluczbork
 PL,Klonowa
 PL,Klomnice
 PL,Klodzko
-PL,Klodawa
 PL,Klodawa
 PL,Klobuck
 PL,Klikuszowa
@@ -43687,7 +43010,6 @@ PL,Jastrzab
 PL,Jastrowie
 PL,Jastarnia
 PL,Jasienica
-PL,Jasienica
 PL,Jasien
 PL,Jaroszowice
 PL,Jarocin
@@ -43732,7 +43054,6 @@ PL,Gronowo Górne
 PL,Gronowo Elblaskie
 PL,Gromadka
 PL,Grojec
-PL,Grojec
 PL,Grodzisk Wielkopolski
 PL,Grodziec
 PL,Grodków
@@ -43746,7 +43067,6 @@ PL,Gozdowo
 PL,Gozdnica
 PL,Goszczanów
 PL,Gostynin
-PL,Gostyn
 PL,Gostyn
 PL,Gostycyn
 PL,Goscino
@@ -43764,12 +43084,10 @@ PL,Gorenice
 PL,Górazdze
 PL,Góra Swietej Malgorzaty
 PL,Góra
-PL,Góra
 PL,Gomunice
 PL,Goluchów
 PL,Golub-Dobrzyn
 PL,Golkowice
-PL,Golina
 PL,Golina
 PL,Goleszów
 PL,Goleniów
@@ -43798,8 +43116,6 @@ PL,Glogoczów
 PL,Gliwice
 PL,Gizalki
 PL,Gilowice
-PL,Gilowice
-PL,Gieraltowice
 PL,Gieraltowice
 PL,Cielmice
 PL,Giebultów
@@ -43858,8 +43174,6 @@ PL,Dobron
 PL,Dobrodzien
 PL,Dobre
 PL,Dobra
-PL,Dobra
-PL,Dobra
 PL,Dobieszowice
 PL,Dobiegniew
 PL,Dmosin
@@ -43884,8 +43198,6 @@ PL,Dabrowa Zielona
 PL,Dabrowa Górnicza
 PL,Dabrowa Chelminska
 PL,Dabrowa
-PL,Dabrowa
-PL,Dabie
 PL,Dabie
 PL,Czyzowice
 PL,Czulów
@@ -43900,8 +43212,6 @@ PL,Czernikowo
 PL,Czerniewice
 PL,Czerniejewo
 PL,Czernichów
-PL,Czernichów
-PL,Czernica
 PL,Czernica
 PL,Czermin
 PL,Czempin
@@ -43981,7 +43291,6 @@ PL,Bytnica
 PL,Bystrzyca Klodzka
 PL,Bystrzyca
 PL,Bystra
-PL,Bystra
 PL,Bydgoszcz
 PL,Byczyna
 PL,Burzenin
@@ -43991,7 +43300,6 @@ PL,Bukowiec
 PL,Buk
 PL,Bujaków
 PL,Budzyn
-PL,Budzów
 PL,Budzów
 PL,Budziszewice
 PL,Buczkowice
@@ -44013,10 +43321,7 @@ PL,Brudzen Duzy
 PL,Bronów
 PL,Brojce
 PL,Brójce
-PL,Brójce
 PL,Brody
-PL,Brody
-PL,Brodnica
 PL,Brodnica
 PL,Brodla
 PL,Brenno
@@ -44038,7 +43343,6 @@ PL,Bolszewo
 PL,Bolków
 PL,Boleszkowice
 PL,Boleslawiec
-PL,Boleslawiec
 PL,Boleslaw
 PL,Bolecin
 PL,Bolechowice
@@ -44052,7 +43356,6 @@ PL,Boguszów-Gorce
 PL,Bogdaniec
 PL,Bogatynia
 PL,Bobrowo
-PL,Bobrowniki
 PL,Bobrowniki
 PL,Bobrowice
 PL,Bobowo
@@ -44107,7 +43410,6 @@ PL,Baków
 PL,Bachowice
 PL,Baborów
 PL,Babimost
-PL,Babice
 PL,Babice
 PL,Babiak
 PL,Andrychów
@@ -44222,7 +43524,6 @@ PT,São Brás de Alportel
 PT,São Bartolomeu de Messines
 PT,Santo António da Charneca
 PT,Santo Antão do Tojal
-PT,Santo André
 PT,Santo André
 PT,Santiago do Cacém
 PT,Santarém
@@ -44386,7 +43687,6 @@ PT,Campanário
 PT,Camarate
 PT,Câmara de Lobos
 PT,Camacha
-PT,Camacha
 PT,Calheta
 PT,Caldas da Rainha
 PT,Cadaval
@@ -44462,7 +43762,6 @@ PT,A dos Cunhados
 PT,Abrantes
 PT,Vouzela
 PT,Vizela
-PT,Vizela
 PT,Viseu
 PT,Vinhais
 PT,Vimioso
@@ -44486,7 +43785,6 @@ PT,Vila Chã
 PT,Vieira do Minho
 PT,Viana do Castelo
 PT,Valpaços
-PT,Valongo
 PT,Valongo
 PT,Valença
 PT,Válega
@@ -44635,7 +43933,6 @@ PT,Lousã
 PT,Lourosa
 PT,Lorvão
 PT,Lordelo
-PT,Lordelo
 PT,Lobão
 PT,Leça do Bailio
 PT,Leça da Palmeira
@@ -44655,7 +43952,6 @@ PT,Gondomar
 PT,Góis
 PT,Godim
 PT,Gemunde
-PT,Gandra
 PT,Gandra
 PT,Galegos
 PT,Gafanha da Nazaré
@@ -44704,7 +44000,6 @@ PT,Cantanhede
 PT,Canidelo
 PT,Canelas
 PT,Candoso
-PT,Campo
 PT,Campo
 PT,Calendário
 PT,Caldelas
@@ -44844,7 +44139,6 @@ RO,Vulcaneasa
 RO,Vulcana-Pandele
 RO,Vulcana de Sus
 RO,Vulcana Bai
-RO,Vulcan
 RO,Vulcan
 RO,Vrâncioaia
 RO,Vrata
@@ -45080,7 +44374,6 @@ RO,Urlati
 RO,Uriu
 RO,Uricani
 RO,Urechesti
-RO,Urechesti
 RO,Urecheni
 RO,Urdari
 RO,Urca
@@ -45155,7 +44448,6 @@ RO,Tritenii de Sus
 RO,Tritenii de Jos
 RO,Trip
 RO,Trifesti
-RO,Trifesti
 RO,Treznea
 RO,Trestieni
 RO,Trei Sate
@@ -45172,7 +44464,6 @@ RO,Topoloveni
 RO,Topolovatu Mare
 RO,Topolog
 RO,Topolita
-RO,Toplita
 RO,Toplita
 RO,Topliceni
 RO,Toplet
@@ -45191,7 +44482,6 @@ RO,Tocileni
 RO,Toboliu
 RO,Tiur
 RO,Titu
-RO,Titesti
 RO,Titesti
 RO,Tismana
 RO,Tisa
@@ -45293,7 +44583,6 @@ RO,Tariceni
 RO,Tarcea
 RO,Tarcau
 RO,Tarcaia
-RO,Tansa
 RO,Tansa
 RO,Tandarei
 RO,Tanasoaia
@@ -45459,7 +44748,6 @@ RO,Smulti
 RO,Smirna
 RO,Smârdioasa
 RO,Smârdan
-RO,Smârdan
 RO,Smeeni
 RO,Slon
 RO,Slobozia Moara
@@ -45476,7 +44764,6 @@ RO,Slava Rusa
 RO,Slava Cercheza
 RO,Slatioara
 RO,Slatina-Timis
-RO,Slatina
 RO,Slatina
 RO,Slanic-Moldova
 RO,Slanic
@@ -45518,7 +44805,6 @@ RO,Sânnicoara
 RO,Sânmihaiu Român
 RO,Sânmihaiu de Câmpie
 RO,Sânmihaiu Almasului
-RO,Sânmartin
 RO,Sânmartin
 RO,Sânmarghita
 RO,Singureni
@@ -45589,7 +44875,6 @@ RO,Sendriceni
 RO,Sendreni
 RO,Semlac
 RO,Selimbar
-RO,Seleu?
 RO,Seleus
 RO,Selaru
 RO,Seitin
@@ -45616,7 +44901,6 @@ RO,Seaca
 RO,Scutelnici
 RO,Scurtu Mare
 RO,Scurtesti
-RO,Scurtesti
 RO,Scurta
 RO,Scundu
 RO,Sculia
@@ -45641,19 +44925,15 @@ RO,Scheiu de Sus
 RO,Scheiu de Jos
 RO,Scheia
 RO,Scarisoara
-RO,Scarisoara
 RO,Scaesti
 RO,Savârsin
 RO,Savinesti
 RO,Saveni
-RO,Saveni
 RO,Savadisla
 RO,Saulia
 RO,Saulesti
-RO,Saucesti
 RO,Sauca
-RO,Sauca
-RO,Sat-?ugatag
+RO,Sat-Șugatag
 RO,Satu Nou Calopar
 RO,Satu Nou
 RO,Satu Mare
@@ -45671,7 +44951,7 @@ RO,Sasar
 RO,Sarulesti-Gara
 RO,Sarulesti
 RO,Saru Dornei
-RO,Saro? pe Târnave
+RO,Șaroș pe Târnave
 RO,Sarmizegetusa
 RO,Sarmasu
 RO,Sarmasag
@@ -45680,7 +44960,7 @@ RO,Sarichioi
 RO,Sard
 RO,Saravale
 RO,Sarauad
-RO,Sara?eni
+RO,Sărățeni
 RO,Sarata
 RO,Sarasau
 RO,Saraiu
@@ -45689,7 +44969,7 @@ RO,Sapunari
 RO,Sapoca
 RO,Sapânta
 RO,Santau
-RO,San?
+RO,Șanț
 RO,Sanislau
 RO,Sandulesti
 RO,Sanduleni
@@ -45701,7 +44981,7 @@ RO,Salsig
 RO,Salonta
 RO,Salistea de Sus
 RO,Salistea-Deal
-RO,Sali?tea
+RO,Salistea
 RO,Saliste
 RO,Saligny
 RO,Salcuta
@@ -45738,7 +45018,7 @@ RO,Sacele
 RO,Sacel
 RO,Sacaseni
 RO,Sacalaz
-RO,Sacala?eni
+RO,Săcălășeni
 RO,Sacadat
 RO,Sabasa
 RO,Sabareni
@@ -45767,34 +45047,29 @@ RO,Pecica
 RO,Rovine
 RO,Rovinari
 RO,Rotunda
-RO,Ro?u
+RO,Roșu
 RO,Rosiorii de Vede
 RO,Rosiori
 RO,Rosiile
 RO,Rosiesti
-RO,Ro?ia Montana
+RO,Roșia Montana
 RO,Rosia de Secas
 RO,Rosia de Amaradia
 RO,Rosia
-RO,Rosia
 RO,Roseti
-RO,Ro?cani
-RO,Ro?cani
+RO,Roșcani
 RO,Rona de Sus
 RO,Rona de Jos
 RO,Romuli
 RO,Romos
 RO,Români
 RO,Românesti
-RO,Românesti
-RO,Românesti
 RO,Românasi
 RO,Romanu
-RO,Români
 RO,Românesti
 RO,Roman
 RO,Roma
-RO,Roji?te
+RO,Rojiște
 RO,Rogoz
 RO,Rogova
 RO,Roesti
@@ -45808,7 +45083,6 @@ RO,Râu Alb de Jos
 RO,Râsnov
 RO,Râsesti
 RO,Râsca
-RO,Râ?ca
 RO,Ripiceni
 RO,Rânzesti
 RO,Râncaciov
@@ -45828,14 +45102,13 @@ RO,Retevoiesti
 RO,Reteag
 RO,Resita
 RO,Repedea
-RO,Remu?
+RO,Remuș
 RO,Remeti
 RO,Remetea Mare
 RO,Remetea Chioarului
 RO,Remetea
 RO,Reghiu
 RO,Reghin-Sat
-RO,Reghin
 RO,Rediu
 RO,Redea
 RO,Reci
@@ -45860,7 +45133,7 @@ RO,Rastoaca
 RO,Rasova
 RO,Rasmiresti
 RO,Rasinari
-RO,Ra?i
+RO,Raşi
 RO,Rascruci
 RO,Rascaeți
 RO,Rasa
@@ -45878,9 +45151,8 @@ RO,Radoiesti-Deal
 RO,Radna
 RO,Radesti
 RO,Radeni
-RO,Radeni
-RO,Radau?i-Prut
-RO,Radau?i
+RO,Rădăuți-Prut
+RO,Rădăuți
 RO,Radaseni
 RO,Racu
 RO,Racsa
@@ -45897,22 +45169,20 @@ RO,Rachiteni
 RO,Rachita
 RO,Rachieri
 RO,Rachelu
-RO,Racau?i
+RO,Răcăuți
 RO,Racasdia
 RO,Racarii de Sus
 RO,Racari
 RO,Racaciuni
 RO,Rabagani
-RO,Pu?uri
+RO,Puțuri
 RO,Putna
 RO,Putineiu
 RO,Pustiana
 RO,Pusta
-RO,Pu?ca?i
-RO,Purcareni
+RO,Pușcași
 RO,Purcareni
 RO,Stanesti
-RO,Purani
 RO,Purani
 RO,Punghina
 RO,Pungesti
@@ -45922,7 +45192,7 @@ RO,Pufesti
 RO,Puiestii de Jos
 RO,Puieni
 RO,Pucioasa
-RO,Puchenii Mo?neni
+RO,Puchenii Moșneni
 RO,Puchenii Mari
 RO,Pucheni
 RO,Prunisor
@@ -45934,7 +45204,6 @@ RO,Provita de Jos
 RO,Prohozesti
 RO,Progresu
 RO,Produlesti
-RO,Probota
 RO,Probota
 RO,Pristol
 RO,Priseaca
@@ -46027,7 +45296,6 @@ RO,Poienarii Burchii
 RO,Poienari
 RO,Podu Turcului
 RO,Poduri
-RO,Poduri
 RO,Podu Iloaiei
 RO,Podolenii de Sus
 RO,Podoleni
@@ -46046,12 +45314,11 @@ RO,Plugova
 RO,Plugari
 RO,Plutonița
 RO,Plostina
-RO,Ploscu?eni
-RO,Plosco?
+RO,Ploscuțeni
+RO,Ploscoș
 RO,Plosca
 RO,Plopu
 RO,Plopsoru
-RO,Plop?oru
 RO,Plopis
 RO,Plopii Slavitestí
 RO,Plopeni
@@ -46133,15 +45400,13 @@ RO,Pesceana
 RO,Glavile
 RO,Coronini
 RO,Pesac
-RO,Per?unari
-RO,Per?inari
-RO,Per?ani
-RO,Peri?oru
+RO,Perșunari
+RO,Perșani
 RO,Perisoru
-RO,Peri?or
+RO,Perișor
 RO,Perisani
 RO,Peris
-RO,Perii Bro?teni
+RO,Perii Broșteni
 RO,Perieti
 RO,Pericei
 RO,Periam
@@ -46162,29 +45427,28 @@ RO,Pauleni-Ciuc
 RO,Pauca
 RO,Patuleni
 RO,Patulele
-RO,Patru Fra?i
+RO,Patru Fraţi
 RO,Patrauti
 RO,Patârlagele
 RO,Pastraveni
 RO,Pasareni
 RO,Parva
 RO,Partestii de Jos
-RO,Par?a
+RO,Parța
 RO,Parincea
-RO,Parhau?i
-RO,Parepa-Ru?ani
+RO,Părhăuți
+RO,Parepa-Rușani
 RO,Pardosi
 RO,Pardina
 RO,Parava
 RO,Papiu Ilarian
-RO,Papau?i
+RO,Păpăuţi
 RO,Panticeu
 RO,Pantelimon de Jos
 RO,Pantelimon
 RO,Pantazi
 RO,Panet
 RO,Panciu
-RO,Pancesti
 RO,Pancesti
 RO,Panatau
 RO,Panaci
@@ -46207,7 +45471,7 @@ RO,Ozun
 RO,Ovidiu
 RO,Oveselu
 RO,Otopeni
-RO,Oteteli?u
+RO,Otetelisu
 RO,Otesani
 RO,Otelu Rosu
 RO,Oteleni
@@ -46249,7 +45513,6 @@ RO,Oprisor
 RO,Oporelu
 RO,Oniceni
 RO,Oneaga
-RO,Oncesti
 RO,Oncesti
 RO,Oltina
 RO,Oltenita
@@ -46354,7 +45617,6 @@ RO,Neaua
 RO,Neagra Șarului
 RO,Nazna
 RO,Navodari
-RO,Navodari
 RO,Nasturelu
 RO,Nasaud
 RO,Naruja
@@ -46399,12 +45661,11 @@ RO,Motru
 RO,Motoseni
 RO,Motca
 RO,Motatei
-RO,Mo?aieni
-RO,Mo?teni
+RO,Moşteni
 RO,Mosoaia
 RO,Mosnița Noua
 RO,Mosnița Veche
-RO,Mo?neni
+RO,Moșneni
 RO,Mosna
 RO,Moscu
 RO,Morunglav
@@ -46469,7 +45730,6 @@ RO,Mircestii Noi
 RO,Mircesti
 RO,Calarasi
 RO,Mircea Voda
-RO,Mircea Voda
 RO,Miraslau
 RO,Miorcani
 RO,Mânzalesti
@@ -46514,9 +45774,7 @@ RO,Miclesti
 RO,Micfalau
 RO,Micestii de Câmpie
 RO,Micesti
-RO,Micesti
 RO,Micasasa
-RO,Mica
 RO,Mica
 RO,Meziad
 RO,Metes
@@ -46530,7 +45788,6 @@ RO,Merenii de Sus
 RO,Merenii de Jos
 RO,Mereni
 RO,Merei
-RO,Mera
 RO,Mera
 RO,Melinesti
 RO,Mehadica
@@ -46569,7 +45826,6 @@ RO,Margineni Slobozia
 RO,Margineni-Munteni
 RO,Marginenii de Sus
 RO,Marginenii de Jos
-RO,Margineni
 RO,Margineni
 RO,Marginea
 RO,Margina
@@ -46639,7 +45895,6 @@ RO,Macea
 RO,Lupsanu
 RO,Lupsa
 RO,Lupeni
-RO,Lupeni
 RO,Lupac
 RO,Lunguletu
 RO,Lungesti
@@ -46647,7 +45902,6 @@ RO,Lungani
 RO,Lunga
 RO,Luncşoara
 RO,Luncoiu de Jos
-RO,Luncavita
 RO,Luncavita
 RO,Lunca Priporului
 RO,Lunca Prahovei
@@ -46678,10 +45932,8 @@ RO,Ludos
 RO,Ludesti
 RO,Ludași
 RO,Luciu
-RO,Luciu
 RO,Lucieni
 RO,Lucaceni
-RO,Lozna
 RO,Lozna
 RO,Lovrin
 RO,Lopatari
@@ -46693,8 +45945,6 @@ RO,Loamnes
 RO,Livezi-Vale
 RO,Livezile
 RO,Livezi
-RO,Livezi
-RO,Livezeni
 RO,Livezeni
 RO,Livadia
 RO,Livadea
@@ -46709,7 +45959,6 @@ RO,Lipovu
 RO,Lipovat
 RO,Lipova
 RO,Lipnita
-RO,Lipia
 RO,Lipia
 RO,Lipanesti
 RO,Izvoru
@@ -46758,13 +46007,11 @@ RO,Lăpușel
 RO,Lapus
 RO,Lapugiu de Jos
 RO,Lapoș
-RO,Lapoș
 RO,Lanurile
 RO,Lancram
-RO,Lama?eni
+RO,Lămășeni
 RO,Lalosu
 RO,Ladesti
-RO,Lacusteni
 RO,Lacusteni
 RO,Lacu Sarat
 RO,Lăculețe
@@ -46776,7 +46023,6 @@ RO,Jugureanu
 RO,Jugur
 RO,Josenii Bârgaului
 RO,Joseni
-RO,Jorasti
 RO,Jorasti
 RO,Joldesti
 RO,Joita
@@ -46823,7 +46069,6 @@ RO,Itesti
 RO,Isverna
 RO,Istria
 RO,Islaz
-RO,Islaz
 RO,Iscroni
 RO,Isalnita
 RO,Isaccea
@@ -46838,7 +46083,7 @@ RO,Ion Neculce
 RO,I. L. Caragiale
 RO,Ionesti
 RO,Ion Corvin
-RO,Iona?eni
+RO,Ionășeni
 RO,Iojib
 RO,Intregalde
 RO,Întorsura Buzaului
@@ -46867,7 +46112,7 @@ RO,Ighiel
 RO,Igesti
 RO,Iezeru
 RO,Ieud
-RO,Iernu?eni
+RO,Iernuțeni
 RO,Iernut
 RO,Iecea Mica
 RO,Iecea Mare
@@ -46882,7 +46127,6 @@ RO,Ibanesti-Padure
 RO,Ibanesti
 RO,Iazurile
 RO,Iazu Nou
-RO,Iazu
 RO,Iazu
 RO,Iaslovăț
 RO,Iasi
@@ -46955,8 +46199,8 @@ RO,Herla
 RO,Hereclean
 RO,Herculian
 RO,Herasti
-RO,Hemeiu?
-RO,Hele?teni
+RO,Hemeiuș
+RO,Heleșteni
 RO,Helegiu
 RO,Heci
 RO,Havârna
@@ -46996,12 +46240,12 @@ RO,Gura Vaii
 RO,Gura Vadului
 RO,Gura Teghii
 RO,Gura Sutii
-RO,Gura Suha?ului
+RO,Gura Suhașului
 RO,Gura Râului
 RO,Gura Putnei
 RO,Gura Padinii
-RO,Gura Ocni?ei
-RO,Gura Ialomi?ei
+RO,Gura Ocniței
+RO,Gura Ialomiței
 RO,Gura Humorului
 RO,Gurahont
 RO,Gura Foii
@@ -47009,8 +46253,6 @@ RO,Gura Caluiu
 RO,Gura Calitei
 RO,Gura Beliei
 RO,Gulia
-RO,Gulia
-RO,Gugesti
 RO,Gugesti
 RO,Grunji
 RO,Grumazesti
@@ -47018,10 +46260,10 @@ RO,Gruiu
 RO,Gruia
 RO,Grozesti
 RO,Grozavesti
-RO,Gro?ii ?ible?ului
+RO,Grosii Tiblesului
 RO,Grosi
-RO,Gro?ani
-RO,Grop?ani
+RO,Groșani
+RO,Gropşani
 RO,Gropnita
 RO,Grojdibodu
 RO,Grivita
@@ -47044,7 +46286,7 @@ RO,Grajdana
 RO,Gradistea
 RO,Gradinari
 RO,Gradina
-RO,Graba?
+RO,Grabaț
 RO,Gottlob
 RO,Gostinu
 RO,Gostinari-Vacaresti
@@ -47065,11 +46307,9 @@ RO,Gorban
 RO,Goranu
 RO,Gologanu
 RO,Golesti
-RO,Golesti
 RO,Golaiesti
 RO,Goicea
 RO,Gohor
-RO,Gogosu
 RO,Gogosu
 RO,Gogosari
 RO,Goesti
@@ -47087,7 +46327,7 @@ RO,Glina
 RO,Glimboca
 RO,Glavanesti
 RO,Giuvarasti
-RO,Giurtelecu ?imleului
+RO,Giurtelecu Șimleului
 RO,Giurgiu
 RO,Giurgita
 RO,Giurgeni
@@ -47100,7 +46340,7 @@ RO,Gârnic
 RO,Gârliciu
 RO,Gârleni
 RO,Gârla-Mare
-RO,Giri?u de Cri?
+RO,Girișu de Criș
 RO,Gârdani
 RO,Gârda de Sus
 RO,Gârcov
@@ -47133,20 +46373,20 @@ RO,Ghindeni
 RO,Ghindari
 RO,Ghindaresti
 RO,Ghindaoani
-RO,Ghimpe?eni
+RO,Ghimpețeni
 RO,Ghimpați
 RO,Ghimes-Faget
-RO,Ghime?
+RO,Ghimeș
 RO,Ghimbav
 RO,Ghilad
-RO,Ghighi?eni
+RO,Ghighișeni
 RO,Ghidigeni
 RO,Ghidici
 RO,Ghidfalau
 RO,Gheaba
-RO,Gherteni?
+RO,Gherteniș
 RO,Gherta Mica
-RO,Gher?a Mare
+RO,Gherta Mare
 RO,Ghermanesti
 RO,Gherla
 RO,Gherghita
@@ -47177,14 +46417,12 @@ RO,Geaca
 RO,Gazarie
 RO,Gavojdia
 RO,Gavanesti
-RO,Gavanesti
 RO,Gaujani
 RO,Gataia
 RO,Garvan
 RO,Garoafa
 RO,Garagau
 RO,Dâlga-Gara
-RO,Ganesti
 RO,Ganesti
 RO,Ganeasa
 RO,Galșa
@@ -47207,7 +46445,6 @@ RO,Gaiseni
 RO,Gainesti
 RO,Gaiceana
 RO,Gagesti
-RO,Gagesti
 RO,Gageni
 RO,Gaesti
 RO,Furtunesti
@@ -47229,13 +46466,11 @@ RO,Frumusani
 RO,Frumosu
 RO,Frumoasa
 RO,Frecatei
-RO,Frecatei
 RO,Fratostița
 RO,Fratesti
 RO,Fratautii Vechi
 RO,Fratautii Noi
 RO,Frata
-RO,Frasinet
 RO,Frasinet
 RO,Frasin
 RO,Forotic
@@ -47269,7 +46504,7 @@ RO,Filipesti
 RO,Filipeni
 RO,Filioara
 RO,Filiasi
-RO,Filia?
+RO,Filias
 RO,Filia
 RO,Fildu de Jos
 RO,Fierbinti-Târg
@@ -47290,15 +46525,13 @@ RO,Feldioara
 RO,Feisa
 RO,Fauresti
 RO,Faurei
-RO,Faurei
 RO,Fartatesti
-RO,Farca?u de Jos
-RO,Farca?
+RO,Farcașu de Jos
+RO,Fărcaș
 RO,Farcasesti
-RO,Farca?eni
+RO,Farcașeni
 RO,Farcasele
 RO,Gradinari
-RO,Farcasa
 RO,Farcasa
 RO,Farau
 RO,Faraoaní
@@ -47307,11 +46540,11 @@ RO,Falticeni
 RO,Falcoiu
 RO,Falciu
 RO,Falcau
-RO,Fala?toaca
+RO,Falaștoaca
 RO,Fagetu
 RO,Fagetelu
 RO,Faget
-RO,Fagara?
+RO,Făgăraș
 RO,Faclia
 RO,Facai
 RO,Facaeni
@@ -47337,9 +46570,7 @@ RO,Dunareni
 RO,Cârna
 RO,Dumitrița
 RO,Dumitresti
-RO,Dumitresti
 RO,Dumitra
-RO,Dumesti
 RO,Dumesti
 RO,Dumeni
 RO,Dumbravița
@@ -47380,7 +46611,6 @@ RO,Dragomiresti
 RO,Dragomir
 RO,Dragoesti-Snagov
 RO,Dragoiesti
-RO,Dragoesti
 RO,Dragoesti
 RO,Dragodanesti
 RO,Dragodana
@@ -47448,7 +46678,7 @@ RO,Dobretu
 RO,Dobresti
 RO,Dobreni
 RO,Dobra
-RO,Dobo?eni
+RO,Doboșeni
 RO,Dobârlau
 RO,Dobârceni
 RO,Doba
@@ -47460,7 +46690,7 @@ RO,Dârvari
 RO,Dârlos
 RO,Dârjiu
 RO,Diosti
-RO,Dio?od
+RO,Dioșod
 RO,Diosig
 RO,Dângeni
 RO,Hurdugi
@@ -47504,7 +46734,6 @@ RO,Dealu Frumos
 RO,Dealu Danicei
 RO,Dealu Aluniș
 RO,Dealu
-RO,Dealu
 RO,Deaj
 RO,Davidesti
 RO,Dascalu
@@ -47512,7 +46741,7 @@ RO,Dascalesti
 RO,Darova Noua
 RO,Darova
 RO,Darmanesti
-RO,Darasti-Vla?ca
+RO,Darasti-Vlașca
 RO,Darasti-Ilfov
 RO,Darabani
 RO,Dara
@@ -47541,7 +46770,6 @@ RO,Cuzaplac
 RO,Cuzap
 RO,Cuvin
 RO,Cut
-RO,Cut
 RO,Cuzdrioara
 RO,Curtuișeni
 RO,Curtisoara
@@ -47567,16 +46795,14 @@ RO,Cuciulata
 RO,Cuci
 RO,Cucerdea
 RO,Cuca
-RO,Cuca
 RO,Cubulcut
-RO,Cru?ovu
-RO,Cru?e?
+RO,Crușovu
+RO,Crușeţ
 RO,Crucisor
 RO,Crucea
 RO,Crovu
 RO,Croitori
 RO,Crizbav
-RO,Crivina
 RO,Crivina
 RO,Crivesti
 RO,Crivaț
@@ -47603,13 +46829,12 @@ RO,Crevedia
 RO,Crețești
 RO,Creteni
 RO,Creaca
-RO,Crasna Vi?eului
+RO,Crasna Vișeului
 RO,Crasna
 RO,Craiva
 RO,Craiova
 RO,Craiesti
 RO,Craidorolt
-RO,Craiesti
 RO,Craiesti
 RO,Craciunesti
 RO,Craciunelu de Jos
@@ -47623,21 +46848,20 @@ RO,Cozieni
 RO,Cozia
 RO,Covrigi
 RO,Covasna
-RO,Covasna
 RO,Covasint
-RO,Cotu Vame?
+RO,Cotu Vameș
 RO,Cotusca
 RO,Cotumba
-RO,Co?ofenii din Fa?a
-RO,Cotofenii din Dos
+RO,Coțofenii din Față
+RO,Coțofenii din Dos
 RO,Cotofanesti
 RO,Cotnari
 RO,Cotmeana
 RO,Cotesti
 RO,Cotenesti
 RO,Coteana
-RO,Co?atcu
-RO,Co?ula
+RO,Coțatcu
+RO,Coșula
 RO,Costuleni
 RO,Costisa
 RO,Costinesti
@@ -47649,17 +46873,16 @@ RO,Costeiu
 RO,Costache Negri
 RO,Cosoveni
 RO,Cosoba
-RO,Co?na
+RO,Coșna
 RO,Cosmina de Jos
 RO,Cosmestii-Vale
-RO,Cosmesti
 RO,Cosmesti
 RO,Cosâmbesti
 RO,Cosesti
 RO,Cosereni
 RO,Coseiu
 RO,Cosbuc
-RO,Co?ani
+RO,Coşani
 RO,Corund
 RO,Corunca
 RO,Coropceni
@@ -47668,21 +46891,18 @@ RO,Coroiesti
 RO,Coroieni
 RO,Corod
 RO,Corocaiesti
-RO,Cornu?el
+RO,Cornuțel
 RO,Cornu Luncii
 RO,Cornu de Sus
 RO,Cornu de Jos
 RO,Corni-Albesti
 RO,Corni
-RO,Corni
 RO,Cornetu
-RO,Cornesti
-RO,Cornesti
 RO,Cornesti
 RO,Cornereva
 RO,Cornea
 RO,Cornatelu
-RO,Corna?el
+RO,Cornăţel
 RO,Cormaia
 RO,Corlatesti
 RO,Corlateni
@@ -47715,13 +46935,12 @@ RO,Conop
 RO,Conduratu
 RO,Condeesti
 RO,Concesti
-RO,Como?teni
+RO,Comoșteni
 RO,Comlosu Mare
 RO,Comisani
 RO,Comarnic
 RO,Comarna
 RO,Comani
-RO,Comanesti
 RO,Comanesti
 RO,Comandau
 RO,Comanda
@@ -47729,18 +46948,14 @@ RO,Comanca
 RO,Comana de Sus
 RO,Comana de Jos
 RO,Comana
-RO,Comana
 RO,Colti
 RO,Coltau
 RO,Colonia Fabricii
 RO,Colonia Bod
 RO,Colonesti
-RO,Colonesti
-RO,Coliba?i
 RO,Colibasi
 RO,Colelia
 RO,Colceag
-RO,Colacu
 RO,Colacu
 RO,Cojocna
 RO,Cojasca
@@ -47751,18 +46966,18 @@ RO,Codaesti
 RO,Cocu
 RO,Cocoreni
 RO,Cocorastii Mislii
-RO,Cocorastii Col?
+RO,Cocorăștii Colț
 RO,Cocora
 RO,Coconi
 RO,Cociuba Mare
 RO,Cociu
 RO,Cochirleanca
 RO,Cobadin
-RO,Coa?
+RO,Coaș
 RO,Coarnele Caprei
 RO,Coada Izvorului
 RO,Cluj-Napoca
-RO,Clo?ani
+RO,Cloșani
 RO,Clocotici
 RO,Clit
 RO,Clinceni
@@ -47771,23 +46986,20 @@ RO,Cleja
 RO,Cleanov
 RO,Cizer
 RO,Ciutelec
-RO,Ciu?lea
+RO,Ciușlea
 RO,Ciuruleasa
 RO,Ciurila
 RO,Ciurea
 RO,Ciupercenii Vechi
 RO,Ciupercenii Noi
 RO,Ciuperceni
-RO,Ciuperceni
-RO,Ciuperceni
 RO,Ciumesti
 RO,Ciumeghiu
 RO,Ciumbrud
 RO,Ciumani
 RO,Ciulnița
-RO,Ciulnita
 RO,Ciugud
-RO,Ciughe?
+RO,Ciugheș
 RO,Ciudanovita
 RO,Ciucurova
 RO,Ciucsângeorgiu
@@ -47797,10 +47009,9 @@ RO,Ciucani
 RO,Ciuani
 RO,Câtcau
 RO,Cisnadie
-RO,Ci?mele
+RO,Cișmele
 RO,Cislau
 RO,Cârtisoara
-RO,Cârta
 RO,Cârta
 RO,Cârniceni
 RO,Cârlogani
@@ -47811,17 +47022,14 @@ RO,Cârjoaia
 RO,Cârjiti
 RO,Cârja
 RO,Ciresu
-RO,Ciresu
-RO,Cire?oaia
-RO,Cire?oaia
+RO,Cireșoaia
 RO,Cârcea
 RO,Ciprian Porumbescu
 RO,Cipau
 RO,Ciortesti
-RO,Cioroia?i
+RO,Cioroiași
 RO,Ciorogârla
 RO,Cioroboreni
-RO,Ciorasti
 RO,Ciorasti
 RO,Cioranii de Sus
 RO,Cioranii de Jos
@@ -47833,20 +47041,17 @@ RO,Ciofrângeni
 RO,Ciofliceni
 RO,Ciocârlia de Sus
 RO,Ciocârlia
-RO,Ciocârlia
 RO,Ciocile
-RO,Ciochiu?a
+RO,Ciochiuţa
 RO,Ciochina
 RO,Ciocani
 RO,Ciocanesti
 RO,Cicanesti
 RO,Ciocanesti
-RO,Ciocanesti
 RO,Ciocanari
 RO,Ciobanu
 RO,Cintei
 RO,Cândesti Vale
-RO,Cândesti
 RO,Cândesti
 RO,Cincu
 RO,Câmpurile de Jos
@@ -47859,10 +47064,7 @@ RO,Câmpineanca
 RO,Câmpina
 RO,Câmpia Turzii
 RO,Câmpeni
-RO,Câmpani
 RO,Câmpani de Pomezeu
-RO,Câlnic
-RO,Câlnic
 RO,Câlnic
 RO,Cilieni
 RO,Cilibia
@@ -47876,15 +47078,15 @@ RO,Ciceu
 RO,Ciacova
 RO,Chiuza
 RO,Chiuiesti
-RO,Chi?orani
-RO,Chi?oc
+RO,Chițorani
+RO,Chițoc
 RO,Chitila
-RO,Chi?oda
+RO,Chișoda
 RO,Chislaz
 RO,Chisineu-Cris
 RO,Chisindia
 RO,Chiselet
-RO,Chi?careni
+RO,Chișcăreni
 RO,Chiscani
 RO,Chirpar
 RO,Chirnogi
@@ -47976,14 +47178,12 @@ RO,Ceahlau
 RO,Ceacu
 RO,Cazasu
 RO,Cazanesti
-RO,Cazanesti
 RO,Cazaci
 RO,Cavnic
 RO,Cavadinesti
 RO,Cauas
 RO,Catunele
 RO,Catina
-RO,Ca?elu
 RO,Cateasca
 RO,Catanele
 RO,Catane
@@ -47995,7 +47195,7 @@ RO,Castrele Traiane
 RO,Castranova
 RO,Castelu
 RO,Castau
-RO,Ca?oca
+RO,Cașoca
 RO,Casin
 RO,Casimcea
 RO,Caseiu
@@ -48012,7 +47212,7 @@ RO,Carbunari
 RO,Caraula
 RO,Carastelec
 RO,Carasova
-RO,Cara?eu
+RO,Cărăşeu
 RO,Caransebes
 RO,Carani
 RO,Carand
@@ -48056,11 +47256,11 @@ RO,Calafat
 RO,Calacea
 RO,Cajvana
 RO,Caiuti-Sat
-RO,Caiu?i
+RO,Caiuţi
 RO,Caianu Mic
 RO,Caianu
 RO,Cadea
-RO,Caciula?i
+RO,Căciulați
 RO,Cacica
 RO,Cabesti
 RO,Buzoesti
@@ -48121,11 +47321,10 @@ RO,Buda
 RO,Bucharest
 RO,Bucuresci
 RO,Bucu
-RO,Buc?oaia
+RO,Bucșoaia
 RO,Bucșesti
-RO,Bucșenești-Lota?i
+RO,Bucșenești-Lotași
 RO,Bucșenești
-RO,Bucsani
 RO,Bucsani
 RO,Bucovineni
 RO,Bucovaț
@@ -48165,7 +47364,7 @@ RO,Brestovaț
 RO,Brehuiesti
 RO,Brebu Nou
 RO,Brebu Mânastirei
-RO,Brebu Megie?esc
+RO,Brebu Megieșesc
 RO,Brebu
 RO,Brebeni
 RO,Breb
@@ -48180,7 +47379,6 @@ RO,Radulesti
 RO,Brazi
 RO,Bratovoesti
 RO,Bratila
-RO,Bratesti
 RO,Bratesti
 RO,Brates
 RO,Brateiu
@@ -48198,16 +47396,13 @@ RO,Braila
 RO,Brahasestii de Sus
 RO,Brahasesti
 RO,Bragadiru
-RO,Bragadiru
 RO,Braesti
 RO,Braiesti
-RO,Braesti
 RO,Braesti
 RO,Bradut
 RO,Bradulet
 RO,Bradu
 RO,Bradicesti
-RO,Bradesti
 RO,Bradesti
 RO,Bradeni
 RO,Bradeanu
@@ -48225,14 +47420,11 @@ RO,Botoroaga
 RO,Botiza
 RO,Botiz
 RO,Botesti
-RO,Botesti
-RO,Botesti
 RO,Boteni
 RO,Bosorod
 RO,Bosia
 RO,Bosanci
 RO,Borsec
-RO,Borsa
 RO,Borsa
 RO,Bors
 RO,Borosoaia
@@ -48252,7 +47444,7 @@ RO,Borca
 RO,Borascu
 RO,Boranesti
 RO,Bolvațnița
-RO,Bolovani?
+RO,Bolovăniș
 RO,Bolotesti
 RO,Bolintin Vale
 RO,Bolintin Deal
@@ -48280,18 +47472,14 @@ RO,Bogdanita
 RO,Bogdanesti
 RO,Bogdand
 RO,Bogdana
-RO,Bogdana
 RO,Bogda
 RO,Bogati
-RO,Bogata
 RO,Bogata
 RO,Bodoc
 RO,Bodestii de Jos
 RO,Bodesti
-RO,Bodesti
 RO,Bod
 RO,Bocsig
-RO,Bocsa
 RO,Bocsa
 RO,Bocicoiu Mare
 RO,Bobulesti
@@ -48314,14 +47502,13 @@ RO,Blajel
 RO,Blajani
 RO,Blaj
 RO,Blagesti
-RO,Blagesti
 RO,Bixad
 RO,Bivolarie
 RO,Bivolari
 RO,Bistrita Bârgaului
 RO,Bistrița
 RO,Bistreț
-RO,Bistra Mure?ului
+RO,Bistra Mureşului
 RO,Bistra
 RO,Bisoca
 RO,Bâscoveni
@@ -48331,7 +47518,6 @@ RO,Bâsca Rozilei
 RO,Bâsca Chiojdului
 RO,Bârzesti
 RO,Bârzava
-RO,Bârza
 RO,Bârza
 RO,Bârsesti
 RO,Bârsau de Sus
@@ -48352,7 +47538,6 @@ RO,Bâra
 RO,Bâlvanesti
 RO,Bâlteni
 RO,Bâlta
-RO,Bâlta
 RO,Biliesti
 RO,Biled
 RO,Bâldana
@@ -48364,7 +47549,7 @@ RO,Biharia
 RO,Biertan
 RO,Bâcu
 RO,Bixad
-RO,Bâcle?
+RO,Bâcleș
 RO,Bichis
 RO,Bichigiu
 RO,Bicazu Ardelean
@@ -48396,11 +47581,8 @@ RO,Bereni
 RO,Beregsau Mare
 RO,Berchișesti
 RO,Berceni
-RO,Berceni
 RO,Berca
 RO,Berbesti
-RO,Berbesti
-RO,Bengesti
 RO,Benesat
 RO,Beltiug
 RO,Beliu
@@ -48415,7 +47597,6 @@ RO,Beius
 RO,Beiu
 RO,Beidaud
 RO,Beica de Jos
-RO,Beclean
 RO,Beclean
 RO,Beciu
 RO,Becicherecu Mic
@@ -48436,8 +47617,6 @@ RO,Bata
 RO,Basesti
 RO,Bascov
 RO,Basarabi
-RO,Basarabi
-RO,Barza
 RO,Barza
 RO,Baru Mic
 RO,Baru
@@ -48455,17 +47634,13 @@ RO,Barasti
 RO,Baraolt
 RO,Baraganul
 RO,Baraganu
-RO,Baraban?
+RO,Bărăbanț
 RO,Bara
 RO,Banloc
 RO,Banita
 RO,Banisor
 RO,Bania
 RO,Banesti
-RO,Banesti
-RO,Baneasa
-RO,Baneasa
-RO,Baneasa
 RO,Baneasa
 RO,Band
 RO,Bancu
@@ -48475,8 +47650,6 @@ RO,Baluseni
 RO,Balsesti
 RO,Badeana
 RO,Balteni
-RO,Balteni
-RO,Balteni
 RO,Balta Verde
 RO,Baltati
 RO,Baltatesti
@@ -48484,7 +47657,6 @@ RO,Balta Doamnei
 RO,Balta Alba
 RO,Balta
 RO,Balsa
-RO,Bal?
 RO,Bals
 RO,Balotesti
 RO,Balnaca
@@ -48492,13 +47664,10 @@ RO,Balintesti
 RO,Balint
 RO,Balilesti
 RO,Balesti
-RO,Balesti
 RO,Baleni Sârbi
 RO,Baleni
 RO,Baldovinesti
-RO,Baldovinesti
 RO,Balda
-RO,Balcesti
 RO,Balcesti
 RO,Balcauti
 RO,Balcani
@@ -48507,7 +47676,6 @@ RO,Balauseri
 RO,Balasesti
 RO,Balanesti
 RO,Balan
-RO,Balan
 RO,Balaciu
 RO,Balacita
 RO,Balaci
@@ -48515,7 +47683,6 @@ RO,Balaceanu
 RO,Balaceanca
 RO,Balaceana
 RO,Balabanesti
-RO,Bala
 RO,Bala
 RO,Bajura
 RO,Bajesti
@@ -48530,7 +47697,7 @@ RO,Bailesti
 RO,Baile Olanesti
 RO,Baile Herculane
 RO,Baile Govora
-RO,Baile Bor?a
+RO,Băile Borșa
 RO,Baiculesti
 RO,Baicoi
 RO,Baia Sprie
@@ -48540,18 +47707,15 @@ RO,Baia de Cris
 RO,Baia de Aries
 RO,Baia de Arama
 RO,Baia
-RO,Baia
 RO,Bahnea
 RO,Bahna
 RO,Bagaciu
 RO,Baduleasa
-RO,Bado?i
-RO,Badeu?i
+RO,Bădoşi
+RO,Badeuţi
 RO,Badesti
 RO,Badeni
-RO,Badeni
 RO,Bacova
-RO,Baciu
 RO,Baciu
 RO,Bacioiu
 RO,Bacia
@@ -48560,12 +47724,10 @@ RO,Bacea
 RO,Bacau
 RO,Bacani
 RO,Bacalesti
-RO,Bab?a
+RO,Babșa
 RO,Babiciu
 RO,Babeti
-RO,Babeni-Olte?u
-RO,Babeni
-RO,Babeni
+RO,Băbeni-Olteţu
 RO,Babeni
 RO,Babana
 RO,Babaita
@@ -48575,7 +47737,6 @@ RO,Azuga
 RO,Axintele
 RO,Axente Sever
 RO,Avrig
-RO,Avram Iancu
 RO,Avram Iancu
 RO,Avramesti
 RO,Avrameni
@@ -48590,7 +47751,7 @@ RO,Aschileu Dorna
 RO,Asau
 RO,Bujoreni
 RO,Arsura
-RO,Arpa?u de Sus
+RO,Arpasu de Sus
 RO,Arpasu de Jos
 RO,Aroneanu
 RO,Armenis
@@ -48602,13 +47763,13 @@ RO,Aricestii-Rahtivani
 RO,Arghira
 RO,Teslui
 RO,Argetoaia
-RO,Arge?elu
+RO,Argeșelu
 RO,Argel
 RO,Arefu
 RO,Ardusat
 RO,Ardud
 RO,Ardeoani
-RO,Arcu?
+RO,Arcuș
 RO,Archis
 RO,Arcani
 RO,Arbore
@@ -48626,15 +47787,11 @@ RO,Apahida
 RO,Apa Asau
 RO,Apa
 RO,Aninoasa
-RO,Aninoasa
-RO,Aninoasa
-RO,Aninoasa
 RO,Anina
-RO,Anie?
+RO,Anieș
 RO,Anghelesti
 RO,Andrieseni
 RO,Andrid
-RO,Andrei ?aguna
 RO,Andreiasu de Jos
 RO,Andreesti
 RO,Andrasesti
@@ -48644,14 +47801,10 @@ RO,Amarastii de Sus
 RO,Amarastii de Jos
 RO,Amarasti
 RO,Amara
-RO,Amara
 RO,Alunu
-RO,Aluni?u
-RO,Aluni?u
+RO,Alunişu
 RO,Alunis
-RO,Alunis
-RO,Alunis
-RO,Al?âna
+RO,Alțâna
 RO,Alparea
 RO,Almasu Mare
 RO,Almasu
@@ -48669,16 +47822,11 @@ RO,Alexandria
 RO,Alesd
 RO,Albota
 RO,Albota de Jos
-RO,Albi?
+RO,Albiş
 RO,Albestii Ungureni
 RO,Albesti-Paleologu
 RO,Albesti-Muru
 RO,Albestii Pamânteni
-RO,Albesti
-RO,Albesti
-RO,Albesti
-RO,Albesti
-RO,Albesti
 RO,Albesti
 RO,Albeni
 RO,Alba Iulia
@@ -48689,34 +47837,32 @@ RO,Aiudul de Sus
 RO,Aiud
 RO,Aiton
 RO,Aita Mare
-RO,Agri?u Mare
-RO,Agri?
+RO,Agrișu Mare
+RO,Agriş
 RO,Agrij
-RO,Agrie?
+RO,Agrieș
 RO,Agnita
 RO,Agârbiciu
 RO,Agighiol
 RO,Agigea
-RO,Aghire?u-Fabrici
-RO,Aghire?u
-RO,Aghire?
+RO,Aghireșu-Fabrici
+RO,Aghireșu
+RO,Aghireș
 RO,Agas
 RO,Agapia
 RO,Afumati
-RO,Afumati
-RO,Aduna?ii-Copaceni
+RO,Adunatii-Copaceni
 RO,Adunati
 RO,Adjudu Vechi
 RO,Adjudeni
 RO,Adjud
 RO,Adâncata
-RO,Adâncata
 RO,Adânca
 RO,Adea
-RO,Ada?eni
+RO,Adășeni
 RO,Adamus
 RO,Adamclisi
-RO,Acri?
+RO,Acriș
 RO,Acâs
 RO,Acatari
 RO,Abrud-Sat
@@ -48728,19 +47874,19 @@ RO,Vrani
 RO,Vetrisoaia
 RO,Moieciu de Jos
 RO,Bucuresti
-RO,Mâr?a
+RO,Mârșa
 RO,Pascani
 RO,Dorna-Arini
 RO,Mioveni
-RO,Uileacu de Beiu?
+RO,Uileacu de Beiuș
 RO,Albestii de Arges
 RO,Crițan
 RO,Horea
-RO,Frumu?eni
+RO,Frumușeni
 RO,Dragoslavele
-RO,Sighi?oara
+RO,Sighișoara
 RO,Slobozia
-RO,Vin?u de Jos
+RO,Vințu de Jos
 RO,Fagetu
 RO,Poienari
 RO,Oarja
@@ -48749,11 +47895,11 @@ RO,Izvoarele
 RO,Sâniob
 RO,Baranca
 RO,Ungureni
-RO,Raco?
+RO,Racoș
 RO,Gropeni
 RO,Smârdan
 RO,Constantin Brâncoveanu
-RO,Bon?ida
+RO,Bonțida
 RO,Luna
 RO,Culmea
 RO,Valea Voievozilor
@@ -48767,16 +47913,9 @@ RO,Ion Creanga
 RO,Urzica
 RO,Plopeni
 RO,Tarna Mare
-RO,Calma?uiu de Sus
-RO,Drac?enei
+RO,Călmățuiu de Sus
 RO,I. C. Bratianu
 RO,Maliuc
-RO,Sector 1
-RO,Sector 2
-RO,Sector 3
-RO,Sector 4
-RO,Sector 5
-RO,Sector 6
 SE,Viken
 SE,Ursviken
 SE,Umeå
@@ -48870,7 +48009,6 @@ SE,Vänersborg
 SE,Vallentuna
 SE,Vallda
 SE,Valla
-SE,Valla
 SE,Valje
 SE,Valdemarsvik
 SE,Valbo
@@ -48906,7 +48044,6 @@ SE,Tormestorp
 SE,Torekov
 SE,Töreboda
 SE,Tomelilla
-SE,Tollarp
 SE,Tollarp
 SE,Töcksfors
 SE,Tjuvkil
@@ -48962,7 +48099,6 @@ SE,Stockaryd
 SE,Stigtomta
 SE,Stenungsund
 SE,Stenstorp
-SE,Stenstorp
 SE,Stenkullen
 SE,Steninge
 SE,Stenhamra
@@ -48983,17 +48119,14 @@ SE,Sollefteå
 SE,Sollebrunn
 SE,Södra Vi
 SE,Södra Sandby
-SE,Södra Sandby
 SE,Södertälje
 SE,Södermalm
 SE,Söderköping
 SE,Söderhamn
 SE,Söderfors
-SE,Söderfors
 SE,Smygehamn
 SE,Smögen
 SE,Smedjebacken
-SE,Smedby
 SE,Smedby
 SE,Smålandsstenar
 SE,Slottsbron
@@ -49015,10 +48148,8 @@ SE,Skegrie
 SE,Skattkärr
 SE,Skärhamn
 SE,Skåre
-SE,Skåre
 SE,Skärblacka
 SE,Skara
-SE,Skänninge
 SE,Skänninge
 SE,Sjuntorp
 SE,Sjömarken
@@ -49044,7 +48175,6 @@ SE,Säffle
 SE,Rydsgård
 SE,Rydebäck
 SE,Rydaholm
-SE,Ryd
 SE,Ryd
 SE,Rottne
 SE,Rosersberg
@@ -49096,7 +48226,6 @@ SE,Önnestad
 SE,Olstorp
 SE,Olofström
 SE,Olofstorp
-SE,Olofstorp
 SE,Öjersjö
 SE,Ödsmål
 SE,Ödeshög
@@ -49106,7 +48235,6 @@ SE,Ödåkra
 SE,Öckerö
 SE,Ockelbo
 SE,Nynäshamn
-SE,Nykvarn
 SE,Nykvarn
 SE,Nyköping
 SE,Nyhammar
@@ -49147,14 +48275,12 @@ SE,Moheda
 SE,Mockfjärd
 SE,Mjölby
 SE,Mjällby
-SE,Mjällby
 SE,Mellerud
 SE,Mellbystrand
 SE,Matfors
 SE,Märsta
 SE,Markaryd
 SE,Mariestad
-SE,Marieholm
 SE,Marieholm
 SE,Mariefred
 SE,Mariannelund
@@ -49268,21 +48394,17 @@ SE,Jursla
 SE,Jörlanda
 SE,Jordbro
 SE,Jonstorp
-SE,Jonstorp
 SE,Jönköping
 SE,Jokkmokk
 SE,Johannedal
 SE,Järvsö
 SE,Järpen
 SE,Järna
-SE,Järna
 SE,Järbo
 SE,Jämshög
 SE,Jämjö
 SE,Jakobsberg
 SE,Irsta
-SE,Irsta
-SE,Insjön
 SE,Insjön
 SE,Ingelstad
 SE,Iggesund
@@ -49305,7 +48427,6 @@ SE,Hörby
 SE,Höör
 SE,Hönö
 SE,Hölö
-SE,Hölö
 SE,Höllviken
 SE,Hököpinge
 SE,Hökåsen
@@ -49317,10 +48438,8 @@ SE,Hjuvik
 SE,Hjo
 SE,Hjärnarp
 SE,Hittarp
-SE,Hittarp
 SE,Hindås
 SE,Hillerstorp
-SE,Hestra
 SE,Hestra
 SE,Herrljunga
 SE,Herrestad
@@ -49392,7 +48511,6 @@ SE,Gamla Uppsala
 SE,Gagnef
 SE,Fyllinge
 SE,Furulund
-SE,Furulund
 SE,Frövi
 SE,Frösakull
 SE,Fritsla
@@ -49456,14 +48574,12 @@ SE,Charlottenberg
 SE,Bunkeflostrand
 SE,Bua
 SE,Brunna
-SE,Brunna
 SE,Brunn
 SE,Brunflo
 SE,Bromölla
 SE,Bromma
 SE,Broby
 SE,Bro
-SE,Brevik
 SE,Brevik
 SE,Bredbyn
 SE,Bredaryd
@@ -49512,7 +48628,6 @@ SE,Båstad
 SE,Bårslöv
 SE,Barkarö
 SE,Bara
-SE,Bara
 SE,Bankeryd
 SE,Bålsta
 SE,Bälinge
@@ -49527,12 +48642,10 @@ SE,Åseda
 SE,Åsbro
 SE,Åsa
 SE,Ås
-SE,Ås
 SE,Arvika
 SE,Arvidsjaur
 SE,Årsunda
 SE,Årsta
-SE,Arnö
 SE,Arnö
 SE,Arlöv
 SE,Ärla
@@ -49546,7 +48659,6 @@ SE,Angered
 SE,Ängelholm
 SE,Ånge
 SE,Aneby
-SE,Anderstorp
 SE,Anderstorp
 SE,Anderslöv
 SE,Åmotfors
@@ -49566,7 +48678,6 @@ SE,Åled
 SE,Alafors
 SE,Åkers Styckebruk
 SE,Åkersberga
-SE,Åkarp
 SE,Åkarp
 SE,Åhus
 SE,Åby
