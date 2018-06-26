@@ -35,7 +35,7 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
     }
 
     if ($route = $collection->get('entity.group.canonical')) {
-      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\GroupPageController::publicationsPage');
+      $route->setDefault('_controller', '\Drupal\ngf_group\Controller\GroupPageController::landingPage');
     }
   }
 
