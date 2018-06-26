@@ -342,7 +342,9 @@ function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
     'ngf_user_profile.link.user_about',
   ];
   foreach ($local_tasks as $local_task) {
-    $data['tabs'][1][$local_task] = NULL;
+    if (isset($data['tabs'][1][$local_task])) {
+      $data['tabs'][1][$local_task] = NULL;
+    }
   }
 }
 
