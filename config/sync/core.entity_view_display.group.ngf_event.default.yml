@@ -23,7 +23,7 @@ dependencies:
     - comment
     - datetime
     - entity_reference_revisions
-    - geofield
+    - leaflet
     - link
     - media
     - options
@@ -103,9 +103,35 @@ content:
     weight: 6
     label: hidden
     settings:
-      output_format: wkt
+      multiple_map: 0
+      leaflet_map: 'OSM Mapnik'
+      height: 400
+      popup: false
+      map_position:
+        force: 0
+        center:
+          lat: 0
+          lon: 0
+        zoom: 12
+        minZoom: 1
+        maxZoom: 18
+      icon:
+        iconUrl: ''
+        shadowUrl: ''
+        iconSize:
+          x: null
+          'y': null
+        iconAnchor:
+          x: null
+          'y': null
+        shadowAnchor:
+          x: null
+          'y': null
+        popupAnchor:
+          x: null
+          'y': null
     third_party_settings: {  }
-    type: geofield_default
+    type: leaflet_formatter_default
     region: content
   field_ngf_registration_link:
     weight: 7

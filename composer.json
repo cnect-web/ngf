@@ -40,10 +40,12 @@
         "drupal/flag": "^4.0@alpha",
         "drupal/fontawesome": "^2.1",
         "drupal/fontawesome_menu_icons": "^1.2",
+        "drupal/geocoder": "^2.0@beta",
         "drupal/geofield": "^1.0",
         "drupal/group": "^1.0",
         "drupal/honeypot": "^1.27",
         "drupal/inline_entity_form": "^1.0",
+        "drupal/leaflet": "^1.0@beta",
         "drupal/message": "^1.0@RC",
         "drupal/message_notify": "^1.0@beta",
         "drupal/message_subscribe": "^1.0@beta",
@@ -129,7 +131,7 @@
         },
         "drupal-libraries": {
             "datetimepicker": "https://github.com/xdan/datetimepicker/archive/2.5.20.zip"
-         },    
+         },
         "_comment_patches": "Temporarily enabling patches on chained composer.json until config_installer is on core",
         "patches": {
             "enable-patching" : true,
@@ -153,9 +155,6 @@
                 "Get a token of a node's parent group to create a pathauto pattern" : "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch",
                 "How to redirect to the owning group after adding a gnode?": "https://www.drupal.org/files/issues/2817109-by-rachel_norfolk-ericras-How-to-redir.patch",
                 "Request membership feature": "https://www.drupal.org/files/issues/2018-06-11/request_membership-2752603-56.patch"
-            },
-            "drupal/geocoder": {
-                "using reverse geocoding behind a proxy": "https://www.drupal.org/files/issues/using_reverse_geocoding_behind_proxy-2796277-3.patch"
             },
             "drupal/entity_reference_revisions": {
                 "Embed Paragraph Content in Normalized Parent Entities (REST)": "https://www.drupal.org/files/issues/embed_paragraph_content-2848878-43.patch"
