@@ -48,6 +48,7 @@ module:
   history: 0
   image: 0
   inline_entity_form: 0
+  leaflet: 0
   libraries: 0
   link: 0
   media: 0
