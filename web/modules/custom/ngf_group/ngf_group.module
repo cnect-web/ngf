@@ -341,11 +341,7 @@ function ngf_group_visiblity_allowed_values(FieldStorageConfig $definition, Cont
  * @see \Drupal\Core\Field\FieldConfigBase::getDefaultValue()
  */
 function ngf_group_visiblity_default_value(ContentEntityInterface $entity, FieldDefinitionInterface $definition) {
-  $default = NGF_GROUP_PUBLIC;
-
-  return [
-    ['value' => $default],
-  ];
+  return [['value' => NGF_GROUP_PUBLIC]];
 }
 
 /**
@@ -353,13 +349,17 @@ function ngf_group_visiblity_default_value(ContentEntityInterface $entity, Field
  */
 function ngf_group_local_tasks_alter(&$local_tasks) {
   // Completely remove some group tabs.
-  unset($local_tasks['group.view']);
-  unset($local_tasks['group.content']);
-  unset($local_tasks['views_view:view.group_banned_members.page_1']);
-  unset($local_tasks['views_view:view.group_members.page_1']);
-  unset($local_tasks['views_view:view.group_nodes.page_1']);
-  unset($local_tasks['views_view:view.group_pending_members.page_1']);
-
+  $tasks = [
+    'group.view',
+    'group.content',
+    'views_view:view.group_banned_members.page_1',
+    'views_view:view.group_members.page_1',
+    'views_view:view.group_nodes.page_1',
+    'views_view:view.group_pending_members.page_1',
+  ];
+  foreach ($tasks as $local_task) {
+    unset($local_tasks[$local_task]);
+  }
 }
 
 /**
@@ -367,11 +367,16 @@ function ngf_group_local_tasks_alter(&$local_tasks) {
  */
 function ngf_group_menu_local_tasks_alter(&$data, $route_name) {
   // Hide the members and followers tab, but keep the functionality.
-  $data['tabs'][1]['ngf_group.link.group_members'] = NULL;
-  $data['tabs'][1]['ngf_group.link.group_followers'] = NULL;
-  $data['tabs'][1]['ngf_group.link.group_subgroups'] = NULL;
-  $data['tabs'][1]['ngf_group.link.group_shared'] = NULL;
-  $data['tabs'][1]['ngf_group.link.group_info'] = NULL;
+  $local_tasks = [
+    'ngf_group.link.group_members',
+    'ngf_group.link.group_followers',
+    'ngf_group.link.group_subgroups',
+    'ngf_group.link.group_shared',
+    'ngf_group.link.group_info'
+  ];
+  foreach ($local_tasks as $local_task) {
+    $data['tabs'][1][$local_task] = NULL;
+  }
 }
 
 /**

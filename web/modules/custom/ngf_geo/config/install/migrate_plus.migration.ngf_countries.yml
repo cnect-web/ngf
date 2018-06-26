@@ -1,17 +1,17 @@
-id: ngf_regions
-label: Import of EU regions
+id: ngf_countries
+label: Import of EU countries
 migration_group: ngf
 dependencies:
   enforced:
     # List here the name of the module that provided this migration if you want
     # this config to be removed when that module is uninstalled.
     module:
-      - ngf_geo_import
+      - ngf_geo
 
 source:
   plugin: csv
   # Full path to the file.
-  path: /data/regions.csv
+  path: /data/countries.csv
   # Column delimiter. Comma (,) by default.
   delimiter: ','
   # Field enclosure. Double quotation marks (") by default.
@@ -22,7 +22,7 @@ source:
   # create an index in the migration table and too many columns 
   # may throw an index size error.
   keys:
-    - name
+    - iso
   # Here we identify the columns of interest in the source file. 
   # Each numeric key is the 0-based index of the column. 
   # For each column, the key below is the field name assigned to 
@@ -31,22 +31,15 @@ source:
   # migration UI.
   column_names:
     0:
-      iso: 'Iso'
-    1:
       name: 'Name'
+    1:
+      iso: 'Iso'
 process:
   vid:
     plugin: default_value
-    default_value: ngf_regions
+    default_value: ngf_countries
   name: name
-  field_ngf_country:
-    plugin: migration_lookup
-    migration: ngf_countries
-    source: iso
+  field_ngf_iso_code: iso
 
 destination:
   plugin: entity:taxonomy_term
-
-migration_dependencies:
-  required:
-    - ngf_countries

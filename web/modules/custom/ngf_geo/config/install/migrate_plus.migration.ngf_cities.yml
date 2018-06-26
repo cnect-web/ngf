@@ -6,7 +6,7 @@ dependencies:
     # List here the name of the module that provided this migration if you want
     # this config to be removed when that module is uninstalled.
     module:
-      - ngf_geo_import
+      - ngf_geo
 
 source:
   plugin: csv
