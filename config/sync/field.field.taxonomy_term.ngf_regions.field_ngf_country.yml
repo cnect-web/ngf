@@ -1,4 +1,4 @@
-uuid: d3d286ab-5ebd-476f-a9e1-202a04ad515f
+uuid: 9713a2ac-28e2-43c2-bc4d-f4d4c46bcb1c
 langcode: en
 status: true
 dependencies:
@@ -6,6 +6,8 @@ dependencies:
     - field.storage.taxonomy_term.field_ngf_country
     - taxonomy.vocabulary.ngf_countries
     - taxonomy.vocabulary.ngf_regions
+_core:
+  default_config_hash: AdUkifNlgZnvGG9A1Xo3-NpWsvfrPDnzSyGamsKEYhQ
 id: taxonomy_term.ngf_regions.field_ngf_country
 field_name: field_ngf_country
 entity_type: taxonomy_term

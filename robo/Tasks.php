@@ -88,6 +88,7 @@ class Tasks extends RoboTasks {
    */
   public function projectInstallConfig() {
     $this->projectGenerateEnv();
+
     $this->getInstallTask()
       ->arg('config_installer_sync_configure_form.sync_directory=' . $this->config('settings.config_directories.sync'))
       ->siteInstall('config_installer')
@@ -99,7 +100,6 @@ class Tasks extends RoboTasks {
 
     // Get rid of the permissions rebuild
     $this->nodeAccessRebuild();
-
   }
 
   /**
@@ -109,21 +109,27 @@ class Tasks extends RoboTasks {
    * @aliases pse
    */
   public function projectGenerateEnv() {
-    $content = '';
-    $settings = [
-      'ENVIRONMENT' => 'project.environment',
-      'DATABASE' => 'database.name',
-      'DATABASE_HOST' => 'database.host',
-      'DATABASE_PORT' => 'database.port',
-      'DATABASE_USER' => 'database.user',
-      'DATABASE_PASSWORD' => 'database.password',
-      'DATABASE_PREFIX' => 'database.prefix',
-    ];
-    foreach ($settings as $key => $setting) {
-      $content .= "$key=" . $this->config($setting) ."\n";
+    $file = $this->root() . '/.env';
+    if (!file_exists($file)) {
+      $content = '';
+      $settings = [
+        'ENVIRONMENT' => 'project.environment',
+        'DATABASE' => 'database.name',
+        'DATABASE_HOST' => 'database.host',
+        'DATABASE_PORT' => 'database.port',
+        'DATABASE_USER' => 'database.user',
+        'DATABASE_PASSWORD' => 'database.password',
+        'DATABASE_PREFIX' => 'database.prefix',
+      ];
+      foreach ($settings as $key => $setting) {
+        $content .= "$key=" . $this->config($setting) ."\n";
+      }
+      if (!empty($content)) {
+        $this->taskWriteToFile($this->root() . '/.env')->text($content)->run();
+      }
     }
-    if (!empty($content)) {
-      $this->taskWriteToFile($this->root() . '/.env')->text($content)->run();
+    else {
+      $this->say('File exists, skipping...');
     }
   }
 
@@ -156,6 +162,57 @@ class Tasks extends RoboTasks {
       ->run()
       ->wasSuccessful()) {
         $this->say('Node access permissions rebuilt.');
+    }
+  }
+
+  /**
+   * Set up custom config.
+   *
+   * @command project:set-custom-config
+   * @aliases pscc
+   */
+  public function setCustomConfig() {
+    $settings = $this->config('environment.settings');
+    if (!empty($settings)) {
+
+      $settings_folder = $this->root() . "/web/sites/default";
+      $settings_file = "{$settings_folder}/settings.local.php";
+
+      $this->changeFilePerms($settings_folder, '0777');
+      $this->changeFilePerms($settings_file, '0777');
+
+      $this->taskWriteToFile($settings_file)->text("<?php\n")->run();
+      if (!empty($settings)) {
+        $this->recursive_print('$settings', $settings);
+      }
+
+      $this->changeFilePerms($settings_folder, '0555');
+      $this->changeFilePerms($settings_file, '0555');
+    }
+    else {
+      $this->say("No custom settings to add.");
+    }
+  }
+
+  private function changeFilePerms($file, $perms = '0555', $recursive = FALSE) {
+    $r = ($recursive) ? '-R' : '';
+    return $this->taskExec("chmod {$r} {$perms} {$file}")->run();
+  }
+
+  /**
+   * Helper to print settings arrays.
+   */
+  public function recursive_print($varname, $varval) {
+    $path = $this->root() . '/web/sites/default/settings.local.php';
+    if (!is_array($varval)) {
+      $this->taskWriteToFile($path)->text($varname . " = \"" . $varval . "\";\n")
+        ->append(true)
+        ->run();
+    }
+    else {
+      foreach ($varval as $key => $val) {
+        $this->recursive_print ($varname . "['" . $key . "']", $val);
+      }
     }
   }
 

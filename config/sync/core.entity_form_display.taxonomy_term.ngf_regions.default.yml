@@ -1,4 +1,4 @@
-uuid: 6cdea9da-4c3f-40f7-a1c2-1bd2973ed664
+uuid: f38ea558-7499-4e9b-a2a4-c7ae7c073235
 langcode: en
 status: true
 dependencies:
@@ -8,6 +8,8 @@ dependencies:
   module:
     - path
     - text
+_core:
+  default_config_hash: k83E8oxf34HJH_JICnVUIHgL_BsoYxGlscZ8vDbhATk
 id: taxonomy_term.ngf_regions.default
 targetEntityType: taxonomy_term
 bundle: ngf_regions

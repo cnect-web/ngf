@@ -16,6 +16,7 @@ use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
 use Drupal\message\Entity\Message;
 use Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Url;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_node_insert().
@@ -330,13 +331,38 @@ function _ngf_user_profile_get_followers($user) {
  * Implements hook_menu_local_tasks_alter().
  */
 function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
-  // Hide the members and followers tab, but keep the functionality.
-  $data['tabs'][1]['ngf_user_profile.link.followers'] = NULL;
-  $data['tabs'][1]['ngf_user_profile.link.following'] = NULL;
+  $local_tasks = [
+    // Hide the members and followers tab, but keep the functionality.
+    'ngf_user_profile.link.followers',
+    'ngf_user_profile.link.following',
+    // Hide contact, members and followers tab, but keep the functionality.
+    'ngf_user_profile.link.user_contact',
+    'ngf_user_profile.link.user_followers',
+    'ngf_user_profile.link.user_following',
+    'ngf_user_profile.link.user_about',
+  ];
+  foreach ($local_tasks as $local_task) {
+    if (isset($data['tabs'][1][$local_task])) {
+      $data['tabs'][1][$local_task] = NULL;
+    }
+  }
+}
 
-  // Hide contact, members and followers tab, but keep the functionality.
-  $data['tabs'][1]['ngf_user_profile.link.user_contact'] = NULL;
-  $data['tabs'][1]['ngf_user_profile.link.user_followers'] = NULL;
-  $data['tabs'][1]['ngf_user_profile.link.user_following'] = NULL;
-  $data['tabs'][1]['ngf_user_profile.link.user_about'] = NULL;
+function ngf_user_profile_views_pre_render(ViewExecutable $view) {
+  $group_access_manager = \Drupal::getContainer()->get('ngf_group.group_access_manager');
+  if ($view->id() == 'ngf_user_publications') {
+    foreach ($view->result as $key => $resultRow) {
+      if (!$group_access_manager->checkNode($resultRow->_entity)) {
+        unset($view->result[$key]);
+      }
+    }
+  }
+
+  if ($view->id() == 'ngf_user_groups' || $view->id() == 'ngf_user_events') {
+    foreach ($view->result as $key => $resultRow) {
+      if (!$group_access_manager->checkGroup($resultRow->_entity)) {
+        unset($view->result[$key]);
+      }
+    }
+  }
 }

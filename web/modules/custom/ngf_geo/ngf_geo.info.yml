@@ -1,6 +1,6 @@
-name: 'NGF geo import'
+name: 'NGF geo'
 type: module
-description: 'Module imports EU countries, regions and cities.'
+description: 'Module provides functionality related to countries, regions and cities.'
 core: 8.x
 package: 'NGF'
 dependencies:
