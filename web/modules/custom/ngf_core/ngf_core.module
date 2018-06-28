@@ -142,8 +142,7 @@ function ngf_core_taxonomy_term_insert(Drupal\taxonomy\Entity\Term $term) {
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function ngf_core_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-
-  if (\Drupal::service('path.matcher')->isFrontPage() && \Drupal::currentUser()->isAnonymous()) {
+  if (\Drupal::currentUser()->isAnonymous()) {
     $suggestions[] = 'page__front__anonymous';
   }
 }
