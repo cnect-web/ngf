@@ -202,7 +202,7 @@ class Tasks extends RoboTasks {
   /**
    * Helper to print settings arrays.
    */
-  public function recursive_print($varname, $varval) {
+  private function recursive_print($varname, $varval) {
     $path = $this->root() . '/web/sites/default/settings.local.php';
     if (!is_array($varval)) {
       $this->taskWriteToFile($path)->text($varname . " = \"" . $varval . "\";\n")

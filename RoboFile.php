@@ -51,12 +51,12 @@ class RoboFile extends NGFTasks {
   }
 
   /**
-   * Update project.
+   * Import config from filesystem to database.
    *
-   * @command project:update
-   * @aliases pu
+   * @command project:import-config
+   * @aliases imc
    */
-  public function updateSite() {
+  public function importConfig() {
     $this->taskDrushStack($this->config('bin.drush'))
       ->arg('-r', 'web/')
       ->exec('cache-clear drush')
@@ -66,6 +66,20 @@ class RoboFile extends NGFTasks {
       ->run();
   }
 
+  /**
+   * Export config from database to filesystem.
+   *
+   * @command project:export-config
+   * @aliases exc
+   */
+  public function exportConfig() {
+    $this->taskDrushStack($this->config('bin.drush'))
+      ->arg('-r', 'web/')
+      ->exec('cache-clear drush')
+      ->exec('csex -y')
+      ->exec('cr')
+      ->run();
+  }
 
   /**
    * Run QA tasks.
