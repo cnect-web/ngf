@@ -44,3 +44,13 @@ settings:
   config_directories:
     sync: ../config/sync
 
+# Here you can specify environment overrides.
+#environment:
+#  settings:
+#    trusted_host_patterns:
+#      - "dev.europa.eu$"
+#    http_client_config:
+#      proxy:
+#        http: "http://username:password@host:port"
+#        https: "http://username:password@host:port"
+

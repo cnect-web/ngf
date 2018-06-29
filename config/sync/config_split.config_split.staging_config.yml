@@ -9,7 +9,10 @@ module:
   stage_file_proxy: 0
 theme: {  }
 blacklist: {  }
-graylist: {  }
+graylist:
+  - system.logging
+  - system.performance
+  - views.settings
 graylist_dependents: true
 graylist_skip_equal: true
 weight: 1

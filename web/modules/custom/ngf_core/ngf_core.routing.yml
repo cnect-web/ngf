@@ -4,4 +4,4 @@ ngf_core.front:
     _controller: '\Drupal\ngf_core\Controller\FrontPageController::content'
     _title: 'Front page'
   requirements:
-    _permission: 'access content'
+    _access: 'TRUE'
