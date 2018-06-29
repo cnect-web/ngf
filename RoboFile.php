@@ -10,6 +10,9 @@ use NGF\Robo\Tasks as NGFTasks;
  */
 class RoboFile extends NGFTasks {
 
+  private $defaultOp = "cs,unit";
+  private $defaultPaths = "web/modules/custom,web/themes/contrib/funkywave";
+
   /**
    * Build project.
    *
@@ -48,12 +51,12 @@ class RoboFile extends NGFTasks {
   }
 
   /**
-   * Update project.
+   * Import config from filesystem to database.
    *
-   * @command project:update
-   * @aliases pu
+   * @command project:import-config
+   * @aliases imc
    */
-  public function updateSite() {
+  public function importConfig() {
     $this->taskDrushStack($this->config('bin.drush'))
       ->arg('-r', 'web/')
       ->exec('cache-clear drush')
@@ -63,17 +66,64 @@ class RoboFile extends NGFTasks {
       ->run();
   }
 
+  /**
+   * Export config from database to filesystem.
+   *
+   * @command project:export-config
+   * @aliases exc
+   */
+  public function exportConfig() {
+    $this->taskDrushStack($this->config('bin.drush'))
+      ->arg('-r', 'web/')
+      ->exec('cache-clear drush')
+      ->exec('csex -y')
+      ->exec('cr')
+      ->run();
+  }
 
   /**
    * Run QA tasks.
    *
    * @command tools:qa
    * @aliases qa
+   *
+   * Usage:
+   * qa -p web/modules/custom -z cs
+   * qa -p path1,path2 -z cs,unit
    */
-  public function qa(array $options = ['paths' => ['web/modules/custom', 'web/themes/contrib/funkywave/'], 'ops' => ['cs']]) {
-    if (in_array('cs', $options['ops'])) {
-      $this->cs($options['paths']);
+  public function qa(array $options = ['path|p' => "", 'op|z' => ""]) {
+
+    if (empty($options['path'])) {
+      $options['path'] = $this->defaultPaths;
     }
+
+    if (empty($options['op'])) {
+      $options['op'] = $this->defaultOp;
+    }
+
+    $op = explode(',', $options['op']);
+    $paths = explode(',', $options['path']);
+
+    if (in_array('cs', $op)) {
+      $this->say("Running code sniffer...");
+      $this->cs($paths);
+    }
+    if (in_array('unit', $op)) {
+      $this->say("Running unit tests...");
+      $this->put($paths);
+    }
+  }
+
+  /**
+   * Run unit tests.
+   *
+   * @command tools:put
+   * @aliases put
+   */
+  public function put(array $paths) {
+    $this
+      ->taskExec('sudo php ./bin/run-tests.sh --color --keep-results --suppress-deprecations --types "Simpletest,PHPUnit-Unit,PHPUnit-Kernel,PHPUnit-Functional" --concurrency "36" --repeat "1" --directory ' . implode(' ', $paths))
+      ->run();
   }
 
   /**

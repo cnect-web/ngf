@@ -28,6 +28,11 @@ nano robo.yml
 
 ```
 ./bin/robo project:install-config
+
+or if you wish to run the importers:
+
+./bin/robo pic -i
+
 ```
 
 ## Behat
