@@ -22,6 +22,43 @@ class FrontPageController extends ControllerBase {
     $login_block = $plugin_block->build();
     $login_block['user_links']['#access'] = FALSE;
 
+    ksm($login_block);
+
+
+    $submit_copy = $login_block['user_login_form']['actions']['submit'];
+    $actions_copy = $login_block['user_login_form']['actions'];
+    unset($login_block['user_login_form']['actions']['submit']);
+    unset($login_block['user_links']['#items']['create_account']);
+    unset($login_block['user_login_form']['actions']);
+
+    $login_block['user_login_form']['login_links_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => [
+          'clearfix'
+        ]
+      ],
+      '#weight' => 10,
+    ];
+    $login_block['user_login_form']['login_links_wrapper']['actions'] = $actions_copy;
+    $login_block['user_login_form']['login_links_wrapper']['actions']['submit'] = $submit_copy;
+
+    $login_block['user_login_form']['login_links_wrapper']['reset_password_wrapper'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => [
+          'btn-list--left',
+          'btn-list--byside'
+        ]
+      ]
+    ];
+    $login_block['user_login_form']['login_links_wrapper']['reset_password_wrapper']['p_wrapper'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'p',
+    ];
+
+    $reset_password_copy = $login_block['user_links']['#items']['request_password'];
+    $login_block['user_login_form']['login_links_wrapper']['reset_password_wrapper']['p_wrapper']['reset_password'] = $reset_password_copy;
     $render['login_form'] = $login_block;
 
     $render['message_wrapper'] = [

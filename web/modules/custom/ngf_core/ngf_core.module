@@ -130,7 +130,11 @@ function ngf_core_preprocess_block(&$variables) {
  * Implements hook_theme_form_alter()
  **/
 function ngf_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'user_login_form'){
+  if ($form_id == 'user_login_form'){//ksm($form);
     $form['actions']['submit']['#attributes'] = ['class' => ['btn', 'btn--green']];
+    //$submit = $form['actions']['submit'];
+    //unset($form['actions']['submit']);
+    //$form['actions']['wrapper'] = ['#type' => 'container'];
+    //$form['actions']['wrapper']['submit'] = $submit;
   }
 }
