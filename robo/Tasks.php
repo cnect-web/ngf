@@ -85,8 +85,10 @@ class Tasks extends RoboTasks {
    *
    * @command project:install-config
    * @aliases pic
+   *
+   * @option $run-importers Run the importers after installation.
    */
-  public function projectInstallConfig() {
+  public function projectInstallConfig(array $opts = ['run-importers|i' => FALSE]) {
     $this->projectGenerateEnv();
 
     $this->getInstallTask()
@@ -100,6 +102,15 @@ class Tasks extends RoboTasks {
 
     // Get rid of the permissions rebuild
     $this->nodeAccessRebuild();
+
+    if ($opts['run-importers']) {
+      if ($this->taskDrushStack($this->config('bin.drush'))->arg('-r', 'web/')->exec("mim ngf_countries")->exec("mim ngf_cities")->exec("mim ngf_regions")->run()->wasSuccessful()) {
+        $this->say('Importers run successfuly.');
+      }
+      else {
+        $this->say("There was a problem running the importers.");
+      }
+    }
   }
 
   /**
@@ -108,9 +119,9 @@ class Tasks extends RoboTasks {
    * @command project:setup-env
    * @aliases pse
    */
-  public function projectGenerateEnv() {
+  public function projectGenerateEnv(array $opts = ['force' => FALSE]) {
     $file = $this->root() . '/.env';
-    if (!file_exists($file)) {
+    if (!file_exists($file) || $opts['force']) {
       $content = '';
       $settings = [
         'ENVIRONMENT' => 'project.environment',
@@ -202,7 +213,7 @@ class Tasks extends RoboTasks {
   /**
    * Helper to print settings arrays.
    */
-  public function recursive_print($varname, $varval) {
+  private function recursive_print($varname, $varval) {
     $path = $this->root() . '/web/sites/default/settings.local.php';
     if (!is_array($varval)) {
       $this->taskWriteToFile($path)->text($varname . " = \"" . $varval . "\";\n")

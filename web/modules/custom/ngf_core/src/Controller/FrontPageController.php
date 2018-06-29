@@ -22,6 +22,7 @@ class FrontPageController extends ControllerBase {
     $login_block = $plugin_block->build();
     $login_block['user_links']['#access'] = FALSE;
 
+
     ksm($login_block);
 
 
@@ -59,6 +60,21 @@ class FrontPageController extends ControllerBase {
 
     $reset_password_copy = $login_block['user_links']['#items']['request_password'];
     $login_block['user_login_form']['login_links_wrapper']['reset_password_wrapper']['p_wrapper']['reset_password'] = $reset_password_copy;
+
+    $login_block['user_login_form']['wrapper-messages'] = [
+      '#markup' => '<div id="messages-wrapper" data-drupal-selector="edit-wrapper-messages" class="js-form-wrapper form-wrapper"></div>',
+      '#weight' => -2,
+    ];
+
+    $login_block['user_login_form']['title'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'h2',
+      '#value' => t("Login"),
+      '#suffix' => '<br>',
+      '#weight' => -1,
+    ];
+
+
     $render['login_form'] = $login_block;
 
     $render['message_wrapper'] = [
@@ -75,7 +91,7 @@ class FrontPageController extends ControllerBase {
     $render['message_wrapper']['body'] = [
       '#type' => 'html_tag',
       '#tag' => 'p',
-      '#value' => t('asdsdds Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper faucibus ipsum, quis lobortis justo. Donec blandit nunc sed elementum euismod. Nulla venenatis nec odio vitae tincidunt. Donec et enim non orci posuere ultrices quis sit amet mauris. Nunc blandit sapien quis tincidunt imperdiet.'),
+      '#value' => t('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ullamcorper faucibus ipsum, quis lobortis justo. Donec blandit nunc sed elementum euismod. Nulla venenatis nec odio vitae tincidunt. Donec et enim non orci posuere ultrices quis sit amet mauris. Nunc blandit sapien quis tincidunt imperdiet.'),
     ];
 
     $render['register_links_wrapper'] = [

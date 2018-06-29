@@ -20,6 +20,7 @@
         "drupal/admin_toolbar": "^1.23",
         "drupal/adminimal_theme": "^1.3",
         "drupal/allowed_formats": "^1.1",
+        "drupal/cdn": "^3.2",
         "drupal/chosen": "^2.5",
         "drupal/components": "^1.0",
         "drupal/config_installer": "^1.6",
@@ -35,7 +36,6 @@
         "drupal/entity_embed": "^1.0",
         "drupal/entity_reference_revisions": "^1.0",
         "drupal/entity_reference_validators": "^1.0",
-        "drupal/features": "^3.5",
         "drupal/field_group": "^3.0",
         "drupal/flag": "^4.0@alpha",
         "drupal/fontawesome": "^2.1",
@@ -147,7 +147,7 @@
                 "Recoverable fatal error: Argument 2 passed to Drupal\\views\\Plugin\\views\\relationship\\RelationshipPluginBase::init() must be an instance of Drupal\\views\\Plugin\\views\\display\\DisplayPluginBase": "https://www.drupal.org/files/issues/2806015.patch"
             },
             "drupal/group": {
-                "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/2018-04-20/2736233-156.patch",
+                "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/2018-06-28/2736233-158.patch",
                 "More contexts needed": "https://www.drupal.org/files/issues/expand_context_to_nodes-2815971-14.patch",
                 "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch",
                 "Members duplicated in group members list": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch",
