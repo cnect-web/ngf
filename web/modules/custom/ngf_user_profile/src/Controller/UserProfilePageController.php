@@ -128,7 +128,7 @@ class UserProfilePageController extends ControllerBase {
   protected function getUserList($users) {
     $items = [];
     foreach ($users as $user) {
-      $items[] = $this->entityTypeManager->getViewBuilder('user')->view($user, 'default');
+      $items[] = $this->entityTypeManager->getViewBuilder('user')->view($user, 'compact');
     }
 
     return [
