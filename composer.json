@@ -147,7 +147,7 @@
                 "Recoverable fatal error: Argument 2 passed to Drupal\\views\\Plugin\\views\\relationship\\RelationshipPluginBase::init() must be an instance of Drupal\\views\\Plugin\\views\\display\\DisplayPluginBase": "https://www.drupal.org/files/issues/2806015.patch"
             },
             "drupal/group": {
-                "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/2018-04-20/2736233-156.patch",
+                "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/2018-06-28/2736233-158.patch",
                 "More contexts needed": "https://www.drupal.org/files/issues/expand_context_to_nodes-2815971-14.patch",
                 "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch",
                 "Members duplicated in group members list": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch",
