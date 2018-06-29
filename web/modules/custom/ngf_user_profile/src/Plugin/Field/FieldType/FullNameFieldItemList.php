@@ -17,7 +17,12 @@ class FullNameFieldItemList extends FieldItemList {
    */
   protected function computeValue() {
     $entity = $this->getEntity();
-    $value = $entity->get('field_ngf_first_name')->value . ' ' . $entity->get('field_ngf_last_name')->value;
+    if (empty($entity->get('field_ngf_first_name')->value) && empty($entity->get('field_ngf_last_name')->value)) {
+      $value = $entity->getUserName();
+    }
+    else {
+      $value = $entity->get('field_ngf_first_name')->value . ' ' . $entity->get('field_ngf_last_name')->value;
+    }
 
     $this->list[0] = $this->createItem(0, $value);
   }

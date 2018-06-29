@@ -23,6 +23,9 @@ targetEntityType: user
 bundle: user
 mode: ngf_author
 content:
+  action_panel:
+    weight: 100
+    region: content
   extra_text:
     label: above
     weight: 0
@@ -55,6 +58,9 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
+  followers_panel:
+    weight: 100
+    region: content
   full_name:
     label: hidden
     weight: -5

@@ -131,15 +131,16 @@ class UserProfilePageController extends ControllerBase {
       $items[] = $this->entityTypeManager->getViewBuilder('user')->view($user, 'compact');
     }
 
-    return [
-      '#theme' => 'item_list',
-      '#items' => $items,
-      '#attributes' => [
-        'class' => [
-          'profile__following',
-        ],
-      ],
-    ];
+    return $items;
+//    return [
+//      '#theme' => 'item_list',
+//      '#items' => $items,
+//      '#attributes' => [
+//        'class' => [
+//          'profile__following',
+//        ],
+//      ],
+//    ];
   }
 
   public function contact(EntityInterface $user) {

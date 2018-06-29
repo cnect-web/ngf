@@ -5,8 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.ngf_discussion
+    - taxonomy.vocabulary.ngf_interests
   module:
     - node
+    - taxonomy
     - user
 _core:
   default_config_hash: 7X8k3mNVJowJzkO3KsIqCweVogKuR1n_1-zkZO6D-Jo
@@ -186,6 +188,51 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: string
+        field_ngf_interests_target_id:
+          id: field_ngf_interests_target_id
+          table: node__field_ngf_interests
+          field: field_ngf_interests_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_ngf_interests_target_id_op
+            label: Topics
+            description: ''
+            use_operator: false
+            operator: field_ngf_interests_target_id_op
+            identifier: field_ngf_interests_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: ngf_interests
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -216,6 +263,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -234,6 +282,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
