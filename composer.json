@@ -173,7 +173,7 @@
                 "Provide MediaFileUpload widget" : "https://www.drupal.org/files/issues/entity_browser-media-file-upload-2922885-3.patch"
             },
             "drupal/entity_reference_validators": {
-                "Add duplication constraint" : "https://www.drupal.org/files/issues/2825868-6.patch"
+                "Add duplication constraint" : "https://www.drupal.org/files/issues/2018-06-30/2825868-9.patch"
             }
 
         }
