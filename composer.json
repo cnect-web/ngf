@@ -68,6 +68,7 @@
         "drupal/social_auth_twitter": "^2.0",
         "drupal/stage_file_proxy": "^1.0",
         "drupal/taxonomy_unique": "^2.0",
+        "drupal/textfield_counter": "^1.1",
         "drupal/token": "^1.1",
         "drupal/twig_extensions": "^1.1",
         "drupal/twig_field_value": "^1.1",

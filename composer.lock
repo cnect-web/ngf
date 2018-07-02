@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "25eb358ebe4021fcaa453c3d80dd1d7c",
+    "content-hash": "b9c926371e15513fd053bfe3f6b92563",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2142,7 +2142,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.24",
-                    "datestamp": "1527522480",
+                    "datestamp": "1527523080",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3394,8 +3394,7 @@
                 "patches_applied": {
                     "Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch",
                     "Add events for matching entity hooks": "https://www.drupal.org/files/issues/2551893-52.patch",
-                    "Allow themes to declare dependencies on modules": "https://www.drupal.org/files/issues/2018-03-27/474684-164.patch",
-                    "Class active-trail not added to li element when linking to front page": "https://www.drupal.org/files/issues/2018-03-29/1578832-46.patch"
+                    "Allow themes to declare dependencies on modules": "https://www.drupal.org/files/issues/2018-03-27/474684-164.patch"
                 }
             },
             "autoload": {
@@ -4441,7 +4440,7 @@
                     }
                 },
                 "patches_applied": {
-                    "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/2018-04-20/2736233-156.patch",
+                    "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/2018-06-28/2736233-158.patch",
                     "More contexts needed": "https://www.drupal.org/files/issues/expand_context_to_nodes-2815971-14.patch",
                     "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch",
                     "Members duplicated in group members list": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch",
@@ -5683,7 +5682,7 @@
                 },
                 "drupal": {
                     "version": "8.x-2.0-beta4",
-                    "datestamp": "1519520804",
+                    "datestamp": "1524016745",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -6132,6 +6131,53 @@
             ],
             "support": {
                 "source": "http://cgit.drupalcode.org/taxonomy_unique"
+            }
+        },
+        {
+            "name": "drupal/textfield_counter",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/textfield_counter",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/textfield_counter-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "daf15f390b457027f27fba1578addb72a74d774e"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1525476484",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Jaypan",
+                    "homepage": "https://www.drupal.org/user/324696"
+                }
+            ],
+            "description": "Creates field formatters with character counts for text fields",
+            "homepage": "https://www.drupal.org/project/textfield_counter",
+            "support": {
+                "source": "http://cgit.drupalcode.org/textfield_counter"
             }
         },
         {
