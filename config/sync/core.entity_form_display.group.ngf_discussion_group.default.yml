@@ -14,6 +14,7 @@ dependencies:
     - comment
     - inline_entity_form
     - paragraphs
+    - textfield_counter
 id: group.ngf_discussion_group.default
 targetEntityType: group
 bundle: ngf_discussion_group
@@ -35,6 +36,9 @@ content:
       match_operator: CONTAINS
       override_labels: false
       allow_existing: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content
@@ -68,10 +72,12 @@ content:
   field_ngf_introtext:
     weight: 2
     settings:
-      rows: 5
+      rows: '5'
       placeholder: ''
+      maxlength: '300'
+      counter_position: after
     third_party_settings: {  }
-    type: string_textarea
+    type: string_textarea_with_counter
     region: content
   label:
     type: string_textfield
