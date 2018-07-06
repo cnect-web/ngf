@@ -38,3 +38,4 @@ permissions:
   - 'unflag ngf_list_item'
   - 'use text format basic_html'
   - 'view media'
+  - 'view the administration theme'
