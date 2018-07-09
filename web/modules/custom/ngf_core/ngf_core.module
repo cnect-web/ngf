@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormBuilder;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -51,31 +53,58 @@ function ngf_core_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormSt
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  */
 function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // NGF-65 : Set default text for registration link and make the field readonly.
-  $form['field_ngf_registration_link']['widget'][0]['title']['#attributes']['readonly'] = 'readonly';
-  $form['field_ngf_registration_link']['widget'][0]['title']['#value'] = t('Register');
-  $form['field_ngf_registration_link']['widget'][0]['title']['#type'] = "hidden";
-
-  // Add additional validation for end date.
-  $form['field_ngf_event_end_date']['#element_validate'][] = '_ngf_core_event_end_date_validate';
+  _ngf_core_event_ngf_registration_link_validation_helper($form);
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Needs a patch of a patch.
  */
-function ngf_core_form_group_ngf_event_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // NGF-65 : Set default text for registration link and make the field readonly.
-  $form['field_ngf_registration_link']['widget'][0]['title']['#attributes']['readonly'] = 'readonly';
-  $form['field_ngf_registration_link']['widget'][0]['title']['#value'] = t('Register');
-  $form['field_ngf_registration_link']['widget'][0]['title']['#type'] = "hidden";
-
-  // Add additional validation for end date.
-  $form['field_ngf_event_end_date']['#element_validate'][] = '_ngf_core_event_end_date_validate';
+function ngf_core_form_group_ngf_event_ggroup_form_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  _ngf_core_event_ngf_registration_link_validation_helper($form);
 }
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_core_form_group_ngf_event_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  _ngf_core_event_ngf_registration_link_validation_helper($form);
+}
+
+/**
+ * Helper for states and field validation for event registration link.
+ */
+function _ngf_core_event_ngf_registration_link_validation_helper(&$form) {
+  $form['field_ngf_registration_link']['widget'][0]['title']['#states'] = [
+    'visible' => [
+      ':input[name="field_ngf_registration_link[0][uri]"]' => array('!value' => ''),
+    ],
+  ];
+  array_unshift($form['field_ngf_registration_link']['widget'][0]['#element_validate'], '_ngf_core_event_ngf_registration_link_validate');
+}
+
+/**
+ * Validation callback for event registration link.
+ *
+ * @see NGF-65 : Set fallback text for registration link if the url is set and
+ * the title is empty.
+ */
+function _ngf_core_event_ngf_registration_link_validate(&$element, &$form_state) {
+  $values = $form_state->getValue('field_ngf_registration_link');
+  if (!empty($values[0]['uri']) && empty($values[0]['title'])) {
+    $values[0]['title'] = t("Register");
+    $element['title']['#value'] = t("Register");
+    $form_state->setValue('field_ngf_registration_link', $values);
+  }
+}
+
+/**
+ * Validation callback for event date fields.
+ */
 function _ngf_core_event_end_date_validate($element, &$form_state) {
   // NGF-67: Start date can't be greater than End date.
   $start_date = NULL;
@@ -113,24 +142,15 @@ function ngf_core_taxonomy_term_insert(Drupal\taxonomy\Entity\Term $term) {
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function ngf_core_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-
-  if (\Drupal::service('path.matcher')->isFrontPage() && \Drupal::currentUser()->isAnonymous()) {
+  if (\Drupal::currentUser()->isAnonymous()) {
     $suggestions[] = 'page__front__anonymous';
   }
 }
 
 /**
- * Implements hook_preprocess_block().
+ * Implements hook_menu_links_discovered_alter().
  */
-function ngf_core_preprocess_block(&$variables) {
-  $variables['content']['user_links']['#access'] = FALSE;
-}
-
-/**
- * Implements hook_theme_form_alter()
- **/
-function ngf_core_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'user_login_form'){
-    $form['actions']['submit']['#attributes'] = ['class' => ['btn', 'btn--green']];
-  }
+function ngf_core_menu_links_discovered_alter(&$links) {
+  // Switch the Home link to News Feed.
+  $links['standard.front_page']['title'] = t("News Feed");
 }

@@ -4,7 +4,7 @@ ngf_user_registration:
     _form: '\Drupal\ngf_user_registration\Form\UserRegistrationForm'
     _title: 'Join'
   requirements:
-    _permission: 'access content'
+    _access_user_register: 'TRUE'
 
 ngf_user_registration.redirect_join:
   path: '/user/register'

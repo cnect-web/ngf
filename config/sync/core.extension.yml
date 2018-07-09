@@ -29,7 +29,6 @@ module:
   entity_embed: 0
   entity_reference_revisions: 0
   entity_reference_validators: 0
-  features: 0
   field: 0
   file: 0
   filter: 0
@@ -85,6 +84,7 @@ module:
   taxonomy: 0
   taxonomy_unique: 0
   text: 0
+  textfield_counter: 0
   token: 0
   toolbar: 0
   tour: 0

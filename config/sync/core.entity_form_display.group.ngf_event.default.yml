@@ -25,6 +25,7 @@ dependencies:
     - paragraphs
     - path
     - single_datetime
+    - textfield_counter
 id: group.ngf_event.default
 targetEntityType: group
 bundle: ngf_event
@@ -133,10 +134,12 @@ content:
   field_ngf_introtext:
     weight: 2
     settings:
-      rows: 5
+      rows: '5'
       placeholder: ''
+      maxlength: '300'
+      counter_position: after
     third_party_settings: {  }
-    type: string_textarea
+    type: string_textarea_with_counter
     region: content
   field_ngf_location:
     weight: 8

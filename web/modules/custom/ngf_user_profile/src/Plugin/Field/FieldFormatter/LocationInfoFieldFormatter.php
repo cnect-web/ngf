@@ -22,7 +22,6 @@ use Drupal\Core\Field\FieldDefinitionInterface;
 class LocationInfoFieldFormatter extends FormatterBase {
 
   public static function isApplicable(FieldDefinitionInterface $field_definition) {
-
     return (!empty($field_definition->getSetting('handler_settings')) && in_array('ngf_cities', $field_definition->getSetting('handler_settings')['target_bundles']));
   }
 
@@ -56,7 +55,6 @@ class LocationInfoFieldFormatter extends FormatterBase {
         $output .= ' - ' . $city->get('field_ngf_country')->entity->get('field_ngf_iso_code')->value;
       }
     }
-
     return nl2br(Html::escape($output));
   }
 

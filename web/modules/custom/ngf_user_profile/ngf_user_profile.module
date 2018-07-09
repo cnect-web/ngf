@@ -207,7 +207,7 @@ function ngf_user_profile_user_view(
   $view_mode
 ) {
 
-  if ($view_mode == 'profile') {
+  if ($view_mode == 'ngf_profile') {
     $user_id = $entity->id();
     // Show action panel
     if ($display->getComponent('action_panel')) {
@@ -216,10 +216,7 @@ function ngf_user_profile_user_view(
 
       }
       else {
-        $flag_builder = \Drupal::service('flag.link_builder');
-        $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');
-        $link['#attributes']['class'][] = 'profile__actions--follow';
-        $items[] = $link;
+        
 
         $items[] = [
           '#type' => 'link',
@@ -233,6 +230,11 @@ function ngf_user_profile_user_view(
             ],
           ],
         ];
+
+        $flag_builder = \Drupal::service('flag.link_builder');
+        $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');
+        $link['#attributes']['class'][] = 'profile__actions--follow';
+        $items[] = $link;
       }
       //      $items[] = [
       //        '#type' => 'link',
