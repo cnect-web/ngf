@@ -154,3 +154,20 @@ function ngf_core_menu_links_discovered_alter(&$links) {
   // Switch the Home link to News Feed.
   $links['standard.front_page']['title'] = t("News Feed");
 }
+
+/**
+ * Implements hook_theme() to add the template definition.
+ **/
+function ngf_core_theme($existing, $type, $theme, $path) {
+  return [
+    'login_account_block' => [
+      'variables' => [
+        'user_picture' => NULL,
+        'user_name' => NULL,
+        'user_profile_link' => NULL,
+        'user_manage_network_link' => NULL,
+        'user_logout_link' => NULL,
+      ],
+    ]
+  ];
+}
