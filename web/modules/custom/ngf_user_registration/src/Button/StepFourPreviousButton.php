@@ -25,7 +25,7 @@ class StepFourPreviousButton extends BaseButton {
     return [
       '#type' => 'submit',
       '#value' => t('Previous'),
-      '#goto_step' => StepsEnum::STEP_THREE,
+      '#goto_step' => StepsEnum::STEP_TWO,
       '#skip_validation' => TRUE,
       '#attributes' => [
         'class' => [
