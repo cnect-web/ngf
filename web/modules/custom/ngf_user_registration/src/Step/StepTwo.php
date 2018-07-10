@@ -62,18 +62,11 @@ class StepTwo extends BaseStep {
     $city = $this->getValue('city');
     if (!empty($city) || !empty($country)) {
       $form['city_wrapper']['city'] = [
-        '#prefix' => '<div class="form__block form__block--text">',
-        '#suffix' => '</div>',
         '#type' => 'textfield',
         '#title' => t('City'),
         '#default_value' => $city,
         '#autocomplete_route_name' => 'ngf_user_registration.city_autocomplete',
         '#autocomplete_route_parameters' => ['country_id' => $country],
-        '#attributes' => [
-          'class' => [
-            'form__input form__input--text',
-          ]
-        ],
       ];
     }
 
