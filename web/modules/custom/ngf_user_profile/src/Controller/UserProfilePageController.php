@@ -115,32 +115,32 @@ class UserProfilePageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function followers(EntityInterface $user = NULL) {
-    return $this->getContent($this->getUserList($this->userManager->getFollowersUsersList($user)), $user);
+    $text = t('<p>There are no followers yet</p>');
+    return $this->getContent($this->getUserList($this->userManager->getFollowersUsersList($user), $text), $user);
   }
 
   /**
    * {@inheritdoc}
    */
   public function following(EntityInterface $user = NULL) {
-    return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList($user)), $user);
+    $text = t("<p>There are no following users yet</p>");
+    return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList($user), $text), $user);
   }
 
-  protected function getUserList($users) {
+  protected function getUserList($users, $no_items_text) {
     $items = [];
     foreach ($users as $user) {
       $items[] = $this->entityTypeManager->getViewBuilder('user')->view($user, 'compact');
     }
 
-    return $items;
-//    return [
-//      '#theme' => 'item_list',
-//      '#items' => $items,
-//      '#attributes' => [
-//        'class' => [
-//          'profile__following',
-//        ],
-//      ],
-//    ];
+    return count($items) > 0  ? $items : $this->getRenderMarkup($no_items_text);
+  }
+
+  public function getRenderMarkup($text) {
+    return [
+      '#theme' => 'markup',
+      '#markup' => $text,
+    ];
   }
 
   public function contact(EntityInterface $user) {
@@ -293,17 +293,21 @@ class UserProfilePageController extends ControllerBase {
 
     // Create a render array with the search results.
     $render = [];
-    $render['content']['#prefix'] = '<div class="newsfeed"><div class="view-content">';
-    $render['content']['#suffix'] = '</div></div>';
-    foreach ($result as $item) {
-      $message = $this->entityTypeManager->getViewBuilder('message')->view($item, 'full');
-      // There is a bug partial is still displayed even it's hidden in the view mode.
-      unset($message['partial_0']);
-      $render['content'][] = $message;
+    if (count($result) > 0) {
+      foreach ($result as $item) {
+        $message = $this->entityTypeManager->getViewBuilder('message')
+          ->view($item, 'full');
+        // There is a bug partial is still displayed even it's hidden in the view mode.
+        unset($message['partial_0']);
+        $render['content'][] = $message;
+      }
+      $render['content'][] = [
+        '#type' => 'pager',
+      ];
     }
-    $render['content'][] = [
-      '#type' => 'pager',
-    ];
+    else {
+      $render[] = $this->getRenderMarkup('<p>There are no items in your feed</p>');
+    }
     return $this->getContent($render);
   }
 
