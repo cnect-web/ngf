@@ -15,8 +15,9 @@ use Drupal\group\Entity\Group;
 use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
 use Drupal\message\Entity\Message;
 use Drupal\Core\Form\FormStateInterface;
-use \Drupal\Core\Url;
+use Drupal\Core\Url;
 use Drupal\views\ViewExecutable;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
  * Implements hook_node_insert().
@@ -207,17 +208,20 @@ function ngf_user_profile_user_view(
   $view_mode
 ) {
 
+  // Redirect all to profile pages.
+  $current_user = \Drupal::currentUser();
+  if ($view_mode == 'full' && !in_array('administrator', $current_user->getRoles())) {
+    $path = $entity->id() == $current_user->id() ? '/profile' : '/profile/' . $entity->id();
+    $response = new RedirectResponse($path);
+    $response->send();
+  }
+
   if ($view_mode == 'ngf_profile') {
     $user_id = $entity->id();
     // Show action panel
     if ($display->getComponent('action_panel')) {
       $items = [];
-      if ($entity->id() == \Drupal::currentUser()->id()) {
-
-      }
-      else {
-        
-
+      if ($entity->id() != $current_user->id()) {
         $items[] = [
           '#type' => 'link',
           '#url' => Url::fromRoute('ngf_user_profile.page.user_contact', [
@@ -260,7 +264,7 @@ function ngf_user_profile_user_view(
 
     // Show followers panel
     if ($display->getComponent('followers_panel')) {
-      if ($entity->id() == \Drupal::currentUser()->id()) {
+      if ($entity->id() == $current_user->id()) {
         $url_followers = Url::fromRoute('ngf_user_profile.page.followers');
         $url_following = Url::fromRoute('ngf_user_profile.page.following');
       }
@@ -343,6 +347,7 @@ function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
     'ngf_user_profile.link.user_following',
     'ngf_user_profile.link.user_about',
   ];
+
   foreach ($local_tasks as $local_task) {
     if (isset($data['tabs'][1][$local_task])) {
       $data['tabs'][1][$local_task] = NULL;

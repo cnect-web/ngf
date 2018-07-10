@@ -22,7 +22,7 @@ use Drupal\Core\Field\FieldDefinitionInterface;
 class LocationInfoFieldFormatter extends FormatterBase {
 
   public static function isApplicable(FieldDefinitionInterface $field_definition) {
-    return (!empty($field_definition->getSetting('handler_settings')) && in_array('ngf_cities', $field_definition->getSetting('handler_settings')['target_bundles']));
+    return (!empty($field_definition->getSetting('handler_settings')['target_bundles']) && in_array('ngf_cities', $field_definition->getSetting('handler_settings')['target_bundles']));
   }
 
   /**

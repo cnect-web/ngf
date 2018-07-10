@@ -10,10 +10,10 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    restricted_html: restricted_html
+    plain_text: plain_text
     basic_html: '0'
+    restricted_html: '0'
     full_html: '0'
-    plain_text: '0'
 _core:
   default_config_hash: TmAKjNrJ7RR60YpqvJq_QqEewYe_S8Kd23n8VRCqiWs
 id: comment.comment.comment_body

@@ -56,7 +56,6 @@ class StepThree extends BaseStep {
       $form['interests_wrapper']['interests'][$i] = [
         '#prefix' => '<div class="form__block form__block--text">',
         '#suffix' => '</div>',
-        '#title' => t('Your interests'),
         '#type' => 'entity_autocomplete',
         '#target_type' => 'taxonomy_term',
         '#selection_settings' => [
@@ -68,7 +67,6 @@ class StepThree extends BaseStep {
             'form__input form__input--text',
           ]
         ],
-        '#description' => t('examples: Green energy, Local democracy, Open source')
       ];
 
       $interest = $this->getValue('interests_wrapper')['interests'][$i] ?? NULL;
@@ -78,13 +76,17 @@ class StepThree extends BaseStep {
     }
 
     $form['interests_wrapper']['add_item'] = [
-      '#type' => 'button',
+      '#prefix' => t('examples: Green energy, Local democracy, Open source'),
+      '#type' => 'submit',
       '#name' => 'add_item',
       '#value' => t('Add interest'),
       '#submit' => [[get_class($this), 'interestsAddItem']],
       '#ajax' => [
         'callback' => [get_class($this), 'getInterestField'],
         'wrapper' => 'interests-wrapper',
+        'progress' => [
+          'message' => '',
+        ],
       ],
       '#attributes' => [
         'class' => [
