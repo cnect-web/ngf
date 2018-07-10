@@ -83,43 +83,43 @@ ngf_user_profile.link.private_settings:
   parent_id: ngf_user_profile.link.settings
 
 # Any user tabs
-ngf_user_profile.link.user_content:
+ngf_user_profile.link.user_profile:
   title: 'User content'
   description: 'User content'
-  route_name: ngf_user_profile.page.user_publications
-  base_route: ngf_user_profile.page.user_publications
+  route_name: ngf_user_profile.page.user_profile
+  base_route: ngf_user_profile.page.user_profile
 
 ngf_user_profile.link.user_publications:
   title: 'Publications'
   description: 'User publications'
   route_name: ngf_user_profile.page.user_publications
   base_route: ngf_user_profile.page.user_publications
-  parent_id: ngf_user_profile.link.user_content
+  parent_id: ngf_user_profile.link.user_profile
 
 ngf_user_profile.link.user_events:
   title: 'Events'
   description: 'User events'
   route_name: ngf_user_profile.page.user_events
   base_route: ngf_user_profile.page.user_publications
-  parent_id: ngf_user_profile.link.user_content
+  parent_id: ngf_user_profile.link.user_profile
 
 ngf_user_profile.link.user_groups:
   title: 'Groups'
   description: 'User groups'
   route_name: ngf_user_profile.page.user_groups
   base_route: ngf_user_profile.page.user_publications
-  parent_id: ngf_user_profile.link.user_content
+  parent_id: ngf_user_profile.link.user_profile
 
 ngf_user_profile.link.user_contact:
   title: 'Contact'
   description: 'Contact user'
   route_name: ngf_user_profile.page.user_contact
   base_route: ngf_user_profile.page.user_publications
-  parent_id: ngf_user_profile.link.user_content
+  parent_id: ngf_user_profile.link.user_profile
 
 ngf_user_profile.link.user_about:
   title: 'About'
   description: 'About'
   route_name: ngf_user_profile.page.user_about
   base_route: ngf_user_profile.page.user_publications
-  parent_id: ngf_user_profile.link.user_content
+  parent_id: ngf_user_profile.link.user_profile

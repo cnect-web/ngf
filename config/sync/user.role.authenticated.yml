@@ -11,8 +11,6 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
-  - 'access devel information'
-  - 'access kint'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'create file media'

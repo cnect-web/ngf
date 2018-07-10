@@ -152,7 +152,7 @@ function ngf_core_theme_suggestions_page_alter(array &$suggestions, array $varia
  */
 function ngf_core_menu_links_discovered_alter(&$links) {
   // Switch the Home link to News Feed.
-  $links['standard.front_page']['title'] = t("News Feed");
+  $links['standard.front_page']['title'] = t('News Feed');
 }
 
 /**
@@ -170,4 +170,16 @@ function ngf_core_theme($existing, $type, $theme, $path) {
       ],
     ]
   ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_core_form_contact_message_feedback_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+  $form['copy']['#access'] = FALSE;
+  $form['actions']['preview']['#access'] = FALSE;
 }
