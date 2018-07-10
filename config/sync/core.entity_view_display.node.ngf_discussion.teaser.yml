@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.ngf_discussion.field_ngf_description
     - field.field.node.ngf_discussion.field_ngf_interests
     - field.field.node.ngf_discussion.field_ngf_introtext
+    - field.field.node.ngf_discussion.field_ngf_related_content
     - image.style.media_large
     - node.type.ngf_discussion
   module:

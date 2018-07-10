@@ -13,6 +13,7 @@ permissions:
   - 'access content'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'access user profiles'
   - 'create file media'
   - 'create image media'
   - 'create ngf_cover_image media'
