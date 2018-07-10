@@ -85,20 +85,13 @@ class StepOne extends BaseStep {
     $description = $field['description'] ?? NULL;
 
     $array = [
-      '#prefix' => '<div class="form__block form__block--text">',
-      '#suffix' => '</div>',
       '#type' => 'textfield',
-      '#title' => t('<label for="@name" required>@title <span class="form--required text-danger" title="This field is required."><span class="sr-only">Mandatory field</span>*</span></label>', [
+      '#title' => t('@title <span class="form--required text-danger" title="This field is required."><span class="sr-only">Mandatory field</span>*</span>', [
         '@name' => $name,
         '@title' => $title,
       ]),
       '#required' => TRUE,
       '#default_value' => $this->getValues()[$name] ?? NULL,
-      '#attributes' => [
-        'class' => [
-          'form__input form__input--text',
-        ]
-      ],
     ];
 
     if (!empty($description)) {
