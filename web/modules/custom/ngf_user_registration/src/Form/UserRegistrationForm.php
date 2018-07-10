@@ -265,7 +265,12 @@ class UserRegistrationForm extends FormBase {
 
     \Drupal::getContainer()->get('messenger')->addMessage(t('User has been successfully registered'));
 
-    $response = new RedirectResponse('/');
+    if (\Drupal::routeMatch()->getRouteName('/content/thank-you-registering')) {
+      $response = new RedirectResponse('/content/thank-you-registering');
+    }
+    else {
+      $response = new RedirectResponse('/');
+    }
     $response->send();
   }
 
