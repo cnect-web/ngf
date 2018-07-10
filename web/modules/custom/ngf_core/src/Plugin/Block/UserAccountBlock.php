@@ -22,12 +22,9 @@ class UserAccountBlock extends BlockBase {
   public function build() {
     $block_manager = \Drupal::service('plugin.manager.block');
     $plugin_user_account_block = $block_manager->createInstance('system_menu_block:account', []);
-
     $user_account_block = $plugin_user_account_block->build();
 
-    ksm($user_account_block['#items']);
-
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());ksm($user->user_picture->entity);
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
 
     $variables = array(
       'style_name' => 'thumbnail',
