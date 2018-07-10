@@ -191,7 +191,7 @@ class UserProfilePageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function about(EntityInterface $user) {
-    return $this->getContent($this->getUserDisplay($user, 'ngf_about'));
+    return $this->getContent($this->getUserDisplay($user, 'ngf_about'), $user);
   }
 
   public function getEntityForm($form_view_mode, $entity_type = 'user') {
