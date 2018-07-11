@@ -5,7 +5,7 @@ dependencies:
   module:
     - ngf_core
 id: ngf_related_content_event
-label: 'Related content: event'
+label: 'Related event'
 icon_uuid: null
 description: 'The event related to a discussion'
 behavior_plugins:
