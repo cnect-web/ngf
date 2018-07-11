@@ -25,34 +25,38 @@ class UserAccountBlock extends BlockBase {
     $user_account_block = $plugin_user_account_block->build();
 
     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $user_picture = $user->user_picture->entity;
 
-    $variables = array(
-      'style_name' => 'thumbnail',
-      'uri' => $user->user_picture->entity->getFileUri(),
-    );
-
+    $picture_output = '';
     // The image.factory service will check if our image is valid.
-    $image = \Drupal::service('image.factory')->get($user->user_picture->entity->getFileUri());
-    if ($image->isValid()) {
-      $variables['width'] = $image->getWidth();
-      $variables['height'] = $image->getHeight();
-    }
-    else {
-      $variables['width'] = $variables['height'] = NULL;
+    if ($user_picture) {
+      $image = \Drupal::service('image.factory')->get($user_picture->getFileUri());
+      $variables = [
+        'style_name' => 'thumbnail',
+        'uri' => $user_picture->getFileUri(),
+      ];
+      if ($image->isValid()) {
+        $variables['width'] = $image->getWidth();
+        $variables['height'] = $image->getHeight();
+      }
+      else {
+        $variables['width'] = $variables['height'] = NULL;
+      }
+
+      $picture_output = [
+        '#theme' => 'image_style',
+        '#width' => $variables['width'],
+        '#height' => $variables['height'],
+        '#style_name' => $variables['style_name'],
+        '#uri' => $variables['uri'],
+      ];
     }
 
-    $logo_render_array = [
-      '#theme' => 'image_style',
-      '#width' => $variables['width'],
-      '#height' => $variables['height'],
-      '#style_name' => $variables['style_name'],
-      '#uri' => $variables['uri'],
-    ];
 
 
     return [
       '#theme' => 'login_account_block',
-      '#user_picture' => render($logo_render_array),
+      '#user_picture' => render($picture_output),
       '#user_name' => $user->getUsername(),
       '#user_profile_link' => '#',
       '#user_manage_network_link' => '#',
