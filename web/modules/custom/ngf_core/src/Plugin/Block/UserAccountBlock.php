@@ -53,6 +53,11 @@ class UserAccountBlock extends BlockBase {
         '#style_name' => $variables['style_name'],
         '#uri' => $variables['uri'],
       ];
+
+      // Add the file entity to the cache dependencies.
+      // This will clear our cache when this entity updates.
+      $renderer = \Drupal::service('renderer');
+      $renderer->addCacheableDependency($picture_output, $user_picture);
     }
 
     // Separation between code behind and presentation layer using
