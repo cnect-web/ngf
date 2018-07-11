@@ -20,19 +20,22 @@ class UserAccountBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $block_manager = \Drupal::service('plugin.manager.block');
-    $plugin_user_account_block = $block_manager->createInstance('system_menu_block:account', []);
-    $user_account_block = $plugin_user_account_block->build();
-
     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
     $user_picture = $user->user_picture->entity;
-
     $picture_output = '';
+
+    if (empty($user_picture)) {
+      $field = \Drupal\field\Entity\FieldConfig::loadByName('user', 'user', 'user_picture');
+      $default_picture = $field->getSetting('default_image');
+      $default_picture_file = \Drupal::service('entity.manager')->loadEntityByUuid('file', $default_picture['uuid']);
+      $user_picture = $default_picture_file;
+    }
+
     // The image.factory service will check if our image is valid.
     if ($user_picture) {
       $image = \Drupal::service('image.factory')->get($user_picture->getFileUri());
       $variables = [
-        'style_name' => 'thumbnail',
+        'style_name' => 'user_picture',
         'uri' => $user_picture->getFileUri(),
       ];
       if ($image->isValid()) {
@@ -52,8 +55,8 @@ class UserAccountBlock extends BlockBase {
       ];
     }
 
-
-
+    // Separation between code behind and presentation layer using
+    // Login-account-block.html.twig.
     return [
       '#theme' => 'login_account_block',
       '#user_picture' => render($picture_output),
