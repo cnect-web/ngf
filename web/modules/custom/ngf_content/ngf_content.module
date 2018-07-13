@@ -37,3 +37,10 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
     }
   }
 }
+
+function ngf_content_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'node_ngf_discussion_form' || $form_id == 'node_ngf_discussion_edit_form') {
+    $form['#attached']['library'][] = 'seven/global-styling';
+  }
+
+}

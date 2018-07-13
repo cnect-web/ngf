@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9c926371e15513fd053bfe3f6b92563",
+    "content-hash": "b0f89ebdb35f360f1595e9142a16891c",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -781,12 +781,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cnect-web/funkywave.git",
-                "reference": "52f3739160881eee1e2fde191816be6f5f611a2c"
+                "reference": "d4bfa757f7ee8e07b79fdb815c290b31cd0e3d50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/52f3739160881eee1e2fde191816be6f5f611a2c",
-                "reference": "52f3739160881eee1e2fde191816be6f5f611a2c",
+                "url": "https://api.github.com/repos/cnect-web/funkywave/zipball/d4bfa757f7ee8e07b79fdb815c290b31cd0e3d50",
+                "reference": "d4bfa757f7ee8e07b79fdb815c290b31cd0e3d50",
                 "shasum": ""
             },
             "require": {
@@ -801,7 +801,7 @@
                     "email": "peter.neyens@telenet.be"
                 }
             ],
-            "time": "2018-07-06T15:43:13+00:00"
+            "time": "2018-07-10T13:50:16+00:00"
         },
         {
             "name": "commerceguys/addressing",
@@ -3949,7 +3949,7 @@
                     }
                 },
                 "patches_applied": {
-                    "Add duplication constraint": "https://www.drupal.org/files/issues/2825868-6.patch"
+                    "Add duplication constraint": "https://www.drupal.org/files/issues/2018-06-30/2825868-9.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -5048,24 +5048,25 @@
         },
         {
             "name": "drupal/migrate_tools",
-            "version": "4.0.0-beta3",
+            "version": "4.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/migrate_tools",
-                "reference": "8.x-4.0-beta3"
+                "reference": "8.x-4.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/migrate_tools-8.x-4.0-beta3.zip",
-                "reference": "8.x-4.0-beta3",
-                "shasum": "5256ef34d63bbcc564bd9e1e4434c34f12983dba"
+                "url": "https://ftp.drupal.org/files/projects/migrate_tools-8.x-4.0-rc1.zip",
+                "reference": "8.x-4.0-rc1",
+                "shasum": "1c66adfaecfbcb8dee4bd9cf7bd249c1beb08c40"
             },
             "require": {
                 "drupal/core": "^8.3",
-                "drupal/migrate_plus": "*"
+                "drupal/migrate_plus": "^4"
             },
             "require-dev": {
-                "drupal/coder": "^8"
+                "drupal/coder": "^8",
+                "drupal/migrate_source_csv": "^2.2"
             },
             "type": "drupal-module",
             "extra": {
@@ -5073,11 +5074,11 @@
                     "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-4.0-beta3",
-                    "datestamp": "1519400285",
+                    "version": "8.x-4.0-rc1",
+                    "datestamp": "1531143824",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 },
                 "drush": {
@@ -10346,16 +10347,16 @@
         },
         {
             "name": "zendframework/zend-diactoros",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "11c9c1835e60eef6f9234377a480fcec096ebd9e"
+                "reference": "63d920d1c9ebc009d860c3666593a66298727dd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/11c9c1835e60eef6f9234377a480fcec096ebd9e",
-                "reference": "11c9c1835e60eef6f9234377a480fcec096ebd9e",
+                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/63d920d1c9ebc009d860c3666593a66298727dd6",
+                "reference": "63d920d1c9ebc009d860c3666593a66298727dd6",
                 "shasum": ""
             },
             "require": {
@@ -10405,7 +10406,7 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2018-06-27T18:52:43+00:00"
+            "time": "2018-07-09T21:17:27+00:00"
         },
         {
             "name": "zendframework/zend-escaper",
