@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.ngf_discussion.field_ngf_related_content
     - node.type.ngf_discussion
   module:
+    - autocomplete_deluxe
     - comment
     - content_moderation
     - inline_entity_form
@@ -71,11 +72,19 @@ content:
   field_ngf_interests:
     weight: 4
     settings:
+      limit: '10'
+      min_length: '0'
+      delimiter: '#'
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: '1'
+      not_found_message_allow: 0
       match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
       size: 60
-      placeholder: ''
+      selection_handler: default
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: autocomplete_deluxe
     region: content
   field_ngf_introtext:
     weight: 2
