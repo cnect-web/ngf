@@ -320,4 +320,14 @@ class UserProfilePageController extends ControllerBase {
     ), $user);
   }
 
+
+  public function userListSettings() {
+    return [
+      '#type' => 'html_tag',
+      '#tag' => 'h2',
+      '#value' => 'User list settings',
+    ];
+  }
+
 }
+

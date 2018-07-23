@@ -1,3 +1,12 @@
+# User list entity settings
+ngf_user_list.settings:
+  path: '/admin/structure/ngf_user_list/settings'
+  defaults:
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::userListSettings'
+    _title: 'User list settings'
+  requirements:
+    _permission: 'access content'
+
 # Any user profile pages
 ngf_user_profile.profile:
   path: '/profile/view/{username}'
@@ -84,7 +93,6 @@ ngf_user_profile.remove_notification:
     message_id: '^[0-9]+'
 
 # Current user profile pages
-
 ngf_user_profile.user_lists:
   path: '/profile/user-lists'
   defaults:

@@ -38,9 +38,24 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
   }
 }
 
-function ngf_content_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'node_ngf_discussion_form' || $form_id == 'node_ngf_discussion_edit_form') {
-    $form['#attached']['library'][] = 'seven/global-styling';
-  }
+function ngf_content_form_node_ngf_discussion_form_alter(&$form, &$form_state, $form_id) {
+  $form['field_ngf_cover_image']['widget']['actions']['ief_add']['#value'] = t('Add cover image');
+  $form['#attached']['library'][] = 'seven/global-styling';
+}
 
+
+/**
+ * Implements hook_inline_entity_form_reference_form_alter().
+ */
+function ngf_content_inline_entity_form_reference_form_alter(
+  &$reference_form,
+  &$form_state
+) {
+//  var_dump($reference_form);
+//  exit();
+}
+
+function ngf_content_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+//  var_dump($entity_form['#ief_labels']);
+//  exit();
 }

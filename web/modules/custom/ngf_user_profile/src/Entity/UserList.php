@@ -19,7 +19,15 @@ use Drupal\user\UserInterface;
  *   label = @Translation("User list"),
  *   base_table = "ngf_user_list",
  *   handlers = {
- *     "views_data" = "Drupal\ngf_user_profile\Entity\UserListViewsData",
+ *     "form" = {
+ *       "default" = "Drupal\ngf_user_profile\Form\UserListForm",
+ *       "add" = "Drupal\ngf_user_profile\Form\UserListForm",
+ *       "edit" = "Drupal\ngf_user_profile\Form\UserListForm",
+ *       "delete" = "Drupal\ngf_user_profile\Form\UserListDeleteForm",
+ *     },
+ *     "route_provider" = {
+ *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
+ *     },
  *   },
  *   entity_keys = {
  *     "id" = "id",
@@ -28,6 +36,14 @@ use Drupal\user\UserInterface;
  *     "user_id" = "user_id",
  *     "langcode" = "langcode"
  *   },
+ *   admin_permission = "administer most_simple types",
+ *   links = {
+ *     "canonical" = "/user-list/{ngf_user_list}",
+ *     "add-form" = "/user-list/add",
+ *     "edit-form" = "/user-list/{ngf_user_list}/edit",
+ *     "delete-form" = "/user-list/{ngf_user_list}/delete",
+ *   },
+ *   field_ui_base_route = "ngf_user_list.settings"
  * )
  */
 class UserList extends ContentEntityBase implements UserListInterface {
@@ -123,7 +139,7 @@ class UserList extends ContentEntityBase implements UserListInterface {
     $fields = parent::baseFieldDefinitions($entity_type);
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Current user'))
+      ->setLabel(t('Creator'))
       ->setDescription(t('The user ID of current user.'))
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')

@@ -337,6 +337,8 @@ function _ngf_user_profile_get_followers($user) {
  * Implements hook_menu_local_tasks_alter().
  */
 function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
+
+
   $local_tasks = [
     // Hide the members and followers tab, but keep the functionality.
     'ngf_user_profile.link.followers',
