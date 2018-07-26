@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_user_profile\Entity;
+namespace Drupal\ngf_user_list\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -12,18 +12,19 @@ use Drupal\user\UserInterface;
 /**
  * Defines the User list.
  *
- * @ingroup ngf_user_profile
+ * @ingroup ngf_user_list
  *
  * @ContentEntityType(
  *   id = "ngf_user_list",
  *   label = @Translation("User list"),
  *   base_table = "ngf_user_list",
  *   handlers = {
+ *     "list_builder" = "Drupal\Core\Entity\EntityListBuilder",
  *     "form" = {
- *       "default" = "Drupal\ngf_user_profile\Form\UserListForm",
- *       "add" = "Drupal\ngf_user_profile\Form\UserListForm",
- *       "edit" = "Drupal\ngf_user_profile\Form\UserListForm",
- *       "delete" = "Drupal\ngf_user_profile\Form\UserListDeleteForm",
+ *       "default" = "Drupal\ngf_user_list\Form\UserListForm",
+ *       "add" = "Drupal\ngf_user_list\Form\UserListForm",
+ *       "edit" = "Drupal\ngf_user_list\Form\UserListForm",
+ *       "delete" = "Drupal\ngf_user_list\Form\UserListDeleteForm",
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
@@ -36,12 +37,8 @@ use Drupal\user\UserInterface;
  *     "user_id" = "user_id",
  *     "langcode" = "langcode"
  *   },
- *   admin_permission = "administer most_simple types",
  *   links = {
- *     "canonical" = "/user-list/{ngf_user_list}",
- *     "add-form" = "/user-list/add",
- *     "edit-form" = "/user-list/{ngf_user_list}/edit",
- *     "delete-form" = "/user-list/{ngf_user_list}/delete",
+ *     "canonical" = "/profile/user-list/{ngf_user_list}"
  *   },
  *   field_ui_base_route = "ngf_user_list.settings"
  * )
@@ -155,7 +152,6 @@ class UserList extends ContentEntityBase implements UserListInterface {
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
-      ->setDescription(t('The name of list.'))
       ->setRevisionable(TRUE)
       ->setSettings([
         'max_length' => 50,

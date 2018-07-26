@@ -181,7 +181,7 @@
 
         }
     },
-        "repositories": [
+    "repositories": [
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"

@@ -240,17 +240,18 @@ function ngf_user_profile_user_view(
         $link['#attributes']['class'][] = 'profile__actions--follow';
         $items[] = $link;
       }
-      //      $items[] = [
-      //        '#type' => 'link',
-      //        '#url' => $entity->toUrl(),
-      //        '#title' => t('Add to list'),
-      //        '#attributes' => [
-      //          'class' => [
-      //            'profile__actions--contact',
-      //          ],
-      //        ],
-      //      ];
-      //
+      else {
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_list.user_lists'),
+          '#title' => t('User lists'),
+          '#attributes' => [
+            'class' => [
+              'profile__actions--contact',
+            ],
+          ],
+        ];
+      }
       $build['action_panel'] = [
         '#theme' => 'item_list',
         '#items' => $items,

@@ -8,7 +8,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\GroupInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\group\Controller\GroupMembershipController;
+use Drupal\group\Controller\GroupMembershipController as BaseController;
 
 /**
  * Provides group membership route controllers.
@@ -16,7 +16,7 @@ use Drupal\group\Controller\GroupMembershipController;
  * This only controls the routes that are not supported out of the box by the
  * plugin base \Drupal\group\Plugin\GroupContentEnablerBase.
  */
-class NGFGroupMembershipController extends GroupMembershipController {
+class GroupMembershipController extends BaseController {
 
   /**
    * The current user.
