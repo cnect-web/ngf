@@ -7,7 +7,7 @@ dependencies:
     - image.style.thumbnail
     - media.type.ngf_cover_image
   module:
-    - image
+    - fiu
 id: media.ngf_cover_image.default
 targetEntityType: media
 bundle: ngf_cover_image
@@ -18,8 +18,9 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+      fiu_show_file_name: none
     third_party_settings: {  }
-    type: image_image
+    type: fine_image
     region: content
   name:
     type: string_textfield

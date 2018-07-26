@@ -33,6 +33,7 @@ module:
   field: 0
   file: 0
   filter: 0
+  fiu: 0
   flag: 0
   fontawesome: 0
   fontawesome_menu_icons: 0
@@ -63,6 +64,7 @@ module:
   ngf_geo: 0
   ngf_group: 0
   ngf_search: 0
+  ngf_user_list: 0
   ngf_user_profile: 0
   ngf_user_registration: 0
   node: 0
