@@ -4,6 +4,7 @@ namespace Drupal\ngf_user_profile\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\views\Views;
 
 /**
  * Class UserProfileControllerBase.

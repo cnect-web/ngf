@@ -8,14 +8,14 @@
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\comment\Entity\Comment;
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
+use Drupal\node\Entity\Node;
 use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
-use Drupal\message\Entity\Message;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -374,5 +374,14 @@ function ngf_user_profile_views_pre_render(ViewExecutable $view) {
         unset($view->result[$key]);
       }
     }
+  }
+}
+
+function ngf_user_profile_user_format_name_alter(&$name, $account) {
+  $user = User::load($account->id());
+  if (!empty($user->get('field_ngf_first_name')->value) && !empty($user->get('field_ngf_last_name')->value)) {
+    $name = $user->get('field_ngf_first_name')->value . ' ' . $user->get('field_ngf_last_name')->value;
+  } else {
+    $name = $user->getUserName();
   }
 }

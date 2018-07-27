@@ -19,7 +19,7 @@ use Drupal\user\UserInterface;
  *   label = @Translation("User list"),
  *   base_table = "ngf_user_list",
  *   handlers = {
- *     "list_builder" = "Drupal\Core\Entity\EntityListBuilder",
+ *     "access" = "Drupal\ngf_user_list\Entity\UserListAccessControlHandler",
  *     "form" = {
  *       "default" = "Drupal\ngf_user_list\Form\UserListForm",
  *       "add" = "Drupal\ngf_user_list\Form\UserListForm",
@@ -28,7 +28,7 @@ use Drupal\user\UserInterface;
  *     },
  *     "route_provider" = {
  *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
- *     },
+ *     }
  *   },
  *   entity_keys = {
  *     "id" = "id",
@@ -38,7 +38,7 @@ use Drupal\user\UserInterface;
  *     "langcode" = "langcode"
  *   },
  *   links = {
- *     "canonical" = "/profile/user-list/{ngf_user_list}"
+ *     "canonical" = "/ngf-user-list/{ngf_user_list}"
  *   },
  *   field_ui_base_route = "ngf_user_list.settings"
  * )

@@ -67,11 +67,12 @@ class UserListController extends UserProfileControllerBase {
     ];
     foreach ($lists as $list) {
       $items[] = [
-        '#theme' => 'user_list_item',
-        '#user_list' => $list,
+        '#theme' => 'short_list_item',
+        '#title' => $list->getName(),
         '#context' => [
           '#theme' => 'item_list',
           '#items' => [
+            Link::fromTextAndUrl('List items', Url::fromRoute('ngf_user_list.list_items', ['ngf_user_list' => $list->id()])),
             Link::fromTextAndUrl('Edit list', Url::fromRoute('ngf_user_list.edit_user_list', ['ngf_user_list' => $list->id()])),
             Link::fromTextAndUrl('Remove list', Url::fromRoute('ngf_user_list.delete_user_list', ['ngf_user_list' => $list->id()])),
           ],
@@ -92,22 +93,32 @@ class UserListController extends UserProfileControllerBase {
     $render = [];
     $items = [];
     foreach ($list_items as $list_item) {
-      $items[] = Link::fromTextAndUrl(UserHelper::getUserFullName($list_item), Url::fromRoute('ngf_user_list.remove_user_list_item', ['username' => $list_item->getAccountName(), 'list_id' => $list_id]));
+        $items[] = $this->entityTypeManager()
+            ->getViewBuilder('user')
+            ->view($list_item, 'compact');
+        $items[] = [
+            '#theme' => 'item_list',
+            '#items' => [
+                Link::fromTextAndUrl(t('Remove user'), Url::fromRoute('ngf_user_list.remove_user_list_item', ['username' => $list_item->getAccountName(), 'list_id' => $ngf_user_list->id()])),
+            ],
+            '#attributes' => [
+                'class' => [
+                    'links inline',
+                ]
+            ]
+        ];
     }
     $render[] = [
       '#type' => 'link',
       '#title' => t('Add user'),
-      '#url' => Url::fromRoute('ngf_user_list.page.add_list_item', ['ngf_user_list' => $ngf_user_list->id()]),
+      '#url' => Url::fromRoute('ngf_user_list.add_list_item', ['ngf_user_list' => $ngf_user_list->id()]),
       '#attributes' => [
         'class' => [
           'btn btn--blue',
         ]
       ]
     ];
-    $render[] = [
-      '#theme' => 'item_list',
-      '#items' => $items,
-    ];
+    $render[] = $items;
 
     return $this->getContent($render);
   }
@@ -153,12 +164,12 @@ class UserListController extends UserProfileControllerBase {
   public function removeUserListItem($list_id, $username) {
     $this->userListManager->removeUserListItem($list_id, $username);
     // Redirect back to a user lists.
-    return $this->redirect('ngf_user_profile.user_list_items', ['list_id' => $list_id]);
+    return $this->redirect('ngf_user_list.user_list_items', ['list_id' => $list_id]);
   }
 
   public function addUserListItem($list_id, $username) {
     $this->userListManager->addUserListItem($list_id, $username);
-    return $this->redirect('ngf_user_profile.user_list_items', ['list_id' => $list_id]);
+    return $this->redirect('ngf_user_list.user_list_items', ['list_id' => $list_id]);
   }
 
 }
