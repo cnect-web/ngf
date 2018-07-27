@@ -8,14 +8,14 @@
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\comment\Entity\Comment;
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
+use Drupal\node\Entity\Node;
 use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
-use Drupal\message\Entity\Message;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -240,17 +240,18 @@ function ngf_user_profile_user_view(
         $link['#attributes']['class'][] = 'profile__actions--follow';
         $items[] = $link;
       }
-      //      $items[] = [
-      //        '#type' => 'link',
-      //        '#url' => $entity->toUrl(),
-      //        '#title' => t('Add to list'),
-      //        '#attributes' => [
-      //          'class' => [
-      //            'profile__actions--contact',
-      //          ],
-      //        ],
-      //      ];
-      //
+      else {
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_list.user_lists'),
+          '#title' => t('User lists'),
+          '#attributes' => [
+            'class' => [
+              'profile__actions--contact',
+            ],
+          ],
+        ];
+      }
       $build['action_panel'] = [
         '#theme' => 'item_list',
         '#items' => $items,
@@ -337,6 +338,8 @@ function _ngf_user_profile_get_followers($user) {
  * Implements hook_menu_local_tasks_alter().
  */
 function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
+
+
   $local_tasks = [
     // Hide the members and followers tab, but keep the functionality.
     'ngf_user_profile.link.followers',
@@ -371,5 +374,14 @@ function ngf_user_profile_views_pre_render(ViewExecutable $view) {
         unset($view->result[$key]);
       }
     }
+  }
+}
+
+function ngf_user_profile_user_format_name_alter(&$name, $account) {
+  $user = User::load($account->id());
+  if (!empty($user->get('field_ngf_first_name')->value) && !empty($user->get('field_ngf_last_name')->value)) {
+    $name = $user->get('field_ngf_first_name')->value . ' ' . $user->get('field_ngf_last_name')->value;
+  } else {
+    $name = $user->getUserName();
   }
 }

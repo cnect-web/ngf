@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_user_profile\Entity;
+namespace Drupal\ngf_user_list\Entity;
 
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
@@ -12,14 +12,23 @@ use Drupal\user\UserInterface;
 /**
  * Defines the User list.
  *
- * @ingroup ngf_user_profile
+ * @ingroup ngf_user_list
  *
  * @ContentEntityType(
  *   id = "ngf_user_list",
  *   label = @Translation("User list"),
  *   base_table = "ngf_user_list",
  *   handlers = {
- *     "views_data" = "Drupal\ngf_user_profile\Entity\UserListViewsData",
+ *     "access" = "Drupal\ngf_user_list\Entity\UserListAccessControlHandler",
+ *     "form" = {
+ *       "default" = "Drupal\ngf_user_list\Form\UserListForm",
+ *       "add" = "Drupal\ngf_user_list\Form\UserListForm",
+ *       "edit" = "Drupal\ngf_user_list\Form\UserListForm",
+ *       "delete" = "Drupal\ngf_user_list\Form\UserListDeleteForm",
+ *     },
+ *     "route_provider" = {
+ *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
+ *     }
  *   },
  *   entity_keys = {
  *     "id" = "id",
@@ -28,6 +37,10 @@ use Drupal\user\UserInterface;
  *     "user_id" = "user_id",
  *     "langcode" = "langcode"
  *   },
+ *   links = {
+ *     "canonical" = "/ngf-user-list/{ngf_user_list}"
+ *   },
+ *   field_ui_base_route = "ngf_user_list.settings"
  * )
  */
 class UserList extends ContentEntityBase implements UserListInterface {
@@ -123,7 +136,7 @@ class UserList extends ContentEntityBase implements UserListInterface {
     $fields = parent::baseFieldDefinitions($entity_type);
 
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
-      ->setLabel(t('Current user'))
+      ->setLabel(t('Creator'))
       ->setDescription(t('The user ID of current user.'))
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
@@ -139,7 +152,6 @@ class UserList extends ContentEntityBase implements UserListInterface {
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
-      ->setDescription(t('The name of list.'))
       ->setRevisionable(TRUE)
       ->setSettings([
         'max_length' => 50,

@@ -2,22 +2,16 @@
 
 namespace Drupal\ngf_user_profile\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\ngf_user_profile\Helper\UserHelper;
-use Drupal\ngf_user_profile\Manager\UserFeedManager;
-use Drupal\ngf_user_profile\Manager\UserManager;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Drupal\ngf_user_profile\Manager\UserListManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Class UserProfileController.
  */
-class UserProfileController extends ControllerBase implements ContainerAwareInterface {
-
-  use ContainerAwareTrait;
+class UserProfileController extends UserProfileControllerBase {
 
   /**
    * The user list item manager service.
@@ -32,11 +26,8 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
    * @param Drupal\ngf_user_profile\Manager\UserManager $user_manager
    *   The user manager.
    */
-  public function __construct(
-    userManager $user_manager
-  ) {
+  public function __construct(UserListManager $user_manager) {
     $this->userManager = $user_manager;
-
   }
 
   /**
@@ -107,56 +98,9 @@ class UserProfileController extends ControllerBase implements ContainerAwareInte
     ];
   }
 
-  public function userLists() {
-    $lists = $this->userManager->getUserLists();
-    $items = [];
-    foreach ($lists as $list) {
-      $items[] = Link::fromTextAndUrl('Remove list ' . $list->getName(), Url::fromRoute('ngf_user_profile.remove_user_list', ['list_id' => $list->id()]));
-      $items[] = Link::fromTextAndUrl('items', Url::fromRoute('ngf_user_profile.user_list_items', ['list_id' => $list->id()]));
-      $items[] = '-------------------------------';
-    }
-
-    return $render = [
-      '#theme' => 'item_list',
-      '#items' => $items,
-    ];
-  }
-
-  public function removeUserList($list_id) {
-    $this->userManager->removeUserList($list_id);
-    // Redirect back to a user lists.
-    return $this->redirect('ngf_user_profile.user_lists');
-  }
-
-
-  public function addUserList($name) {
-    $this->userManager->addUserList($name);
-    // Redirect back to a user lists.
-    return $this->redirect('ngf_user_profile.user_lists');
-  }
-
-  public function removeUserListItem($list_id, $username) {
-    $this->userManager->removeUserListItem($list_id, $username);
-    // Redirect back to a user lists.
-    return $this->redirect('ngf_user_profile.user_list_items', ['list_id' => $list_id]);
-  }
-
   public function addUserListItem($list_id, $username) {
     $this->userManager->addUserListItem($list_id, $username);
     return $this->redirect('ngf_user_profile.user_list_items', ['list_id' => $list_id]);
-  }
-
-  public function userListItems($list_id) {
-    $list_items = $this->userManager->getUserListItems($list_id);
-    $items = [];
-    foreach ($list_items as $list_item) {
-      $items[] = Link::fromTextAndUrl(UserHelper::getUserFullName($list_item) . ' - ' . $list_item->id(), Url::fromRoute('ngf_user_profile.remove_user_list_item', ['username' => $list_item->getAccountName(), 'list_id' => $list_id]));
-    }
-
-    return $render = [
-      '#theme' => 'item_list',
-      '#items' => $items,
-    ];
   }
 
   public function notifications() {
