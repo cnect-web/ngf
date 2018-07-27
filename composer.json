@@ -47,6 +47,7 @@
         "drupal/group": "^1.0",
         "drupal/honeypot": "^1.27",
         "drupal/inline_entity_form": "^1.0",
+        "drupal/fiu": "^2.0",
         "drupal/leaflet": "^1.0@beta",
         "drupal/message": "^1.0@RC",
         "drupal/message_notify": "^1.0@beta",
