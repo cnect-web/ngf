@@ -1,0 +1,32 @@
+uuid: 832dd080-5c47-45a1-b5f3-0d1fada1118b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_content.ngf_session-group_membership.group_membership_state
+    - field.field.group_content.ngf_session-group_membership.group_roles
+    - group.content_type.ngf_session-group_membership
+id: group_content.ngf_session-group_membership.default
+targetEntityType: group_content
+bundle: ngf_session-group_membership
+mode: default
+content:
+  group_membership_state:
+    label: above
+    type: entity_reference_label
+    settings:
+      link: false
+    weight: -3
+    third_party_settings: {  }
+    region: content
+  group_roles:
+    label: above
+    type: entity_reference_label
+    settings:
+      link: false
+    weight: -4
+    third_party_settings: {  }
+    region: content
+hidden:
+  entity_id: true
+  uid: true

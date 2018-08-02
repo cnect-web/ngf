@@ -75,6 +75,7 @@ class GroupPageController extends ControllerBase {
   public function landingPage(EntityInterface $group) {
     switch ($group->bundle()) {
       case 'ngf_discussion_group':
+      case 'ngf_session':
         return $this->publicationsPage($group);
 
       case 'ngf_event':
@@ -147,9 +148,6 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function eventPage(EntityInterface $event) {
-    if (isset($event->group) && $group = $event->group) {
-      $render[] = $this->groupDisplay($group);
-    }
     $render[] = $this->groupDisplay($event, 'full');
     return $render;
   }

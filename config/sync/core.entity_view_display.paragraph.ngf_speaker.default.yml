@@ -1,0 +1,41 @@
+uuid: 35baac50-c7ad-4f79-a962-cb3fb3e15a52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ngf_speaker.field_ngf_speaker_description
+    - field.field.paragraph.ngf_speaker.field_ngf_speaker_name
+    - field.field.paragraph.ngf_speaker.field_ngf_speaker_picture
+    - paragraphs.paragraphs_type.ngf_speaker
+  module:
+    - text
+id: paragraph.ngf_speaker.default
+targetEntityType: paragraph
+bundle: ngf_speaker
+mode: default
+content:
+  field_ngf_speaker_description:
+    weight: 2
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ngf_speaker_name:
+    weight: 1
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_ngf_speaker_picture:
+    type: entity_reference_entity_view
+    weight: 0
+    label: visually_hidden
+    settings:
+      view_mode: media_only
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,12 @@
+uuid: 647f6b8c-b681-4f4f-92a0-68c0aa463212
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.ngf_session
+id: ngf_session-pending
+label: Pending
+weight: -101
+internal: true
+state: pending
+group_type: ngf_session
