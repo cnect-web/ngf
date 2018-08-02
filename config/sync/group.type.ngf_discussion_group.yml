@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: ngf_discussion_group
-label: 'Discussion group'
+label: Group
 description: 'NGF default discussion group'
 creator_membership: true
 creator_wizard: false

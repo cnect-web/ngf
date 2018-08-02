@@ -1,0 +1,14 @@
+uuid: d8b5fcd4-1409-494b-9431-09dac3407a30
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.ngf_session
+id: ngf_session-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: ngf_session
+permissions_ui: true
+permissions: {  }

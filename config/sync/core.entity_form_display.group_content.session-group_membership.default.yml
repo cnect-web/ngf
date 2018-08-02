@@ -1,0 +1,44 @@
+uuid: 36d82beb-bef0-44d2-852d-596b2670ad27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_content.ngf_session-group_membership.group_membership_state
+    - field.field.group_content.ngf_session-group_membership.group_roles
+    - group.content_type.ngf_session-group_membership
+  module:
+    - path
+id: group_content.session-group_membership.default
+targetEntityType: group_content
+bundle: session-group_membership
+mode: default
+content:
+  entity_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  group_membership_state:
+    type: options_select
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  group_roles:
+    type: options_buttons
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  uid: true

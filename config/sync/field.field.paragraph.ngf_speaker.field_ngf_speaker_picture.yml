@@ -1,0 +1,33 @@
+uuid: 69aebf58-6fed-43b0-a9b7-09dfa0a000ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ngf_speaker_picture
+    - media.type.image
+    - paragraphs.paragraphs_type.ngf_speaker
+  module:
+    - entity_reference_validators
+third_party_settings:
+  entity_reference_validators:
+    duplicate_reference: false
+id: paragraph.ngf_speaker.field_ngf_speaker_picture
+field_name: field_ngf_speaker_picture
+entity_type: paragraph
+bundle: ngf_speaker
+label: Picture
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ngf_cover_image
+field_type: entity_reference

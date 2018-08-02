@@ -1,0 +1,28 @@
+uuid: 99b7aec3-945d-4c35-b4c6-9b0d3f9d6618
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.ngf_event
+    - group.type.ngf_session
+id: ngf_event-subgroup-ngf_session
+label: 'Event: Subgroup (Session)'
+description: 'Adds <em class="placeholder">Session</em> groups to groups both publicly and privately.'
+group_type: ngf_event
+content_plugin: 'subgroup:ngf_session'
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false
+  parent_role_mapping:
+    ngf_event-a416e6833: ''
+    ngf_event-admin: ''
+    ngf_event-anonymous: ''
+    ngf_event-member: ''
+    ngf_event-outsider: ''
+  child_role_mapping:
+    ngf_session-a416e6833: ''
+    ngf_session-admin: ''
+    ngf_session-anonymous: ''
+    ngf_session-member: ''
+    ngf_session-outsider: ''
