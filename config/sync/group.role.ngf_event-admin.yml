@@ -24,3 +24,4 @@ permissions:
   - 'update own group_node:ngf_discussion entity'
   - 'view group_node:ngf_discussion entity'
   - 'access subgroup overview'
+  - 'create subgroup:ngf_session entity'

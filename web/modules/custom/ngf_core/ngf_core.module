@@ -142,8 +142,23 @@ function ngf_core_taxonomy_term_insert(Drupal\taxonomy\Entity\Term $term) {
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function ngf_core_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Use a different page template is the user is anonymous.
   if (\Drupal::currentUser()->isAnonymous()) {
-    $suggestions[] = 'page__front__anonymous';
+
+    $path = \Drupal::service('path.current')->getPath();
+
+    // But only in some pages.
+    $patterns_array = [
+      '<front>',
+      '/join',
+      '/contact'
+    ];
+
+    $patterns = implode($patterns_array, "\n");
+
+    if (\Drupal::service('path.matcher')->matchPath($path, $patterns)) {
+      $suggestions[] = 'page__front__anonymous';
+    }
   }
 }
 
@@ -175,11 +190,7 @@ function ngf_core_theme($existing, $type, $theme, $path) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function ngf_core_form_contact_message_feedback_form_alter(
-  &$form,
-  FormStateInterface $form_state,
-  $form_id
-) {
+function ngf_core_form_contact_message_feedback_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['copy']['#access'] = FALSE;
   $form['actions']['preview']['#access'] = FALSE;
 }

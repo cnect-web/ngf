@@ -18,19 +18,6 @@ class DiscoverPageController extends ControllerBase {
   public function discoverPage() {
 
     $render_array = [];
-    $user = \Drupal::currentUser();
-
-    // Check if the current user can create groups.
-    if ($user->hasPermission('create ngf_discussion_group group')) {
-      $url = Url::fromUri('internal:/group/add/ngf_discussion_group', []);
-      $link = Link::fromTextAndUrl(t('Create a Group'), $url);
-
-      // Add the create group link to the render array.
-      $render_array[] = [
-        '#type' => 'markup',
-        '#markup' => $link->toString()->getGeneratedLink()
-      ];
-    }
 
     $view = Views::getView('ngf_groups');
     $view->setDisplay('groups_block');

@@ -12,7 +12,9 @@ audience: member
 group_type: ngf_event
 permissions_ui: true
 permissions:
-  - 'view group'
-  - 'leave group'
-  - 'create group_node:ngf_discussion entity'
-  - 'view group_node:ngf_discussion entity'
+  0: 'view group'
+  1: 'leave group'
+  2: 'create group_node:ngf_discussion entity'
+  3: 'view group_node:ngf_discussion entity'
+  4: 'create subgroup:ngf_session entity'
+  9: 'create subgroup:ngf_session content'
