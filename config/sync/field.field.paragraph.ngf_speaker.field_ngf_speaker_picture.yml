@@ -4,12 +4,13 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_ngf_speaker_picture
-    - media.type.image
+    - media.type.ngf_cover_image
     - paragraphs.paragraphs_type.ngf_speaker
   module:
     - entity_reference_validators
 third_party_settings:
   entity_reference_validators:
+    circular_reference: false
     duplicate_reference: false
 id: paragraph.ngf_speaker.field_ngf_speaker_picture
 field_name: field_ngf_speaker_picture
@@ -25,7 +26,7 @@ settings:
   handler: 'default:media'
   handler_settings:
     target_bundles:
-      image: image
+      ngf_cover_image: ngf_cover_image
     sort:
       field: _none
     auto_create: false

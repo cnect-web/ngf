@@ -11,7 +11,7 @@ description: 'Adds <em class="placeholder">Session</em> groups to groups both pu
 group_type: ngf_event
 content_plugin: 'subgroup:ngf_session'
 plugin_config:
-  group_cardinality: 0
+  group_cardinality: 1
   entity_cardinality: 1
   use_creation_wizard: false
   parent_role_mapping:
@@ -26,3 +26,4 @@ plugin_config:
     ngf_session-anonymous: ''
     ngf_session-member: ''
     ngf_session-outsider: ''
+    session-a416e6833: ''

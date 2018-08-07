@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.group.ngf_session.field_ngf_session_description
+    - field.field.group.ngf_session.field_ngf_session_end_date
     - field.field.group.ngf_session.field_ngf_session_speaker
+    - field.field.group.ngf_session.field_ngf_session_start_date
     - group.type.ngf_session
   module:
     - paragraphs
     - path
+    - single_datetime
     - text
 id: group.ngf_session.default
 targetEntityType: group
@@ -23,17 +26,54 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_ngf_session_end_date:
+    weight: 3
+    settings:
+      hour_format: 24h
+      allow_times: '15'
+      disable_days: {  }
+      exclude_date: ''
+      inline: false
+      datetimepicker_theme: default
+      min_date: ''
+      max_date: ''
+      year_start: ''
+      year_end: ''
+    third_party_settings: {  }
+    type: single_date_time_widget
+    region: content
   field_ngf_session_speaker:
-    type: entity_reference_paragraphs
-    weight: 2
+    type: paragraphs
+    weight: 4
     settings:
       title: Paragraph
       title_plural: Paragraphs
       edit_mode: open
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: _none
+      closed_mode: summary
+      autocollapse: none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
     third_party_settings: {  }
+    region: content
+  field_ngf_session_start_date:
+    weight: 2
+    settings:
+      hour_format: 24h
+      allow_times: '15'
+      disable_days: {  }
+      exclude_date: ''
+      inline: false
+      datetimepicker_theme: default
+      min_date: ''
+      max_date: ''
+      year_start: ''
+      year_end: ''
+    third_party_settings: {  }
+    type: single_date_time_widget
     region: content
   label:
     type: string_textfield
@@ -45,7 +85,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

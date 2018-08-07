@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.group.ngf_session.field_ngf_session_description
+    - field.field.group.ngf_session.field_ngf_session_end_date
     - field.field.group.ngf_session.field_ngf_session_speaker
+    - field.field.group.ngf_session.field_ngf_session_start_date
     - group.type.ngf_session
   module:
+    - datetime
     - entity_reference_revisions
     - text
 id: group.ngf_session.default
@@ -15,30 +18,41 @@ bundle: ngf_session
 mode: default
 content:
   field_ngf_session_description:
-    weight: 1
+    weight: 2
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
+  field_ngf_session_end_date:
+    weight: 1
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: short
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_ngf_session_speaker:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 3
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
-  label:
-    label: hidden
-    type: string
+  field_ngf_session_start_date:
     weight: 0
-    region: content
+    label: inline
     settings:
-      link_to_entity: false
+      timezone_override: ''
+      format_type: short
     third_party_settings: {  }
+    type: datetime_default
+    region: content
 hidden:
   changed: true
   created: true
+  label: true
   uid: true
