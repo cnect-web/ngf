@@ -16,7 +16,7 @@ field_name: field_ngf_description
 entity_type: node
 bundle: ngf_discussion
 label: Description
-description: ''
+description: "<i class=\"fas fa-pull-left fa-info-circle\"></i>\r\nExplain what you want to discuss. You can <b>add files</b>, <b>add images</b>,  <b>add video</b> and play with the order of your content by dragging it."
 required: false
 translatable: false
 default_value: {  }
@@ -28,8 +28,8 @@ settings:
     target_bundles:
       ngf_text: ngf_text
       ngf_file: ngf_file
-      ngf_video: ngf_video
       ngf_image: ngf_image
+      ngf_video: ngf_video
     target_bundles_drag_drop:
       ngf_text:
         enabled: true
@@ -37,10 +37,19 @@ settings:
       ngf_file:
         enabled: true
         weight: 4
-      ngf_video:
-        enabled: true
-        weight: 5
       ngf_image:
         enabled: true
         weight: 5
+      ngf_video:
+        enabled: true
+        weight: 5
+      ngf_related_content_discussion:
+        weight: 10
+        enabled: false
+      ngf_related_content_event:
+        weight: 11
+        enabled: false
+      ngf_related_content_group:
+        weight: 12
+        enabled: false
 field_type: entity_reference_revisions
