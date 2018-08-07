@@ -9,8 +9,8 @@ id: group.ngf_discussion_group.field_ngf_introtext
 field_name: field_ngf_introtext
 entity_type: group
 bundle: ngf_discussion_group
-label: 'About this group'
-description: ''
+label: 'Short description'
+description: "The short description should be as brief as possible (max 300 characters).\r\nExplain what your group is about."
 required: false
 translatable: false
 default_value: {  }

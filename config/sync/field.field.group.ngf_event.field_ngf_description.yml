@@ -16,7 +16,7 @@ field_name: field_ngf_description
 entity_type: group
 bundle: ngf_event
 label: Description
-description: ''
+description: "<i class=\"fas fa-pull-left fa-info-circle\"></i>\r\nExplain what you want to discuss. You can <b>add files</b>, <b>add images</b>,  <b>add video</b> and play with the order of your content by dragging it."
 required: false
 translatable: true
 default_value: {  }
@@ -43,4 +43,13 @@ settings:
       ngf_video:
         enabled: true
         weight: 8
+      ngf_related_content_discussion:
+        weight: 10
+        enabled: false
+      ngf_related_content_event:
+        weight: 11
+        enabled: false
+      ngf_related_content_group:
+        weight: 12
+        enabled: false
 field_type: entity_reference_revisions
