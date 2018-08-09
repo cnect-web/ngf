@@ -37,6 +37,8 @@ function ngf_core_link_alter(&$variables) {
 
 /**
  * Implements hook_form_FORM_ID_alter().
+ *
+ * @todo : Probably not needed anymore.
  */
 function ngf_core_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   // Alter the registration form button text to "Sign Up".

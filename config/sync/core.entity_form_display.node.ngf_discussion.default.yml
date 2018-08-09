@@ -42,10 +42,10 @@ content:
       label_singular: 'cover image'
       label_plural: ''
       allow_new: true
+      allow_existing: true
       match_operator: CONTAINS
       collapsible: false
       collapsed: false
-      allow_existing: false
       allow_duplicate: false
     third_party_settings: {  }
     type: inline_entity_form_complex
