@@ -8,8 +8,8 @@ dependencies:
     - funkywave
 id: createcontentblock
 theme: funkywave
-region: footer
-weight: 0
+region: header
+weight: -2
 provider: null
 plugin: create_content_block
 settings:

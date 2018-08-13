@@ -206,6 +206,7 @@ display:
         weight: 30
         context: '0'
         menu_name: main
+        enabled: true
     cache_metadata:
       max-age: -1
       contexts:
