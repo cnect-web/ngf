@@ -14,7 +14,6 @@ dependencies:
     - field.field.group.ngf_event.field_ngf_introtext
     - field.field.group.ngf_event.field_ngf_location
     - field.field.group.ngf_event.field_ngf_registration_link
-    - field.field.group.ngf_event.field_ngf_venue
     - group.type.ngf_event
   module:
     - address
@@ -99,21 +98,14 @@ content:
     settings:
       hour_format: 24h
       allow_times: '15'
+      disable_days: {  }
       exclude_date: ''
+      inline: false
       datetimepicker_theme: default
       min_date: ''
       max_date: ''
       year_start: ''
       year_end: ''
-      disable_days:
-        1: 0
-        2: 0
-        3: 0
-        4: 0
-        5: 0
-        6: 0
-        7: 0
-      inline: 0
     third_party_settings: {  }
     type: single_date_time_widget
     region: content
@@ -157,14 +149,6 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_ngf_venue:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
   label:
     type: string_textfield
     weight: 0
@@ -180,4 +164,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_ngf_venue: true
   uid: true

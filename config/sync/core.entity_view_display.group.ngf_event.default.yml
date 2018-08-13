@@ -15,7 +15,6 @@ dependencies:
     - field.field.group.ngf_event.field_ngf_introtext
     - field.field.group.ngf_event.field_ngf_location
     - field.field.group.ngf_event.field_ngf_registration_link
-    - field.field.group.ngf_event.field_ngf_venue
     - group.type.ngf_event
     - image.style.media_large
   module:
@@ -34,7 +33,7 @@ mode: default
 content:
   field_ngf_address:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
@@ -130,6 +129,7 @@ content:
         popupAnchor:
           x: null
           'y': null
+      hide_empty_map: 0
     third_party_settings: {  }
     type: leaflet_formatter_default
     region: content
@@ -145,14 +145,6 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  field_ngf_venue:
-    weight: 9
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
   label:
     label: hidden
     type: string
@@ -165,5 +157,6 @@ hidden:
   changed: true
   created: true
   field_ngf_introtext: true
+  field_ngf_venue: true
   show_more: true
   uid: true
