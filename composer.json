@@ -176,6 +176,9 @@
             },
             "drupal/entity_reference_validators": {
                 "Add duplication constraint" : "https://www.drupal.org/files/issues/2018-06-30/2825868-9.patch"
+            },
+            "drupal/address": {
+                "Add hook to alter labels": "https://pastebin.com/raw/nmRUVdSP"
             }
 
         }
