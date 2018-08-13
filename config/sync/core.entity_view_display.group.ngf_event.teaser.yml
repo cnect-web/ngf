@@ -89,5 +89,4 @@ hidden:
   field_ngf_interests: true
   field_ngf_location: true
   field_ngf_registration_link: true
-  field_ngf_venue: true
   uid: true

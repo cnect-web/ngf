@@ -157,6 +157,5 @@ hidden:
   changed: true
   created: true
   field_ngf_introtext: true
-  field_ngf_venue: true
   show_more: true
   uid: true
