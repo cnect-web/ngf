@@ -48,17 +48,17 @@ function ngf_group_help($route_name, RouteMatchInterface $route_match) {
  * Alter the group menu.
  */
 function ngf_group_group_operations_alter(&$links, $group) {
-
   // Move the Create Post action to top.
-  if (!empty($links['gnode-create-ngf_post'])) {
-    $links['gnode-create-ngf_post']['weight']--;
+  if (!empty($links['gnode-create-ngf_discussion'])) {
+    $links['gnode-create-ngf_discussion']['weight'] = 0;
   }
 
   // Modify the action link title.
   foreach ($links as $key => $link) {
     $link_title_arg = $link['title']->getArguments();
+
     if (!empty($link_title_arg['@type'])) {
-      $links[$key]['title'] = t('New @type', $link_title_arg);
+      $links[$key]['title'] = t('@type', str_replace('Discussion Group', 'Subgroup', $link_title_arg));
     }
   }
 }

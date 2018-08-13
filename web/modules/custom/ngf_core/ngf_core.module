@@ -38,23 +38,6 @@ function ngf_core_link_alter(&$variables) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function ngf_core_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // Alter the registration form button text to "Sign Up".
-  if (!empty($form['actions']['submit'])) {
-    $form['actions']['submit']['#value'] = t('Sign Up');
-  }
-
-  // Add the legal agreements message.
-  $form['agreements'] = [
-    '#markup' => t("By clicking 'Sign up' or using one of the Social Media Login buttons you agree to our <a href=\"/legal/terms-and-conditions\">Terms and Conditions</a> and that you have read our <a href=\"/legal/data-use-policy\">Data Use Policy</a>."),
-    '#weight' => 99,
-  ];
-
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
 function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   _ngf_core_event_ngf_registration_link_validation_helper($form);
 }
@@ -142,8 +125,25 @@ function ngf_core_taxonomy_term_insert(Drupal\taxonomy\Entity\Term $term) {
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function ngf_core_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Use a different page template is the user is anonymous.
   if (\Drupal::currentUser()->isAnonymous()) {
-    $suggestions[] = 'page__front__anonymous';
+
+    $path = \Drupal::service('path.current')->getPath();
+
+    // But only in some pages.
+    $patterns_array = [
+      '<front>',
+      '/join',
+      '/contact',
+      '/user/password',
+      '/user/login'
+    ];
+
+    $patterns = implode($patterns_array, "\n");
+
+    if (\Drupal::service('path.matcher')->matchPath($path, $patterns)) {
+      $suggestions[] = 'page__front__anonymous';
+    }
   }
 }
 
@@ -175,11 +175,16 @@ function ngf_core_theme($existing, $type, $theme, $path) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function ngf_core_form_contact_message_feedback_form_alter(
-  &$form,
-  FormStateInterface $form_state,
-  $form_id
-) {
+function ngf_core_form_contact_message_feedback_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['copy']['#access'] = FALSE;
   $form['actions']['preview']['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_address_fields_labels_alter().
+ *
+ * Change "Company" field label to "Venue name".
+ */
+function ngf_core_address_fields_labels_alter(&$labels) {
+  $labels[AddressField::ORGANIZATION] = t('Venue name', [], ['context' => 'Address label']);
 }

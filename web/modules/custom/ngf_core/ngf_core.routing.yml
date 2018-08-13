@@ -5,3 +5,20 @@ ngf_core.front:
     _title: 'Front page'
   requirements:
     _access: 'TRUE'
+
+ngf_core.create_content:
+  path: '/create'
+  defaults:
+    _title: 'Create new ...'
+    _controller: '\Drupal\ngf_core\Controller\CreateContentController::createContent'
+  requirements:
+    _access: 'TRUE'
+
+ngf_core.create_group_content:
+  path: '/create/{group}'
+  defaults:
+    _title_callback: '\Drupal\ngf_core\Controller\CreateContentController::createGroupContentTitle'
+    _controller: '\Drupal\ngf_core\Controller\CreateContentController::createGroupContent'
+  requirements:
+    _access: 'TRUE'
+

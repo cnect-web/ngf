@@ -1,7 +1,7 @@
-ngf_group.link.discover:
-  title: 'Discover'
-  description: 'Discovery page'
+ngf_group.link.contacts-and-groups:
+  title: 'Contacts & Groups'
+  description: 'Contacts & Groups page'
   parent: main
   menu_name: main
-  route_name: ngf_group.page.discover
+  route_name: ngf_group.page.contacts_and_groups
   weight: 20
