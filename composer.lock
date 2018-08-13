@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c30455cd245b2fc1d022a0ca6467c4d8",
+    "content-hash": "4fef806b7b2d7a001c6789151708b329",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -12768,8 +12768,7 @@
         "drupal/message": 5,
         "drupal/message_notify": 10,
         "drupal/message_subscribe": 10,
-        "drupal/paragraphs": 20,
-        "drupal/realname": 5
+        "drupal/paragraphs": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
