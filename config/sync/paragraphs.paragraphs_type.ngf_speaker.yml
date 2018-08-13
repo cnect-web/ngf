@@ -1,0 +1,12 @@
+uuid: 666f5c5c-e38b-4393-af82-492094f659db
+langcode: en
+status: true
+dependencies:
+  module:
+    - ngf_core
+id: ngf_speaker
+label: Speaker
+icon_uuid: null
+description: ''
+behavior_plugins:
+  metatag: {  }

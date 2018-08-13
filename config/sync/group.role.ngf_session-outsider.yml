@@ -1,0 +1,14 @@
+uuid: 4bac7a09-c4d5-4df1-9938-f011486de698
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.ngf_session
+id: ngf_session-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: ngf_session
+permissions_ui: true
+permissions: {  }

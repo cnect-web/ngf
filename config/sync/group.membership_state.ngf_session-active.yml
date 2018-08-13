@@ -1,0 +1,12 @@
+uuid: 5422dfc4-863f-491a-a701-453dc8731cb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.ngf_session
+id: ngf_session-active
+label: Active
+weight: -102
+internal: true
+state: active
+group_type: ngf_session

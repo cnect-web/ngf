@@ -1,27 +1,25 @@
-uuid: 7a51b80b-8db0-4386-a108-5a475d92b9cd
+uuid: 77e8bab9-6d3e-4004-95a2-826803285714
 langcode: en
 status: true
 dependencies:
   config:
-    - group.type.ngf_event
-id: ngf_event-admin
+    - group.type.ngf_session
+id: ngf_session-admin
 label: Admin
-weight: 101
+weight: 100
 internal: false
 audience: member
-group_type: ngf_event
+group_type: ngf_session
 permissions_ui: true
 permissions:
   - 'access content overview'
   - 'administer group'
+  - 'delete group'
   - 'edit group'
   - 'view group'
   - 'administer members'
+  - 'update own group_membership content'
   - 'leave group'
   - 'view group_membership content'
   - 'access group_node overview'
-  - 'create group_node:ngf_discussion entity'
-  - 'update own group_node:ngf_discussion entity'
-  - 'view group_node:ngf_discussion entity'
   - 'access subgroup overview'
-  - 'create subgroup:ngf_session entity'

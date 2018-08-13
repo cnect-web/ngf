@@ -1,0 +1,28 @@
+uuid: 318f8fc0-1475-44cd-b8c8-f24802139598
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ngf_speaker_description
+    - paragraphs.paragraphs_type.ngf_speaker
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: paragraph.ngf_speaker.field_ngf_speaker_description
+field_name: field_ngf_speaker_description
+entity_type: paragraph
+bundle: ngf_speaker
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
