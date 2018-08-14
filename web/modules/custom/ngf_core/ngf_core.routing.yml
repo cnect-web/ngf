@@ -7,18 +7,21 @@ ngf_core.front:
     _access: 'TRUE'
 
 ngf_core.create_content:
-  path: '/create'
+  path: '/create/{group}'
   defaults:
     _title: 'Create new ...'
     _controller: '\Drupal\ngf_core\Controller\CreateContentController::createContent'
+    context: 'global'
+    group: 'none'
   requirements:
     _permission: 'create ngf_discussion_group group+create ngf_event group+create ngf_session group+create ngf_discussion content'
 
-ngf_core.create_group_content:
-  path: '/create/{group}'
-  defaults:
-    _title_callback: '\Drupal\ngf_core\Controller\CreateContentController::createGroupContentTitle'
-    _controller: '\Drupal\ngf_core\Controller\CreateContentController::createGroupContent'
-  requirements:
-    _permission: 'create ngf_discussion_group group+create ngf_event group+create ngf_session group+create ngf_discussion content'
+#ngf_core.create_group_content:
+#  path: '/create/{context}'
+#  defaults:
+#    _title_callback: '\Drupal\ngf_core\Controller\CreateContentController::createGroupContentTitle'
+#    _controller: '\Drupal\ngf_core\Controller\CreateContentController::createContent'
+#    context: 'global'
+#  requirements:
+#    _permission: 'create ngf_discussion_group group+create ngf_event group+create ngf_session group+create ngf_discussion content'
 

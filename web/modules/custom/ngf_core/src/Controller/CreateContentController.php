@@ -5,6 +5,7 @@ namespace Drupal\ngf_core\Controller;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\group\Entity\Group;
 use Drupal\views\Views;
 use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -12,51 +13,31 @@ use Drupal\group\Cache\Context\GroupCacheContext;
 use Drupal\Core\Entity\EntityTypeManager;
 
 /**
- * Front page controller.
+ * Create content controller.
  */
 class CreateContentController extends ControllerBase {
 
   /**
-   * The current group.
-   *
-   * @var \Drupal\Core\Entity\EntityInterface
-   */
-  protected $currentGroup;
-
-  /**
-   * Entity type manager.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
-
-  /**
-   * {@inheritdoc}
-   */
-  public function __construct(
-    GroupCacheContext $group,
-    EntityTypeManager $entityTypeManager
-  ) {
-    $this->currentGroup = $group->getBestCandidate();
-    $this->entityTypeManager = $entityTypeManager;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('cache_context.group'),
-      $container->get('entity_type.manager')
-    );
-  }
-
-/**
    * Returns a render-able array for a test page.
    */
-  public function createContent() {
-    $user = \Drupal::currentUser();
+  public function createContent($group = 'none') {
 
+    return ($group == 'none')
+      ? $this->getGlobalScopeLinks()
+      : $this->getGroupScopeLinks($group);
+
+  }
+
+  public function createGroupContentTitle(EntityInterface $group) {
+    return $this->t("Add to '@group'", ['@group' => $group->label()]);
+  }
+
+  /**
+   * Returns links to add content globally.
+   */
+  private function getGlobalScopeLinks() {
+
+    $user = \Drupal::currentUser();
     $content_links = [];
     $link_attributes = [
       'class' => [
@@ -125,14 +106,13 @@ class CreateContentController extends ControllerBase {
     return $render;
   }
 
-  public function createGroupContentTitle(EntityInterface $group) {
-    return $this->t("Add to '@group'", ['@group' => $group->label()]);
-  }
-
   /**
-   * Returns a render-able array for a test page.
+   * Returns links to add content for a group.
    */
-  public function createGroupContent(EntityInterface $group) {
+  private function getGroupScopeLinks($group_id) {
+
+    $group = Group::load($group_id);
+
     $render = [];
     $user = \Drupal::currentUser();
 
