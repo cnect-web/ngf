@@ -88,6 +88,17 @@ function ngf_group_link_alter(&$variables) {
     $context = \Drupal::service('context.repository');
     $groupContext = $context->getRuntimeContexts(['@group.group_route_context:group']);
     if ($group = $groupContext['@group.group_route_context:group']->getContextData()->getValue()) {
+      $text = [
+        '#type' => 'html_tag',
+        '#tag' => 'span',
+        '#value' => t("Add to @group", ['@group' => $group->label()]),
+        '#attributes' => [
+          'class' => [
+            'no-display--sm'
+          ]
+        ]
+      ];
+      $variables['text'] = render($text);
       $variables['url']->setRouteParameter('group', $group->id());
     }
   }

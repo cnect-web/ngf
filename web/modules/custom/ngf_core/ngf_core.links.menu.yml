@@ -6,7 +6,7 @@ user_register.link:
   route_name: user.register
 
 create_content.link:
-  title: 'Create'
+  title: 'Create new'
   description: 'Click here to add content'
   parent: main
   route_name: ngf_core.create_content

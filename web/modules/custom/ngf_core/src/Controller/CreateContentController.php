@@ -28,8 +28,14 @@ class CreateContentController extends ControllerBase {
 
   }
 
-  public function createGroupContentTitle(EntityInterface $group) {
-    return $this->t("Add to '@group'", ['@group' => $group->label()]);
+  public function createContentTitle($group = 'none') {
+    if ($group == 'none') {
+      return $this->t("Create new ...");
+    }
+    else {
+      $group = Group::load($group);
+      return $this->t("Add to '@group'", ['@group' => $group->label()]);
+    }
   }
 
   /**
