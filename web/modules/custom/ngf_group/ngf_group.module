@@ -80,25 +80,19 @@ function ngf_group_link_alter(&$variables) {
     $variables['text'] = t('Content');
   }
 
-  $user = \Drupal::currentUser();
-  if ($user->isAnonymous()) {
-    $variables['access'] = FALSE;
-    ksm($variables);
-  }
-  else {
-    // Alter the create content route to use a modal.
-    if ($url->isRouted() && $url->getRouteName() == 'ngf_core.create_content') {
-      $variables['options']['attributes']['data-dialog-type'] = 'modal';
+  // Alter the create content route to use a modal.
+  if ($url->isRouted() && $url->getRouteName() == 'ngf_core.create_content') {
+    $variables['options']['attributes']['data-dialog-type'] = 'modal';
 
-      // Check if we're in a group context.
-      $context = \Drupal::service('context.repository');
-      $groupContext = $context->getRuntimeContexts(['@group.group_route_context:group']);
-      $group = $groupContext['@group.group_route_context:group']->getContextData()->getValue();
+    // Check if we're in a group context.
+    $context = \Drupal::service('context.repository');
+    $groupContext = $context->getRuntimeContexts(['@group.group_route_context:group']);
+    $group = $groupContext['@group.group_route_context:group']->getContextData()->getValue();
 
-      $variables['url'] = ($group)
-        ? Url::fromRoute('ngf_core.create_group_content', ['group' => $group->id()])
-        : Url::fromRoute('ngf_core.create_content');
-    }
+    $variables['url'] = ($group)
+      ? Url::fromRoute('ngf_core.create_group_content', ['group' => $group->id()])
+      : Url::fromRoute('ngf_core.create_content');
+
   }
 }
 
