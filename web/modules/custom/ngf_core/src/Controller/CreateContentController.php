@@ -57,6 +57,7 @@ class CreateContentController extends ControllerBase {
   public function createContent() {
     $user = \Drupal::currentUser();
 
+    $content_links = [];
     $link_attributes = [
       'class' => [
         'btn',

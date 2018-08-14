@@ -4,3 +4,19 @@ user_register.link:
   parent: account
   menu_name: account
   route_name: user.register
+
+create_content.link:
+  title: 'Create'
+  description: 'Click here to add content'
+  parent: main
+  route_name: ngf_core.create_content
+  weight: 100
+  menu_name: main
+  options:
+    attributes:
+      data-dialog-options: '{"width":400,"height":300}'
+      data-dialog-type: "modal"
+      class:
+        - use-ajax
+        - button
+        - create-new
