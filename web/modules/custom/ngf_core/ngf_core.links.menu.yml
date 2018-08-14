@@ -10,7 +10,7 @@ create_content.link:
   description: 'Click here to add content'
   parent: main
   route_name: ngf_core.create_content
-  weight: 100
+  weight: 1000
   menu_name: main
   options:
     attributes:
