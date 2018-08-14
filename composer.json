@@ -156,7 +156,7 @@
                 "Change 'Add' and 'Create' labels and paths to make be more intuitive & follow Drupal patterns" : "https://www.drupal.org/files/issues/2683039-28.patch",
                 "Get a token of a node's parent group to create a pathauto pattern" : "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch",
                 "How to redirect to the owning group after adding a gnode?": "https://www.drupal.org/files/issues/2817109-by-rachel_norfolk-ericras-How-to-redir.patch",
-                "Request membership feature": "https://www.drupal.org/files/issues/2018-06-11/request_membership-2752603-56.patch"
+                "Request membership feature": "https://www.drupal.org/files/issues/2018-07-13/request_membership-2752603-69.patch"
             },
             "drupal/entity_reference_revisions": {
                 "Embed Paragraph Content in Normalized Parent Entities (REST)": "https://www.drupal.org/files/issues/embed_paragraph_content-2848878-43.patch"
