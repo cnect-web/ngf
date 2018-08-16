@@ -1,4 +1,4 @@
-uuid: 5ce43e0a-18ba-40be-8543-900370770b91
+uuid: baf1b5f8-3b6c-4aa3-a4d6-bf40c5e5ca6c
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - group.type.ngf_session
   module:
     - group
-id: sessions
+id: ngf_sessions
 label: Sessions
 module: views
 description: ''
@@ -182,7 +182,7 @@ display:
           relationship: gid
           group_type: group
           admin_label: ''
-          default_action: ignore
+          default_action: 'not found'
           exception:
             value: all
             title_enable: false
@@ -221,14 +221,13 @@ display:
         - url
         - url.query_args
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 1
+  sessions:
+    display_plugin: block
+    id: sessions
+    display_title: Block
+    position: 2
     display_options:
       display_extenders: {  }
-      path: sessions
     cache_metadata:
       max-age: -1
       contexts:

@@ -149,6 +149,7 @@ class GroupPageController extends ControllerBase {
    */
   public function eventPage(EntityInterface $event) {
     $render[] = $this->groupDisplay($event, 'full');
+    $render[] = $this->getContentView('ngf_sessions', 'sessions', $event->id());
     return $render;
   }
 
