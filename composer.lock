@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2a5faf02201d1c2390b30aba22f33e1",
+    "content-hash": "a2c8266540eb47235826accaf2312a95",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -6331,6 +6331,9 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "Redirect module causes redirect back to unaliased path": "https://www.drupal.org/files/issues/2875026-6.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
