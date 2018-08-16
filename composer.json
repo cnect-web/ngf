@@ -67,6 +67,7 @@
         "drupal/social_auth_linkedin": "^2.0",
         "drupal/social_auth_twitter": "^2.0",
         "drupal/stage_file_proxy": "^1.0",
+        "drupal/subpathauto": "^1.0@beta",
         "drupal/taxonomy_unique": "^2.0",
         "drupal/textfield_counter": "^1.1",
         "drupal/token": "^1.1",
@@ -179,6 +180,9 @@
             },
             "drupal/address": {
                 "Add hook to alter labels": "https://pastebin.com/raw/nmRUVdSP"
+            },
+            "drupal/subpathauto": {
+                "Redirect module causes redirect back to unaliased path": "https://www.drupal.org/files/issues/2875026-6.patch"
             }
 
         }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fef806b7b2d7a001c6789151708b329",
+    "content-hash": "d2a5faf02201d1c2390b30aba22f33e1",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -2330,6 +2330,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Add hook to alter labels": "https://pastebin.com/raw/nmRUVdSP"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4686,7 +4689,7 @@
                     "Change 'Add' and 'Create' labels and paths to make be more intuitive & follow Drupal patterns": "https://www.drupal.org/files/issues/2683039-28.patch",
                     "Get a token of a node's parent group to create a pathauto pattern": "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch",
                     "How to redirect to the owning group after adding a gnode?": "https://www.drupal.org/files/issues/2817109-by-rachel_norfolk-ericras-How-to-redir.patch",
-                    "Request membership feature": "https://www.drupal.org/files/issues/2018-06-11/request_membership-2752603-56.patch"
+                    "Request membership feature": "https://www.drupal.org/files/issues/2018-07-13/request_membership-2752603-69.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -6297,6 +6300,57 @@
             "homepage": "https://www.drupal.org/project/stage_file_proxy",
             "support": {
                 "source": "http://cgit.drupalcode.org/stage_file_proxy"
+            }
+        },
+        {
+            "name": "drupal/subpathauto",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/subpathauto",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/subpathauto-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "9dc67937f6a4e8a07aa311fa380adf0740993def"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1479450840",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "lauriii",
+                    "homepage": "https://www.drupal.org/user/1078742"
+                }
+            ],
+            "description": "Provides support for extending sub-paths of URL aliases.",
+            "homepage": "https://www.drupal.org/project/subpathauto",
+            "support": {
+                "source": "http://cgit.drupalcode.org/subpathauto"
             }
         },
         {
@@ -12768,7 +12822,8 @@
         "drupal/message": 5,
         "drupal/message_notify": 10,
         "drupal/message_subscribe": 10,
-        "drupal/paragraphs": 20
+        "drupal/paragraphs": 20,
+        "drupal/subpathauto": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
