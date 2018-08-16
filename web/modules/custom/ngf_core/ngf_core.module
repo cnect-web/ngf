@@ -189,3 +189,15 @@ function ngf_core_form_contact_message_feedback_form_alter(&$form, FormStateInte
 function ngf_core_address_fields_labels_alter(&$labels) {
   $labels[AddressField::ORGANIZATION] = t('Venue name', [], ['context' => 'Address label']);
 }
+
+/**
+ * Implements hook_library_info_alter().
+ *
+ * Override the time picker to prevent that seconds picks up current time.
+ */
+function ngf_core_library_info_alter(array &$libraries, $module) {
+  if (isset($libraries['datetimepicker'])) {
+    unset($libraries['datetimepicker']['js']['js/drupal.single_datetime.js']);
+    $libraries['datetimepicker']['js'] += ['/' . drupal_get_path('module', 'ngf_core') . '/js/datepicker_override.js' => []];
+  }
+}
