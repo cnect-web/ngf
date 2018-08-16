@@ -1,23 +1,23 @@
-uuid: e7fe42df-a283-4114-bc6c-2068df836b9d
+uuid: a3223682-2c11-4a21-b73b-68d6e32a9070
 langcode: en
 status: true
 dependencies:
   module:
     - ctools
     - group
-id: group_paths
-label: 'Group paths'
+id: group_events
+label: 'Group events'
 type: 'canonical_entities:group'
-pattern: '[group:ngf_path]/[group:title]'
+pattern: '[group:ngf_path]/events/[group:title]'
 selection_criteria:
-  badd63ca-7e6a-416d-b657-356c6b72d21d:
+  3432ad92-5be9-4e29-94de-c97da4218769:
     id: 'entity_bundle:group'
     bundles:
-      ngf_discussion_group: ngf_discussion_group
+      ngf_event: ngf_event
     negate: false
     context_mapping:
       group: group
-    uuid: badd63ca-7e6a-416d-b657-356c6b72d21d
+    uuid: 3432ad92-5be9-4e29-94de-c97da4218769
 selection_logic: and
-weight: -10
+weight: -8
 relationships: {  }

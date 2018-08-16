@@ -8,18 +8,16 @@ dependencies:
 id: group_subgroups
 label: 'Group subgroups'
 type: 'canonical_entities:group'
-pattern: 'group/[group:group:title]/[group:title]'
+pattern: '[group:ngf_path]/[group:title]'
 selection_criteria:
-  5dbcf79f-039a-4f2b-8025-b1a4c61d49d6:
+  9e41e34e-1d8a-418e-9d2e-7d580657d485:
     id: 'entity_bundle:group'
     bundles:
       ngf_discussion_group: ngf_discussion_group
-      ngf_event: ngf_event
-      ngf_session: ngf_session
     negate: false
     context_mapping:
       group: group
-    uuid: 5dbcf79f-039a-4f2b-8025-b1a4c61d49d6
+    uuid: 9e41e34e-1d8a-418e-9d2e-7d580657d485
 selection_logic: and
-weight: -10
+weight: -9
 relationships: {  }
