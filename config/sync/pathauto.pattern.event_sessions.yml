@@ -1,0 +1,23 @@
+uuid: b356dc39-5b3b-4303-b8fb-fa025aa27db1
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+id: event_sessions
+label: 'Event sessions'
+type: 'canonical_entities:group'
+pattern: '[group:ngf_path]/sessions/[group:title]'
+selection_criteria:
+  062b82fb-ba7f-4b9e-b3e4-821d75127f7b:
+    id: 'entity_bundle:group'
+    bundles:
+      ngf_session: ngf_session
+    negate: false
+    context_mapping:
+      group: group
+    uuid: 062b82fb-ba7f-4b9e-b3e4-821d75127f7b
+selection_logic: and
+weight: -5
+relationships: {  }
