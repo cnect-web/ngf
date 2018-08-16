@@ -5,8 +5,6 @@
 (function ($, Drupal, drupalSettings) {
   'use strict';
 
-  console.log("UATDAFUK");
-
   function SingleDatetimeAllowTimes($type) {
     var times = [], i, j;
 
