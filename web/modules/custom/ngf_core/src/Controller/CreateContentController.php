@@ -48,7 +48,8 @@ class CreateContentController extends ControllerBase {
     $link_attributes = [
       'class' => [
         'btn',
-        'btn--green'
+        'btn--blue',
+        'btn--large'
       ]
     ];
 
@@ -126,7 +127,8 @@ class CreateContentController extends ControllerBase {
     $link_attributes = [
       'class' => [
         'btn',
-        'btn--green'
+        'btn--blue',
+        'btn--large'
       ]
     ];
 
