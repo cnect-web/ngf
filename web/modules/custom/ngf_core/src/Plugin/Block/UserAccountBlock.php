@@ -4,6 +4,8 @@ namespace Drupal\ngf_core\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Image\Entity\ImageStyle;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 
 /**
  * Provides a 'User Account' Block.
@@ -71,6 +73,14 @@ class UserAccountBlock extends BlockBase {
         '#user_profile_link' => "/profile/general-settings",
         '#user_manage_network_link' => '#',
         '#user_logout_link' => '/user/logout',
+      ];
+    }
+    else {
+      return [
+        '#markup' => $this->t("@login / @register", [
+          '@login' => Link::fromTextAndUrl(t('Login'), Url::fromRoute('user.login'))->toString(),
+          '@register' => Link::fromTextAndUrl(t('Register'), Url::fromRoute('ngf_user_registration'))->toString(),
+        ])
       ];
     }
   }
