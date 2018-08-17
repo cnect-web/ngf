@@ -113,6 +113,14 @@ class UserProfilePageController extends UserProfileControllerBase {
     return $this->getContent($form);
   }
 
+  protected function getUserList($users, $no_items_text) {
+    $items = [];
+    foreach ($users as $user) {
+      $items[] = $this->entityTypeManager()->getViewBuilder('user')->view($user, 'compact');
+    }
+    return count($items) > 0  ? $items : $this->getRenderMarkup($no_items_text);
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -171,7 +179,7 @@ class UserProfilePageController extends UserProfileControllerBase {
         unset($message['partial_0']);
         $render['content'][] = $message;
       }
-      $render['content'] = [
+      $render['content'][] = [
         '#type' => 'pager',
       ];
 
@@ -179,6 +187,7 @@ class UserProfilePageController extends UserProfileControllerBase {
     else {
       $render[] = $this->getRenderMarkup('<p>There are no items in your feed</p>');
     }
+
     return $this->getContent($render);
   }
 
