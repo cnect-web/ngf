@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ngf_user_profile\Manager;
+namespace Drupal\ngf_user_list\Manager;
 
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -10,10 +10,10 @@ use Drupal\user\UserDataInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\Helper\UserHelper;
-use Drupal\ngf_user_profile\Entity\UserList;
+use Drupal\ngf_user_list\Entity\UserList;
 use Drupal\ngf_user_profile\FlagTrait;
 
-class UserManager {
+class UserListManager {
 
   use FlagTrait;
   use MessageTrait;
@@ -193,7 +193,7 @@ class UserManager {
         ->execute();
 
       if (empty($lists)) {
-        $user_list_item = UserList::create([
+        $user_list_item = UserListManager::create([
           'user_id' => $this->currentUser->id(),
           'name' => $name,
         ]);
@@ -218,7 +218,7 @@ class UserManager {
   }
 
   public function addUserListItem($list_id, $username) {
-    $list = UserList::load($list_id);
+    $list = UserListManager::load($list_id);
     $user = user_load_by_name($username);
 
     if (empty($user)) {
@@ -241,7 +241,7 @@ class UserManager {
   }
 
   public function removeUserListItem($list_id, $username) {
-    $list = UserList::load($list_id);
+    $list = UserListManager::load($list_id);
     $user = user_load_by_name($username);
 
     if (empty($user)) {
@@ -264,13 +264,12 @@ class UserManager {
   }
 
   public function getUserListItems($user_list) {
-    $list = UserList::load($user_list->id());
     $user_list_items = [];
-    if (empty($list)) {
+    if (empty($user_list)) {
       $this->addError(t('List is not found.'));
     } else {
       $flag = $this->getListItemFlag();
-      $flag_user_list_items = $this->flag->getEntityFlaggings($flag, $list);
+      $flag_user_list_items = $this->flag->getEntityFlaggings($flag, $user_list);
       $user_ids = [];
       foreach ($flag_user_list_items as $flag_user_list_item) {
         $user_ids[] = $flag_user_list_item->getOwnerId();
@@ -282,7 +281,7 @@ class UserManager {
   }
 
   public function removeUserList($list_id) {
-    $user_list = UserList::load($list_id);
+    $user_list = UserListManager::load($list_id);
     if (empty($user_list)) {
       $this->addError(t('List is not found.'));
     } elseif ($user_list->getOwnerId() !== $this->currentUser->id()) {

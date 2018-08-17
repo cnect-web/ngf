@@ -2,10 +2,10 @@
 
 namespace Drupal\ngf_user_registration\Step;
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\ngf_user_registration\Button\StepFourFinishButton;
 use Drupal\ngf_user_registration\Button\StepFourPreviousButton;
 use Drupal\ngf_user_registration\Validator\ValidatorRequired;
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\ngf_user_profile\UserSettingsManager;
 
 /**

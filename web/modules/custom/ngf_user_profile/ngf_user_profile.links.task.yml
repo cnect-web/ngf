@@ -82,6 +82,27 @@ ngf_user_profile.link.private_settings:
   base_route: ngf_user_profile.page.general_settings
   parent_id: ngf_user_profile.link.settings
 
+ngf_user_profile.link.user_lists:
+  title: 'User lists'
+  description: 'User lists'
+  route_name: ngf_user_list.user_lists
+  base_route: ngf_user_profile.page.profile
+  parent_id: ngf_user_profile.link.profile
+
+#ngf_user_profile.link.user_lists:
+#  title: 'User lists items'
+#  description: 'User lists items'
+#  route_name: ngf_user_profile.user_list_items
+#  base_route: ngf_user_profile.page.profile
+#  parent_id: ngf_user_profile.link.profile
+
+ngf_user_profile.link.add_list:
+  title: 'Add list'
+  description: 'Add list'
+  route_name: ngf_user_list.add_user_list
+  base_route: ngf_user_profile.page.profile
+  parent_id: ngf_user_profile.link.profil
+
 # Any user tabs
 ngf_user_profile.link.user_profile:
   title: 'User content'
@@ -123,3 +144,10 @@ ngf_user_profile.link.user_about:
   route_name: ngf_user_profile.page.user_about
   base_route: ngf_user_profile.page.user_publications
   parent_id: ngf_user_profile.link.user_profile
+
+
+# User list settings page
+ngf_user_list.settings_tab:
+  route_name: ngf_user_list.settings
+  title: 'Settings'
+  base_route: ngf_user_list.settings

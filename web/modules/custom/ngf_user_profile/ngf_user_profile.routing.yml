@@ -27,34 +27,6 @@ ngf_user_profile.unfollow:
     _permission: 'access content'
     username: '^[a-zA-Z0-9_]+'
 
-ngf_user_profile.add_user_list:
-  path: '/profile/user-list/add/{name}'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::addUserList'
-    _title: 'Add user list'
-  requirements:
-    _permission: 'access content'
-    name: '^[a-zA-Z0-9_\s]+'
-
-ngf_user_profile.remove_user_list:
-  path: '/profile/user-list/remove/{list_id}'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::removeUserList'
-    _title: 'Remove user list'
-  requirements:
-    _permission: 'access content'
-    list_id: '^[0-9]+'
-
-ngf_user_profile.remove_user_list_item:
-  path: '/profile/user-list-item/remove/{list_id}/{username}'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::removeUserListItem'
-    _title: 'Remove user list item'
-  requirements:
-    _permission: 'access content'
-    list_id: '^[0-9]+'
-    username: '^[a-zA-Z0-9_]+'
-
 ngf_user_profile.add_user_list_item:
   path: '/profile/user-list-item/add/{list_id}/{username}'
   defaults:
@@ -84,24 +56,6 @@ ngf_user_profile.remove_notification:
     message_id: '^[0-9]+'
 
 # Current user profile pages
-
-ngf_user_profile.user_lists:
-  path: '/profile/user-lists'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::userLists'
-    _title: 'Your lists of users'
-  requirements:
-    _permission: 'access content'
-
-ngf_user_profile.user_list_items:
-  path: '/profile/user-list-items/{list_id}'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::userListItems'
-    _title: 'User list items'
-  requirements:
-    _permission: 'access content'
-    list_id: '^[0-9]+'
-
 ngf_user_profile.user_notifications:
   path: '/profile/notifications'
   defaults:
