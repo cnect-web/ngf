@@ -163,7 +163,8 @@
                 "Embed Paragraph Content in Normalized Parent Entities (REST)": "https://www.drupal.org/files/issues/embed_paragraph_content-2848878-43.patch"
             },
             "drupal/inline_entity_form": {
-                "Remove revision log messages from other entities than nodes": "https://www.drupal.org/files/issues/2018-03-23/remove_revision_log_message-2927884-2.patch"
+                "Remove revision log messages from other entities than nodes": "https://www.drupal.org/files/issues/2018-03-23/remove_revision_log_message-2927884-2.patch",
+                "Field name/label disappears when I create a new entity inline": "https://www.drupal.org/files/issues/inline_entity_form-no_label_required_field_with_no_entries-2842744.patch"
             },
             "drupal/message": {
                 "Notice: Undefined index: #cardinality": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
@@ -185,7 +186,6 @@
                 "Redirect module causes redirect back to unaliased path": "https://www.drupal.org/files/issues/2875026-6.patch",
                 "Ignore specific paths (blacklist) for D8": "https://www.drupal.org/files/issues/2018-08-17/subpathauto-ignore-paths-2964786-7.patch"
             }
-
         }
     },
         "repositories": [
