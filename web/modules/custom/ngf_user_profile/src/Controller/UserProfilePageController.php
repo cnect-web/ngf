@@ -293,6 +293,8 @@ class UserProfilePageController extends ControllerBase {
 
     // Create a render array with the search results.
     $render = [];
+    $render['#prefix'] = '<div class="newsfeed">';
+    $render['#suffix'] = '</div>';
     if (count($result) > 0) {
       foreach ($result as $item) {
         $message = $this->entityTypeManager->getViewBuilder('message')
@@ -301,9 +303,10 @@ class UserProfilePageController extends ControllerBase {
         unset($message['partial_0']);
         $render['content'][] = $message;
       }
-      $render['content'][] = [
+      $render['content'] = [
         '#type' => 'pager',
       ];
+
     }
     else {
       $render[] = $this->getRenderMarkup('<p>There are no items in your feed</p>');
