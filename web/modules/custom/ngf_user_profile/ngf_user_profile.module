@@ -72,12 +72,10 @@ function ngf_user_profile_comment_insert(Comment $comment) {
  * Implements hook_group_insert().
  */
 function ngf_user_profile_group_insert(Group $group) {
-  if ($group->getGroupType()->id() == 'ngf_discussion_group') {
-    /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
-    $userFeedManager = \Drupal::getContainer()
-      ->get('ngf_user_profile.user_feed_manager');
-    $userFeedManager->createGroupUserFeeds($group);
-  }
+  /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
+  $userFeedManager = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_feed_manager');
+  $userFeedManager->createGroupUserFeeds($group);
 }
 
 function ngf_user_profile_theme($existing, $type, $theme, $path) {
@@ -342,8 +340,6 @@ function _ngf_user_profile_get_followers($user) {
  * Implements hook_menu_local_tasks_alter().
  */
 function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
-
-
   $local_tasks = [
     // Hide the members and followers tab, but keep the functionality.
     'ngf_user_profile.link.followers',
