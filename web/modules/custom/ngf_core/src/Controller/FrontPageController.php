@@ -162,7 +162,7 @@ class FrontPageController extends ControllerBase {
       ]
     ];
 
-    $url = Url::fromRoute('ngf_user_registration');
+    $url = Url::fromRoute('view.home.page');
     $render['feed_link_wrapper']['feed_link'] = [
       '#type' => 'link',
       '#title' => t('Check the public feed'),
@@ -179,7 +179,12 @@ class FrontPageController extends ControllerBase {
   }
 
   public function  authenticatedFrontPage() {
-    return ['#markup' => ''];
+    $view = Views::getView('home');
+    $view->setDisplay('block');
+    $view->preExecute();
+    $view->execute();
+
+    return $view->render();
   }
 
   public function content() {

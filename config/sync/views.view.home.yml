@@ -174,14 +174,30 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+  block:
+    display_plugin: block
+    id: block
+    display_title: Block
     position: 1
     display_options:
       display_extenders: {  }
-      path: front
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  page:
+    display_plugin: page
+    id: page
+    display_title: Page
+    position: 2
+    display_options:
+      display_extenders: {  }
+      path: public-feed
     cache_metadata:
       max-age: -1
       contexts:
