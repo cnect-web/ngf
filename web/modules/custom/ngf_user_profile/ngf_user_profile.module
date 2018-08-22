@@ -24,13 +24,17 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 function ngf_user_profile_node_insert(Node $node) {
   if (in_array($node->getType(), ['ngf_discussion'])) {
+
+    /** @var Drupal\ngf_user_profile\Manager\NotificationManager $notification_manager */
     $notification_manager = \Drupal::getContainer()
       ->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyFollowersAboutNewContent($node);
 
+    /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
     $userFeedManager = \Drupal::getContainer()
       ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createContentUserFeed($node);
+
   }
 }
 
@@ -38,15 +42,10 @@ function ngf_user_profile_node_insert(Node $node) {
  * Implements hook_group_content_insert().
  */
 function ngf_user_profile_group_content_insert(GroupContent $group_content) {
-  // Probably in the future we will need specific content type.
-  // $group_content->getGroupContentType()->getPluginId() == 'group_node:ngf_discussion'.
-  // or we will need specific group type
-  // $group_content->getGroupContentType()->getGroupType() == 'ngf_discussion_group'.
-  if ($group_content->getContentPlugin()->getEntityTypeId() == 'node') {
-    $userFeedManager = \Drupal::getContainer()
-      ->get('ngf_user_profile.user_feed_manager');
-    $userFeedManager->createGroupContentUserFeed($group_content);
-  }
+  /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
+  $userFeedManager = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_feed_manager');
+  $userFeedManager->createGroupContentUserFeeds($group_content);
 }
 
 /**
@@ -55,13 +54,17 @@ function ngf_user_profile_group_content_insert(GroupContent $group_content) {
 function ngf_user_profile_comment_insert(Comment $comment) {
   if ($comment->getCommentedEntityTypeId() == 'node' && in_array($comment->getCommentedEntity()
       ->getType(), ['ngf_discussion'])) {
+
+    /** @var Drupal\ngf_user_profile\Manager\NotificationManager $notification_manager */
     $notification_manager = \Drupal::getContainer()
       ->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyOwnerAboutNewComment($comment);
 
+    /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
     $userFeedManager = \Drupal::getContainer()
       ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createCommentUserFeed($comment);
+
   }
 }
 
@@ -70,9 +73,10 @@ function ngf_user_profile_comment_insert(Comment $comment) {
  */
 function ngf_user_profile_group_insert(Group $group) {
   if ($group->getGroupType()->id() == 'ngf_discussion_group') {
+    /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
     $userFeedManager = \Drupal::getContainer()
       ->get('ngf_user_profile.user_feed_manager');
-    $userFeedManager->createGroupUserFeed($group);
+    $userFeedManager->createGroupUserFeeds($group);
   }
 }
 

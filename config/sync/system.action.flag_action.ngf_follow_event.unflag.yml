@@ -1,0 +1,13 @@
+uuid: 3b63a7f0-2b4e-4811-85d8-93d07e20f22d
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ngf_follow_event.unflag
+label: 'Unfollow event'
+type: group
+plugin: 'flag_action:ngf_follow_event.unflag'
+configuration:
+  flag_id: ngf_follow_event
+  flag_action: unflag

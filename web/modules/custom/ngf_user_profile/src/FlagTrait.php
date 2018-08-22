@@ -20,6 +20,10 @@ trait FlagTrait {
     return $this->getFlag('ngf_follow_group');
   }
 
+  protected function getFollowEventFlag() {
+    return $this->getFlag('ngf_follow_event');
+  }
+
   protected function getFlag($flag_id) {
     $flag = $this->flag->getFlagById($flag_id);
     if (empty($flag)) {

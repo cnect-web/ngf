@@ -1,34 +1,34 @@
-uuid: c6f82f80-c3f3-46b6-bfdb-e656a8dd918f
+uuid: c61d791e-e64b-44f6-a986-646e3dd40a2c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.message.field_ngf_users
-    - message.template.ngf_uf_following_user_group
+    - field.storage.message.field_ngf_created_group
+    - group.type.ngf_event
+    - message.template.ngf_uf_member_group_event
   module:
     - entity_reference_validators
 third_party_settings:
   entity_reference_validators:
     circular_reference: false
     duplicate_reference: false
-id: message.ngf_uf_following_user_group.field_ngf_users
-field_name: field_ngf_users
+id: message.ngf_uf_member_group_event.field_ngf_created_group
+field_name: field_ngf_created_group
 entity_type: message
-bundle: ngf_uf_following_user_group
-label: Users
+bundle: ngf_uf_member_group_event
+label: 'Created event'
 description: ''
 required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:user'
+  handler: 'default:group'
   handler_settings:
-    include_anonymous: false
-    filter:
-      type: _none
-    target_bundles: null
+    target_bundles:
+      ngf_event: ngf_event
     sort:
       field: _none
     auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

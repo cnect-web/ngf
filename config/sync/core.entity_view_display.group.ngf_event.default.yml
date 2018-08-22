@@ -32,21 +32,21 @@ bundle: ngf_event
 mode: default
 content:
   field_ngf_address:
+    type: address_default
     weight: 1
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_default
-    region: content
   field_ngf_comments:
-    weight: 10
+    type: comment_default
+    weight: 9
+    region: content
     label: above
     settings:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
-    type: comment_default
-    region: content
   field_ngf_cover_image:
     type: media_thumbnail
     weight: 2
@@ -57,54 +57,57 @@ content:
     third_party_settings: {  }
     region: content
   field_ngf_description:
+    type: entity_reference_revisions_entity_view
     weight: 3
+    region: content
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: content
   field_ngf_event_end_date:
+    type: datetime_default
     weight: 4
+    region: content
     label: hidden
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_ngf_event_start_date:
+    type: datetime_default
     weight: 5
+    region: content
     label: hidden
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_ngf_group_visibility:
-    weight: 11
+    type: list_default
+    weight: 10
+    region: content
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
-    region: content
   field_ngf_interests:
+    type: entity_reference_label
     weight: 8
+    region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
   field_ngf_location:
+    type: leaflet_formatter_default
     weight: 6
+    region: content
     label: hidden
     settings:
       multiple_map: 0
       leaflet_map: 'OSM Mapnik'
       height: 400
+      hide_empty_map: 0
       popup: false
       map_position:
         force: 0
@@ -129,12 +132,11 @@ content:
         popupAnchor:
           x: null
           'y': null
-      hide_empty_map: 0
     third_party_settings: {  }
-    type: leaflet_formatter_default
-    region: content
   field_ngf_registration_link:
+    type: link
     weight: 7
+    region: content
     label: hidden
     settings:
       trim_length: 80
@@ -143,8 +145,11 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+  flag_ngf_follow_event:
+    weight: 10
     region: content
+    settings: {  }
+    third_party_settings: {  }
   label:
     label: hidden
     type: string
