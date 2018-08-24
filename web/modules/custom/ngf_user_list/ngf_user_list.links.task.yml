@@ -1,20 +1,31 @@
-ngf_user_profile.link.user_lists:
-  title: 'User lists'
-  description: 'User lists'
-  route_name: ngf_user_profile.user_lists
-  base_route: ngf_user_profile.page.profile
+ngf_user_profile.link.your_user_lists:
+  title: 'Your user lists'
+  description: 'Your user lists'
+  route_name: ngf_user_list.user_lists
+  base_route: ngf_user_list.user_lists
   parent_id: ngf_user_profile.link.profile
+  weight: 0
 
-ngf_user_profile.link.user_lists:
+ngf_user_profile.link.user_list_items:
   title: 'User lists items'
   description: 'User lists items'
-  route_name: ngf_user_profile.user_list_items
-  base_route: ngf_user_profile.page.profile
+  route_name: ngf_user_list.list_items
+  base_route: ngf_user_list.user_lists
   parent_id: ngf_user_profile.link.profile
+  weight: 1
 
 ngf_user_profile.link.add_list:
   title: 'Add list'
   description: 'Add list'
-  route_name: ngf_user_profile.add_user_list
-  base_route: ngf_user_profile.page.profile
-  parent_id: ngf_user_profile.link.profil
+  route_name: ngf_user_list.add_user_list
+  base_route: ngf_user_list.user_lists
+  parent_id: ngf_user_profile.link.profile
+  weight: 2
+
+ngf_user_profile.link.add_list_user:
+  title: 'Add list user'
+  description: 'Add list user'
+  route_name: ngf_user_list.add_list_item
+  base_route: ngf_user_list.user_lists
+  parent_id: ngf_user_profile.link.profile
+  weight: 3

@@ -96,12 +96,7 @@ class UserFeedManager {
   }
 
   public function createGroupUserFeeds(Group $group) {
-    if ($group->getGroupType()->id() == 'ngf_discussion_group') {
-      $this->createUserFeedFollowingUserNewGroup($group, 'group');
-    }
-    else if ($group->getGroupType()->id() == 'ngf_event') {
-      $this->createUserFeedFollowingUserNewGroup($group, 'event');
-    }
+    $this->createUserFeedFollowingUserNewGroup($group);
   }
 
   protected function createUserFeedFollowingContentNewComment(Comment $comment) {
@@ -237,15 +232,24 @@ class UserFeedManager {
     }
   }
 
-  protected function createUserFeedFollowingUserNewGroup(Group $group, $type) {
+  protected function createUserFeedFollowingUserNewGroup(Group $group) {
     // Create a user feed for users following the user who has created
     // a group or an event.
-    $creator = $group->getOwner();
-    $this->createMessage('ngf_uf_following_user_' . $type, [
-      'field_ngf_users' => $this->getUsersFollowingUser($creator),
-      'field_ngf_created_group' => $group,
-      'field_ngf_following_user' => $creator,
-    ]);
+    $template_id = NULL;
+    if ($group->getGroupType()->id() == 'ngf_discussion_group') {
+      $template_id = '"ngf_uf_following_user_group';
+    }
+    else if ($group->getGroupType()->id() == 'ngf_event') {
+      $template_id = '"ngf_uf_following_user_event';
+    }
+    if (!empty($template_id)) {
+      $creator = $group->getOwner();
+      $this->createMessage($template_id, [
+        'field_ngf_users' => $this->getUsersFollowingUser($creator),
+        'field_ngf_created_group' => $group,
+        'field_ngf_following_user' => $creator,
+      ]);
+    }
   }
 
   protected function createMessage($template, array $fields) {

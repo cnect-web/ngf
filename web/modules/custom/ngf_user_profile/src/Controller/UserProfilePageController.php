@@ -93,19 +93,18 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function following(EntityInterface $user = NULL) {
-    $text = t("<p>There are no following users yet</p>");
+    $text = t('<p>There are no following users yet</p>');
     return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList($user), $text), $user);
   }
 
   public function contact(EntityInterface $user) {
-    $message = $this
-      ->entityTypeManager()
+    $message = $this->entityTypeManager()
       ->getStorage('contact_message')
-      ->create(array(
+      ->create([
         'contact_form' => 'personal',
         'recipient' => $user
           ->id(),
-      ));
+      ]);
     $form = $this
       ->entityFormBuilder()
       ->getForm($message);

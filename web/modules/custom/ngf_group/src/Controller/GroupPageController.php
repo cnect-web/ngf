@@ -157,7 +157,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function getViewContent(EntityInterface $group, $page) {
-    return $this->getPageContent($group, $this->getContentView('ngf_group_' . $page, $page, $group->id()));
+    return $this->getPageContent($group, $this->getContentView("ngf_group_$page", $page, $group->id()));
   }
 
   /**

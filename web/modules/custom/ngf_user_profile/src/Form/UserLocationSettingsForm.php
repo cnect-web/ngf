@@ -73,7 +73,7 @@ class UserLocationSettingsForm extends FormBase {
       if (!empty($this->currentUser->get('field_ngf_city')->target_id)) {
         $city_term = Term::load($this->currentUser->get('field_ngf_city')->target_id);
         if ($city_term) {
-          $city = $city_term->getName() . ' (' . $city_term->id() . ')';
+          $city = "{$city_term->getName()} ({$city_term->id()})";
         }
       }
     }

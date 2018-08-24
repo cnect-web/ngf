@@ -25,7 +25,7 @@ class DiscoverPageController extends ControllerBase {
     // Add the groups view title to the render array.
     $render_array[] = [
       '#type' => 'markup',
-      '#markup' => '<h1>' . $view->getTitle() .'</h1>',
+      '#markup' => '<h1>' . $view->getTitle() . '</h1>',
     ];
 
     // Add the groups view to the render array.

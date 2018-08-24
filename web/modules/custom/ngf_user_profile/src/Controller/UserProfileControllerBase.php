@@ -100,7 +100,7 @@ class UserProfileControllerBase extends ControllerBase {
   protected function getViewContent($content_name, EntityInterface $user = NULL) {
     $prefix = !empty($user) ? 'user_' : 'your_';
     return $this->getContent($this->getView(
-      'ngf_user_' . $content_name,
+      "ngf_user_$content_name",
       $prefix . $content_name,
       !empty($user) ? $user->id() : $this->currentUser()->id()
     ), $user);

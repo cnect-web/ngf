@@ -8,9 +8,10 @@ ngf_user_profile.link.profile:
 ngf_user_profile.link.feed:
   title: 'Feed'
   description: 'Your feed'
-  route_name: ngf_user_profile.page.profile
+  route_name: ngf_user_profile.page.feed
   base_route: ngf_user_profile.page.profile
   parent_id: ngf_user_profile.link.profile
+  weight: 0
 
 ngf_user_profile.link.publications:
   title: 'Publications'
@@ -18,6 +19,7 @@ ngf_user_profile.link.publications:
   route_name: ngf_user_profile.page.publications
   base_route: ngf_user_profile.page.profile
   parent_id: ngf_user_profile.link.profile
+  weight: 1
 
 ngf_user_profile.link.events:
   title: 'Events'
@@ -25,6 +27,7 @@ ngf_user_profile.link.events:
   route_name: ngf_user_profile.page.events
   base_route: ngf_user_profile.page.profile
   parent_id: ngf_user_profile.link.profile
+  weight: 2
 
 ngf_user_profile.link.groups:
   title: 'Groups'
@@ -32,6 +35,7 @@ ngf_user_profile.link.groups:
   route_name: ngf_user_profile.page.groups
   base_route: ngf_user_profile.page.profile
   parent_id: ngf_user_profile.link.profile
+  weight: 3
 
 ngf_user_profile.link.followers:
   title: 'Followers'
@@ -39,6 +43,7 @@ ngf_user_profile.link.followers:
   route_name: ngf_user_profile.page.followers
   base_route: ngf_user_profile.page.profile
   parent_id: ngf_user_profile.link.profile
+  weight: 4
 
 ngf_user_profile.link.following:
   title: 'Following users'
@@ -46,6 +51,7 @@ ngf_user_profile.link.following:
   route_name: ngf_user_profile.page.following
   base_route: ngf_user_profile.page.profile
   parent_id: ngf_user_profile.link.profile
+  weight: 5
 
 # Settings tabs
 ngf_user_profile.link.settings:
@@ -53,6 +59,7 @@ ngf_user_profile.link.settings:
   description: 'Your settings'
   route_name: ngf_user_profile.page.general_settings
   base_route: ngf_user_profile.page.profile
+  weight: 0
 
 ngf_user_profile.link.general_settings:
   title: 'General settings'
@@ -60,6 +67,7 @@ ngf_user_profile.link.general_settings:
   route_name: ngf_user_profile.page.general_settings
   base_route: ngf_user_profile.page.general_settings
   parent_id: ngf_user_profile.link.settings
+  weight: 0
 
 ngf_user_profile.link.interest_settings:
   title: 'Interests'
@@ -67,6 +75,7 @@ ngf_user_profile.link.interest_settings:
   route_name: ngf_user_profile.page.interests_settings
   base_route: ngf_user_profile.page.general_settings
   parent_id: ngf_user_profile.link.settings
+  weight: 1
 
 ngf_user_profile.link.location_settings:
   title: 'Location'
@@ -74,6 +83,7 @@ ngf_user_profile.link.location_settings:
   route_name: ngf_user_profile.page.location_settings
   base_route: ngf_user_profile.page.general_settings
   parent_id: ngf_user_profile.link.settings
+  weight: 2
 
 ngf_user_profile.link.private_settings:
   title: 'Private settings'
@@ -81,27 +91,7 @@ ngf_user_profile.link.private_settings:
   route_name: ngf_user_profile.page.private_settings
   base_route: ngf_user_profile.page.general_settings
   parent_id: ngf_user_profile.link.settings
-
-ngf_user_profile.link.user_lists:
-  title: 'User lists'
-  description: 'User lists'
-  route_name: ngf_user_list.user_lists
-  base_route: ngf_user_profile.page.profile
-  parent_id: ngf_user_profile.link.profile
-
-#ngf_user_profile.link.user_lists:
-#  title: 'User lists items'
-#  description: 'User lists items'
-#  route_name: ngf_user_profile.user_list_items
-#  base_route: ngf_user_profile.page.profile
-#  parent_id: ngf_user_profile.link.profile
-
-ngf_user_profile.link.add_list:
-  title: 'Add list'
-  description: 'Add list'
-  route_name: ngf_user_list.add_user_list
-  base_route: ngf_user_profile.page.profile
-  parent_id: ngf_user_profile.link.profil
+  weight: 3
 
 # Any user tabs
 ngf_user_profile.link.user_profile:
@@ -116,6 +106,7 @@ ngf_user_profile.link.user_publications:
   route_name: ngf_user_profile.page.user_publications
   base_route: ngf_user_profile.page.user_publications
   parent_id: ngf_user_profile.link.user_profile
+  weight: 0
 
 ngf_user_profile.link.user_events:
   title: 'Events'
@@ -123,6 +114,7 @@ ngf_user_profile.link.user_events:
   route_name: ngf_user_profile.page.user_events
   base_route: ngf_user_profile.page.user_publications
   parent_id: ngf_user_profile.link.user_profile
+  weight: 1
 
 ngf_user_profile.link.user_groups:
   title: 'Groups'
@@ -130,6 +122,7 @@ ngf_user_profile.link.user_groups:
   route_name: ngf_user_profile.page.user_groups
   base_route: ngf_user_profile.page.user_publications
   parent_id: ngf_user_profile.link.user_profile
+  weight: 2
 
 ngf_user_profile.link.user_contact:
   title: 'Contact'
@@ -137,6 +130,7 @@ ngf_user_profile.link.user_contact:
   route_name: ngf_user_profile.page.user_contact
   base_route: ngf_user_profile.page.user_publications
   parent_id: ngf_user_profile.link.user_profile
+  weight: 3
 
 ngf_user_profile.link.user_about:
   title: 'About'
@@ -144,10 +138,4 @@ ngf_user_profile.link.user_about:
   route_name: ngf_user_profile.page.user_about
   base_route: ngf_user_profile.page.user_publications
   parent_id: ngf_user_profile.link.user_profile
-
-
-# User list settings page
-ngf_user_list.settings_tab:
-  route_name: ngf_user_list.settings
-  title: 'Settings'
-  base_route: ngf_user_list.settings
+  weight: 5

@@ -36,3 +36,21 @@ function ngf_user_list_ngf_user_list_view(
     $response = new RedirectResponse(Url::fromRoute('ngf_user_list.list_items', ['ngf_user_list' => $entity->id()])->toString());
     $response->send();
 }
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function ngf_user_list_menu_local_tasks_alter(&$data, $route_name) {
+  $local_tasks = [
+    'ngf_user_profile.link.your_user_lists',
+    'ngf_user_profile.link.user_list_items',
+    'ngf_user_profile.link.add_list',
+    'ngf_user_profile.link.add_list_user',
+  ];
+
+  foreach ($local_tasks as $local_task) {
+    if (isset($data['tabs'][1][$local_task])) {
+      $data['tabs'][1][$local_task] = NULL;
+    }
+  }
+}
