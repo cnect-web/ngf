@@ -45,11 +45,12 @@ function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\
 
 /**
  * Implements hook_form_FORM_ID_alter().
- *
- * Needs a patch of a patch.
  */
 function ngf_core_form_group_ngf_event_ggroup_form_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   _ngf_core_event_ngf_registration_link_validation_helper($form);
+
+  // NGF-362: Create event submit button.
+  $form['actions']['submit']['#value'] = t("Create Event");
 }
 
 /**
