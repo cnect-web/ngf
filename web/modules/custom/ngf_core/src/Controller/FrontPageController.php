@@ -191,7 +191,7 @@ class FrontPageController extends ControllerBase {
       ]
     ];
 
-    $url = Url::fromRoute('view.home.page');
+    $url = Url::fromRoute('ngf_core.public_feed');
     $render['feed_link_wrapper']['feed_link'] = [
       '#type' => 'link',
       '#title' => t('Check the public feed'),
