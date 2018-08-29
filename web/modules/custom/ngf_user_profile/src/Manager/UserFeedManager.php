@@ -119,7 +119,7 @@ class UserFeedManager {
 
   protected function createUserFeedFollowingUserNewComment(Comment $comment) {
     // Create a user feed for the following user who commented something.
-    $this->createMessage('ngf_uf_following_content_comment', [
+    $this->createMessage('ngf_uf_following_user_comment', [
       'field_ngf_users' => $this->getUsersFollowingUser($comment->getOwner()),
       'field_ngf_created_comment' => $comment,
       'field_ngf_following_user' => $comment->getOwner(),
