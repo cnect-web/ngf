@@ -144,7 +144,8 @@
                 "Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch",
                 "Add events for matching entity hooks": "https://www.drupal.org/files/issues/2551893-52.patch",
                 "Allow themes to declare dependencies on modules": "https://www.drupal.org/files/issues/2018-03-27/474684-164.patch",
-                "Missing active classes on links to frontpage (ATTENTION: Might break something)": "https://www.drupal.org/files/issues/2018-03-29/1578832-46.patch"
+                "Missing active classes on links to frontpage (ATTENTION: Might break something)": "https://www.drupal.org/files/issues/2018-03-29/1578832-46.patch",
+                "Fix revions moderation checkbox": "https://www.drupal.org/files/issues/2018-07-02/2946750-15.patch"
             },
             "drupal/adminimal_theme": {
                 "Colors in horizontal and vertical toolbar need fixing": "https://www.drupal.org/files/issues/adminimal_theme-fix-toolbar-colors-28226369.patch"
@@ -185,9 +186,6 @@
             "drupal/subpathauto": {
                 "Redirect module causes redirect back to unaliased path": "https://www.drupal.org/files/issues/2875026-6.patch",
                 "Ignore specific paths (blacklist) for D8": "https://www.drupal.org/files/issues/2018-08-17/subpathauto-ignore-paths-2964786-7.patch"
-            },
-            "drupal/core": {
-                "Fix revions moderation checkbox": "https://www.drupal.org/files/issues/2018-07-02/2946750-15.patch"
             }
         }
     },
