@@ -16,6 +16,15 @@ ngf_core.create_content:
   requirements:
     _permission: 'create ngf_discussion_group group+create ngf_event group+create ngf_session group+create ngf_discussion content'
 
+ngf_core.public_feed:
+  path: '/public-feed'
+  defaults:
+    _controller: '\Drupal\ngf_core\Controller\FrontPageController::content'
+    _title: 'Public feed'
+  requirements:
+    _access: 'TRUE'
+
+
 #ngf_core.create_group_content:
 #  path: '/create/{context}'
 #  defaults:

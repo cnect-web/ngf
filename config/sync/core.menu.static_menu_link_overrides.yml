@@ -6,11 +6,11 @@ definitions:
     weight: 0
     expanded: false
   standard__front_page:
+    enabled: false
     menu_name: main
     parent: ''
-    weight: -50
     expanded: false
-    enabled: true
+    weight: -50
   ngf_group__link__discover:
     menu_name: main
     parent: ''
@@ -23,5 +23,17 @@ definitions:
     weight: 20
     expanded: false
     enabled: true
+  ngf_core__link__user-feed:
+    menu_name: main
+    parent: ''
+    weight: 10
+    expanded: false
+    enabled: true
+  ngf_core__link__news-feed:
+    enabled: false
+    menu_name: main
+    parent: ''
+    weight: 10
+    expanded: false
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

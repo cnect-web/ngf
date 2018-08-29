@@ -119,7 +119,7 @@ class UserFeedManager {
 
   protected function createUserFeedFollowingUserNewComment(Comment $comment) {
     // Create a user feed for the following user who commented something.
-    $this->createMessage('ngf_uf_following_content_comment', [
+    $this->createMessage('ngf_uf_following_user_comment', [
       'field_ngf_users' => $this->getUsersFollowingUser($comment->getOwner()),
       'field_ngf_created_comment' => $comment,
       'field_ngf_following_user' => $comment->getOwner(),
@@ -237,10 +237,10 @@ class UserFeedManager {
     // a group or an event.
     $template_id = NULL;
     if ($group->getGroupType()->id() == 'ngf_discussion_group') {
-      $template_id = '"ngf_uf_following_user_group';
+      $template_id = 'ngf_uf_following_user_group';
     }
     else if ($group->getGroupType()->id() == 'ngf_event') {
-      $template_id = '"ngf_uf_following_user_event';
+      $template_id = 'ngf_uf_following_user_event';
     }
     if (!empty($template_id)) {
       $creator = $group->getOwner();
