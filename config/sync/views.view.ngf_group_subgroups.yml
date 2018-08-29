@@ -302,7 +302,7 @@ display:
           entity_field: id
           plugin_id: group_id
       display_extenders: {  }
-      css_class: newsfeed
+      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:
