@@ -203,7 +203,7 @@ display:
           entity_field: gid
           plugin_id: group_id
       display_extenders: {  }
-      css_class: ''
+      css_class: newsfeed
     cache_metadata:
       max-age: -1
       contexts:
@@ -214,9 +214,7 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
-        - 'config:core.entity_view_display.user.user.ngf_about'
         - 'config:core.entity_view_display.user.user.ngf_author'
-        - 'config:core.entity_view_display.user.user.ngf_profile'
   members:
     display_plugin: block
     id: members
@@ -236,6 +234,4 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
-        - 'config:core.entity_view_display.user.user.ngf_about'
         - 'config:core.entity_view_display.user.user.ngf_author'
-        - 'config:core.entity_view_display.user.user.ngf_profile'

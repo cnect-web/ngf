@@ -152,10 +152,12 @@ function ngf_core_theme_suggestions_page_alter(array &$suggestions, array $varia
 /**
  * Implements hook_menu_links_discovered_alter().
  */
-function ngf_core_menu_links_discovered_alter(&$links) {
-  // Switch the Home link to News Feed.
-  $links['standard.front_page']['title'] = t('News Feed');
-}
+//function ngf_core_menu_links_discovered_alter(&$links) {
+//  // Switch the Home link to News Feed.
+//  unset($links['standard.front_page']);
+////  var_dump($links);
+////  exit();
+//}
 
 /**
  * Implements hook_theme() to add the template definition.
