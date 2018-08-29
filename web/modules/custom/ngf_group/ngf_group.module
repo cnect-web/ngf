@@ -311,6 +311,7 @@ function ngf_group_group_view(array &$build, EntityInterface $entity, EntityView
       ];
     }
   }
+  $build['#cache']['max-age'] = 0;
 }
 
 /**
