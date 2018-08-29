@@ -9,7 +9,7 @@ dependencies:
 id: pagetitle
 theme: funkywave
 region: content
-weight: 0
+weight: -4
 provider: null
 plugin: page_title_block
 settings:
@@ -20,6 +20,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/group/add/*\r\n/group/*/content/create/*\r\n/group/*/subgroup/create/*\r\n/node/add/*\r\n/group/add/*\r\n\r\n"
+    pages: "/node/*/edit\r\n/group/add/*\r\n/group/*/content/create/*\r\n/group/*/subgroup/create/*\r\n/node/add/*\r\n/group/add/*\r\n/events\r\n/taxonomy/*\r\n\r\n"
     negate: false
     context_mapping: {  }

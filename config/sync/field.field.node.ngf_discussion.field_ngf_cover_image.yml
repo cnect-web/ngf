@@ -10,6 +10,7 @@ dependencies:
     - entity_reference_validators
 third_party_settings:
   entity_reference_validators:
+    circular_reference: false
     duplicate_reference: false
 id: node.ngf_discussion.field_ngf_cover_image
 field_name: field_ngf_cover_image

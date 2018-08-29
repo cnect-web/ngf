@@ -53,7 +53,7 @@ class ParagraphsMetatagsPlugin extends ParagraphsBehaviorBase {
     $default = $paragraph->getBehaviorSetting($this->getPluginId(), 'metatag_role');
 
     $form['metatag_role'] = [
-      '#title' => t("Role"),
+      '#title' => t('Role'),
       '#type' => 'select',
       '#options' => $this->getPossibleRoles($paragraph->bundle()),
       '#default_value' => $default,
@@ -65,14 +65,14 @@ class ParagraphsMetatagsPlugin extends ParagraphsBehaviorBase {
     switch($bundle) {
       case 'ngf_text':
         return [
-          '_none' => t("None"),
+          '_none' => t('None'),
           'og:title' => 'Title',
           'og:description' => 'Description',
         ];
         break;
       case 'ngf_media':
         return [
-          '_none' => t("None"),
+          '_none' => t('None'),
           'og:image' => 'Image',
         ];
     }

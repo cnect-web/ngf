@@ -75,6 +75,7 @@ class GroupPageController extends ControllerBase {
   public function landingPage(EntityInterface $group) {
     switch ($group->bundle()) {
       case 'ngf_discussion_group':
+      case 'ngf_session':
         return $this->publicationsPage($group);
 
       case 'ngf_event':
@@ -147,10 +148,8 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function eventPage(EntityInterface $event) {
-    if (isset($event->group) && $group = $event->group) {
-      $render[] = $this->groupDisplay($group);
-    }
     $render[] = $this->groupDisplay($event, 'full');
+    $render[] = $this->getContentView('ngf_sessions', 'sessions', $event->id(), FALSE);
     return $render;
   }
 
@@ -158,7 +157,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function getViewContent(EntityInterface $group, $page) {
-    return $this->getPageContent($group, $this->getContentView('ngf_group_' . $page, $page, $group->id()));
+    return $this->getPageContent($group, $this->getContentView("ngf_group_$page", $page, $group->id()));
   }
 
   /**
@@ -190,7 +189,7 @@ class GroupPageController extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  public function getContentView($view_name, $display_name, $group_id) {
+  public function getContentView($view_name, $display_name, $group_id, $display_empty = TRUE) {
 
     // Add the view block.
     $view = Views::getView($view_name);
@@ -199,26 +198,29 @@ class GroupPageController extends ControllerBase {
     $view->preExecute();
     $view->execute();
 
-    $render_array['view'] = [
-      '#type' => 'container',
-      '#tree' => TRUE,
-    ];
-
-    // Add the groups view title to the render array.
-    $title = $view->getTitle();
-    if ($title) {
-      $render_array['view']['title'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'h2',
-        '#value' => $title,
+    if ($view->total_rows || $display_empty) {
+      $render_array['view'] = [
+        '#type' => 'container',
+        '#tree' => TRUE,
       ];
+
+      // Add the groups view title to the render array.
+      $title = $view->getTitle();
+      if ($title) {
+        $render_array['view']['title'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'h2',
+          '#value' => $title,
+        ];
+      }
+
+      // Add the groups view to the render array.
+      $render_array['view']['content'] = $view->render();
+
+      return $render_array['view'];
     }
 
-    // Add the groups view to the render array.
-    $render_array['view']['content'] = $view->render();
-
-    return $render_array['view'];
-
+    return [];
   }
 
 }

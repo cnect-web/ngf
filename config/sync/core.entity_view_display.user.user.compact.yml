@@ -68,3 +68,4 @@ hidden:
   followers_panel: true
   groups_view: true
   member_for: true
+  realname: true

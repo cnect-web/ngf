@@ -247,8 +247,7 @@ class UserRegistrationForm extends FormBase {
     $formStateObject = new FormState();
     $formStateObject->setFormObject($formObject)->disableRedirect();
     $formObject->setEntity($user);
-    $form = [];
-    $form = $formObject->buildForm($form, $formStateObject);
+    $form = $formObject->buildForm(['#build_id' => 'register'], $formStateObject);
     $formStateObject->setValue('roles', []);
     $formObject->validateForm($form, $formStateObject);
 
@@ -264,14 +263,6 @@ class UserRegistrationForm extends FormBase {
     }
 
     \Drupal::getContainer()->get('messenger')->addMessage(t('User has been successfully registered'));
-
-    if (\Drupal::routeMatch()->getRouteName('/content/thank-you-registering')) {
-      $response = new RedirectResponse('/content/thank-you-registering');
-    }
-    else {
-      $response = new RedirectResponse('/');
-    }
-    $response->send();
   }
 
 }

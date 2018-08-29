@@ -263,8 +263,8 @@ class UserManager {
     }
   }
 
-  public function getUserListItems($user_list_id) {
-    $list = UserList::load($user_list_id);
+  public function getUserListItems($user_list) {
+    $list = UserList::load($user_list->id());
     $user_list_items = [];
     if (empty($list)) {
       $this->addError(t('List is not found.'));

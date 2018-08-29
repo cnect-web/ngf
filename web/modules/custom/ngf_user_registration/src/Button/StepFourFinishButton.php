@@ -30,6 +30,7 @@ class StepFourFinishButton extends BaseButton {
       '#type' => 'submit',
       '#value' => t('Finish!'),
       '#submit_handler' => 'submitValues',
+      '#goto_step' => StepsEnum::STEP_FINALIZE,
       '#attributes' => [
         'class' => [
           'btn btn--green',

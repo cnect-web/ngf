@@ -2,6 +2,7 @@ module:
   address: 0
   admin_toolbar: 0
   allowed_formats: 0
+  autocomplete_deluxe: 0
   automated_cron: 0
   big_pipe: 0
   block: 0
@@ -33,6 +34,7 @@ module:
   field_ui: 0
   file: 0
   filter: 0
+  fiu: 0
   flag: 0
   fontawesome: 0
   fontawesome_menu_icons: 0
@@ -63,6 +65,7 @@ module:
   ngf_geo: 0
   ngf_group: 0
   ngf_search: 0
+  ngf_user_list: 0
   ngf_user_profile: 0
   ngf_user_registration: 0
   node: 0
@@ -71,6 +74,7 @@ module:
   permissions_filter: 0
   quickedit: 0
   rdf: 0
+  realname: 0
   redirect: 0
   search: 0
   shortcut: 0
@@ -81,6 +85,7 @@ module:
   social_auth_google: 0
   social_auth_linkedin: 0
   social_auth_twitter: 0
+  subpathauto: 0
   system: 0
   taxonomy: 0
   taxonomy_unique: 0

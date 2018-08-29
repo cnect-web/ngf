@@ -6,6 +6,7 @@ id: dev_config
 label: 'Dev Config'
 folder: ../config/dev_config
 module:
+  coffee: 0
   config_devel: 0
   devel: 0
   kint: 0

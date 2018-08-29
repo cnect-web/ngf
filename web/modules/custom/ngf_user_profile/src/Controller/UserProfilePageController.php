@@ -2,12 +2,7 @@
 
 namespace Drupal\ngf_user_profile\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Session\AccountProxy;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Form\FormBuilderInterface;
-use Drupal\views\Views;
 use Drupal\user\Entity\AccountInterface;
 use Drupal\ngf_user_profile\Manager\UserFeedManager;
 use Drupal\ngf_user_profile\Manager\UserManager;
@@ -15,16 +10,9 @@ use Drupal\user\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Discover page controller.
+ * Profile page controller.
  */
-class UserProfilePageController extends ControllerBase {
-
-  /**
-   * The current user.
-   *
-   * @var \Drupal\Core\Session\AccountProxy
-   */
-  protected $currentUser;
+class UserProfilePageController extends UserProfileControllerBase {
 
   /**
    * The user feed manager service.
@@ -34,39 +22,24 @@ class UserProfilePageController extends ControllerBase {
   protected $userFeedManager;
 
   /**
-   * Entity type manager.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
-
-  /**
-   * Form builder.
-   *
-   * @var \Drupal\Core\Form\FormBuilderInterface
-   */
-  protected $formBuilder;
-
-  /**
    * User manager.
    *
    * @var \Drupal\ngf_user_profile\Manager\UserManager
    */
   protected $userManager;
 
+  /**
+   * User instance.
+   *
+   * @var Drupal\user\Entity\User
+   */
   protected $currentUserAccount = NULL;
 
   public function __construct(
-    AccountProxy $current_user,
     UserFeedManager $user_feed_manager,
-    EntityTypeManagerInterface $entityTypeManager,
-    FormBuilderInterface $formBuilder,
     UserManager $userManager
   ) {
-    $this->currentUser = $current_user;
     $this->userFeedManager = $user_feed_manager;
-    $this->entityTypeManager = $entityTypeManager;
-    $this->formBuilder = $formBuilder;
     $this->userManager = $userManager;
   }
 
@@ -75,17 +48,14 @@ class UserProfilePageController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('current_user'),
       $container->get('ngf_user_profile.user_feed_manager'),
-      $container->get('entity_type.manager'),
-      $container->get('form_builder'),
       $container->get('ngf_user_profile.user_manager')
     );
   }
 
   protected function getCurrentUserAccount() {
     if (empty($this->currentUserAccount)) {
-      $this->currentUserAccount = User::load($this->currentUser->id());
+      $this->currentUserAccount = User::load($this->currentUser()->id());
     }
     return $this->currentUserAccount;
   }
@@ -123,35 +93,18 @@ class UserProfilePageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function following(EntityInterface $user = NULL) {
-    $text = t("<p>There are no following users yet</p>");
+    $text = t('<p>There are no following users yet</p>');
     return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList($user), $text), $user);
   }
 
-  protected function getUserList($users, $no_items_text) {
-    $items = [];
-    foreach ($users as $user) {
-      $items[] = $this->entityTypeManager->getViewBuilder('user')->view($user, 'compact');
-    }
-
-    return count($items) > 0  ? $items : $this->getRenderMarkup($no_items_text);
-  }
-
-  public function getRenderMarkup($text) {
-    return [
-      '#theme' => 'markup',
-      '#markup' => $text,
-    ];
-  }
-
   public function contact(EntityInterface $user) {
-    $message = $this
-      ->entityTypeManager
+    $message = $this->entityTypeManager()
       ->getStorage('contact_message')
-      ->create(array(
+      ->create([
         'contact_form' => 'personal',
         'recipient' => $user
           ->id(),
-      ));
+      ]);
     $form = $this
       ->entityFormBuilder()
       ->getForm($message);
@@ -159,32 +112,40 @@ class UserProfilePageController extends ControllerBase {
     return $this->getContent($form);
   }
 
+  protected function getUserList($users, $no_items_text) {
+    $items = [];
+    foreach ($users as $user) {
+      $items[] = $this->entityTypeManager()->getViewBuilder('user')->view($user, 'compact');
+    }
+    return count($items) > 0  ? $items : $this->getRenderMarkup($no_items_text);
+  }
+
   /**
    * {@inheritdoc}
    */
   public function generalSettings() {
-    return $this->getContent($this->getEntityForm('default'));
+    return $this->getContent($this->getEntityForm('default', $this->getCurrentUserAccount(), 'user'));
   }
 
   /**
    * {@inheritdoc}
    */
   public function privateSettings() {
-    return $this->getContent($this->formBuilder->getForm('Drupal\ngf_user_profile\Form\UserPrivateSettingsForm'));
+    return $this->getContent($this->formBuilder()->getForm('Drupal\ngf_user_profile\Form\UserPrivateSettingsForm'));
   }
 
   /**
    * {@inheritdoc}
    */
   public function locationSettings() {
-    return $this->getContent($this->formBuilder->getForm('Drupal\ngf_user_profile\Form\UserLocationSettingsForm'));
+    return $this->getContent($this->formBuilder()->getForm('Drupal\ngf_user_profile\Form\UserLocationSettingsForm'));
   }
 
   /**
    * {@inheritdoc}
    */
   public function interestsSettings() {
-    return $this->getContent($this->getEntityForm('ngf_interests'));
+    return $this->getContent($this->getEntityForm('ngf_interests', $this->getCurrentUserAccount(), 'user'));
   }
 
   /**
@@ -192,92 +153,6 @@ class UserProfilePageController extends ControllerBase {
    */
   public function about(EntityInterface $user) {
     return $this->getContent($this->getUserDisplay($user, 'ngf_about'), $user);
-  }
-
-  public function getEntityForm($form_view_mode, $entity_type = 'user') {
-    $form = $this->entityTypeManager
-      ->getFormObject($entity_type, $form_view_mode)
-      ->setEntity($this->getCurrentUserAccount());
-
-    return $this->formBuilder->getForm($form);
-  }
-
-
-  public function getContent($content, $user = NULL) {
-    return [
-      'header' => $this->getUserDisplay($user ?? $this->getCurrentUserAccount(), 'ngf_profile'),
-      'tabs' => $this->getTabs(),
-      'content' => $content,
-    ];
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getUserDisplay(EntityInterface $entity, $view_mode = 'ngf_profile') {
-    $view_builder = $this->entityTypeManager->getViewBuilder('user');
-    return $view_builder->view($entity, $view_mode);
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getView($view_name, $display_name, $user_id) {
-    // Add the view block.
-    $view = Views::getView($view_name);
-    $view->setDisplay($display_name);
-    $view->setArguments([$user_id]);
-    $view->preExecute();
-    $view->execute();
-
-    $render_array['view'] = [
-      '#type' => 'container',
-      '#tree' => TRUE,
-    ];
-
-    // Add the groups view title to the render array.
-    if ($title = $view->getTitle()) {
-      $render_array['view']['title'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'h2',
-        '#value' => $title,
-      ];
-    }
-
-    // Add the view to the render array.
-    $render_array['view']['content'] = $view->render();
-
-    return $render_array['view'];
-
-  }
-
-  /**
-   * Return the tabs.
-   */
-  public function getTabs() {
-    $block_manager = \Drupal::service('plugin.manager.block');
-    $config = [
-      'primary' => FALSE,
-      'secondary' => TRUE
-    ];
-    $plugin_block = $block_manager->createInstance('local_tasks_block', $config);
-    $access_result = $plugin_block->access($this->currentUser);
-    if (is_object($access_result) && $access_result->isForbidden() || is_bool($access_result) && !$access_result) {
-      return [];
-    }
-
-    $render['wrapper'] = [
-      '#type' => 'html_tag',
-      '#tag' => 'nav',
-      '#attributes' => [
-        'class' => [
-          'inpage-nav',
-        ]
-      ],
-      'tabs' => $plugin_block->build(),
-    ];
-
-    return $render;
   }
 
   public function feed() {
@@ -293,9 +168,11 @@ class UserProfilePageController extends ControllerBase {
 
     // Create a render array with the search results.
     $render = [];
+    $render['#prefix'] = '<div class="newsfeed">';
+    $render['#suffix'] = '</div>';
     if (count($result) > 0) {
       foreach ($result as $item) {
-        $message = $this->entityTypeManager->getViewBuilder('message')
+        $message = $this->entityTypeManager()->getViewBuilder('message')
           ->view($item, 'full');
         // There is a bug partial is still displayed even it's hidden in the view mode.
         unset($message['partial_0']);
@@ -304,20 +181,15 @@ class UserProfilePageController extends ControllerBase {
       $render['content'][] = [
         '#type' => 'pager',
       ];
+
     }
     else {
       $render[] = $this->getRenderMarkup('<p>There are no items in your feed</p>');
     }
+
     return $this->getContent($render);
   }
 
-  public function getViewContent($content_name, EntityInterface $user = NULL) {
-    $prefix = !empty($user) ? 'user_' : 'your_';
-    return $this->getContent($this->getView(
-      'ngf_user_' . $content_name,
-      $prefix . $content_name,
-      !empty($user) ? $user->id() : $this->currentUser->id()
-    ), $user);
-  }
+
 
 }

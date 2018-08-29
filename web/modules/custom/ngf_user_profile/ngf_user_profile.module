@@ -8,14 +8,14 @@
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
-use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
 use Drupal\comment\Entity\Comment;
 use Drupal\group\Entity\GroupContent;
 use Drupal\group\Entity\Group;
+use Drupal\node\Entity\Node;
 use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
-use Drupal\message\Entity\Message;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Url;
+use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -24,13 +24,17 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 function ngf_user_profile_node_insert(Node $node) {
   if (in_array($node->getType(), ['ngf_discussion'])) {
+
+    /** @var Drupal\ngf_user_profile\Manager\NotificationManager $notification_manager */
     $notification_manager = \Drupal::getContainer()
       ->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyFollowersAboutNewContent($node);
 
+    /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
     $userFeedManager = \Drupal::getContainer()
       ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createContentUserFeed($node);
+
   }
 }
 
@@ -38,15 +42,10 @@ function ngf_user_profile_node_insert(Node $node) {
  * Implements hook_group_content_insert().
  */
 function ngf_user_profile_group_content_insert(GroupContent $group_content) {
-  // Probably in the future we will need specific content type.
-  // $group_content->getGroupContentType()->getPluginId() == 'group_node:ngf_discussion'.
-  // or we will need specific group type
-  // $group_content->getGroupContentType()->getGroupType() == 'ngf_discussion_group'.
-  if ($group_content->getContentPlugin()->getEntityTypeId() == 'node') {
-    $userFeedManager = \Drupal::getContainer()
-      ->get('ngf_user_profile.user_feed_manager');
-    $userFeedManager->createGroupContentUserFeed($group_content);
-  }
+  /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
+  $userFeedManager = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_feed_manager');
+  $userFeedManager->createGroupContentUserFeeds($group_content);
 }
 
 /**
@@ -55,13 +54,17 @@ function ngf_user_profile_group_content_insert(GroupContent $group_content) {
 function ngf_user_profile_comment_insert(Comment $comment) {
   if ($comment->getCommentedEntityTypeId() == 'node' && in_array($comment->getCommentedEntity()
       ->getType(), ['ngf_discussion'])) {
+
+    /** @var Drupal\ngf_user_profile\Manager\NotificationManager $notification_manager */
     $notification_manager = \Drupal::getContainer()
       ->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyOwnerAboutNewComment($comment);
 
+    /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
     $userFeedManager = \Drupal::getContainer()
       ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createCommentUserFeed($comment);
+
   }
 }
 
@@ -69,11 +72,10 @@ function ngf_user_profile_comment_insert(Comment $comment) {
  * Implements hook_group_insert().
  */
 function ngf_user_profile_group_insert(Group $group) {
-  if ($group->getGroupType()->id() == 'ngf_discussion_group') {
-    $userFeedManager = \Drupal::getContainer()
-      ->get('ngf_user_profile.user_feed_manager');
-    $userFeedManager->createGroupUserFeed($group);
-  }
+  /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
+  $userFeedManager = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_feed_manager');
+  $userFeedManager->createGroupUserFeeds($group);
 }
 
 function ngf_user_profile_theme($existing, $type, $theme, $path) {
@@ -240,17 +242,18 @@ function ngf_user_profile_user_view(
         $link['#attributes']['class'][] = 'profile__actions--follow';
         $items[] = $link;
       }
-      //      $items[] = [
-      //        '#type' => 'link',
-      //        '#url' => $entity->toUrl(),
-      //        '#title' => t('Add to list'),
-      //        '#attributes' => [
-      //          'class' => [
-      //            'profile__actions--contact',
-      //          ],
-      //        ],
-      //      ];
-      //
+      else {
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_list.user_lists'),
+          '#title' => t('User lists'),
+          '#attributes' => [
+            'class' => [
+              'profile__actions--contact',
+            ],
+          ],
+        ];
+      }
       $build['action_panel'] = [
         '#theme' => 'item_list',
         '#items' => $items,
@@ -371,5 +374,14 @@ function ngf_user_profile_views_pre_render(ViewExecutable $view) {
         unset($view->result[$key]);
       }
     }
+  }
+}
+
+function ngf_user_profile_user_format_name_alter(&$name, $account) {
+  $user = User::load($account->id());
+  if (!empty($user->get('field_ngf_first_name')->value) && !empty($user->get('field_ngf_last_name')->value)) {
+    $name = $user->get('field_ngf_first_name')->value . ' ' . $user->get('field_ngf_last_name')->value;
+  } else {
+    $name = $user->getUserName();
   }
 }

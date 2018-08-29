@@ -27,7 +27,7 @@ class UserRegistrationController extends ControllerBase {
 
         $query = \Drupal::entityQuery('taxonomy_term');
         $query->condition('vid', 'ngf_cities');
-        $query->condition('name', '%' . $input . '%', 'LIKE');
+        $query->condition('name', "%$input%", 'LIKE');
 
         if ($country_id) {
           $query->condition('field_ngf_country', $country_id);
@@ -38,7 +38,7 @@ class UserRegistrationController extends ControllerBase {
         foreach ($terms as $term) {
           $name = Tags::encode($term->getName());
           $results[] = [
-            'value' => $name . ' (' . $term->id() . ')',
+            'value' => "$name ({$term->id()})",
             'label' => $term->getName(),
           ];
         }

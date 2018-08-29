@@ -86,3 +86,4 @@ hidden:
   groups_view: true
   member_for: true
   ngf_extra_text: true
+  realname: true

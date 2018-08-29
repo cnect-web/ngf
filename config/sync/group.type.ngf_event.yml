@@ -6,5 +6,6 @@ id: ngf_event
 label: Event
 description: ''
 creator_membership: true
-creator_wizard: true
-creator_roles: {  }
+creator_wizard: false
+creator_roles:
+  - ngf_event-admin
