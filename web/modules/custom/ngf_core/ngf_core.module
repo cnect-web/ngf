@@ -94,7 +94,6 @@ function _ngf_core_event_end_date_validate($element, &$form_state) {
   // NGF-67: Start date can't be greater than End date.
   $start_date = NULL;
   if (!empty($form_state->getValue('field_ngf_event_start_date')->value) && !empty($form_state->getValue('field_ngf_event_start_date')->value['object'])) {
-    var_dump($form_state->getValue('field_ngf_event_start_date')->value);
     $start_date = $form_state->getValue('field_ngf_event_start_date')->value->getTimestamp();
   }
   $end_date = NULL;

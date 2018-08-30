@@ -156,7 +156,6 @@ class UserProfilePageController extends UserProfileControllerBase {
   }
 
   public function feed() {
-
     $publications = $this->userFeedManager->getContent();
     $page = pager_find_page();
     $num_per_page = 10;
@@ -189,7 +188,5 @@ class UserProfilePageController extends UserProfileControllerBase {
 
     return $this->getContent($render);
   }
-
-
 
 }
