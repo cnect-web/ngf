@@ -39,6 +39,7 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
 }
 
 function ngf_content_form_node_ngf_discussion_form_alter(&$form, &$form_state, $form_id) {
+  unset($form['actions']['preview']);
   $form['field_ngf_cover_image']['widget']['actions']['ief_add']['#value'] = t('Add cover image');
   $form['#attached']['library'][] = 'seven/global-styling';
 }
