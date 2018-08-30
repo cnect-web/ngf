@@ -74,7 +74,7 @@ class HomepageManager {
     if ($a_created == $b_created) {
       return 0;
     }
-    return ($a_created > $b_created) ? 1 : 1;
+    return ($a_created > $b_created) ? -1 : 1;
   }
 
   protected function getGroups() {
