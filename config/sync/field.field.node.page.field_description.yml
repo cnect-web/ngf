@@ -1,0 +1,58 @@
+uuid: 1d8a07c7-039f-43f1-847c-bc6c53d6d0d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.page
+    - paragraphs.paragraphs_type.ngf_file
+    - paragraphs.paragraphs_type.ngf_image
+    - paragraphs.paragraphs_type.ngf_text
+    - paragraphs.paragraphs_type.ngf_video
+  module:
+    - entity_reference_revisions
+id: node.page.field_description
+field_name: field_description
+entity_type: node
+bundle: page
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      ngf_file: ngf_file
+      ngf_image: ngf_image
+      ngf_text: ngf_text
+      ngf_video: ngf_video
+    target_bundles_drag_drop:
+      ngf_file:
+        enabled: true
+        weight: 9
+      ngf_image:
+        enabled: true
+        weight: 10
+      ngf_related_content_discussion:
+        weight: 11
+        enabled: false
+      ngf_related_content_event:
+        weight: 12
+        enabled: false
+      ngf_related_content_group:
+        weight: 13
+        enabled: false
+      ngf_speaker:
+        weight: 14
+        enabled: false
+      ngf_text:
+        enabled: true
+        weight: 15
+      ngf_video:
+        enabled: true
+        weight: 16
+field_type: entity_reference_revisions
