@@ -50,7 +50,15 @@ function ngf_core_form_group_ngf_event_ggroup_form_form_alter(&$form, \Drupal\Co
   _ngf_core_event_ngf_registration_link_validation_helper($form);
 
   // NGF-362: Create event submit button.
-  $form['actions']['submit']['#value'] = t("Create Event");
+  $form['actions']['submit']['#value'] = t('Create Event');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_core_form_group_ngf_session_ggroup_form_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // NGF-362: Create event submit button.
+  $form['actions']['submit']['#value'] = t('Create Session');
 }
 
 /**
@@ -81,8 +89,8 @@ function _ngf_core_event_ngf_registration_link_validation_helper(&$form) {
 function _ngf_core_event_ngf_registration_link_validate(&$element, &$form_state) {
   $values = $form_state->getValue('field_ngf_registration_link');
   if (!empty($values[0]['uri']) && empty($values[0]['title'])) {
-    $values[0]['title'] = t("Register");
-    $element['title']['#value'] = t("Register");
+    $values[0]['title'] = t('Register');
+    $element['title']['#value'] = t('Register');
     $form_state->setValue('field_ngf_registration_link', $values);
   }
 }
