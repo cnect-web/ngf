@@ -6,6 +6,7 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Image\Entity\ImageStyle;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Provides a 'User Account' Block.
@@ -17,6 +18,24 @@ use Drupal\Core\Url;
  * )
  */
 class UserAccountBlock extends BlockBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheTags() {
+    if ($user = \Drupal::currentUser()) {
+      return Cache::mergeTags(parent::getCacheTags(), array('user:' . $user->id()));
+    } else {
+      return parent::getCacheTags();
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheContexts() {
+    return Cache::mergeContexts(parent::getCacheContexts(), array('user'));
+  }
 
   /**
    * {@inheritdoc}
