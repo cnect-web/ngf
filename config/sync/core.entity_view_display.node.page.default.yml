@@ -17,26 +17,18 @@ mode: default
 content:
   field_description:
     type: entity_reference_revisions_entity_view
-    weight: 102
-    label: above
+    weight: 0
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
-  flag_ngf_follow_content:
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   flag_test:
     weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 101
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  flag_ngf_follow_content: true
+  links: true
