@@ -21,4 +21,5 @@ content:
     weight: 101
     region: content
 hidden:
+  field_description: true
   field_wut: true

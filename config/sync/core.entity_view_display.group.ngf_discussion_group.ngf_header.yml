@@ -31,18 +31,25 @@ content:
     region: content
   field_ngf_group_visibility:
     type: list_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_ngf_introtext:
+    type: basic_string
     weight: 2
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   group_tabs:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   join_and_follow:
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -55,7 +62,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
   members_and_followers:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -65,7 +72,6 @@ hidden:
   field_ngf_comments: true
   field_ngf_description: true
   field_ngf_interests: true
-  field_ngf_introtext: true
   group_content_view: true
   show_more: true
   uid: true
