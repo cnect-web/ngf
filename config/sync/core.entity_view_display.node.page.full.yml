@@ -1,9 +1,10 @@
 uuid: fd610bf2-5333-4eaf-8e87-128c0bc33943
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.full
+    - field.field.node.page.field_description
     - node.type.page
   module:
     - user
@@ -23,4 +24,5 @@ content:
   links:
     weight: 101
     region: content
-hidden: {  }
+hidden:
+  field_description: true
