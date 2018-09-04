@@ -302,7 +302,7 @@ display:
           entity_field: id
           plugin_id: group_id
       display_extenders: {  }
-      css_class: ''
+      css_class: profile-listing
     cache_metadata:
       max-age: -1
       contexts:

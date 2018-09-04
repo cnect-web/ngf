@@ -213,6 +213,7 @@ display:
           entity_field: uid
           plugin_id: user_uid
       display_extenders: {  }
+      css_class: profile-listing
     cache_metadata:
       max-age: -1
       contexts:
