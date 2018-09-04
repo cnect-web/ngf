@@ -14,7 +14,7 @@ class HomepageManager {
    *
    * @var Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $entity_type_manager = NULL;
+  protected $entityTypeManager = NULL;
 
   public function __construct(
     EntityTypeManagerInterface $entity_type_manager

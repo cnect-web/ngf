@@ -9,15 +9,21 @@ use Drupal\user\Entity\User;
 use Drupal\node\Entity\Node;
 use Drupal\comment\Entity\Comment;
 use Drupal\flag\FlagService;
-use Drupal\comment\CommentStatistics;
 use Drupal\ngf_user_profile\FlagTrait;
 use Drupal\message\Entity\Message;
-use Drupal\ngf_user_profile\UserFeedAction;
 use Drupal\ngf_user_profile\UserFeedHelper;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 class UserFeedManager {
 
   use FlagTrait;
+
+  /**
+   * Entity Type Manager.
+   *
+   * @var Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityTypeManager = NULL;
 
   /**
    * The current user.
@@ -36,7 +42,12 @@ class UserFeedManager {
   protected $interests = [];
   protected $currentUserAccount = NULL;
 
-  public function __construct(AccountInterface $current_user, FlagService $flag) {
+  public function __construct(
+    EntityTypeManagerInterface $entity_type_manager,
+    AccountInterface $current_user,
+    FlagService $flag
+  ) {
+    $this->entityTypeManager = $entity_type_manager;
     $this->currentUser = $current_user;
     $this->flag = $flag;
   }
@@ -324,6 +335,43 @@ class UserFeedManager {
   }
 
   public function getContent() {
+    $publications = $this->getFeedItems();
+    $page = pager_find_page();
+    $num_per_page = 10;
+    $offset = $num_per_page * $page;
+    $result = array_slice($publications, $offset, $num_per_page);
+
+    // Now that we have the total number of results, initialize the pager.
+    pager_default_initialize(count($publications), $num_per_page);
+
+    // Create a render array with the search results.
+    $render = [];
+    $render['#prefix'] = '<div class="newsfeed">';
+    $render['#suffix'] = '</div>';
+    if (count($result) > 0) {
+      foreach ($result as $item) {
+        $message = $this->entityTypeManager->getViewBuilder('message')
+          ->view($item, 'full');
+        // There is a bug partial is still displayed even it's hidden in the view mode.
+        unset($message['partial_0']);
+        $render['content'][] = $message;
+      }
+      $render['content'][] = [
+        '#type' => 'pager',
+      ];
+
+    }
+    else {
+      $render[] = [
+        '#theme' => 'markup',
+        '#markup' => '<p>' . t('There are no items in your feed') . '</p>',
+      ];
+    }
+
+    return $render;
+  }
+
+  public function getFeedItems() {
     $query = \Drupal::entityQuery('message');
     $query->condition('template', [
       'ngf_uf_following_content_comment',
