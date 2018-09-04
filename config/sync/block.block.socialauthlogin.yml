@@ -14,7 +14,7 @@ provider: null
 plugin: social_auth_login
 settings:
   id: social_auth_login
-  label: 'Social Auth Login'
+  label: 'Login with Social Media'
   provider: social_auth
   label_display: visible
 visibility: {  }
