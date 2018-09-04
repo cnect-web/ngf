@@ -89,7 +89,7 @@ class UserAccountBlock extends BlockBase {
         '#theme' => 'login_account_block',
         '#user_picture' => render($picture_output),
         '#user_name' => $user->getDisplayName(),
-        '#user_profile_link' => '/profile/general-settings',
+        '#user_profile_link' => '/profile/feed',
         '#user_manage_network_link' => '/profile',
         '#user_logout_link' => '/user/logout',
       ];
