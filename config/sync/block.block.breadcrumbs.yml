@@ -1,0 +1,20 @@
+uuid: ef53d45a-9165-418f-90bd-316346a0e6c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - funkywave
+id: breadcrumbs
+theme: funkywave
+region: content
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }
