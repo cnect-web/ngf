@@ -1,0 +1,6 @@
+post_login: '<front>'
+user_allowed: register
+redirect_user_form: false
+disable_admin_login: false
+disabled_roles:
+  administrator: '0'

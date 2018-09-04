@@ -1,0 +1,20 @@
+uuid: 0e2dbf71-60ed-48c8-b993-b3ee4c31db1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - social_auth
+  theme:
+    - funkywave
+id: socialauthlogin
+theme: funkywave
+region: content
+weight: -1
+provider: null
+plugin: social_auth_login
+settings:
+  id: social_auth_login
+  label: 'Social Auth Login'
+  provider: social_auth
+  label_display: visible
+visibility: {  }
