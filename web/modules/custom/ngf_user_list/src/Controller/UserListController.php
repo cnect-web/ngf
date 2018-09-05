@@ -97,7 +97,7 @@ class UserListController extends UserProfileControllerBase {
   }
 
   public function deleteUserList($ngf_user_list) {
-    return $this->getContent($this->getEntityForm('delete', $ngf_user_list, 'ngf_user_list'));
+    return $this->getContent($this->entityFormBuilder()->getForm($ngf_user_list, 'delete'));
   }
 
   public function removeUserList($list_id) {
@@ -117,8 +117,7 @@ class UserListController extends UserProfileControllerBase {
     if (empty($ngf_user_list)) {
       $ngf_user_list = UserList::create();
     }
-    // TODO : $this->entityFormBuilder()
-    return $this->getContent($this->getEntityForm('default', $ngf_user_list, 'ngf_user_list'));
+    return $this->getContent($this->entityFormBuilder()->getForm($ngf_user_list, 'default'));
   }
 
   public function removeUserListItem($list_id, $username) {

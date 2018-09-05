@@ -11,15 +11,6 @@ use Drupal\views\Views;
  */
 class UserProfileControllerBase extends ControllerBase {
 
-  protected function getEntityForm($form_view_mode, $entity, $entity_type = 'user') {
-    $form = $this->entityTypeManager()
-      ->getFormObject($entity_type, $form_view_mode)
-      ->setEntity($entity);
-
-    return $this->formBuilder()->getForm($form);
-  }
-
-
   protected function getContent($content, $user = NULL) {
     return [
       'header' => $this->getUserDisplay($user ?? $this->getCurrentUserAccount(), 'ngf_profile'),

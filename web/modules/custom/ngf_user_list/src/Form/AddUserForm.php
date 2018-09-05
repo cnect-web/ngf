@@ -9,6 +9,8 @@ use Drupal\ngf_user_profile\FlagTrait;
 use Drupal\ngf_user_list\Entity\UserList;
 use Drupal\ngf_user_list\Manager\UserListManager;
 use Drupal\user\Entity\User;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -70,6 +72,12 @@ class AddUserForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, $ngf_user_list = NULL) {
     $user_lists = $this->userListManager->getUserLists();
+
+    $form['user_lists_link'] = [
+      '#type' => 'item',
+      '#markup' => Link::fromTextAndUrl(t('Manage your user lists'), Url::fromRoute('ngf_user_list.user_lists'))->toString(),
+    ];
+
     $options = [
       '' => $this->t('Select list')
     ];

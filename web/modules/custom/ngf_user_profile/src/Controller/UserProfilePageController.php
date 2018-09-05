@@ -124,7 +124,7 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function generalSettings() {
-    return $this->getContent($this->getEntityForm('default', $this->getCurrentUserAccount(), 'user'));
+    return $this->getContent($this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'default'));
   }
 
   /**
@@ -145,7 +145,7 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function interestsSettings() {
-    return $this->getContent($this->getEntityForm('ngf_interests', $this->getCurrentUserAccount(), 'user'));
+    return $this->getContent($this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'ngf_interests'));
   }
 
   /**
