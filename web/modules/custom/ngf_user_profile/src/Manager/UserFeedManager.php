@@ -336,19 +336,20 @@ class UserFeedManager {
 
   public function getContent() {
     $publications = $this->getFeedItems();
-    $page = pager_find_page();
-    $num_per_page = 10;
-    $offset = $num_per_page * $page;
-    $result = array_slice($publications, $offset, $num_per_page);
+    if (count($publications) > 0) {
+      $page = pager_find_page();
+      $num_per_page = 10;
+      $offset = $num_per_page * $page;
+      $result = array_slice($publications, $offset, $num_per_page);
 
-    // Now that we have the total number of results, initialize the pager.
-    pager_default_initialize(count($publications), $num_per_page);
+      // Now that we have the total number of results, initialize the pager.
+      pager_default_initialize(count($publications), $num_per_page);
 
-    // Create a render array with the search results.
-    $render = [];
-    $render['#prefix'] = '<div class="newsfeed">';
-    $render['#suffix'] = '</div>';
-    if (count($result) > 0) {
+      // Create a render array with the search results.
+      $render = [];
+      $render['#prefix'] = '<div class="newsfeed">';
+      $render['#suffix'] = '</div>';
+
       foreach ($result as $item) {
         $message = $this->entityTypeManager->getViewBuilder('message')
           ->view($item, 'full');

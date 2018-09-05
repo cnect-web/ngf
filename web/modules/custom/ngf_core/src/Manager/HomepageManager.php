@@ -24,18 +24,18 @@ class HomepageManager {
 
   public function getContent() {
     $items = $this->prepareContent();
-    $page = pager_find_page();
-    $num_per_page = 10;
-    $offset = $num_per_page * $page;
-    $result = array_slice($items, $offset, $num_per_page);
+    if (count($items) > 0) {
+      $page = pager_find_page();
+      $num_per_page = 10;
+      $offset = $num_per_page * $page;
+      $result = array_slice($items, $offset, $num_per_page);
 
-    // Now that we have the total number of results, initialize the pager.
-    pager_default_initialize(count($items), $num_per_page);
-    $render = [];
-    $render['#prefix'] = '<div class="newsfeed">';
-    $render['#suffix'] = '</div>';
+      // Now that we have the total number of results, initialize the pager.
+      pager_default_initialize(count($items), $num_per_page);
+      $render = [];
+      $render['#prefix'] = '<div class="newsfeed">';
+      $render['#suffix'] = '</div>';
 
-    if (count($result) > 0) {
       foreach ($result as $item) {
         // There is a bug partial is still displayed even it's hidden in the view mode.
         $render['content'][] = $item;
