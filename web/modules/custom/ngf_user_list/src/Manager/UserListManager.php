@@ -241,7 +241,7 @@ class UserListManager {
   }
 
   public function removeUserListItem($list_id, $username) {
-    $list = UserListManager::load($list_id);
+    $list = UserList::load($list_id);
     $user = user_load_by_name($username);
 
     if (empty($user)) {
@@ -253,6 +253,8 @@ class UserListManager {
     } else {
       $flag = $this->getListItemFlag();
       $user_name = UserHelper::getUserFullName($user);
+      var_dump($user);
+      var_dump($list);
       if ($flag->isFlagged($list, $user)) {
         $this->flag->unflag($flag, $list, $user);
         $this->addMessage(t('User @username has been removed from the list ', ['@username' => $user_name]));

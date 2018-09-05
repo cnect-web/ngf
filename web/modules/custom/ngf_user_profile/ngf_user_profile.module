@@ -238,6 +238,18 @@ function ngf_user_profile_user_view(
             ],
           ],
         ];
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_list.add_user', [
+            'user' => $user_id,
+          ]),
+          '#title' => t('Add to list'),
+          '#attributes' => [
+            'class' => [
+              'profile__actions--add2list',
+            ],
+          ],
+        ];
 
         $flag_builder = \Drupal::service('flag.link_builder');
         $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');

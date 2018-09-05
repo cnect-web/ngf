@@ -46,6 +46,7 @@ function ngf_user_list_menu_local_tasks_alter(&$data, $route_name) {
     'ngf_user_profile.link.user_list_items',
     'ngf_user_profile.link.add_list',
     'ngf_user_profile.link.add_list_user',
+    'ngf_user_profile.link.add_user',
   ];
 
   foreach ($local_tasks as $local_task) {
