@@ -4,17 +4,17 @@ namespace Drupal\ngf_user_list\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Session\AccountInterface;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\FlagTrait;
 use Drupal\ngf_user_list\Entity\UserList;
+use Drupal\ngf_user_list\Manager\UserListManager;
 use Drupal\user\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Defines a form that adds user list item.
  */
-class UserListItemForm extends FormBase {
+class AddUserForm extends FormBase {
 
   use FlagTrait;
 
@@ -26,6 +26,13 @@ class UserListItemForm extends FormBase {
   protected $flag;
 
   /**
+   * User list manager.
+   *
+   * @var \Drupal\ngf_user_list\Manager\UserListManager
+   */
+  protected $userListManager;
+
+  /**
    * Constructs a Drupal\ngf_user_list\Form\UserListItemForm object.
    *
    * @param \Drupal\flag\FlagService $flag
@@ -33,8 +40,12 @@ class UserListItemForm extends FormBase {
    * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user.
    */
-  public function __construct(FlagService $flag) {
+  public function __construct(
+    FlagService $flag,
+    UserListManager $userListManager
+  ) {
     $this->flag = $flag;
+    $this->userListManager = $userListManager;
   }
 
   /**
@@ -42,7 +53,8 @@ class UserListItemForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('flag')
+      $container->get('flag'),
+      $container->get('ngf_user_list.user_list')
     );
   }
 
@@ -50,31 +62,35 @@ class UserListItemForm extends FormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'ngf_user_list_item';
+    return 'ngf_add_user';
   }
 
   /**
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $ngf_user_list = NULL) {
-    $form['user_id'] = [
-      '#title' => ('Select User'),
-      '#type' => 'entity_autocomplete',
-      '#target_type' => 'user',
+    $user_lists = $this->userListManager->getUserLists();
+    $options = [
+      '' => $this->t('Select list')
+    ];
+    foreach ($user_lists as $user_list) {
+      $options[$user_list->id()] = $user_list->getName();
+    }
+    $form['list_id'] = [
+      '#title' => $this->t('User list'),
+      '#type' => 'select',
+      '#options' => $options,
       '#required' => TRUE,
-      '#selection_settings' => [
-        'include_anonymous' => FALSE,
-      ],
     ];
 
-    $form['list_id'] = array(
+    $form['user_id'] = array(
       '#type' => 'hidden',
       '#value' => $ngf_user_list->id(),
     );
 
     $form['actions']['submit'] = array(
       '#type' => 'submit',
-      '#value' => $this->t('Add'),
+      '#value' => $this->t('Add user'),
     );
 
     return $form;
@@ -109,9 +125,15 @@ class UserListItemForm extends FormBase {
     $user = User::load($form_state->getValue('user_id'));
 
     $flag = $this->getListItemFlag();
-    $this->flag->flag($flag, $list, $user);
-    drupal_set_message($this->t('User @username has been added to the list', ['@username' => $user->getDisplayName()]));
-    $form_state->setRedirect('ngf_user_list.list_items', ['ngf_user_list' => $list->id()]);
+    if (!$flag->isFlagged($list, $user)) {
+      $this->flag->flag($flag, $list, $user);
+      drupal_set_message($this->t('User @username has been added to the list', ['@username' => $user->getDisplayName()]));
+    }
+    else {
+      drupal_set_message($this->t('User @username is already in this list', ['@username' => $user->getDisplayName()]), 'error');
+    }
+
+    $form_state->setRedirect('ngf_user_profile.page.user_profile', ['user' => $user->id()]);
   }
 
 }

@@ -57,7 +57,7 @@ class UserListController extends UserProfileControllerBase {
     $items = [];
     $items[] = [
       '#type' => 'link',
-      '#title' => t('Add list'),
+      '#title' => t('Add a list'),
       '#url' => Url::fromRoute('ngf_user_list.add_user_list'),
       '#attributes' => [
         'class' => [
@@ -88,41 +88,6 @@ class UserListController extends UserProfileControllerBase {
     return $this->getContent($items);
   }
 
-  public function userListItems($ngf_user_list) {
-    $list_items = $this->userListManager->getUserListItems($ngf_user_list);
-    $render = [];
-    $items = [];
-    foreach ($list_items as $list_item) {
-        $items[] = $this->entityTypeManager()
-            ->getViewBuilder('user')
-            ->view($list_item, 'compact');
-        $items[] = [
-            '#theme' => 'item_list',
-            '#items' => [
-                Link::fromTextAndUrl(t('Remove user'), Url::fromRoute('ngf_user_list.remove_user_list_item', ['username' => $list_item->getAccountName(), 'list_id' => $ngf_user_list->id()])),
-            ],
-            '#attributes' => [
-                'class' => [
-                    'links inline',
-                ]
-            ]
-        ];
-    }
-    $render[] = [
-      '#type' => 'link',
-      '#title' => t('Add user'),
-      '#url' => Url::fromRoute('ngf_user_list.add_list_item', ['ngf_user_list' => $ngf_user_list->id()]),
-      '#attributes' => [
-        'class' => [
-          'btn btn--blue',
-        ]
-      ]
-    ];
-    $render[] = $items;
-
-    return $this->getContent($render);
-  }
-
   public function userListSettings() {
     return [
       '#type' => 'html_tag',
@@ -134,12 +99,6 @@ class UserListController extends UserProfileControllerBase {
   public function deleteUserList($ngf_user_list) {
     return $this->getContent($this->getEntityForm('delete', $ngf_user_list, 'ngf_user_list'));
   }
-
-  public function addListItem($ngf_user_list) {
-
-
-  }
-
 
   public function removeUserList($list_id) {
     $this->userListManager->removeUserList($list_id);
@@ -158,6 +117,7 @@ class UserListController extends UserProfileControllerBase {
     if (empty($ngf_user_list)) {
       $ngf_user_list = UserList::create();
     }
+    // TODO : $this->entityFormBuilder()
     return $this->getContent($this->getEntityForm('default', $ngf_user_list, 'ngf_user_list'));
   }
 
@@ -170,6 +130,18 @@ class UserListController extends UserProfileControllerBase {
   public function addUserListItem($list_id, $username) {
     $this->userListManager->addUserListItem($list_id, $username);
     return $this->redirect('ngf_user_list.user_list_items', ['list_id' => $list_id]);
+  }
+
+  public function userListItemsForm(UserList $ngf_user_list) {
+    return $this->getContent($this->formBuilder()->getForm('Drupal\ngf_user_list\Form\UserListItemsForm', $ngf_user_list));
+  }
+
+  public function userListItemForm(UserList $ngf_user_list) {
+    return $this->getContent($this->formBuilder()->getForm('Drupal\ngf_user_list\Form\UserListItemForm', $ngf_user_list));
+  }
+
+  public function AddUserForm(User $user) {
+    return $this->getContent($this->formBuilder()->getForm('Drupal\ngf_user_list\Form\AddUserForm', $user));
   }
 
 }
