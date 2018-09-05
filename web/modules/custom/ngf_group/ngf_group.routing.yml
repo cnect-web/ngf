@@ -33,7 +33,7 @@ ngf_group.page.library:
 ngf_group.page.subgroups:
   path: '/group/{group}/subgroups'
   defaults:
-    _title: 'Info'
+    _title: 'Subgroups'
     _controller: '\Drupal\ngf_group\Controller\GroupPageController::subgroupsPage'
   requirements:
     _permission: 'access content'

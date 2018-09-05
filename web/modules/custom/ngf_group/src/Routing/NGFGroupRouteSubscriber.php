@@ -37,6 +37,12 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
     if ($route = $collection->get('entity.group.canonical')) {
       $route->setDefault('_controller', '\Drupal\ngf_group\Controller\GroupPageController::landingPage');
     }
+
+    // Change path to prevent breadcrumbs from picking up routes.
+    if ($route = $collection->get('entity.group_content.collection')) {
+      $route->setPath('/group/{group}/relations');
+    }
+
   }
 
   /**

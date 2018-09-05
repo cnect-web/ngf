@@ -1,0 +1,17 @@
+uuid: b1541047-b077-45b0-992e-177840bf564a
+langcode: en
+status: true
+dependencies: {  }
+id: group__ngf_event
+label: 'Group: Event'
+tags:
+  description: '[group:field_ngf_introtext]'
+  title: '[group:title] | [site:name]'
+  image_src: '[group:field_ngf_cover_image:entity:field_media_image:entity:url]'
+  og_image: '[group:field_ngf_cover_image:entity:field_media_image:entity:url]'
+  og_site_name: '[site:name]'
+  og_title: '[group:title]'
+  og_description: '[group:field_ngf_introtext]'
+  twitter_cards_title: '[group:title] | [site:name]'
+  twitter_cards_description: '[group:field_ngf_introtext]'
+  twitter_cards_image: '[group:field_ngf_cover_image:entity:field_media_image:entity:url]'
