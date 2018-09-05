@@ -253,8 +253,6 @@ class UserListManager {
     } else {
       $flag = $this->getListItemFlag();
       $user_name = UserHelper::getUserFullName($user);
-      var_dump($user);
-      var_dump($list);
       if ($flag->isFlagged($list, $user)) {
         $this->flag->unflag($flag, $list, $user);
         $this->addMessage(t('User @username has been removed from the list ', ['@username' => $user_name]));
@@ -289,9 +287,6 @@ class UserListManager {
     } elseif ($user_list->getOwnerId() !== $this->currentUser->id()) {
       $this->addError(t('This list does not belong to you.'));
     } else {
-      // Remove related list items.
-      $this->removeUserListItemByList($user_list);
-
       // Remove list.
       $storage_handler = \Drupal::entityTypeManager()->getStorage('ngf_user_list');
       $entities = $storage_handler->loadMultiple([$list_id]);
@@ -303,7 +298,7 @@ class UserListManager {
     }
   }
 
-  protected function removeUserListItemByList($user_list) {
+  public function removeUserListItemByList($user_list) {
     if (empty($user_list)) {
       $this->addError(t('List is not found.'));
     } else {
