@@ -1,0 +1,13 @@
+uuid: ae4eaa49-9dc0-4f37-a476-41885ac53c76
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: Content
+tags:
+  description: '[node:field_ngf_introtext]'
+  title: '[node:title] | [site:name]'
+  canonical_url: '[node:url]'
+  image_src: '[node:field_ngf_cover_image:entity:url]'

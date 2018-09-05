@@ -56,6 +56,7 @@ module:
   media: 0
   menu_ui: 0
   message: 0
+  metatag: 0
   migrate: 0
   migrate_plus: 0
   migrate_source_csv: 0
@@ -74,7 +75,6 @@ module:
   permissions_filter: 0
   quickedit: 0
   rdf: 0
-  realname: 0
   redirect: 0
   search: 0
   shortcut: 0
