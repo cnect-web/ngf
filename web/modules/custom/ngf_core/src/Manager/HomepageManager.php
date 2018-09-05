@@ -24,6 +24,7 @@ class HomepageManager {
 
   public function getContent() {
     $items = $this->prepareContent();
+    $render = [];
     if (count($items) > 0) {
       $page = pager_find_page();
       $num_per_page = 10;
@@ -43,13 +44,13 @@ class HomepageManager {
       $render['content'][] = [
         '#type' => 'pager',
       ];
-
     }
 
     return $render;
   }
 
   protected function prepareContent() {
+    $items = [];
     $content_items = $this->getDiscussions();
     $content_items += $this->getGroups();
     $content_items += $this->getEvents();
