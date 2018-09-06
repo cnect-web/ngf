@@ -103,6 +103,16 @@ class Tasks extends RoboTasks {
     // Get rid of the permissions rebuild
     $this->nodeAccessRebuild();
 
+    // Run drush cim.
+    if ($this->taskDrushStack($this->config('bin.drush'))
+      ->arg('-r', 'web/')
+      ->arg('-y')
+      ->exec("cim")
+      ->run()
+      ->wasSuccessful()) {
+        $this->say('Configuration imported successfully.');
+    }
+
     if ($opts['run-importers']) {
       if ($this->taskDrushStack($this->config('bin.drush'))->arg('-r', 'web/')->exec("mim ngf_countries")->exec("mim ngf_cities")->exec("mim ngf_regions")->run()->wasSuccessful()) {
         $this->say('Importers run successfuly.');

@@ -142,9 +142,6 @@
         "patches": {
             "enable-patching" : true,
             "drupal/core": {
-                "Backwards variables in Install profile validation error message": "https://www.drupal.org/files/issues/backwards_variables_in_message-2867834-25.patch",
-                "Add events for matching entity hooks": "https://www.drupal.org/files/issues/2551893-52.patch",
-                "Allow themes to declare dependencies on modules": "https://www.drupal.org/files/issues/2018-03-27/474684-164.patch",
                 "Missing active classes on links to frontpage (ATTENTION: Might break something)": "https://www.drupal.org/files/issues/2018-03-29/1578832-46.patch",
                 "Fix revions moderation checkbox": "https://www.drupal.org/files/issues/2018-07-02/2946750-15.patch"
             },
@@ -189,6 +186,9 @@
             },
             "drupal/social_auth_facebook": {
                 "Do no override settings if a proxy is used": "https://www.drupal.org/files/issues/2018-07-06/patch-social-auth-facebook.patch"
+            },
+            "cnect-web/funkywave": {
+                "Misc patches" :"https://pastebin.com/raw/MJGg1eU4"
             }
         }
     },
