@@ -31,21 +31,12 @@ class GroupPageController extends ControllerBase {
   protected $gd;
 
   /**
-   * Entity type manager.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
-
-  /**
    * {@inheritdoc}
    */
   public function __construct(
-    GroupCacheContext $group,
-    EntityTypeManager $entityTypeManager
+    GroupCacheContext $group
   ) {
     $this->currentGroup = $group->getBestCandidate();
-    $this->entityTypeManager = $entityTypeManager;
     $this->gd = new NGFGroup($this->currentGroup);
   }
 
@@ -54,8 +45,7 @@ class GroupPageController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('cache_context.group'),
-      $container->get('entity_type.manager')
+      $container->get('cache_context.group')
     );
   }
 
@@ -182,7 +172,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function groupDisplay(EntityInterface $group, $view_mode = 'ngf_header') {
-    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('group');
+    $view_builder = $this->entityTypeManager()->getViewBuilder('group');
     return $view_builder->view($group, $view_mode);
   }
 

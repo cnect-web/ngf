@@ -1,0 +1,13 @@
+uuid: 5f3e79f7-c85c-4935-870b-ae0f7f76352e
+langcode: en
+status: true
+dependencies:
+  module:
+    - ngf_search
+_core:
+  default_config_hash: dpuVjoSwy1-xOCgZWbtPqTKnmvKxq5j3i9AE6ELSGHY
+id: ngf_search_add_to_list_action
+label: 'Add user to the user list'
+type: user
+plugin: ngf_search_add_to_list_action
+configuration: {  }

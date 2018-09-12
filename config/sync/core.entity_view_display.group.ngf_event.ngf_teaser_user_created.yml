@@ -40,6 +40,11 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  flag_ngf_follow_event:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   label:
     label: hidden
     type: string

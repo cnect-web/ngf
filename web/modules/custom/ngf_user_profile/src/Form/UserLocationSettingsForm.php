@@ -37,16 +37,7 @@ class UserLocationSettingsForm extends FormBase {
    * Class constructor.
    */
   public function __construct() {
-    $this->currentUser = User::load(\Drupal::getContainer()->get('current_user')->id());
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('current_user')
-    );
+    $this->currentUser = User::load($this->currentUser()->id());
   }
 
   /**

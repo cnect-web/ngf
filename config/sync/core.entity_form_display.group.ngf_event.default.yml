@@ -141,6 +141,11 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  flag:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   label:
     type: string_textfield
     weight: 0
