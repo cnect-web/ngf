@@ -49,6 +49,7 @@
         "drupal/honeypot": "^1.27",
         "drupal/inline_entity_form": "^1.0",
         "drupal/leaflet": "^1.0@beta",
+        "drupal/mail_login": "^1.0",
         "drupal/message": "^1.0@RC",
         "drupal/message_notify": "^1.0@beta",
         "drupal/message_subscribe": "^1.0@beta",
