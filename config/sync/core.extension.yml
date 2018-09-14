@@ -53,6 +53,7 @@ module:
   leaflet: 0
   libraries: 0
   link: 0
+  mail_login: 0
   media: 0
   menu_ui: 0
   message: 0
