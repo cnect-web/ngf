@@ -30,7 +30,7 @@ class CreateContentController extends ControllerBase {
 
   public function createContentTitle($group = 'none') {
     if ($group == 'none') {
-      return $this->t("Create new ...");
+      return $this->t('Create new ...');
     }
     else {
       $group = Group::load($group);
@@ -59,8 +59,9 @@ class CreateContentController extends ControllerBase {
       ->loadMultiple();
 
     foreach ($contentTypes as $contentType) {
-      if ($user->hasPermission("create {$contentType->id()} content")) {
-        $url = new Url('node.add', ['node_type' => $contentType->id()]);
+      $content_type_id = $contentType->id();
+      if ($user->hasPermission("create $content_type_id content")) {
+        $url = new Url('node.add', ['node_type' => $content_type_id]);
         $content_links[] = [
           'title' => t("{$contentType->label()}"),
           'type' => 'link',
@@ -87,9 +88,10 @@ class CreateContentController extends ControllerBase {
       ->loadMultiple();
 
     foreach ($groupTypes as $groupType) {
-      if ($groupType->id() !== 'ngf_session') {
-        if ($user->hasPermission("create {$groupType->id()} group")) {
-          $url = new Url('entity.group.add_form', ['group_type' => $groupType->id()]);
+      $group_type_id = $groupType->id();
+      if ($group_type_id !== 'ngf_session') {
+        if ($user->hasPermission("create $group_type_id group")) {
+          $url = new Url('entity.group.add_form', ['group_type' => $group_type_id]);
           $group_links[] = [
             'title' => t("{$groupType->label()}"),
             'type' => 'link',
@@ -121,8 +123,6 @@ class CreateContentController extends ControllerBase {
     $group = Group::load($group_id);
 
     $render = [];
-    $user = \Drupal::currentUser();
-
     $links = [];
     $link_attributes = [
       'class' => [

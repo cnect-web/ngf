@@ -78,21 +78,6 @@ function ngf_user_profile_group_insert(Group $group) {
   $userFeedManager->createGroupUserFeeds($group);
 }
 
-function ngf_user_profile_theme($existing, $type, $theme, $path) {
-  return [
-    'ngf_user_feed_item' => [
-      'variables' => [
-        'authorFullName' => NULL,
-        'authorProfileURL' => NULL,
-        'authorPics' => NULL,
-        'entity' => NULL,
-        'contextText' => NULL,
-      ],
-      'path' => drupal_get_path('module', 'ngf_user_profile') . '/templates',
-    ],
-  ];
-}
-
 /**
  * Implements hook_entity_base_field_info().
  */

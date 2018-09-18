@@ -37,4 +37,5 @@ permissions:
   - 'unflag ngf_follow_user'
   - 'unflag ngf_list_item'
   - 'use text format basic_html'
+  - 'use vote up/down'
   - 'view media'
