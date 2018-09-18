@@ -8,6 +8,7 @@
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\ngf_user_list\Entity\UserList;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Url;
 
@@ -35,4 +36,32 @@ function ngf_user_list_ngf_user_list_view(
 ) {
     $response = new RedirectResponse(Url::fromRoute('ngf_user_list.list_items', ['ngf_user_list' => $entity->id()])->toString());
     $response->send();
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function ngf_user_list_menu_local_tasks_alter(&$data, $route_name) {
+  $local_tasks = [
+    'ngf_user_profile.link.your_user_lists',
+    'ngf_user_profile.link.user_list_items',
+    'ngf_user_profile.link.add_list',
+    'ngf_user_profile.link.add_list_user',
+    'ngf_user_profile.link.add_user',
+  ];
+
+  foreach ($local_tasks as $local_task) {
+    if (isset($data['tabs'][1][$local_task])) {
+      $data['tabs'][1][$local_task] = NULL;
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function ngf_user_list_ngf_user_list_delete(UserList $ngf_user_list) {
+  $user_list_manager = \Drupal::getContainer()
+    ->get('ngf_user_list.user_list');
+  $user_list_manager->removeUserListItemByList($ngf_user_list);
 }

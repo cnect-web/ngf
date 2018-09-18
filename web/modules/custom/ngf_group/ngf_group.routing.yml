@@ -1,7 +1,7 @@
-ngf_group.page.discover:
-  path: '/discover'
+ngf_group.page.contacts_and_groups:
+  path: '/contacts-and-groups'
   defaults:
-    _title: 'Discover'
+    _title: 'Contacts & Groups'
     _controller: '\Drupal\ngf_group\Controller\DiscoverPageController::discoverPage'
   requirements:
     _permission: 'access content'
@@ -33,7 +33,7 @@ ngf_group.page.library:
 ngf_group.page.subgroups:
   path: '/group/{group}/subgroups'
   defaults:
-    _title: 'Info'
+    _title: 'Subgroups'
     _controller: '\Drupal\ngf_group\Controller\GroupPageController::subgroupsPage'
   requirements:
     _permission: 'access content'

@@ -2,6 +2,34 @@ ngf_core.front:
   path: '/front'
   defaults:
     _controller: '\Drupal\ngf_core\Controller\FrontPageController::content'
-    _title: 'Front page'
+    _title: 'Welcome'
   requirements:
     _access: 'TRUE'
+
+ngf_core.create_content:
+  path: '/create/{group}'
+  defaults:
+    _title: 'Create new ...'
+    _title_callback: '\Drupal\ngf_core\Controller\CreateContentController::createContentTitle'
+    _controller: '\Drupal\ngf_core\Controller\CreateContentController::createContent'
+    group: 'none'
+  requirements:
+    _permission: 'create ngf_discussion_group group+create ngf_event group+create ngf_session group+create ngf_discussion content'
+
+ngf_core.public_feed:
+  path: '/public-feed'
+  defaults:
+    _controller: '\Drupal\ngf_core\Controller\FrontPageController::content'
+    _title: 'Public feed'
+  requirements:
+    _access: 'TRUE'
+
+
+#ngf_core.create_group_content:
+#  path: '/create/{context}'
+#  defaults:
+#    _controller: '\Drupal\ngf_core\Controller\CreateContentController::createContent'
+#    context: 'global'
+#  requirements:
+#    _permission: 'create ngf_discussion_group group+create ngf_event group+create ngf_session group+create ngf_discussion content'
+

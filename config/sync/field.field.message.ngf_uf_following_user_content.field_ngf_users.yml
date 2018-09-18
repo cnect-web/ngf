@@ -5,6 +5,12 @@ dependencies:
   config:
     - field.storage.message.field_ngf_users
     - message.template.ngf_uf_following_user_content
+  module:
+    - entity_reference_validators
+third_party_settings:
+  entity_reference_validators:
+    circular_reference: false
+    duplicate_reference: false
 id: message.ngf_uf_following_user_content.field_ngf_users
 field_name: field_ngf_users
 entity_type: message
@@ -18,7 +24,7 @@ default_value_callback: ''
 settings:
   handler: 'default:user'
   handler_settings:
-    include_anonymous: true
+    include_anonymous: false
     filter:
       type: _none
     target_bundles: null

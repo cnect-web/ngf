@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   module:
-    - ctools
+    - system
   theme:
     - funkywave
 id: pagetitle
 theme: funkywave
 region: content
-weight: 0
+weight: -4
 provider: null
 plugin: page_title_block
 settings:
@@ -18,10 +18,8 @@ settings:
   provider: core
   label_display: '0'
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      page: page
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/group/add/*\r\n/group/*/content/create/*\r\n/group/*/subgroup/create/*\r\n/node/add/*\r\n/group/add/*\r\n/events\r\n/taxonomy/*\r\n/content/*\r\n\r\n"
     negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
+    context_mapping: {  }

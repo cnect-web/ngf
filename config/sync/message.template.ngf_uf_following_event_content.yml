@@ -1,0 +1,14 @@
+uuid: 970983cc-28ae-4420-a6ad-12ef694211ef
+langcode: en
+status: true
+dependencies: {  }
+template: ngf_uf_following_event_content
+label: 'User feed : In following event a content has been created'
+description: 'In following event a content has been created'
+text: {  }
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

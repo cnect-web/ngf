@@ -5,5 +5,14 @@ menu_link_icons:
   ngf_group_link_discover:
     icon: fa-users
     appearance: before
+  ngf_group_link_contacts-and-groups:
+    icon: fa-users
+    appearance: before
+  'views_view:views_events_page_1':
+    icon: fa-calendar-alt
+    appearance: before
+  ngf_core_link_user-feed:
+    icon: fa-home
+    appearance: before
 _core:
   default_config_hash: 5TDl2QyTY-mHHJ0_VrmcxVDwhp4oqkLTzDI03yXvhAI

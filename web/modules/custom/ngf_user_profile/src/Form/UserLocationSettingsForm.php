@@ -37,16 +37,7 @@ class UserLocationSettingsForm extends FormBase {
    * Class constructor.
    */
   public function __construct() {
-    $this->currentUser = User::load(\Drupal::getContainer()->get('current_user')->id());
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('current_user')
-    );
+    $this->currentUser = User::load($this->currentUser()->id());
   }
 
   /**
@@ -73,7 +64,7 @@ class UserLocationSettingsForm extends FormBase {
       if (!empty($this->currentUser->get('field_ngf_city')->target_id)) {
         $city_term = Term::load($this->currentUser->get('field_ngf_city')->target_id);
         if ($city_term) {
-          $city = $city_term->getName() . ' (' . $city_term->id() . ')';
+          $city = "{$city_term->getName()} ({$city_term->id()})";
         }
       }
     }

@@ -1,0 +1,14 @@
+uuid: a8b995f9-32c2-448b-8e76-728f303ae04b
+langcode: en
+status: true
+dependencies: {  }
+template: ngf_uf_following_user_event
+label: 'User feed : Following user has created a new event'
+description: 'Following user has created a new event'
+text: {  }
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

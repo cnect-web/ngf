@@ -40,6 +40,10 @@ class StepThree extends BaseStep {
       '#type' => 'item',
       '#markup' => t('<h2>Interests</h2>'),
     ];
+    $form['introtext'] = [
+      '#type' => 'item',
+      '#markup' => t('<p class="intro-text">Now, what makes you tick? Select or add your interests, it helps us offer you the most relevant content (real content, no adds).</p>'),
+    ];
     $form['interests_wrapper'] = [
       '#type' => 'container',
       '#attributes' => ['id' => 'interests-wrapper'],

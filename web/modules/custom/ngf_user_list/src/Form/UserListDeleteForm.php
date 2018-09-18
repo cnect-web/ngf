@@ -18,6 +18,7 @@ class UserListDeleteForm extends ContentEntityDeleteForm {
 
 
     parent::submitForm($form, $form_state);
+    $form_state->setRedirect('ngf_user_profile.page.user_profile', ['user' => $this->currentUser()->id()]);
   }
 
 }

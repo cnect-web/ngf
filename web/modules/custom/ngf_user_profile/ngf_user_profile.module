@@ -24,13 +24,17 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 function ngf_user_profile_node_insert(Node $node) {
   if (in_array($node->getType(), ['ngf_discussion'])) {
+
+    /** @var Drupal\ngf_user_profile\Manager\NotificationManager $notification_manager */
     $notification_manager = \Drupal::getContainer()
       ->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyFollowersAboutNewContent($node);
 
+    /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
     $userFeedManager = \Drupal::getContainer()
       ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createContentUserFeed($node);
+
   }
 }
 
@@ -38,15 +42,10 @@ function ngf_user_profile_node_insert(Node $node) {
  * Implements hook_group_content_insert().
  */
 function ngf_user_profile_group_content_insert(GroupContent $group_content) {
-  // Probably in the future we will need specific content type.
-  // $group_content->getGroupContentType()->getPluginId() == 'group_node:ngf_discussion'.
-  // or we will need specific group type
-  // $group_content->getGroupContentType()->getGroupType() == 'ngf_discussion_group'.
-  if ($group_content->getContentPlugin()->getEntityTypeId() == 'node') {
-    $userFeedManager = \Drupal::getContainer()
-      ->get('ngf_user_profile.user_feed_manager');
-    $userFeedManager->createGroupContentUserFeed($group_content);
-  }
+  /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
+  $userFeedManager = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_feed_manager');
+  $userFeedManager->createGroupContentUserFeeds($group_content);
 }
 
 /**
@@ -55,13 +54,17 @@ function ngf_user_profile_group_content_insert(GroupContent $group_content) {
 function ngf_user_profile_comment_insert(Comment $comment) {
   if ($comment->getCommentedEntityTypeId() == 'node' && in_array($comment->getCommentedEntity()
       ->getType(), ['ngf_discussion'])) {
+
+    /** @var Drupal\ngf_user_profile\Manager\NotificationManager $notification_manager */
     $notification_manager = \Drupal::getContainer()
       ->get('ngf_user_profile.notification_manager');
     $notification_manager->notifyOwnerAboutNewComment($comment);
 
+    /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
     $userFeedManager = \Drupal::getContainer()
       ->get('ngf_user_profile.user_feed_manager');
     $userFeedManager->createCommentUserFeed($comment);
+
   }
 }
 
@@ -69,26 +72,10 @@ function ngf_user_profile_comment_insert(Comment $comment) {
  * Implements hook_group_insert().
  */
 function ngf_user_profile_group_insert(Group $group) {
-  if ($group->getGroupType()->id() == 'ngf_discussion_group') {
-    $userFeedManager = \Drupal::getContainer()
-      ->get('ngf_user_profile.user_feed_manager');
-    $userFeedManager->createGroupUserFeed($group);
-  }
-}
-
-function ngf_user_profile_theme($existing, $type, $theme, $path) {
-  return [
-    'ngf_user_feed_item' => [
-      'variables' => [
-        'authorFullName' => NULL,
-        'authorProfileURL' => NULL,
-        'authorPics' => NULL,
-        'entity' => NULL,
-        'contextText' => NULL,
-      ],
-      'path' => drupal_get_path('module', 'ngf_user_profile') . '/templates',
-    ],
-  ];
+  /** @var Drupal\ngf_user_profile\Manager\UserFeedManager $userFeedManager */
+  $userFeedManager = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_feed_manager');
+  $userFeedManager->createGroupUserFeeds($group);
 }
 
 /**
@@ -120,8 +107,10 @@ function ngf_user_profile_entity_form_display_alter(&$form_display, $context) {
   // Set custom display for authenticated users.
   if ($context['entity_type'] == 'user' && $context['bundle'] == 'user') {
     $user = \Drupal::currentUser();
-    if (!in_array('administrator',
-        $user->getRoles()) && in_array('authenticated', $user->getRoles())) {
+    $user_roles = $user->getRoles();
+    if (\Drupal::routeMatch()->getRouteName() == 'ngf_user_profile.page.general_settings' &&
+      !in_array('administrator', $user_roles) &&
+      in_array('authenticated', $user_roles)) {
       $storage = \Drupal::service('entity_type.manager')
         ->getStorage('entity_form_display');
       $form_display = $storage->load('user.user.ngf_authenticated');
@@ -234,6 +223,18 @@ function ngf_user_profile_user_view(
             ],
           ],
         ];
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_list.add_user', [
+            'user' => $user_id,
+          ]),
+          '#title' => t('Add to list'),
+          '#attributes' => [
+            'class' => [
+              'profile__actions--add2list',
+            ],
+          ],
+        ];
 
         $flag_builder = \Drupal::service('flag.link_builder');
         $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');
@@ -338,8 +339,6 @@ function _ngf_user_profile_get_followers($user) {
  * Implements hook_menu_local_tasks_alter().
  */
 function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
-
-
   $local_tasks = [
     // Hide the members and followers tab, but keep the functionality.
     'ngf_user_profile.link.followers',

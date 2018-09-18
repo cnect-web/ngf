@@ -1,0 +1,14 @@
+uuid: 70a3c6c6-05cb-4680-98df-284c13600124
+langcode: en
+status: true
+dependencies: {  }
+template: ngf_uf_member_group_subgroup
+label: 'User feed : In group you are member subgroup has been created'
+description: 'In group you are member subgroup has been created'
+text: {  }
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

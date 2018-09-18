@@ -39,6 +39,10 @@ class StepOne extends BaseStep {
       '#type' => 'item',
       '#markup' => t('<h2>Register</h2>'),
     ];
+    $form['introtext'] = [
+      '#type' => 'item',
+      '#markup' => t('<p class="intro-text">Let’s keep it simple. Just tell us who you are and how can we reach you</p>'),
+    ];
 
     $fields = [
       [
