@@ -23,7 +23,7 @@ class FrontPageController extends ControllerBase {
   protected $homepageManager;
 
   /**
-   * FrontPageController constructor.
+   * ContentController constructor.
    *
    * @param \Drupal\ngf_core\Manager\HomepageManager $homepage_manager
    *   The homepage manager.

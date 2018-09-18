@@ -81,6 +81,8 @@
         "drupal/twig_tweak": "^2.0",
         "drupal/ui_patterns": "^1.0",
         "drupal/video": "^1.2",
+        "drupal/votingapi": "^3.0",
+        "drupal/vote_up_down": "^1.0",
         "drush/drush": "^9.0.0",
         "harvesthq/chosen": "^1.8",
         "henrikbjorn/lurker": "^1.2",

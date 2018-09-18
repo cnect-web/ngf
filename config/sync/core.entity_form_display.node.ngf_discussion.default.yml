@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.ngf_discussion.field_ngf_interests
     - field.field.node.ngf_discussion.field_ngf_introtext
     - field.field.node.ngf_discussion.field_ngf_related_content
+    - field.field.node.ngf_discussion.field_ngf_vote
     - node.type.ngf_discussion
   module:
     - autocomplete_deluxe
@@ -18,6 +19,7 @@ dependencies:
     - paragraphs
     - path
     - textfield_counter
+    - vud
 id: node.ngf_discussion.default
 targetEntityType: node
 bundle: ngf_discussion
@@ -107,6 +109,13 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
     third_party_settings: {  }
+    region: content
+  field_ngf_vote:
+    weight: 26
+    settings:
+      vote_tag: vote
+    third_party_settings: {  }
+    type: vote_up_down_widget_type
     region: content
   flag:
     weight: 9

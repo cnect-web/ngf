@@ -1,0 +1,23 @@
+uuid: 0c6b692d-88c6-4035-86af-4d63387b122a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngf_vote
+    - node.type.ngf_discussion
+  module:
+    - vud
+id: node.ngf_discussion.field_ngf_vote
+field_name: field_ngf_vote
+entity_type: node
+bundle: ngf_discussion
+label: Vote
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: null
+default_value_callback: ''
+settings: {  }
+field_type: vote_up_down_field
