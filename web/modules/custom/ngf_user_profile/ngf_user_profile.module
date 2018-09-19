@@ -266,9 +266,21 @@ function ngf_user_profile_user_view(
 
     // Show followers panel
     if ($display->getComponent('followers_panel')) {
+      $items = [];
       if ($entity->id() == $current_user->id()) {
         $url_followers = Url::fromRoute('ngf_user_profile.page.followers');
         $url_following = Url::fromRoute('ngf_user_profile.page.following');
+
+        $items[] = [
+          '#type' => 'link',
+          '#url' => Url::fromRoute('ngf_user_profile.page.saved_content'),
+          '#title' => _ngf_user_profile_get_saved_content($entity),
+          '#attributes' => [
+            'class' => [
+              'profile__networks__item profile__followers',
+            ],
+          ],
+        ];
       }
       else {
         $user_options = [
@@ -284,7 +296,6 @@ function ngf_user_profile_user_view(
         );
       }
 
-      $items = [];
       $items[] = [
         '#type' => 'link',
         '#url' => $url_followers,
@@ -335,6 +346,13 @@ function _ngf_user_profile_get_followers($user) {
   return t('@count following', ['@count' => $count]);
 }
 
+function _ngf_user_profile_get_saved_content($user) {
+  $count = \Drupal::getContainer()
+    ->get('ngf_user_profile.user_manager')
+    ->getCountSavedContent($user);
+  return t('@count saved', ['@count' => $count]);
+}
+
 /**
  * Implements hook_menu_local_tasks_alter().
  */
@@ -347,6 +365,7 @@ function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
     'ngf_user_profile.link.user_contact',
     'ngf_user_profile.link.user_followers',
     'ngf_user_profile.link.user_following',
+    'ngf_user_profile.link.saved_content',
     'ngf_user_profile.link.user_about',
   ];
 

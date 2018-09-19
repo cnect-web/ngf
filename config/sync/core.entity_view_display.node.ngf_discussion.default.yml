@@ -25,7 +25,7 @@ bundle: ngf_discussion
 mode: default
 content:
   field_comments:
-    weight: 4
+    weight: 3
     label: above
     settings:
       view_mode: default
@@ -61,7 +61,7 @@ content:
     region: content
   field_ngf_related_content:
     type: entity_reference_revisions_entity_view
-    weight: 5
+    weight: 4
     label: above
     settings:
       view_mode: default
@@ -69,14 +69,19 @@ content:
     third_party_settings: {  }
     region: content
   field_ngf_vote:
-    weight: 6
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
     type: vote_up_down_formatter_type
     region: content
   flag_ngf_follow_content:
-    weight: 3
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  flag_ngf_save_content:
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -89,7 +94,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   voters:
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

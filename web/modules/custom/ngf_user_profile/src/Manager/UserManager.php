@@ -7,6 +7,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\ngf_user_profile\MessageTrait;
 use Drupal\user\Entity\User;
 use Drupal\user\UserDataInterface;
+use Drupal\node\Entity\Node;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\Helper\UserHelper;
@@ -114,12 +115,25 @@ class UserManager {
     return User::loadMultiple($user_ids);
   }
 
+  public function getSavedContentList() {
+    $flags = $this->getUserFlaggings($this->getSavedContentFlag(), $this->getCurrentUserAccount());
+    $content_ids = [];
+    foreach ($flags as $flag) {
+      $content_ids[] = $flag->getFlaggableId();
+    }
+    return Node::loadMultiple($content_ids);
+  }
+
   public function getCountFollowingUsersList($user) {
     return count($this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user));
   }
 
   public function getCountFollowersUsersList($user) {
     return count($this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id()));
+  }
+
+  public function getCountSavedContent($user) {
+    return count($this->getUserFlaggedItemsByFlagId('ngf_save_content', $user->id()));
   }
 
   /**
@@ -313,7 +327,5 @@ class UserManager {
   public function getFollowers($user) {
     return $this->flag->getFlaggingUsers($user, $this->getFollowUserFlag());
   }
-
-
 
 }
