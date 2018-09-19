@@ -85,7 +85,7 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function followers(EntityInterface $user = NULL) {
-    $text = t('<p>There are no followers yet</p>');
+    $text = $this->t('<p>There are no followers yet</p>');
     return $this->getContent($this->getUserList($this->userManager->getFollowersUsersList($user), $text), $user);
   }
 
@@ -93,8 +93,16 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function following(EntityInterface $user = NULL) {
-    $text = t('<p>There are no following users yet</p>');
+    $text = $this->t('<p>There are no following users yet</p>');
     return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList($user), $text), $user);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function savedContent() {
+    $text = $this->t('<p>There are no saved content items yet</p>');
+    return $this->getContent($this->getContentList($this->userManager->getSavedContentList(), $text), NULL, 'newsfeed');
   }
 
   public function contact(EntityInterface $user) {
@@ -113,9 +121,18 @@ class UserProfilePageController extends UserProfileControllerBase {
   }
 
   protected function getUserList($users, $no_items_text) {
+    return $this->getEntityList('user', 'compact', $users, $no_items_text);
+  }
+
+  protected function getContentList($content_items, $no_items_text) {
+    return $this->getEntityList('node', 'teaser', $content_items, $no_items_text);
+  }
+
+  protected function getEntityList($entity_type, $view_mode, $entities, $no_items_text) {
     $items = [];
-    foreach ($users as $user) {
-      $items[] = $this->entityTypeManager()->getViewBuilder('user')->view($user, 'compact');
+    $entity_builder = $this->entityTypeManager()->getViewBuilder($entity_type);
+    foreach ($entities as $entity) {
+      $items[] = $entity_builder->view($entity, $view_mode);
     }
     return count($items) > 0  ? $items : $this->getRenderMarkup($no_items_text);
   }

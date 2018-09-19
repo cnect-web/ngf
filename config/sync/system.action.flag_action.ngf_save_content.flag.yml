@@ -1,0 +1,13 @@
+uuid: 1329da1f-f2d2-4ae6-85c7-d4b7a050df75
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ngf_save_content.flag
+label: Save
+type: node
+plugin: 'flag_action:ngf_save_content.flag'
+configuration:
+  flag_id: ngf_save_content
+  flag_action: flag

@@ -106,6 +106,14 @@ ngf_user_profile.page.following:
   requirements:
     _permission: 'access content'
 
+ngf_user_profile.page.saved_content:
+  path: '/profile/saved-content'
+  defaults:
+    _title: 'Saved content'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::savedContent'
+  requirements:
+    _permission: 'access content'
+
 ngf_user_profile.page.feed:
   path: '/profile/feed'
   defaults:

@@ -11,12 +11,19 @@ use Drupal\views\Views;
  */
 class UserProfileControllerBase extends ControllerBase {
 
-  protected function getContent($content, $user = NULL) {
-    return [
+  protected function getContent($content, $user = NULL, $wrapper_class = NULL) {
+    $render_array = [
       'header' => $this->getUserDisplay($user ?? $this->getCurrentUserAccount(), 'ngf_profile'),
       'tabs' => $this->getTabs(),
       'content' => $content,
     ];
+
+    if (!empty($wrapper_class)) {
+      $render_array['#prefix'] = "<div class='$wrapper_class'>";
+      $render_array['#suffix'] = '</div>';
+    }
+
+    return $render_array;
   }
 
   /**

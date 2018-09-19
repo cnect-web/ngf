@@ -1,0 +1,13 @@
+uuid: b2ef1240-92f1-4646-8937-d5433fbafbb4
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ngf_save_content.unflag
+label: Unsave
+type: node
+plugin: 'flag_action:ngf_save_content.unflag'
+configuration:
+  flag_id: ngf_save_content
+  flag_action: unflag
