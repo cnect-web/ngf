@@ -89,3 +89,27 @@ ngf_group.page.followers:
     parameters:
       group:
         type: 'entity:group'
+
+ngf_group.page.reported_content:
+  path: '/group/{group}/reported-content'
+  defaults:
+    _title: 'Reported content'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::reportedContentPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.reported_comments:
+  path: '/group/{group}/reported-comments'
+  defaults:
+    _title: 'Reported comments'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::reportedCommentsPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'

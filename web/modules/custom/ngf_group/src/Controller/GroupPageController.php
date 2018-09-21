@@ -213,4 +213,12 @@ class GroupPageController extends ControllerBase {
     return [];
   }
 
+  public function reportedContentPage(EntityInterface $group) {
+    return $this->getViewContent($group, 'reported_content');
+  }
+
+  public function reportedCommentsPage(EntityInterface $group) {
+    return $this->getViewContent($group, 'reported_comments');
+  }
+
 }

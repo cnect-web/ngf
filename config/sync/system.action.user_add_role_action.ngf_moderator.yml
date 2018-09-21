@@ -1,0 +1,14 @@
+uuid: 89a89e47-cc2d-4512-97f7-4e88fe6361a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ngf_moderator
+  module:
+    - user
+id: user_add_role_action.ngf_moderator
+label: 'Add the Moderator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: ngf_moderator
