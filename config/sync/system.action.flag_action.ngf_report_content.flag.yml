@@ -1,0 +1,13 @@
+uuid: 6ace365d-7931-45be-a54f-50c6832b886b
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ngf_report_content.flag
+label: 'Report content'
+type: node
+plugin: 'flag_action:ngf_report_content.flag'
+configuration:
+  flag_id: ngf_report_content
+  flag_action: flag

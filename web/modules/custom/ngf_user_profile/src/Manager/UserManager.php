@@ -90,40 +90,6 @@ class UserManager {
     return UserList::loadMultiple($list_ids);
   }
 
-  public function getFollowingUsersList($user) {
-    if (empty($user)) {
-      $user = $this->getCurrentUserAccount();
-    }
-    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
-    $user_ids = [];
-    foreach ($followed_user_items as $user_item) {
-      $user_ids[] = $user_item->entity_id;
-    }
-    return User::loadMultiple($user_ids);
-  }
-
-  public function getFollowersUsersList($user) {
-    if (empty($user)) {
-      $user = $this->getCurrentUserAccount();
-    }
-
-    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user);
-    $user_ids = [];
-    foreach ($following_user_items as $user_item) {
-      $user_ids[] = $user_item->get('uid')->target_id;
-    }
-    return User::loadMultiple($user_ids);
-  }
-
-  public function getSavedContentList() {
-    $flags = $this->getUserFlaggings($this->getSavedContentFlag(), $this->getCurrentUserAccount());
-    $content_ids = [];
-    foreach ($flags as $flag) {
-      $content_ids[] = $flag->getFlaggableId();
-    }
-    return Node::loadMultiple($content_ids);
-  }
-
   public function getCountFollowingUsersList($user) {
     return count($this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user));
   }

@@ -1,0 +1,30 @@
+uuid: 8183429a-94f0-40b4-a512-bcbe5f613401
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ngf_report_content
+label: 'Report content'
+bundles:
+  - ngf_discussion
+entity_type: node
+global: false
+weight: 0
+flag_short: 'Report content'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Unreport content'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

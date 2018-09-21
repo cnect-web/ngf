@@ -1,0 +1,13 @@
+uuid: 655c9af1-b6e9-47ab-bedc-42ccd00e00ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ngf_report_comment.flag
+label: 'Report comment'
+type: comment
+plugin: 'flag_action:ngf_report_comment.flag'
+configuration:
+  flag_id: ngf_report_comment
+  flag_action: flag
