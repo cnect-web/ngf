@@ -4,8 +4,8 @@ namespace Drupal\ngf_user_registration\Step;
 
 use Drupal\ngf_user_registration\Button\StepOneNextButton;
 use Drupal\ngf_user_registration\Validator\ValidatorRequired;
+use Drupal\ngf_user_registration\Validator\ValidatorEmail;
 use Drupal\ngf_user_registration\Validator\ValidatorUsername;
-use Drupal\user\RegisterForm;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -124,8 +124,11 @@ class StepOne extends BaseStep {
   public function getFieldsValidators() {
     return [
       'username' => [
-        new ValidatorUsername('Only several special characters are allowed, including space, ., -, \, _, @.  ')
+        new ValidatorUsername('Only several special characters are allowed, including space, ., -, \, _, @.  '),
       ],
+      'email' => [
+        new ValidatorEmail(),
+      ]
     ];
   }
 
