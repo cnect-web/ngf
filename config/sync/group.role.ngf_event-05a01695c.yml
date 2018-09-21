@@ -1,0 +1,17 @@
+uuid: b0b53193-0d3b-47bd-8204-2ea6bc48f9f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.ngf_event
+  enforced:
+    config:
+      - user.role.ngf_moderator
+id: ngf_event-05a01695c
+label: Moderator
+weight: 3
+internal: true
+audience: outsider
+group_type: ngf_event
+permissions_ui: false
+permissions: {  }
