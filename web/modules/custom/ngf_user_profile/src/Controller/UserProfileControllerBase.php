@@ -11,21 +11,12 @@ use Drupal\views\Views;
  */
 class UserProfileControllerBase extends ControllerBase {
 
-  protected function getContent($content, $user = NULL, $wrapper_class = NULL) {
-    $render_array = [
+  protected function getContent($content, $user = NULL) {
+    return [
       'header' => $this->getUserDisplay($user ?? $this->getCurrentUserAccount(), 'ngf_profile'),
       'tabs' => $this->getTabs(),
-      'content' => [
-        'content' => $content,
-      ],
+      'content' => $content,
     ];
-
-    if (!empty($wrapper_class)) {
-      $render_array['content']['#prefix'] = "<div class='$wrapper_class'>";
-      $render_array['content']['#suffix'] = '</div>';
-    }
-
-    return $render_array;
   }
 
   /**
@@ -39,11 +30,13 @@ class UserProfileControllerBase extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  protected function getView($view_name, $display_name, $user_id) {
+  protected function getView($view_name, $display_name, $argument) {
     // Add the view block.
     $view = Views::getView($view_name);
     $view->setDisplay($display_name);
-    $view->setArguments([$user_id]);
+    if (!empty($argument)) {
+      $view->setArguments([$argument]);
+    }
     $view->preExecute();
     $view->execute();
 

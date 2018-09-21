@@ -1,0 +1,13 @@
+uuid: e1468dcc-da61-4ee6-a850-a4869404d227
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ngf_report_content.unflag
+label: 'Unreport content'
+type: node
+plugin: 'flag_action:ngf_report_content.unflag'
+configuration:
+  flag_id: ngf_report_content
+  flag_action: unflag

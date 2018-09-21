@@ -33,6 +33,7 @@
         "drupal/core": "~8.4",
         "drupal/ctools": "^3.0",
         "drupal/drupal-extension": "^3.4",
+        "drupal/elasticsearch_connector": "^5.0",
         "drupal/embed": "^1.0",
         "drupal/entity_browser": "^2.0",
         "drupal/entity_embed": "^1.0",

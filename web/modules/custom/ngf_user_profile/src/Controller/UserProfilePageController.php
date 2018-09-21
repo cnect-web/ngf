@@ -85,24 +85,23 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function followers(EntityInterface $user = NULL) {
-    $text = $this->t('<p>There are no followers yet</p>');
-    return $this->getContent($this->getUserList($this->userManager->getFollowersUsersList($user), $text), $user);
+    $user = $user ?? $this->getCurrentUserAccount();
+    return $this->getContent($this->getView('ngf_user_followers', 'followers', $user->id()));
   }
 
   /**
    * {@inheritdoc}
    */
   public function following(EntityInterface $user = NULL) {
-    $text = $this->t('<p>There are no following users yet</p>');
-    return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList($user), $text), $user);
+    $user = $user ?? $this->getCurrentUserAccount();
+    return $this->getContent($this->getView('ngf_user_followers', 'following', $user->id()));
   }
 
   /**
    * {@inheritdoc}
    */
   public function savedContent() {
-    $text = $this->t('<p>There are no saved content items yet</p>');
-    return $this->getContent($this->getContentList($this->userManager->getSavedContentList(), $text), NULL, 'newsfeed');
+    return $this->getContent($this->getView('ngf_saved_content', 'saved_content', NULL));
   }
 
   public function contact(EntityInterface $user) {
