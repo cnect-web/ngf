@@ -123,12 +123,12 @@ class UserListController extends UserProfileControllerBase {
   public function removeUserListItem($list_id, $username) {
     $this->userListManager->removeUserListItem($list_id, $username);
     // Redirect back to a user lists.
-    return $this->redirect('ngf_user_list.user_list_items', ['list_id' => $list_id]);
+    return $this->redirect('ngf_user_list.list_items', ['ngf_user_list' => $list_id]);
   }
 
   public function addUserListItem($list_id, $username) {
     $this->userListManager->addUserListItem($list_id, $username);
-    return $this->redirect('ngf_user_list.user_list_items', ['list_id' => $list_id]);
+    return $this->redirect('ngf_user_list.list_items', ['ngf_user_list' => $list_id]);
   }
 
   public function userListItemsForm(UserList $ngf_user_list) {
