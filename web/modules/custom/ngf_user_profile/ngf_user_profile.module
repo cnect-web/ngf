@@ -397,9 +397,11 @@ function ngf_user_profile_views_pre_render(ViewExecutable $view) {
 
 function ngf_user_profile_user_format_name_alter(&$name, $account) {
   $user = User::load($account->id());
-  if (!empty($user->get('field_ngf_first_name')->value) && !empty($user->get('field_ngf_last_name')->value)) {
-    $name = $user->get('field_ngf_first_name')->value . ' ' . $user->get('field_ngf_last_name')->value;
-  } else {
-    $name = $user->getUserName();
+  if (!empty($user)) {
+    if (!empty($user->get('field_ngf_first_name')->value) && !empty($user->get('field_ngf_last_name')->value)) {
+      $name = $user->get('field_ngf_first_name')->value . ' ' . $user->get('field_ngf_last_name')->value;
+    } else {
+      $name = $user->getUserName();
+    }
   }
 }
