@@ -16,4 +16,7 @@ permissions:
   1: 'view group'
   2: 'view group_node:ngf_discussion entity'
   3: 'create group_node:ngf_discussion entity'
-  8: 'create subgroup:ngf_event entity'
+  4: 'create subgroup:ngf_event entity'
+  5: 'create subgroup:ngf_discussion_group entity'
+  6: 'create subgroup:ngf_discussion_group content'
+  13: 'create subgroup:ngf_event content'

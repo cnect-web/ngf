@@ -5,13 +5,42 @@ namespace Drupal\ngf_core\Controller;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\ngf_core\Manager\HomepageManager;
 use Drupal\views\Views;
 use Drupal\Core\Url;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Front page controller.
  */
 class FrontPageController extends ControllerBase {
+
+  /**
+   * User manager.
+   *
+   * @var \Drupal\ngf_core\Manager\HomepageManager
+   */
+  protected $homepageManager;
+
+  /**
+   * ContentController constructor.
+   *
+   * @param \Drupal\ngf_core\Manager\HomepageManager $homepage_manager
+   *   The homepage manager.
+   */
+  public function __construct(HomepageManager $homepage_manager) {
+    $this->homepageManager = $homepage_manager;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static(
+      $container->get('ngf_core.home_page_manager')
+    );
+  }
+
   /**
    * Returns a render-able array for a test page.
    */
@@ -162,7 +191,7 @@ class FrontPageController extends ControllerBase {
       ]
     ];
 
-    $url = Url::fromRoute('ngf_user_registration');
+    $url = Url::fromRoute('ngf_core.public_feed');
     $render['feed_link_wrapper']['feed_link'] = [
       '#type' => 'link',
       '#title' => t('Check the public feed'),
@@ -179,7 +208,7 @@ class FrontPageController extends ControllerBase {
   }
 
   public function  authenticatedFrontPage() {
-    return ['#markup' => ''];
+    return $this->homepageManager->getContent();
   }
 
   public function content() {

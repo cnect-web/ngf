@@ -1,0 +1,42 @@
+uuid: 05bafb7f-913a-4b34-95ee-8df1188d8c0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.message.ngf_uf_following_user_event.field_ngf_created_group
+    - field.field.message.ngf_uf_following_user_event.field_ngf_following_user
+    - field.field.message.ngf_uf_following_user_event.field_ngf_users
+    - message.template.ngf_uf_following_user_event
+id: message.ngf_uf_following_user_event.default
+targetEntityType: message
+bundle: ngf_uf_following_user_event
+mode: default
+content:
+  field_ngf_created_group:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ngf_following_user:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ngf_users:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden: {  }

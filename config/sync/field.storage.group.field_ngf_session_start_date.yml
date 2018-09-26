@@ -1,0 +1,20 @@
+uuid: ebe8eeaa-9e9f-4477-911f-e4bfa0050b0b
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - group
+id: group.field_ngf_session_start_date
+field_name: field_ngf_session_start_date
+entity_type: group
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

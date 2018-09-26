@@ -39,5 +39,5 @@ function ngf_search_form_views_exposed_form_alter(
   FormStateInterface $form_state,
   $form_id
 ) {
-//  var_dump($form);
+
 }

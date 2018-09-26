@@ -15,13 +15,17 @@ dependencies:
     - field.field.group.ngf_event.field_ngf_introtext
     - field.field.group.ngf_event.field_ngf_location
     - field.field.group.ngf_event.field_ngf_registration_link
-    - field.field.group.ngf_event.field_ngf_venue
     - group.type.ngf_event
 id: group.ngf_event.ngf_follow_up
 targetEntityType: group
 bundle: ngf_event
 mode: ngf_follow_up
 content:
+  flag_ngf_follow_event:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   label:
     label: hidden
     type: string
@@ -44,6 +48,5 @@ hidden:
   field_ngf_introtext: true
   field_ngf_location: true
   field_ngf_registration_link: true
-  field_ngf_venue: true
   show_more: true
   uid: true

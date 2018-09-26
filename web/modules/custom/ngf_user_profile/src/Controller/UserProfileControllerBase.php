@@ -11,15 +11,6 @@ use Drupal\views\Views;
  */
 class UserProfileControllerBase extends ControllerBase {
 
-  protected function getEntityForm($form_view_mode, $entity, $entity_type = 'user') {
-    $form = $this->entityTypeManager()
-      ->getFormObject($entity_type, $form_view_mode)
-      ->setEntity($entity);
-
-    return $this->formBuilder()->getForm($form);
-  }
-
-
   protected function getContent($content, $user = NULL) {
     return [
       'header' => $this->getUserDisplay($user ?? $this->getCurrentUserAccount(), 'ngf_profile'),
@@ -39,11 +30,13 @@ class UserProfileControllerBase extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  protected function getView($view_name, $display_name, $user_id) {
+  protected function getView($view_name, $display_name, $argument) {
     // Add the view block.
     $view = Views::getView($view_name);
     $view->setDisplay($display_name);
-    $view->setArguments([$user_id]);
+    if (!empty($argument)) {
+      $view->setArguments([$argument]);
+    }
     $view->preExecute();
     $view->execute();
 
@@ -100,7 +93,7 @@ class UserProfileControllerBase extends ControllerBase {
   protected function getViewContent($content_name, EntityInterface $user = NULL) {
     $prefix = !empty($user) ? 'user_' : 'your_';
     return $this->getContent($this->getView(
-      'ngf_user_' . $content_name,
+      "ngf_user_$content_name",
       $prefix . $content_name,
       !empty($user) ? $user->id() : $this->currentUser()->id()
     ), $user);

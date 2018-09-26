@@ -8,6 +8,8 @@ class UserFeedHelper {
     return [
       'ngf_uf_following_group_content',
       'ngf_uf_member_group_content',
+      'ngf_uf_following_event_content',
+      'ngf_uf_member_event_content',
       'ngf_uf_following_user_content',
     ];
   }
@@ -23,6 +25,16 @@ class UserFeedHelper {
   public static function getGroupMessageTemplates() {
     return [
       'ngf_uf_following_user_group',
+      'ngf_uf_member_group_subgroup',
+      'ngf_uf_following_group_subgroup',
+    ];
+  }
+
+  public static function getEventMessageTemplates() {
+    return [
+      'ngf_uf_following_user_event',
+      'ngf_uf_member_group_event',
+      'ngf_uf_following_group_event',
     ];
   }
 }

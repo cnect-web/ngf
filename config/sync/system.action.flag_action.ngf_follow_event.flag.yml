@@ -1,0 +1,13 @@
+uuid: c4f7bb7a-4906-4c94-92cb-22ea7094e0bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ngf_follow_event.flag
+label: 'Follow event'
+type: group
+plugin: 'flag_action:ngf_follow_event.flag'
+configuration:
+  flag_id: ngf_follow_event
+  flag_action: flag

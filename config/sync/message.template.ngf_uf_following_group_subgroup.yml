@@ -1,0 +1,14 @@
+uuid: 5cfcbb37-0323-422d-a6ff-8eabd0074751
+langcode: en
+status: true
+dependencies: {  }
+template: ngf_uf_following_group_subgroup
+label: 'User feed : In following group a subgroup has been created'
+description: 'In following group a subgroup has been created'
+text: {  }
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

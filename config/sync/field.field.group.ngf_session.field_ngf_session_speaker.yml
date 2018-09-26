@@ -1,0 +1,52 @@
+uuid: 6b7f5b84-f37d-4aa7-89c6-93d74cc12a68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_ngf_session_speaker
+    - group.type.ngf_session
+    - paragraphs.paragraphs_type.ngf_speaker
+  module:
+    - entity_reference_revisions
+id: group.ngf_session.field_ngf_session_speaker
+field_name: field_ngf_session_speaker
+entity_type: group
+bundle: ngf_session
+label: Speaker(s)
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      ngf_speaker: ngf_speaker
+    target_bundles_drag_drop:
+      ngf_file:
+        weight: 8
+        enabled: false
+      ngf_speaker:
+        enabled: true
+        weight: 9
+      ngf_image:
+        weight: 9
+        enabled: false
+      ngf_related_content_discussion:
+        weight: 10
+        enabled: false
+      ngf_related_content_event:
+        weight: 11
+        enabled: false
+      ngf_related_content_group:
+        weight: 12
+        enabled: false
+      ngf_text:
+        weight: 13
+        enabled: false
+      ngf_video:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

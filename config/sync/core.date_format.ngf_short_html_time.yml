@@ -1,0 +1,8 @@
+uuid: c480b8cc-f3ef-4696-a965-48b1ac259296
+langcode: en
+status: true
+dependencies: {  }
+id: ngf_short_html_time
+label: 'Short HTML Time'
+locked: false
+pattern: 'H:i'

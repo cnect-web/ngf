@@ -247,8 +247,7 @@ class UserRegistrationForm extends FormBase {
     $formStateObject = new FormState();
     $formStateObject->setFormObject($formObject)->disableRedirect();
     $formObject->setEntity($user);
-    $form = [];
-    $form = $formObject->buildForm($form, $formStateObject);
+    $form = $formObject->buildForm(['#build_id' => 'register'], $formStateObject);
     $formStateObject->setValue('roles', []);
     $formObject->validateForm($form, $formStateObject);
 

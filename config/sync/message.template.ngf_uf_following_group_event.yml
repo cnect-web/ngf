@@ -1,0 +1,14 @@
+uuid: 31b9c5a5-112c-4833-85d3-a3f5c37ab8f9
+langcode: en
+status: true
+dependencies: {  }
+template: ngf_uf_following_group_event
+label: 'User feed : In following group an event has been created'
+description: 'In following group an event has been created'
+text: {  }
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

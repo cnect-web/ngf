@@ -1,0 +1,17 @@
+uuid: 81cc823c-09d1-4d5b-b49d-8d99d35cdc19
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.ngf_session
+  enforced:
+    config:
+      - user.role.ngf_moderator
+id: ngf_session-05a01695c
+label: Moderator
+weight: 3
+internal: true
+audience: outsider
+group_type: ngf_session
+permissions_ui: false
+permissions: {  }

@@ -134,11 +134,7 @@ class UserProfileController extends UserProfileControllerBase {
       ->getStorage('user')
       ->load($this->currentUser()->id());
 
-    $form = \Drupal::entityTypeManager()
-      ->getFormObject('user', 'ngf_interests')
-      ->setEntity($user);
-
-    return \Drupal::formBuilder()->getForm($form);
+    return $this->entityFormBuilder()->getForm($user, 'ngf_interests');
   }
 
 }

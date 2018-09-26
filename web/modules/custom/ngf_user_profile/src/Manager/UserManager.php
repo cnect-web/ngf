@@ -7,6 +7,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\ngf_user_profile\MessageTrait;
 use Drupal\user\Entity\User;
 use Drupal\user\UserDataInterface;
+use Drupal\node\Entity\Node;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\Helper\UserHelper;
@@ -89,37 +90,16 @@ class UserManager {
     return UserList::loadMultiple($list_ids);
   }
 
-  public function getFollowingUsersList($user) {
-    if (empty($user)) {
-      $user = $this->getCurrentUserAccount();
-    }
-    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
-    $user_ids = [];
-    foreach ($followed_user_items as $user_item) {
-      $user_ids[] = $user_item->entity_id;
-    }
-    return User::loadMultiple($user_ids);
-  }
-
-  public function getFollowersUsersList($user) {
-    if (empty($user)) {
-      $user = $this->getCurrentUserAccount();
-    }
-
-    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user);
-    $user_ids = [];
-    foreach ($following_user_items as $user_item) {
-      $user_ids[] = $user_item->get('uid')->target_id;
-    }
-    return User::loadMultiple($user_ids);
-  }
-
   public function getCountFollowingUsersList($user) {
     return count($this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user));
   }
 
   public function getCountFollowersUsersList($user) {
     return count($this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id()));
+  }
+
+  public function getCountSavedContent($user) {
+    return count($this->getUserFlaggedItemsByFlagId('ngf_save_content', $user->id()));
   }
 
   /**
@@ -313,7 +293,5 @@ class UserManager {
   public function getFollowers($user) {
     return $this->flag->getFlaggingUsers($user, $this->getFollowUserFlag());
   }
-
-
 
 }

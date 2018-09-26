@@ -1,0 +1,14 @@
+uuid: 6a592004-02c0-4974-a3a3-b45aa7657f22
+langcode: en
+status: true
+dependencies: {  }
+template: ngf_uf_member_event_content
+label: 'User feed : In event you are member content has been created'
+description: 'In event you are member content has been created'
+text: {  }
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

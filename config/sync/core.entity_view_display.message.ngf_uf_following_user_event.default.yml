@@ -1,0 +1,26 @@
+uuid: a6bfaddd-1ad1-42ea-9cc2-b7e95bc3ffa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.message.ngf_uf_following_user_event.field_ngf_created_group
+    - field.field.message.ngf_uf_following_user_event.field_ngf_following_user
+    - field.field.message.ngf_uf_following_user_event.field_ngf_users
+    - message.template.ngf_uf_following_user_event
+id: message.ngf_uf_following_user_event.default
+targetEntityType: message
+bundle: ngf_uf_following_user_event
+mode: default
+content:
+  field_ngf_created_group:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: ngf_teaser_user_created
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_ngf_following_user: true
+  field_ngf_users: true

@@ -1,13 +1,12 @@
 uuid: fd610bf2-5333-4eaf-8e87-128c0bc33943
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.full
-    - field.field.node.page.body
+    - field.field.node.page.field_description
     - node.type.page
   module:
-    - text
     - user
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
@@ -16,13 +15,6 @@ targetEntityType: node
 bundle: page
 mode: full
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   flag_ngf_follow_content:
     weight: 10
     region: content
@@ -32,4 +24,5 @@ content:
   links:
     weight: 101
     region: content
-hidden: {  }
+hidden:
+  field_description: true

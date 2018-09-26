@@ -31,6 +31,7 @@ module:
   entity_reference_revisions: 0
   entity_reference_validators: 0
   field: 0
+  field_ui: 0
   file: 0
   filter: 0
   fiu: 0
@@ -52,9 +53,13 @@ module:
   leaflet: 0
   libraries: 0
   link: 0
+  mail_login: 0
   media: 0
   menu_ui: 0
   message: 0
+  metatag: 0
+  metatag_open_graph: 0
+  metatag_twitter_cards: 0
   migrate: 0
   migrate_plus: 0
   migrate_source_csv: 0
@@ -83,6 +88,8 @@ module:
   social_auth_google: 0
   social_auth_linkedin: 0
   social_auth_twitter: 0
+  social_media: 0
+  subpathauto: 0
   system: 0
   taxonomy: 0
   taxonomy_unique: 0
@@ -98,6 +105,8 @@ module:
   update: 0
   user: 0
   video: 0
+  votingapi: 0
+  vud: 0
   workflows: 0
   menu_link_content: 1
   pathauto: 1

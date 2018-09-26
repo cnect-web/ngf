@@ -3,12 +3,21 @@ langcode: en
 status: true
 dependencies:
   module:
+    - ctools
     - group
 id: group_paths
 label: 'Group paths'
 type: 'canonical_entities:group'
-pattern: 'group/[group:title]'
-selection_criteria: {  }
+pattern: '[group:ngf_path]/[group:title]'
+selection_criteria:
+  badd63ca-7e6a-416d-b657-356c6b72d21d:
+    id: 'entity_bundle:group'
+    bundles:
+      ngf_discussion_group: ngf_discussion_group
+    negate: false
+    context_mapping:
+      group: group
+    uuid: badd63ca-7e6a-416d-b657-356c6b72d21d
 selection_logic: and
 weight: -10
 relationships: {  }

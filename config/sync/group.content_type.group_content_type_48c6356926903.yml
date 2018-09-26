@@ -14,6 +14,6 @@ description: 'Adds <em class="placeholder">Discussion</em> content to groups bot
 group_type: ngf_discussion_group
 content_plugin: 'group_node:ngf_discussion'
 plugin_config:
-  group_cardinality: 0
+  group_cardinality: 1
   entity_cardinality: 1
   use_creation_wizard: false

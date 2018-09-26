@@ -254,7 +254,7 @@ display:
           entity_field: uid
           plugin_id: numeric
       display_extenders: {  }
-      css_class: newsfeed
+      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:

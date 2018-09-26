@@ -241,7 +241,7 @@ class UserListManager {
   }
 
   public function removeUserListItem($list_id, $username) {
-    $list = UserListManager::load($list_id);
+    $list = UserList::load($list_id);
     $user = user_load_by_name($username);
 
     if (empty($user)) {
@@ -287,9 +287,6 @@ class UserListManager {
     } elseif ($user_list->getOwnerId() !== $this->currentUser->id()) {
       $this->addError(t('This list does not belong to you.'));
     } else {
-      // Remove related list items.
-      $this->removeUserListItemByList($user_list);
-
       // Remove list.
       $storage_handler = \Drupal::entityTypeManager()->getStorage('ngf_user_list');
       $entities = $storage_handler->loadMultiple([$list_id]);
@@ -301,7 +298,7 @@ class UserListManager {
     }
   }
 
-  protected function removeUserListItemByList($user_list) {
+  public function removeUserListItemByList($user_list) {
     if (empty($user_list)) {
       $this->addError(t('List is not found.'));
     } else {

@@ -34,8 +34,7 @@ class UserPrivateSettingsForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('ngf_user_profile.user_settings_manager'),
-      $container->get('user.data')
+      $container->get('ngf_user_profile.user_settings_manager')
     );
   }
 
