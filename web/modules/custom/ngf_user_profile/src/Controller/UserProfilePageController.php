@@ -116,7 +116,7 @@ class UserProfilePageController extends UserProfileControllerBase {
       ->entityFormBuilder()
       ->getForm($message);
 
-    return $this->getContent($form);
+    return $this->getContent($form, $user);
   }
 
   protected function getUserList($users, $no_items_text) {

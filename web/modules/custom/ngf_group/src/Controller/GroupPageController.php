@@ -188,6 +188,7 @@ class GroupPageController extends ControllerBase {
     $view->preExecute();
     $view->execute();
 
+    $render_array = [];
     if ($view->total_rows || $display_empty) {
       $render_array['view'] = [
         '#type' => 'container',
@@ -197,7 +198,7 @@ class GroupPageController extends ControllerBase {
       // Add the groups view title to the render array.
       $title = $view->getTitle();
       if ($title) {
-        $render_array['view']['title'] = [
+        $render_array['title'] = [
           '#type' => 'html_tag',
           '#tag' => 'h2',
           '#value' => $title,
@@ -205,12 +206,12 @@ class GroupPageController extends ControllerBase {
       }
 
       // Add the groups view to the render array.
-      $render_array['view']['content'] = $view->render();
+      $render_array['content'] = $view->render();
 
-      return $render_array['view'];
+      return $render_array;
     }
 
-    return [];
+    return $render_array;
   }
 
   public function reportedContentPage(EntityInterface $group) {
