@@ -140,7 +140,7 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function generalSettings() {
-    return $this->getContent($this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'default'));
+    return $this->getContent($this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'ngf_general_settings'));
   }
 
   /**
@@ -175,4 +175,12 @@ class UserProfilePageController extends UserProfileControllerBase {
     return $this->getContent($this->userFeedManager->getContent());
   }
 
+  public function editUserProfile($user){
+    if ($this->currentUser()->id() == $user->id()) {
+      return $this->redirect('ngf_user_profile.page.general_settings');
+    }
+    else {
+      return $this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'default');
+    }
+  }
 }
