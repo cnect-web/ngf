@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_ngf_related_content
     - node.type.ngf_discussion
     - paragraphs.paragraphs_type.ngf_related_content_discussion
-    - paragraphs.paragraphs_type.ngf_related_content_event
   module:
     - entity_reference_revisions
 id: node.ngf_discussion.field_ngf_related_content
@@ -14,7 +13,7 @@ field_name: field_ngf_related_content
 entity_type: node
 bundle: ngf_discussion
 label: 'Related content'
-description: ''
+description: "<i class=\"fas fa-pull-left fa-info-circle\"></i>\r\nYou can add a <b>related discussion</b> here. You can find it using the name of a discussion"
 required: false
 translatable: false
 default_value: {  }
@@ -25,7 +24,6 @@ settings:
     negate: 0
     target_bundles:
       ngf_related_content_discussion: ngf_related_content_discussion
-      ngf_related_content_event: ngf_related_content_event
     target_bundles_drag_drop:
       ngf_file:
         weight: 8
@@ -37,13 +35,16 @@ settings:
         enabled: true
         weight: 10
       ngf_related_content_event:
-        enabled: true
         weight: 11
+        enabled: false
       ngf_related_content_group:
         weight: 12
         enabled: false
       ngf_text:
         weight: 13
+        enabled: false
+      ngf_speaker:
+        weight: 14
         enabled: false
       ngf_video:
         weight: 14

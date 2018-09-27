@@ -6,4 +6,6 @@ id: ngf_moderator
 label: Moderator
 weight: 3
 is_admin: null
-permissions: {  }
+permissions:
+  - 'create ngf_discussion_group group'
+  - 'create ngf_event group'

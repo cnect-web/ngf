@@ -19,8 +19,6 @@ permissions:
   - 'create image media'
   - 'create ngf_cover_image media'
   - 'create ngf_discussion content'
-  - 'create ngf_discussion_group group'
-  - 'create ngf_event group'
   - 'create video media'
   - 'edit own file media'
   - 'edit own image media'
