@@ -26,10 +26,6 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
    * {@inheritdoc}
    */
   protected function alterRoutes(RouteCollection $collection) {
-    if ($route = $collection->get('user.login')) {
-      $route->setDefault('_title_callback', '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::loginTitle');
-    }
-
     if ($route = $collection->get('entity.group_content.create_form')) {
       $route->setDefault('_title_callback', '\Drupal\ngf_group\Routing\NGFGroupRouteSubscriber::gcCreateFormTitle');
     }
@@ -38,24 +34,15 @@ class NGFGroupRouteSubscriber extends RouteSubscriberBase {
       $route->setDefault('_controller', '\Drupal\ngf_group\Controller\GroupPageController::landingPage');
     }
 
+    if ($route = $collection->get('entity.user.edit_form')) {
+      $route->setDefault('_controller', '\Drupal\ngf_user_profile\Controller\UserProfilePageController::editUserProfile');
+    }
+
     // Change path to prevent breadcrumbs from picking up routes.
     if ($route = $collection->get('entity.group_content.collection')) {
       $route->setPath('/group/{group}/relations');
     }
 
-  }
-
-  /**
-   * Callback for the login page title.
-   *
-   * @Param GroupInterface $group     A Group entity.
-   * @Param string         $plugin_id The plugin id.
-   *
-   * @return string
-   *   A string to use as the title.
-   */
-  public function loginTitle() {
-    return t('Sign In');
   }
 
   /**

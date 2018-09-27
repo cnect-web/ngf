@@ -1,9 +1,9 @@
-uuid: ae4e2e7a-e536-4b9c-85c0-f542126f9150
+uuid: 3925a0c1-1eb0-48bc-9c8e-5e35160dc2a0
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.user.ngf_authenticated
+    - core.entity_form_mode.user.ngf_general_settings
     - field.field.user.user.field_ngf_biography
     - field.field.user.user.field_ngf_city
     - field.field.user.user.field_ngf_country
@@ -18,18 +18,18 @@ dependencies:
     - user
 _core:
   default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
-id: user.user.ngf_authenticated
+id: user.user.ngf_general_settings
 targetEntityType: user
 bundle: user
-mode: ngf_authenticated
+mode: ngf_general_settings
 content:
   account:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ngf_first_name:
-    weight: 0
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -37,7 +37,7 @@ content:
     type: string_textfield
     region: content
   field_ngf_last_name:
-    weight: 1
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -46,12 +46,12 @@ content:
     region: content
   user_picture:
     type: image_image
+    weight: 0
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: 3
-    region: content
 hidden:
   contact: true
   field_ngf_biography: true

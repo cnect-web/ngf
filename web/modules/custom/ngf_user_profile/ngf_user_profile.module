@@ -101,31 +101,16 @@ function ngf_user_profile_entity_base_field_info($entity_type) {
 }
 
 /**
- * Implements hook_user_form_display_alter().
- */
-function ngf_user_profile_entity_form_display_alter(&$form_display, $context) {
-  // Set custom display for authenticated users.
-  if ($context['entity_type'] == 'user' && $context['bundle'] == 'user') {
-    $user = \Drupal::currentUser();
-    $user_roles = $user->getRoles();
-    if (\Drupal::routeMatch()->getRouteName() == 'ngf_user_profile.page.general_settings' &&
-      !in_array('administrator', $user_roles) &&
-      in_array('authenticated', $user_roles)) {
-      $storage = \Drupal::service('entity_type.manager')
-        ->getStorage('entity_form_display');
-      $form_display = $storage->load('user.user.ngf_authenticated');
-    }
-  }
-}
-
-/**
  * Implements hook_entity_type_build().
  */
 function ngf_user_profile_entity_type_build(array &$entity_types) {
   // We set ngf_interests form view mode. So, we can load as a separate form
   // in the custom page.
-  $entity_types['user']->setFormClass('ngf_interests',
+  $view_modes = ['ngf_interests', 'ngf_general_settings'];
+  foreach ($view_modes as $view_mode) {
+    $entity_types['user']->setFormClass($view_mode,
     'Drupal\user\ProfileForm');
+  }
 }
 
 /**
