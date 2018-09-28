@@ -88,7 +88,7 @@ class UserProfilePageController extends UserProfileControllerBase {
    */
   public function followers(EntityInterface $user = NULL) {
     $user = $user ?? $this->getCurrentUserAccount();
-    return $this->getContent($this->getView('ngf_user_followers', 'followers', $user->id()));
+    return $this->getContent($this->getView('ngf_user_followers', 'followers', $user->id()), $user);
   }
 
   /**
@@ -96,7 +96,7 @@ class UserProfilePageController extends UserProfileControllerBase {
    */
   public function following(EntityInterface $user = NULL) {
     $user = $user ?? $this->getCurrentUserAccount();
-    return $this->getContent($this->getView('ngf_user_followers', 'following', $user->id()));
+    return $this->getContent($this->getView('ngf_user_followers', 'following', $user->id()), $user);
   }
 
   /**
@@ -182,7 +182,7 @@ class UserProfilePageController extends UserProfileControllerBase {
       return $this->redirect('ngf_user_profile.page.general_settings');
     }
     else {
-      return $this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'default');
+      return $this->entityFormBuilder()->getForm($user, 'default');
     }
   }
 

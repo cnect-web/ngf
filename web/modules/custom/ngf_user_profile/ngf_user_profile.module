@@ -217,7 +217,7 @@ function ngf_user_profile_user_view(
 
         $flag_builder = \Drupal::service('flag.link_builder');
         $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');
-        $link['#attributes']['class'][] = 'profile__actions--follow';
+//        $link['#attributes']['class'][] = 'profile__actions--follow';
         $items[] = $link;
       }
       else {
