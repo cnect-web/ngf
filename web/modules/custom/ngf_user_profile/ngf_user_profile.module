@@ -184,7 +184,7 @@ function ngf_user_profile_user_view(
 
   // Redirect all to profile pages.
   $current_user = \Drupal::currentUser();
-  if ($view_mode == 'full' && !in_array('administrator', $current_user->getRoles())) {
+  if ($view_mode == 'full') {
     $path = $entity->id() == $current_user->id() ? '/profile' : '/profile/' . $entity->id();
     $response = new RedirectResponse($path);
     $response->send();
