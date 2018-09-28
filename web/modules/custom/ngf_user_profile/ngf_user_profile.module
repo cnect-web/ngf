@@ -182,18 +182,7 @@ function ngf_user_profile_user_view(
   $view_mode
 ) {
 
-  // Redirect all to profile pages.
   $current_user = \Drupal::currentUser();
-  if ($view_mode == 'full') {
-    if ($entity->id() == $current_user->id()) {
-      $url = Url::fromRoute('ngf_user_profile.page.profile');
-    }
-    else {
-      $url = Url::fromRoute('ngf_user_profile.page.user_profile', ['user' => $entity->id()]);
-    }
-    $response = new RedirectResponse($url->toString());
-    $response->send();
-  }
 
   if ($view_mode == 'ngf_profile') {
     $user_id = $entity->id();

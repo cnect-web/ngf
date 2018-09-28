@@ -26,9 +26,11 @@ class NGFUserProfileRouteSubscriber extends RouteSubscriberBase {
     if ($route = $collection->get('user.login')) {
       $route->setDefault('_title_callback', '\Drupal\ngf_user_profile\Routing\NGFUserProfileRouteSubscriber::loginTitle');
     }
-
     if ($route = $collection->get('entity.user.edit_form')) {
       $route->setDefault('_controller', '\Drupal\ngf_user_profile\Controller\UserProfilePageController::editUserProfile');
+    }
+    if ($route = $collection->get('entity.user.canonical')) {
+      $route->setDefault('_controller', '\Drupal\ngf_user_profile\Controller\UserProfilePageController::viewUserProfile');
     }
   }
 

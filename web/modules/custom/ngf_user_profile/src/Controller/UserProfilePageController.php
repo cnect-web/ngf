@@ -3,10 +3,12 @@
 namespace Drupal\ngf_user_profile\Controller;
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
 use Drupal\user\Entity\AccountInterface;
 use Drupal\ngf_user_profile\Manager\UserFeedManager;
 use Drupal\ngf_user_profile\Manager\UserManager;
 use Drupal\user\Entity\User;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -182,5 +184,17 @@ class UserProfilePageController extends UserProfileControllerBase {
     else {
       return $this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'default');
     }
+  }
+
+  public function viewUserProfile($user) {
+    // Redirect all to profile pages.
+    if ($user->id() ==  $this->currentUser()->id()) {
+      $url = Url::fromRoute('ngf_user_profile.page.profile');
+    }
+    else {
+      $url = Url::fromRoute('ngf_user_profile.page.user_profile', ['user' => $user->id()]);
+    }
+    $response = new RedirectResponse($url->toString());
+    $response->send();
   }
 }
