@@ -168,7 +168,7 @@ ngf_user_profile.page.private_settings:
 ngf_user_profile.page.user_profile:
   path: '/profile/{user}'
   defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::publications'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::about'
     _title: 'User profile'
   requirements:
     _permission: 'access content'
