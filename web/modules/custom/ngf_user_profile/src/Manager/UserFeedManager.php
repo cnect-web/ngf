@@ -347,7 +347,8 @@ class UserFeedManager {
 
       // Create a render array with the search results.
       $render = [];
-      $render['#prefix'] = '<div class="newsfeed">';
+      // TODO: Move thi title to proper place.
+      $render['#prefix'] = '<h3>' . t('Your feed') . '</h3><div class="newsfeed">';
       $render['#suffix'] = '</div>';
 
       foreach ($result as $item) {
