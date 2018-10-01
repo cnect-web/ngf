@@ -96,7 +96,7 @@ class UserAccountBlock extends BlockBase {
     }
     else {
       return [
-        '#markup' => $this->t("@login / @register", [
+        '#markup' => $this->t('@login @register', [
           '@login' => Link::fromTextAndUrl(t('Login'), Url::fromRoute('user.login'))->toString(),
           '@register' => Link::fromTextAndUrl(t('Register'), Url::fromRoute('ngf_user_registration'))->toString(),
         ])
