@@ -4,15 +4,15 @@ namespace Drupal\ngf_user_profile\Manager;
 
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
 use Drupal\ngf_user_profile\MessageTrait;
 use Drupal\user\Entity\User;
 use Drupal\user\UserDataInterface;
-use Drupal\node\Entity\Node;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\Helper\UserHelper;
 use Drupal\ngf_user_profile\Entity\UserList;
 use Drupal\ngf_user_profile\FlagTrait;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class UserManager {
 
@@ -77,7 +77,9 @@ class UserManager {
 
   protected function checkAccess() {
     if ($this->currentUser->isAnonymous()) {
-      throw new AccessDeniedHttpException();
+      $this->addMessage(t('You need to be registered to see other people profiles'));
+      $response = new RedirectResponse(Url::fromRoute('ngf_user_registration')->toString());
+      $response->send();
     }
   }
 

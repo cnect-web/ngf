@@ -40,21 +40,6 @@ class UserProfileController extends UserProfileControllerBase {
   }
 
   /**
-   * Profile.
-   *
-   * @return string
-   *   Return Hello string.
-   */
-  public function profile($username) {
-    $user = user_load_by_name($username);
-    return [
-      '#type' => 'markup',
-      '#title' => UserHelper::getUserFullName($user),
-      '#markup' => '<a href="/profile/follow/' . $user->getUsername() . '">Follow</a>  - <a href="/profile/unfollow/' . $user->getUsername() . '">Unfollow</a>'
-    ];
-  }
-
-  /**
    * Follow a user
    *
    * @param string $username
