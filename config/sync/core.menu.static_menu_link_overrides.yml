@@ -35,5 +35,11 @@ definitions:
     parent: ''
     weight: 10
     expanded: false
+  ngf_group__link__groups:
+    menu_name: main
+    parent: ''
+    weight: 20
+    expanded: false
+    enabled: true
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

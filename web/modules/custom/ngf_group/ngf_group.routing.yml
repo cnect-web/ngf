@@ -1,7 +1,7 @@
-ngf_group.page.contacts_and_groups:
-  path: '/contacts-and-groups'
+ngf_group.page.site_groups:
+  path: '/groups'
   defaults:
-    _title: 'Contacts & Groups'
+    _title: 'Groups'
     _controller: '\Drupal\ngf_group\Controller\DiscoverPageController::discoverPage'
   requirements:
     _permission: 'access content'

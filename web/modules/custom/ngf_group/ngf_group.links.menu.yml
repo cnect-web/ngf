@@ -1,7 +1,7 @@
-ngf_group.link.contacts-and-groups:
-  title: 'Contacts & Groups'
-  description: 'Contacts & Groups page'
+ngf_group.link.groups:
+  title: 'Groups'
+  description: 'Groups'
   parent: main
   menu_name: main
-  route_name: ngf_group.page.contacts_and_groups
+  route_name: ngf_group.page.site_groups
   weight: 20
