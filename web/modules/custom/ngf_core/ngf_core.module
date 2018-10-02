@@ -204,6 +204,15 @@ function ngf_core_library_info_alter(array &$libraries, $module) {
   }
 }
 
+/*
+ * Implements template_preprocess_breadcrumb().
+ *
+ * Set cache per url for breadcrumbs.
+ */
+function ngf_core_preprocess_breadcrumb(&$variables) {
+  $variables['#cache']['contexts'][] = 'url';
+}
+
 /**
  * Implements hook_system_breadcrumb_alter().
  */
