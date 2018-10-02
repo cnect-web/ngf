@@ -45,6 +45,7 @@ module:
   geofield: 0
   ggroup: 0
   gnode: 0
+  google_qr_code: 0
   group: 0
   help: 0
   history: 0

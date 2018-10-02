@@ -18,6 +18,7 @@ use Drupal\ngf_user_profile\Plugin\Field\FieldType\FullNameFieldItemList;
 use Drupal\user\Entity\User;
 use Drupal\views\ViewExecutable;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\block_content\Entity\BlockContent;
 
 /**
  * Implements hook_node_insert().
@@ -168,6 +169,12 @@ function ngf_user_profile_entity_extra_field_info() {
     'weight' => 100,
     'visible' => TRUE,
   ];
+  $extra['user']['user']['display']['qr_code'] = [
+    'label' => t('QR code'),
+    'description' => t('QR code'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
 
   return $extra;
 }
@@ -186,7 +193,16 @@ function ngf_user_profile_user_view(
 
   if ($view_mode == 'ngf_profile') {
     $user_id = $entity->id();
-    // Show action panel
+
+    // Show QR code.
+    if ($display->getComponent('qr_code')) {
+      $block_manager = \Drupal::service('plugin.manager.block');
+      // You can hard code configuration or you load from settings.
+      $plugin_block = $block_manager->createInstance('Google QR Code', []);
+      $build['qr_code'] = $plugin_block->build();
+    }
+
+    // Show action panel.
     if ($display->getComponent('action_panel')) {
       $items = [];
       if ($entity->id() != $current_user->id()) {
@@ -215,10 +231,8 @@ function ngf_user_profile_user_view(
           ],
         ];
 
-        $flag_builder = \Drupal::service('flag.link_builder');
-        $link = $flag_builder->build('user', $user_id, 'ngf_follow_user');
-//        $link['#attributes']['class'][] = 'profile__actions--follow';
-        $items[] = $link;
+        $items[] = \Drupal::service('flag.link_builder')
+        ->build('user', $user_id, 'ngf_follow_user');
       }
       else {
         $items[] = [
