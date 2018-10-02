@@ -49,7 +49,7 @@ class UserProfileControllerBase extends ControllerBase {
     if ($title = $view->getTitle()) {
       $render_array['view']['title'] = [
         '#type' => 'html_tag',
-        '#tag' => 'h2',
+        '#tag' => 'h3',
         '#value' => $title,
       ];
     }

@@ -200,7 +200,7 @@ class GroupPageController extends ControllerBase {
       if ($title) {
         $render_array['title'] = [
           '#type' => 'html_tag',
-          '#tag' => 'h2',
+          '#tag' => 'h3',
           '#value' => $title,
         ];
       }
