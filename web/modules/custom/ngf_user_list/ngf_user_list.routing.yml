@@ -82,7 +82,7 @@ ngf_user_list.list_items:
     _controller: '\Drupal\ngf_user_list\Controller\UserListController::userListItemsForm'
     _title: 'User list items'
   requirements:
-      _permission: 'access content'
+    _permission: 'view ngf user list entities'
   options:
     parameters:
       ngf_user_list:

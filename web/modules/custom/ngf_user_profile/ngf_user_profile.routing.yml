@@ -108,7 +108,7 @@ ngf_user_profile.page.feed:
   path: '/profile/feed'
   defaults:
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
-    _title: 'User feed'
+    _title: 'Profile'
   requirements:
     _permission: 'access content'
 
@@ -116,7 +116,7 @@ ngf_user_profile.page.profile:
   path: '/profile'
   defaults:
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
-    _title: 'User feed'
+    _title: 'Profile'
   requirements:
     _permission: 'access content'
 

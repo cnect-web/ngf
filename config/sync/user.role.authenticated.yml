@@ -20,6 +20,8 @@ permissions:
   - 'create ngf_cover_image media'
   - 'create ngf_discussion content'
   - 'create video media'
+  - 'delete ngf user list entities'
+  - 'edit ngf user list entities'
   - 'edit own file media'
   - 'edit own image media'
   - 'edit own ngf_cover_image media'
@@ -37,3 +39,4 @@ permissions:
   - 'use text format basic_html'
   - 'use vote up/down'
   - 'view media'
+  - 'view ngf user list entities'
