@@ -4,7 +4,6 @@ namespace Drupal\ngf_user_list\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Session\AccountInterface;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\FlagTrait;
 use Drupal\ngf_user_list\Entity\UserList;

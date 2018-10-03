@@ -7,7 +7,6 @@ use Drupal\group\Entity\Group;
 use Drupal\user\Entity\User;
 use Drupal\node\Entity\Node;
 use Drupal\flag\FlagService;
-use Drupal\comment\CommentStatistics;
 use Drupal\ngf_user_profile\FlagTrait;
 
 class EntityUserFeedManager {

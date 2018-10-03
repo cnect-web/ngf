@@ -5,7 +5,6 @@ namespace Drupal\ngf_user_profile\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\ngf_user_profile\Manager\UserSettingsManager;
 

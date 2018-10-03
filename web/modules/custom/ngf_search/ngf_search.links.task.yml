@@ -1,8 +1,3 @@
-#ngf_search.link.search:
-#  title: 'Search'
-#  route_name: view.ngf_publications_search.publication_search
-#  base_route: view.ngf_publications_search.publication_search
-
 ngf_search.link.search_content:
   title: 'Publications'
   description: 'Search publications'
