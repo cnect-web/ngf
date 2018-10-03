@@ -47,8 +47,6 @@ module:
   gnode: 0
   google_qr_code: 0
   group: 0
-  help: 0
-  history: 0
   image: 0
   inline_entity_form: 0
   leaflet: 0
@@ -81,7 +79,6 @@ module:
   rdf: 0
   redirect: 0
   search: 0
-  shortcut: 0
   single_datetime: 0
   social_api: 0
   social_auth: 0
@@ -98,7 +95,6 @@ module:
   textfield_counter: 0
   token: 0
   toolbar: 0
-  tour: 0
   twig_extensions: 0
   twig_field_value: 0
   twig_tweak: 0

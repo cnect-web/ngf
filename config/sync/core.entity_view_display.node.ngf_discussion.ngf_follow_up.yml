@@ -18,11 +18,26 @@ targetEntityType: node
 bundle: ngf_discussion
 mode: ngf_follow_up
 content:
+  flag_ngf_report_content:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_ngf_save_content:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   flag_test:
     weight: 10
     region: content
   related_content:
     weight: 100
+    region: content
+  voters:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
     region: content
 hidden:
   field_comments: true
@@ -31,6 +46,7 @@ hidden:
   field_ngf_interests: true
   field_ngf_introtext: true
   field_ngf_related_content: true
+  field_ngf_vote: true
   flag_ngf_follow_content: true
   links: true
   show_more: true

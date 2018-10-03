@@ -39,6 +39,11 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  qr_code:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   user_picture:
     type: image
     weight: 1

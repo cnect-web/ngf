@@ -80,6 +80,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_ngf_report_content:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   flag_ngf_save_content:
     weight: 8
     region: content

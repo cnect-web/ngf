@@ -4,6 +4,7 @@ status: true
 dependencies: {  }
 id: dev_config
 label: 'Dev Config'
+description: ''
 folder: ../config/dev_config
 module:
   coffee: 0

@@ -4,6 +4,7 @@ status: false
 dependencies: {  }
 id: prod_config
 label: 'Prod Config'
+description: ''
 folder: ../config/prod_config
 module:
   cdn: 0

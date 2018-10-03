@@ -21,6 +21,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_ngf_report_comment:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     region: content

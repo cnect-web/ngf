@@ -36,6 +36,16 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  flag_ngf_report_content:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_ngf_save_content:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   related_content:
     weight: 100
     region: content
@@ -44,11 +54,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  voters:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_comments: true
   field_ngf_description: true
   field_ngf_interests: true
   field_ngf_related_content: true
+  field_ngf_vote: true
   flag_ngf_follow_content: true
   flag_test: true
   links: true
