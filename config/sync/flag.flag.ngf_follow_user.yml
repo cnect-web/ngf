@@ -12,10 +12,10 @@ global: false
 weight: 0
 flag_short: 'Follow user'
 flag_long: ''
-flag_message: 'You now follow the user'
+flag_message: ''
 unflag_short: Unfollow
 unflag_long: ''
-unflag_message: 'You don''t follow the user anymore'
+unflag_message: ''
 unflag_denied_text: ''
 flag_type: 'entity:user'
 link_type: ajax_link
