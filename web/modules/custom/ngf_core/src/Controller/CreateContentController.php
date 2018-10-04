@@ -18,6 +18,29 @@ use Drupal\Core\Entity\EntityTypeManager;
 class CreateContentController extends ControllerBase {
 
   /**
+   * Access check to route.
+   */
+  public function access($group = 'none') {
+
+    $links = ($group == 'none')
+      ? array_filter($this->getGlobalScopeLinks(), [$this, 'accessFilter'])
+      : array_filter($this->getGroupScopeLinks($group), [$this, 'accessFilter']);
+
+    if (empty($links)) {
+      return AccessResult::forbidden();
+    }
+    return AccessResult::allowed();
+
+  }
+
+  /**
+   * Access check helper.
+   */
+  private function accessFilter($var) {
+    return !empty($var['#links']);
+  }
+
+  /**
    * Returns a render-able array for a test page.
    */
   public function createContent($group = 'none') {
@@ -28,6 +51,9 @@ class CreateContentController extends ControllerBase {
 
   }
 
+  /**
+   * Callback for setting the modal title.
+   */
   public function createContentTitle($group = 'none') {
     if ($group == 'none') {
       return $this->t('Create new ...');

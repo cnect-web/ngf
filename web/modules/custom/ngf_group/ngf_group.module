@@ -79,31 +79,6 @@ function ngf_group_link_alter(&$variables) {
   if ($url->isRouted() && $url->getRouteName() == 'view.group_nodes.page_1') {
     $variables['text'] = t('Content');
   }
-
-  // Alter the create content route to use a modal.
-  if ($url->isRouted() && $url->getRouteName() == 'ngf_core.create_content') {
-    $variables['options']['attributes']['data-dialog-type'] = 'modal';
-
-    // Check if we're in a group context.
-    $context = \Drupal::service('context.repository');
-    $groupContext = $context->getRuntimeContexts(['@group.group_route_context:group']);
-    if ($group = $groupContext['@group.group_route_context:group']->getContextData()->getValue()) {
-      if ($group->label()) {
-        $text = [
-          '#type' => 'html_tag',
-          '#tag' => 'span',
-          '#value' => t("Add to @group", ['@group' => $group->label()]),
-          '#attributes' => [
-            'class' => [
-              'no-display--sm'
-            ]
-          ]
-        ];
-        $variables['text'] = render($text);
-        $variables['url']->setRouteParameter('group', $group->id());
-      }
-    }
-  }
 }
 
 /**

@@ -14,17 +14,9 @@ user_register.link:
   route_name: user.register
 
 create_content.link:
+  class: Drupal\ngf_core\Plugin\Menu\CreateContent
   title: 'Create new'
   description: 'Click here to add content'
   parent: main
-  route_name: ngf_core.create_content
   weight: 1000
   menu_name: main
-  options:
-    attributes:
-      data-dialog-options: '{"width":400,"height":300}'
-      data-dialog-type: "modal"
-      class:
-        - use-ajax
-        - button
-        - create-new
