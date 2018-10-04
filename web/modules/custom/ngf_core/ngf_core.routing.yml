@@ -15,7 +15,6 @@ ngf_core.create_content:
     group: 'none'
   requirements:
     _custom_access: '\Drupal\ngf_core\Controller\CreateContentController::access'
-#    _permission: 'create ngf_discussion_group group+create ngf_event group+create ngf_session group+create ngf_discussion content'
 
 ngf_core.public_feed:
   path: '/public-feed'
