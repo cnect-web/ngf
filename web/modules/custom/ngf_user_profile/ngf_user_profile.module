@@ -220,14 +220,17 @@ function ngf_user_profile_user_view(
         ];
         $items[] = [
           '#type' => 'link',
-          '#url' => Url::fromRoute('ngf_user_list.add_user', [
+          '#url' => new Url('ngf_user_list.add_user', [
             'user' => $user_id,
           ]),
           '#title' => t('Add to list'),
           '#attributes' => [
+            'data-dialog-options' => '{"width":400,"height":300}',
             'class' => [
+              'use-ajax',
               'profile__actions--add2list',
             ],
+            'data-dialog-type' => 'modal',
           ],
         ];
 

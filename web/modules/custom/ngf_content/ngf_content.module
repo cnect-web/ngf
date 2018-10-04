@@ -44,8 +44,6 @@ function ngf_content_node_view(array &$build, EntityInterface $entity, EntityVie
       ];
     }
     elseif ($display->getComponent('voters')) { // Show voters link.
-//      var_dump($entity->bundle());
-//      exit();
       $build['voters'] = [
         '#type' => 'link',
         '#url' => new Url('ngf_content.voters-block', [

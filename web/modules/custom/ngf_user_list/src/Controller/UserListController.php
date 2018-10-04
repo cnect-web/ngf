@@ -140,7 +140,7 @@ class UserListController extends UserProfileControllerBase {
   }
 
   public function AddUserForm(User $user) {
-    return $this->getContent($this->formBuilder()->getForm('Drupal\ngf_user_list\Form\AddUserForm', $user));
+    return $this->formBuilder()->getForm('Drupal\ngf_user_list\Form\AddUserForm', $user);
   }
 
 }
