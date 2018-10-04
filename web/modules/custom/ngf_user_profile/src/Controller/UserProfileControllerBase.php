@@ -10,11 +10,15 @@ use Drupal\views\Views;
  * Class UserProfileControllerBase.
  */
 class UserProfileControllerBase extends ControllerBase {
-
+  protected $title = '';
   protected function getContent($content, $user = NULL) {
     return [
       'header' => $this->getUserDisplay($user ?? $this->getCurrentUserAccount(), 'ngf_profile'),
       'tabs' => $this->getTabs(),
+      'title' => [
+        '#type' => 'markup',
+        '#markup' => '<h3>' . $this->getPageTitle() . '</h3>',
+      ],
       'content' => $content,
     ];
   }
@@ -107,4 +111,11 @@ class UserProfileControllerBase extends ControllerBase {
     ];
   }
 
+  protected function setPageTitle($title) {
+    $this->title = $title;
+  }
+
+  protected function getPageTitle() {
+    return $this->title;
+  }
 }

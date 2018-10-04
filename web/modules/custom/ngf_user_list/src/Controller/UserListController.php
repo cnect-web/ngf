@@ -55,6 +55,7 @@ class UserListController extends UserProfileControllerBase {
   public function userLists() {
     $lists = $this->userListManager->getUserLists();
     $items = [];
+    $this->setPageTitle($this->t('Your lists'));
     $items[] = [
       '#type' => 'link',
       '#title' => t('Add a list'),
@@ -97,6 +98,7 @@ class UserListController extends UserProfileControllerBase {
   }
 
   public function deleteUserList($ngf_user_list) {
+    $this->setPageTitle($this->t('Delete list %title', ['%title' => $ngf_user_list->getName()]));
     return $this->getContent($this->entityFormBuilder()->getForm($ngf_user_list, 'delete'));
   }
 
@@ -116,6 +118,10 @@ class UserListController extends UserProfileControllerBase {
   public function userListForm(UserList $ngf_user_list = NULL) {
     if (empty($ngf_user_list)) {
       $ngf_user_list = UserList::create();
+      $this->setPageTitle($this->t('Add a new list'));
+    }
+    else {
+      $this->setPageTitle($this->t('Edit list'));
     }
     return $this->getContent($this->entityFormBuilder()->getForm($ngf_user_list, 'default'));
   }
@@ -132,10 +138,12 @@ class UserListController extends UserProfileControllerBase {
   }
 
   public function userListItemsForm(UserList $ngf_user_list) {
+    $this->setPageTitle($this->t('%title list items', ['%title' => $ngf_user_list->getName()]));
     return $this->getContent($this->formBuilder()->getForm('Drupal\ngf_user_list\Form\UserListItemsForm', $ngf_user_list));
   }
 
   public function userListItemForm(UserList $ngf_user_list) {
+    $this->setPageTitle($this->t('Add user to %title', ['%title' => $ngf_user_list->getName()]));
     return $this->getContent($this->formBuilder()->getForm('Drupal\ngf_user_list\Form\UserListItemForm', $ngf_user_list));
   }
 

@@ -83,10 +83,6 @@ class UserListItemsForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, UserList $ngf_user_list = NULL) {
-    $form['title'] = [
-      '#type' => 'item',
-      '#markup' => '<h3>' . $ngf_user_list->getName() . '</h3>',
-    ];
     $form['add'] = [
       '#type' => 'link',
       '#title' => t('Add user'),
