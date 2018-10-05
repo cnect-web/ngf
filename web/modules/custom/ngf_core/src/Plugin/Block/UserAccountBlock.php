@@ -24,7 +24,7 @@ class UserAccountBlock extends BlockBase {
    */
   public function getCacheTags() {
     if ($user = \Drupal::currentUser()) {
-      return Cache::mergeTags(parent::getCacheTags(), array('user:' . $user->id()));
+      return Cache::mergeTags(parent::getCacheTags(), ['user:' . $user->id()]);
     } else {
       return parent::getCacheTags();
     }
@@ -34,7 +34,7 @@ class UserAccountBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function getCacheContexts() {
-    return Cache::mergeContexts(parent::getCacheContexts(), array('user'));
+    return Cache::mergeContexts(parent::getCacheContexts(), ['user']);
   }
 
   /**

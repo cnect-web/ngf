@@ -66,15 +66,15 @@ class UserListItemForm extends FormBase {
       ],
     ];
 
-    $form['list_id'] = array(
+    $form['list_id'] = [
       '#type' => 'hidden',
       '#value' => $ngf_user_list->id(),
-    );
+    ];
 
-    $form['actions']['submit'] = array(
+    $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Add'),
-    );
+    ];
 
     return $form;
   }

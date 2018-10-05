@@ -91,15 +91,15 @@ class AddUserForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['user_id'] = array(
+    $form['user_id'] = [
       '#type' => 'hidden',
       '#value' => $ngf_user_list->id(),
-    );
+    ];
 
-    $form['actions']['submit'] = array(
+    $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Add user'),
-    );
+    ];
 
     return $form;
   }

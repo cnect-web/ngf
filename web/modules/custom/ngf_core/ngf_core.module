@@ -76,7 +76,7 @@ function ngf_core_form_group_ngf_event_edit_form_alter(&$form, \Drupal\Core\Form
 function _ngf_core_event_ngf_registration_link_validation_helper(&$form) {
   $form['field_ngf_registration_link']['widget'][0]['title']['#states'] = [
     'visible' => [
-      ':input[name="field_ngf_registration_link[0][uri]"]' => array('!value' => ''),
+      ':input[name="field_ngf_registration_link[0][uri]"]' => ['!value' => ''],
     ],
   ];
   array_unshift($form['field_ngf_registration_link']['widget'][0]['#element_validate'], '_ngf_core_event_ngf_registration_link_validate');

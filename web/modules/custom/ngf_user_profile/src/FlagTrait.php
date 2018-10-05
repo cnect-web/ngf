@@ -41,7 +41,7 @@ trait FlagTrait {
   protected function getUserFlaggedItemsByFlagId($flag_id, $user_id) {
     $query = \Drupal::database()
       ->select('flagging', 'f')
-      ->fields('f', array())
+      ->fields('f', [])
       ->condition('flag_id', $flag_id)
       ->condition('uid', $user_id);
 
