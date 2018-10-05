@@ -371,6 +371,9 @@ function ngf_user_profile_menu_local_tasks_alter(&$data, $route_name) {
   }
 }
 
+/**
+ * Implements hook_views_pre_render().
+ */
 function ngf_user_profile_views_pre_render(ViewExecutable $view) {
   $group_access_manager = \Drupal::getContainer()->get('ngf_group.group_access_manager');
   if ($view->id() == 'ngf_user_publications') {
@@ -390,6 +393,9 @@ function ngf_user_profile_views_pre_render(ViewExecutable $view) {
   }
 }
 
+/**
+ * Implements hook_user_format_name_alter().
+ */
 function ngf_user_profile_user_format_name_alter(&$name, $account) {
   $user = User::load($account->id());
   if (!empty($user)) {
@@ -401,6 +407,9 @@ function ngf_user_profile_user_format_name_alter(&$name, $account) {
   }
 }
 
+/**
+ * Implements hook_user_user_login().
+ */
 function ngf_user_profile_user_login($account) {
   $response = new RedirectResponse(Url::fromRoute('ngf_user_profile.page.profile')->toString());
   $response->send();
