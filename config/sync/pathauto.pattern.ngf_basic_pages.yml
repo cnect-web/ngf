@@ -1,0 +1,22 @@
+uuid: 460026db-7cbe-4ac0-a4ad-eb98681ec681
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ngf_basic_pages
+label: 'Basic pages'
+type: 'canonical_entities:node'
+pattern: 'page/[node:title]'
+selection_criteria:
+  2ffae685-8994-4afb-bee8-9680781484c1:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 2ffae685-8994-4afb-bee8-9680781484c1
+selection_logic: and
+weight: -5
+relationships: {  }
