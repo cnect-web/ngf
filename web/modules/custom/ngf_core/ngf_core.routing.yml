@@ -19,7 +19,7 @@ ngf_core.create_content:
 ngf_core.public_feed:
   path: '/public-feed'
   defaults:
-    _controller: '\Drupal\ngf_core\Controller\FrontPageController::content'
+    _controller: '\Drupal\ngf_core\Controller\FrontPageController::authenticatedFrontPage'
     _title: 'Public feed'
   requirements:
     _access: 'TRUE'

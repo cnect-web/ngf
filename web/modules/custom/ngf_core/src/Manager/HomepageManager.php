@@ -34,7 +34,8 @@ class HomepageManager {
       // Now that we have the total number of results, initialize the pager.
       pager_default_initialize(count($items), $num_per_page);
       $render = [];
-      $render['#prefix'] = '<div class="newsfeed">';
+      $render['#prefix'] = '<h3>' . t(
+        'Public feed') . '</h3><div class="newsfeed">';
       $render['#suffix'] = '</div>';
 
       foreach ($result as $item) {
