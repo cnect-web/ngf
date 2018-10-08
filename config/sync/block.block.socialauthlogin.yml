@@ -22,7 +22,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/user/login\r\n/user/register"
+    pages: "<front>\r\n/user/login\r\n/user/register\r\n/join"
     negate: false
     context_mapping: {  }
   user_role:
