@@ -45,7 +45,7 @@ class UserAccountBlock extends BlockBase {
 
       $user = \Drupal\user\Entity\User::load($current_uid);
       $user_picture = $user->user_picture->entity;
-      $picture = '';
+      $picture_output = '';
 
       if (empty($user_picture)) {
         $field = \Drupal\field\Entity\FieldConfig::loadByName('user', 'user', 'user_picture');
@@ -69,7 +69,7 @@ class UserAccountBlock extends BlockBase {
           $variables['width'] = $variables['height'] = NULL;
         }
 
-        $picture = [
+        $picture_output = [
           '#theme' => 'image_style',
           '#width' => $variables['width'],
           '#height' => $variables['height'],
@@ -80,15 +80,14 @@ class UserAccountBlock extends BlockBase {
         // Add the file entity to the cache dependencies.
         // This will clear our cache when this entity updates.
         $renderer = \Drupal::service('renderer');
-        $renderer->addCacheableDependency($picture, $user_picture);
-        $picture = render($picture_output);
+        $renderer->addCacheableDependency($picture_output, $user_picture);
       }
 
       // Separation between code behind and presentation layer using
       // Login-account-block.html.twig.
       return [
         '#theme' => 'login_account_block',
-        '#user_picture' => $picture,
+        '#user_picture' => render($picture_output),
         '#default_user_picture' => file_create_url(drupal_get_path('theme', 'funkywave') . '/images/default_user.jpg'),
         '#user_name' => $user->getDisplayName(),
         '#user_profile_link' => '/profile/general-settings',
