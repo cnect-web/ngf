@@ -29,9 +29,9 @@ class SocialAuthTwitterSubscriber implements EventSubscriberInterface {
   protected $networkManager;
 
   /**
-   * The Social Auth Google manager.
+   * The Social Auth Twitter manager.
    *
-   * @var \Drupal\social_auth_google\GoogleAuthManager
+   * @var \Drupal\social_auth_twitter\TwitterAuthManager
    */
   protected $twitterManager;
 
@@ -42,8 +42,8 @@ class SocialAuthTwitterSubscriber implements EventSubscriberInterface {
    *   Used to retrieve the token from session.
    * @param \Drupal\social_api\Plugin\NetworkManager $network_manager
    *   Used to get an instance of the SDK used by the Social Auth implementer.
-   * @param \Drupal\social_auth_google\GoogleAuthManager $google_manager
-   *   The Social Auth Google manager.
+   * @param \Drupal\social_auth_twitter\TwitterAuthManager $twitterManager
+   *   The Social Auth Twitter manager.
    */
   public function __construct(SessionInterface $session, NetworkManager $network_manager, TwitterAuthManager $twitterManager) {
     $this->session = $session;
@@ -104,7 +104,7 @@ class SocialAuthTwitterSubscriber implements EventSubscriberInterface {
           $first_name = $names[0];
           $user->field_ngf_first_name->value = $first_name;
           if ($total_names > 1) {
-            $last_name = $names[count($names)-1];
+            $last_name = $names[count($names) - 1];
             $user->field_ngf_last_name->value = $last_name;
           }
         }
@@ -122,5 +122,5 @@ class SocialAuthTwitterSubscriber implements EventSubscriberInterface {
    */
   public function onUserLogin(SocialAuthUserEvent $event) {
   }
-}
 
+}

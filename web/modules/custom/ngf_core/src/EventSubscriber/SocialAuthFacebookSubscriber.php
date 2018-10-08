@@ -90,11 +90,9 @@ class SocialAuthFacebookSubscriber implements EventSubscriberInterface {
    *   The Social Auth user event object.
    */
   public function onUserLogin(SocialAuthUserEvent $event) {
-     // If user logs in using social_auth_google and the access token exists.
+    // If user logs in using social_auth_google and the access token exists.
     if ($event->getPluginId() == 'social_auth_facebook') {
     }
   }
 
 }
-
-

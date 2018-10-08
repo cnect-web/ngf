@@ -223,3 +223,12 @@ function ngf_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInt
 
   $breadcrumb->addLink(Link::createFromRoute($title, '<nolink>'));
 }
+
+/**
+ * Implements template_preprocess_block().
+ */
+function ngf_core_preprocess_block(&$vars) {
+  if($vars['plugin_id'] == "system_menu_block:main") {
+    $vars['#cache']['max-age'] = 0;
+  }
+}
