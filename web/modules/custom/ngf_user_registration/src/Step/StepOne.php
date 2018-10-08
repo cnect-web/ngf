@@ -72,7 +72,7 @@ class StepOne extends BaseStep {
       '#prefix' => '<div class="form__block form__block--onecol form__block--ticks"><div class="form__block--checkbox">',
       '#suffix' => '</div></div>',
       '#type' => 'checkbox',
-      '#title' => t('<span class="onoffswitch-inner"></span> <span class="label-text">By clicking "Sign Up", you agree to our <a href="/terms-service">Terms and Conditions and that you have read our Data Use Policy</a></span>', [
+      '#title' => t('<span class="onoffswitch-inner"></span> <span class="label-text">By checking this checkbox you agree to our <a href="/terms-service">Terms and Conditions and that you have read our Data Use Policy</a></span>', [
         '@url' => '',
       ]),
       '#required' => TRUE,
