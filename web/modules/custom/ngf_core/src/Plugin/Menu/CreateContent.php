@@ -11,6 +11,20 @@ class CreateContent extends MenuLinkDefault {
   /**
    * {@inheritdoc}
    */
+  public function getCacheMaxAge() {
+    return 0;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheContexts() {
+    return [];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getUrlObject($title_attribute = TRUE) {
 
     $options = [

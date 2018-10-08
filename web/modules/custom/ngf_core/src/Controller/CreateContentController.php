@@ -41,6 +41,20 @@ class CreateContentController extends ControllerBase {
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function getCacheMaxAge() {
+    return 0;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheContexts() {
+    return ['url.path'];
+  }
+
+  /**
    * Returns a render-able array for a test page.
    */
   public function createContent($group = 'none') {
