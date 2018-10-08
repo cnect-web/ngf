@@ -166,6 +166,7 @@ function ngf_core_theme($existing, $type, $theme, $path) {
     'login_account_block' => [
       'variables' => [
         'user_picture' => NULL,
+        'default_user_picture' => NULL,
         'user_name' => NULL,
         'user_profile_link' => NULL,
         'user_manage_network_link' => NULL,
@@ -228,7 +229,7 @@ function ngf_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInt
  * Implements template_preprocess_block().
  */
 function ngf_core_preprocess_block(&$vars) {
-  if($vars['plugin_id'] == "system_menu_block:main") {
+  if($vars['plugin_id'] == 'system_menu_block:main') {
     $vars['#cache']['max-age'] = 0;
   }
 }
