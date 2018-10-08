@@ -13,19 +13,13 @@ use Drupal\node\NodeInterface;
 use Drupal\Core\Session\AccountInterface;
 
 use Drupal\Core\Access\AccessResult;
-
-use Drupal\views\Form\ViewsForm;
-use Drupal\views\Plugin\views\area\AreaPluginBase;
-use Drupal\views\ViewExecutable;
-use Drupal\views\Plugin\views\PluginBase;
-use Drupal\views\Views;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\ngf_group\Entity\Decorator\NGFGroup;
 use Drupal\Core\Url;
 
-use Drupal\group\Entity;
 use Drupal\group\Entity\Group;
 use Drupal\Component\Serialization\Json;
 use Drupal\Core\Datetime\DrupalDateTime;
@@ -464,4 +458,28 @@ function ngf_core_import_euregions_week_sessions() {
   catch (RequestException $e) {
     return FALSE;
   }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ngf_group_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+
+  // Redirect user to the group page after cancellation.
+  if (strpos($form_id, 'group_content_group_content_type_', 0) !== FALSE) {
+    $route_params = $form['actions']['cancel']['#url']->getRouteParameters();
+    if (!empty($route_params['group'])) {
+      $group = Group::load($route_params['group']);
+      if (!empty($group)) {
+        $form['actions']['cancel']['#url'] = Url::fromRoute('entity.group.canonical', [
+          'group' => $route_params['group']
+        ]);
+      }
+    }
+  }
+
 }

@@ -114,17 +114,6 @@ function ngf_user_profile_entity_type_build(array &$entity_types) {
 }
 
 /**
- * Implements hook_form_alter().
- */
-function ngf_user_profile_form_alter(
-  &$form,
-  FormStateInterface $form_state,
-  $form_id
-) {
-  // TODO : Remove hook later
-}
-
-/**
  * Implements hook_form_FORM_ID_alter().
  */
 function ngf_user_profile_form_user_ngf_interests_form_alter(
@@ -384,7 +373,7 @@ function ngf_user_profile_views_pre_render(ViewExecutable $view) {
     }
   }
 
-  if (in_array($view->id(),['ngf_user_groups', 'ngf_user_events'])) {
+  if (in_array($view->id(), ['ngf_user_groups', 'ngf_user_events'])) {
     foreach ($view->result as $key => $resultRow) {
       if (!$group_access_manager->checkGroup($resultRow->_entity)) {
         unset($view->result[$key]);
@@ -411,6 +400,10 @@ function ngf_user_profile_user_format_name_alter(&$name, $account) {
  * Implements hook_user_user_login().
  */
 function ngf_user_profile_user_login($account) {
-  $response = new RedirectResponse(Url::fromRoute('ngf_user_profile.page.profile')->toString());
-  $response->send();
+  $current_route = \Drupal::routeMatch()->getRouteName();
+  if (!in_array($current_route, ['user.reset', 'user.reset.login'])) {
+    $response = new RedirectResponse(Url::fromRoute('ngf_user_profile.page.profile')
+      ->toString());
+    $response->send();
+  }
 }
