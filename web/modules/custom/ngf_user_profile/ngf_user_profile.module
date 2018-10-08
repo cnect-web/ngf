@@ -402,7 +402,7 @@ function ngf_user_profile_user_format_name_alter(&$name, $account) {
 function ngf_user_profile_user_login($account) {
   $current_route = \Drupal::routeMatch()->getRouteName();
   if (!in_array($current_route, ['user.reset', 'user.reset.login'])) {
-    $response = new RedirectResponse(Url::fromRoute('ngf_user_profile.page.profile')
+    $response = new RedirectResponse(Url::fromRoute('ngf_user_profile.page.general_settings')
       ->toString());
     $response->send();
   }
