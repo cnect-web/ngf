@@ -42,8 +42,8 @@ class SocialAuthFacebookSubscriber implements EventSubscriberInterface {
    *   Used to retrieve the token from session.
    * @param \Drupal\social_api\Plugin\NetworkManager $network_manager
    *   Used to get an instance of the SDK used by the Social Auth implementer.
-   * @param \Drupal\social_auth_google\GoogleAuthManager $google_manager
-   *   The Social Auth Google manager.
+   * @param \Drupal\social_auth_facebook\FacebookAuthManager $facebookManager
+   *   The Social Auth Facebook manager.
    */
   public function __construct(SessionInterface $session, NetworkManager $network_manager, FacebookAuthManager $facebookManager) {
     $this->session = $session;
