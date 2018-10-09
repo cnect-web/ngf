@@ -470,7 +470,7 @@ function ngf_group_form_alter(
 ) {
 
   // Redirect user to the group page after cancellation.
-  if (strpos($form_id, 'group_content_group_content_type_', 0) !== FALSE) {
+  if (strpos($form_id, 'group_content_group_content_type_', 0) !== FALSE && isset($form['actions']['cancel'])) {
     $route_params = $form['actions']['cancel']['#url']->getRouteParameters();
     if (!empty($route_params['group'])) {
       $group = Group::load($route_params['group']);
