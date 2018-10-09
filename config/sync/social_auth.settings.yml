@@ -15,6 +15,3 @@ auth:
   social_auth_linkedin:
     route: social_auth_linkedin.redirect_to_linkedin
     img_path: modules/contrib/social_auth_linkedin/img/linkedin_logo.svg
-  social_auth_twitter:
-    route: social_auth_twitter.redirect_to_twitter
-    img_path: modules/contrib/social_auth_twitter/img/twitter_logo.svg
