@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfd34e2647693802880d283f4f10dbbc",
+    "content-hash": "027a2e5d9814c9e9b4ad01116e361b70",
     "packages": [
         {
             "name": "abraham/twitteroauth",
@@ -7366,6 +7366,69 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/twig_tweak",
                 "issues": "https://www.drupal.org/project/issues/twig_tweak"
+            }
+        },
+        {
+            "name": "drupal/twitter_block",
+            "version": "3.0.0-alpha0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/twitter_block",
+                "reference": "8.x-3.0-alpha0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/twitter_block-8.x-3.0-alpha0.zip",
+                "reference": "8.x-3.0-alpha0",
+                "shasum": "f959bec1332f2bd45e813eefa3b982df4eb129bb"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.0-alpha0",
+                    "datestamp": "1489574283",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Devin Carlson",
+                    "homepage": "https://www.drupal.org/user/290182"
+                },
+                {
+                    "name": "ZenDoodles",
+                    "homepage": "https://www.drupal.org/user/226976"
+                },
+                {
+                    "name": "cweagans",
+                    "homepage": "https://www.drupal.org/user/404732"
+                },
+                {
+                    "name": "naveenvalecha",
+                    "homepage": "https://www.drupal.org/user/2665733"
+                },
+                {
+                    "name": "subhojit777",
+                    "homepage": "https://www.drupal.org/user/1812492"
+                }
+            ],
+            "description": "Provides configurable blocks for a Twitter feed.",
+            "homepage": "http://drupal.org/project/twitter_block",
+            "support": {
+                "source": "http://cgit.drupalcode.org/twitter_block"
             }
         },
         {

@@ -83,6 +83,7 @@
         "drupal/twig_extensions": "^2.0",
         "drupal/twig_field_value": "^1.1",
         "drupal/twig_tweak": "^2.0",
+        "drupal/twitter_block": "^3.0",
         "drupal/ui_patterns": "^1.0",
         "drupal/video": "^1.2",
         "drupal/votingapi": "^3.0",

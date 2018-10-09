@@ -48,6 +48,7 @@ settings:
           name: Tools
           items:
             - ShowBlocks
+            - Source
   plugins:
     stylescombo:
       styles: ''
