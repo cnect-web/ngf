@@ -189,7 +189,6 @@
                 "Use the right method for entity insert (Fixes group alias not created on group creation)": "https://pastebin.com/raw/TyNQjTiS"
             },
             "drupal/subpathauto": {
-                "Redirect module causes redirect back to unaliased path": "https://www.drupal.org/files/issues/2875026-6.patch",
                 "Ignore specific paths (blacklist) for D8": "https://www.drupal.org/files/issues/2018-08-17/subpathauto-ignore-paths-2964786-7.patch"
             },
             "drupal/social_auth_facebook": {
