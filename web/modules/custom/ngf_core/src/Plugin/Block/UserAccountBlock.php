@@ -90,8 +90,8 @@ class UserAccountBlock extends BlockBase {
         '#user_picture' => render($picture_output),
         '#default_user_picture' => file_create_url(drupal_get_path('theme', 'funkywave') . '/images/default_user.jpg'),
         '#user_name' => $user->getDisplayName(),
-        '#user_profile_link' => '/profile/general-settings',
-        '#user_manage_network_link' => '/profile/feed',
+        '#user_profile_link' => '/profile',
+        '#user_manage_network_link' => '/profile/feed#tabs-secondary',
         '#user_logout_link' => '/user/logout',
       ];
     }
