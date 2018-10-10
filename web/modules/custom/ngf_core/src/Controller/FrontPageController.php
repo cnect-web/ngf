@@ -124,6 +124,11 @@ class FrontPageController extends ControllerBase {
       '#value' => t('Not registred yet ?'),
     ];
 
+    $render['message_wrapper']['spacer'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'p',
+    ];
+
     $render['message_wrapper']['body_p1'] = [
       '#type' => 'html_tag',
       '#tag' => 'p',
