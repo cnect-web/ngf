@@ -9,8 +9,8 @@ dependencies:
     - funkywave
 id: twitterblock
 theme: funkywave
-region: header
-weight: 0
+region: sidebar_first
+weight: -4
 provider: null
 plugin: twitter_block
 settings:
