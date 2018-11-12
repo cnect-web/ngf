@@ -10,8 +10,8 @@ dependencies:
     - funkywave
 id: mainnavigation
 theme: funkywave
-region: header
-weight: -3
+region: sidebar_first
+weight: -5
 provider: null
 plugin: 'system_menu_block:main'
 settings:
