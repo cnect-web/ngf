@@ -150,25 +150,16 @@
         "patches": {
             "enable-patching" : true,
             "drupal/core": {
-                "Add events for matching entity hooks": "https://www.drupal.org/files/issues/2551893-52.patch",
-                "Missing active classes on links to frontpage (ATTENTION: Might break something)": "https://www.drupal.org/files/issues/2018-03-29/1578832-46.patch",
-                "Fix revions moderation checkbox": "https://www.drupal.org/files/issues/2018-07-02/2946750-15.patch"
-            },
-            "drupal/adminimal_theme": {
-                "Colors in horizontal and vertical toolbar need fixing": "https://www.drupal.org/files/issues/adminimal_theme-fix-toolbar-colors-28226369.patch"
+                "Missing active classes on links to frontpage (ATTENTION: Might break something)": "https://www.drupal.org/files/issues/2018-03-29/1578832-46.patch"
             },
             "drupal/views": {
                 "Recoverable fatal error: Argument 2 passed to Drupal\\views\\Plugin\\views\\relationship\\RelationshipPluginBase::init() must be an instance of Drupal\\views\\Plugin\\views\\display\\DisplayPluginBase": "https://www.drupal.org/files/issues/2806015.patch"
             },
             "drupal/group": {
-                "Port Subgroup (ggroup) to the D8 version": "https://www.drupal.org/files/issues/2018-06-28/2736233-158.patch",
-                "More contexts needed": "https://www.drupal.org/files/issues/expand_context_to_nodes-2815971-14.patch",
                 "Behat Drupal Extension Context": "https://www.drupal.org/files/issues/behat-testing-context-2877493-9.patch",
                 "Members duplicated in group members list": "https://www.drupal.org/files/issues/duplicate-members-on-group-create-fixed-2923297-3.patch",
-                "Change 'Add' and 'Create' labels and paths to make be more intuitive & follow Drupal patterns" : "https://www.drupal.org/files/issues/2683039-28.patch",
                 "Get a token of a node's parent group to create a pathauto pattern" : "https://www.drupal.org/files/issues/group_add-node-group-tokens-2774827-24.patch",
-                "How to redirect to the owning group after adding a gnode?": "https://www.drupal.org/files/issues/2817109-by-rachel_norfolk-ericras-How-to-redir.patch",
-                "Request membership feature": "https://www.drupal.org/files/issues/2018-07-13/request_membership-2752603-69.patch"
+                "How to redirect to the owning group after adding a gnode?": "https://www.drupal.org/files/issues/2817109-by-rachel_norfolk-ericras-How-to-redir.patch"
             },
             "drupal/entity_reference_revisions": {
                 "Embed Paragraph Content in Normalized Parent Entities (REST)": "https://www.drupal.org/files/issues/embed_paragraph_content-2848878-43.patch"
@@ -176,9 +167,6 @@
             "drupal/inline_entity_form": {
                 "Remove revision log messages from other entities than nodes": "https://www.drupal.org/files/issues/2018-03-23/remove_revision_log_message-2927884-2.patch",
                 "Field name/label disappears when I create a new entity inline": "https://www.drupal.org/files/issues/inline_entity_form-no_label_required_field_with_no_entries-2842744.patch"
-            },
-            "drupal/message": {
-                "Notice: Undefined index: #cardinality": "https://www.drupal.org/files/issues/2018-04-04/fix_misspelling_in_cardinality_var-2958485.txt"
             },
             "drupal/entity_browser": {
                 "Provide MediaFileUpload widget" : "https://www.drupal.org/files/issues/entity_browser-media-file-upload-2922885-3.patch"
@@ -191,9 +179,6 @@
             },
             "drupal/subpathauto": {
                 "Ignore specific paths (blacklist) for D8": "https://www.drupal.org/files/issues/2018-08-17/subpathauto-ignore-paths-2964786-7.patch"
-            },
-            "drupal/social_auth_facebook": {
-                "Do no override settings if a proxy is used": "https://www.drupal.org/files/issues/2018-07-06/patch-social-auth-facebook.patch"
             }
         }
     },
