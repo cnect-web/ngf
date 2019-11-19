@@ -5,12 +5,7 @@
  * Contains ngf_search.module.
  */
 
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Link;
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\views\ViewExecutable;
-use Drupal\views\Views;
 
 function ngf_search_views_pre_render(ViewExecutable $view) {
     $group_access_manager = \Drupal::getContainer()->get('ngf_group.group_access_manager');
@@ -29,15 +24,4 @@ function ngf_search_views_pre_render(ViewExecutable $view) {
         }
       }
     }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
-function ngf_search_form_views_exposed_form_alter(
-  &$form,
-  FormStateInterface $form_state,
-  $form_id
-) {
-//  var_dump($form);
 }

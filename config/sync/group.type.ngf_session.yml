@@ -1,0 +1,11 @@
+uuid: dcfb9fa4-d28b-41b3-bdf6-89aca7e8366d
+langcode: en
+status: true
+dependencies: {  }
+id: ngf_session
+label: Session
+description: ''
+creator_membership: true
+creator_wizard: false
+creator_roles:
+  - ngf_session-admin

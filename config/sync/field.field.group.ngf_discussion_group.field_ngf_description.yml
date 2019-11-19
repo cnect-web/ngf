@@ -16,7 +16,7 @@ field_name: field_ngf_description
 entity_type: group
 bundle: ngf_discussion_group
 label: Description
-description: ''
+description: "<i class=\"fas fa-pull-left fa-info-circle\"></i>\r\nExplain what you want to discuss. You can <b>add files</b>, <b>add images</b>,  <b>add video</b> and play with the order of your content by dragging it."
 required: false
 translatable: false
 default_value: {  }

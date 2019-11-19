@@ -4,7 +4,6 @@ namespace Drupal\ngf_user_profile\Helper;
 
 use Drupal\Core\Session\AccountInterface;
 
-
 class UserHelper {
 
   public static function getUserFullName(AccountInterface $user) {

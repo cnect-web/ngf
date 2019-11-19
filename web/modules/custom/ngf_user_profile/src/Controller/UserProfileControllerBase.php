@@ -10,20 +10,15 @@ use Drupal\views\Views;
  * Class UserProfileControllerBase.
  */
 class UserProfileControllerBase extends ControllerBase {
-
-  protected function getEntityForm($form_view_mode, $entity, $entity_type = 'user') {
-    $form = $this->entityTypeManager()
-      ->getFormObject($entity_type, $form_view_mode)
-      ->setEntity($entity);
-
-    return $this->formBuilder()->getForm($form);
-  }
-
-
+  protected $title = '';
   protected function getContent($content, $user = NULL) {
     return [
       'header' => $this->getUserDisplay($user ?? $this->getCurrentUserAccount(), 'ngf_profile'),
       'tabs' => $this->getTabs(),
+      'title' => [
+        '#type' => 'markup',
+        '#markup' => '<h3>' . $this->getPageTitle() . '</h3>',
+      ],
       'content' => $content,
     ];
   }
@@ -39,11 +34,13 @@ class UserProfileControllerBase extends ControllerBase {
   /**
    * {@inheritdoc}
    */
-  protected function getView($view_name, $display_name, $user_id) {
+  protected function getView($view_name, $display_name, $argument) {
     // Add the view block.
     $view = Views::getView($view_name);
     $view->setDisplay($display_name);
-    $view->setArguments([$user_id]);
+    if (!empty($argument)) {
+      $view->setArguments([$argument]);
+    }
     $view->preExecute();
     $view->execute();
 
@@ -56,7 +53,7 @@ class UserProfileControllerBase extends ControllerBase {
     if ($title = $view->getTitle()) {
       $render_array['view']['title'] = [
         '#type' => 'html_tag',
-        '#tag' => 'h2',
+        '#tag' => 'h3',
         '#value' => $title,
       ];
     }
@@ -100,7 +97,7 @@ class UserProfileControllerBase extends ControllerBase {
   protected function getViewContent($content_name, EntityInterface $user = NULL) {
     $prefix = !empty($user) ? 'user_' : 'your_';
     return $this->getContent($this->getView(
-      'ngf_user_' . $content_name,
+      "ngf_user_$content_name",
       $prefix . $content_name,
       !empty($user) ? $user->id() : $this->currentUser()->id()
     ), $user);
@@ -114,4 +111,11 @@ class UserProfileControllerBase extends ControllerBase {
     ];
   }
 
+  protected function setPageTitle($title) {
+    $this->title = $title;
+  }
+
+  protected function getPageTitle() {
+    return $this->title;
+  }
 }

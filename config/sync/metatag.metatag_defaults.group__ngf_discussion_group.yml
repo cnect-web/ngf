@@ -1,0 +1,17 @@
+uuid: d269ec69-2313-40c2-9e70-c06d4e7522b8
+langcode: en
+status: true
+dependencies: {  }
+id: group__ngf_discussion_group
+label: 'Group: Discussion Group'
+tags:
+  description: '[group:field_ngf_introtext]'
+  title: '[group:title] | [site:name]'
+  image_src: '[group:field_ngf_cover_image:entity:field_media_image:entity:url]'
+  og_image: '[group:field_ngf_cover_image:entity:field_media_image:entity:url]'
+  og_site_name: '[site:name]'
+  og_title: '[group:title]'
+  og_description: '[group:field_ngf_introtext]'
+  twitter_cards_title: '[group:title] | [site:name]'
+  twitter_cards_description: '[group:field_ngf_introtext]'
+  twitter_cards_image: '[group:field_ngf_cover_image:entity:field_media_image:entity:url]'

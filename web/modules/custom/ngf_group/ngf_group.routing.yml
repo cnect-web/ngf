@@ -1,7 +1,7 @@
-ngf_group.page.discover:
-  path: '/discover'
+ngf_group.page.site_groups:
+  path: '/groups'
   defaults:
-    _title: 'Discover'
+    _title: 'Groups'
     _controller: '\Drupal\ngf_group\Controller\DiscoverPageController::discoverPage'
   requirements:
     _permission: 'access content'
@@ -33,7 +33,7 @@ ngf_group.page.library:
 ngf_group.page.subgroups:
   path: '/group/{group}/subgroups'
   defaults:
-    _title: 'Info'
+    _title: 'Subgroups'
     _controller: '\Drupal\ngf_group\Controller\GroupPageController::subgroupsPage'
   requirements:
     _permission: 'access content'
@@ -83,6 +83,30 @@ ngf_group.page.followers:
   defaults:
     _title: 'Followers'
     _controller: '\Drupal\ngf_group\Controller\GroupPageController::followersPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.reported_content:
+  path: '/group/{group}/reported-content'
+  defaults:
+    _title: 'Reported content'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::reportedContentPage'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      group:
+        type: 'entity:group'
+
+ngf_group.page.reported_comments:
+  path: '/group/{group}/reported-comments'
+  defaults:
+    _title: 'Reported comments'
+    _controller: '\Drupal\ngf_group\Controller\GroupPageController::reportedCommentsPage'
   requirements:
     _permission: 'access content'
   options:

@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.ngf_discussion.field_ngf_interests
     - field.field.node.ngf_discussion.field_ngf_introtext
     - field.field.node.ngf_discussion.field_ngf_related_content
+    - field.field.node.ngf_discussion.field_ngf_vote
     - node.type.ngf_discussion
   module:
     - autocomplete_deluxe
@@ -18,6 +19,7 @@ dependencies:
     - paragraphs
     - path
     - textfield_counter
+    - vud
 id: node.ngf_discussion.default
 targetEntityType: node
 bundle: ngf_discussion
@@ -39,14 +41,14 @@ content:
     weight: 1
     settings:
       form_mode: default
-      override_labels: false
-      label_singular: ''
+      override_labels: true
+      label_singular: 'cover image'
       label_plural: ''
       allow_new: true
-      allow_existing: false
       match_operator: CONTAINS
       collapsible: false
       collapsed: false
+      allow_existing: false
       allow_duplicate: false
     third_party_settings: {  }
     type: inline_entity_form_complex
@@ -62,7 +64,7 @@ content:
       autocollapse: none
       add_mode: button
       form_display_mode: default
-      default_paragraph_type: ngf_text
+      default_paragraph_type: _none
       features:
         duplicate: duplicate
         collapse_edit_all: collapse_edit_all
@@ -89,24 +91,37 @@ content:
   field_ngf_introtext:
     weight: 2
     settings:
-      rows: '5'
+      rows: 5
       placeholder: ''
-      maxlength: '300'
+      maxlength: 300
       counter_position: after
     third_party_settings: {  }
     type: string_textarea_with_counter
     region: content
   field_ngf_related_content:
-    type: entity_reference_paragraphs
+    type: paragraphs
     weight: 14
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
       add_mode: button
       form_display_mode: default
       default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
     third_party_settings: {  }
+    region: content
+  field_ngf_vote:
+    weight: 26
+    settings:
+      vote_tag: vote
+    third_party_settings: {  }
+    type: vote_up_down_widget_type
     region: content
   flag:
     weight: 9
@@ -145,7 +160,7 @@ content:
     region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Write here the title of your discussion'
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete

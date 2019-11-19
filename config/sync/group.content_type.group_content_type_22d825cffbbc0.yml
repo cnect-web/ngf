@@ -10,7 +10,7 @@ description: 'Adds <em class="placeholder">Discussion group</em> groups to group
 group_type: ngf_discussion_group
 content_plugin: 'subgroup:ngf_discussion_group'
 plugin_config:
-  group_cardinality: 0
+  group_cardinality: 1
   entity_cardinality: 1
   use_creation_wizard: false
   parent_role_mapping:

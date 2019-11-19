@@ -1,0 +1,10 @@
+uuid: 7f6433ca-5362-4833-87e2-077c1a3440b8
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.ngf_general_settings
+label: 'General settings'
+targetEntityType: user
+cache: true

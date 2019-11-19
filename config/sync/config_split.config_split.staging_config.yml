@@ -4,6 +4,7 @@ status: false
 dependencies: {  }
 id: staging_config
 label: 'Staging Config'
+description: ''
 folder: ../config/staging_config
 module:
   stage_file_proxy: 0

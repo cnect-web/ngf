@@ -1,0 +1,13 @@
+uuid: 059d28aa-7508-4149-a68c-93d4476e23ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ngf_report_comment.unflag
+label: 'Unreport comment'
+type: comment
+plugin: 'flag_action:ngf_report_comment.unflag'
+configuration:
+  flag_id: ngf_report_comment
+  flag_action: unflag

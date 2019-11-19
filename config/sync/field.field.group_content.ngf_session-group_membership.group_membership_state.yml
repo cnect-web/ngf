@@ -1,0 +1,22 @@
+uuid: 73f07429-fabb-43e0-9dc6-9deab396566c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group_content.group_membership_state
+    - group.content_type.ngf_session-group_membership
+id: group_content.ngf_session-group_membership.group_membership_state
+field_name: group_membership_state
+entity_type: group_content
+bundle: ngf_session-group_membership
+label: State
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'group_type:group_membership_state'
+  handler_settings:
+    group_type_id: ngf_session
+field_type: entity_reference

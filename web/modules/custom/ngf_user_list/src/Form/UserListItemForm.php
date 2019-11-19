@@ -4,7 +4,6 @@ namespace Drupal\ngf_user_list\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Session\AccountInterface;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\FlagTrait;
 use Drupal\ngf_user_list\Entity\UserList;
@@ -33,9 +32,8 @@ class UserListItemForm extends FormBase {
    * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user.
    */
-  public function __construct(FlagService $flag, AccountInterface $current_user) {
+  public function __construct(FlagService $flag) {
     $this->flag = $flag;
-    $this->currentUser = $current_user;
   }
 
   /**
@@ -43,8 +41,7 @@ class UserListItemForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('flag'),
-      $container->get('current_user')
+      $container->get('flag')
     );
   }
 
@@ -69,15 +66,15 @@ class UserListItemForm extends FormBase {
       ],
     ];
 
-    $form['list_id'] = array(
+    $form['list_id'] = [
       '#type' => 'hidden',
       '#value' => $ngf_user_list->id(),
-    );
+    ];
 
-    $form['actions']['submit'] = array(
+    $form['actions']['submit'] = [
       '#type' => 'submit',
       '#value' => $this->t('Add'),
-    );
+    ];
 
     return $form;
   }
@@ -93,7 +90,7 @@ class UserListItemForm extends FormBase {
       $form_state->setErrorByName('user_id', $this->t('User is not found.'));
     } elseif (empty($list)) {
       $form_state->setErrorByName('list_id', $this->t('List is not found.'));
-    } elseif ($list->getOwnerId() !== $this->currentUser->id()) {
+    } elseif ($list->getOwnerId() !== $this->currentUser()->id()) {
       $form_state->setErrorByName('list_id', $this->t('This list does not belong to you.'));
     } else {
       $flag = $this->getListItemFlag();

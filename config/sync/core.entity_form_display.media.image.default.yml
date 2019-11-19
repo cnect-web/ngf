@@ -9,7 +9,7 @@ dependencies:
     - image.style.thumbnail
     - media.type.image
   module:
-    - image
+    - fiu
 _core:
   default_config_hash: nZlttO4YMwMCpkhYMz7bQ1ZMjABGc59YY1us3eSfvTY
 id: media.image.default
@@ -21,8 +21,9 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+      fiu_show_file_name: none
     third_party_settings: {  }
-    type: image_image
+    type: fine_image
     weight: 1
     region: content
   field_ngf_author:

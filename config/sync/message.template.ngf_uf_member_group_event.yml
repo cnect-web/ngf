@@ -1,0 +1,14 @@
+uuid: dfb608c3-e13e-4770-bdf5-56b29c0ecee0
+langcode: en
+status: true
+dependencies: {  }
+template: ngf_uf_member_group_event
+label: 'User feed : In group you are member event has been created'
+description: 'In group you are member event has been created'
+text: {  }
+settings:
+  'token options':
+    clear: false
+    'token replace': true
+  purge_override: false
+  purge_methods: {  }

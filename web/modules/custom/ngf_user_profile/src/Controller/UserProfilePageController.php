@@ -3,10 +3,12 @@
 namespace Drupal\ngf_user_profile\Controller;
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
 use Drupal\user\Entity\AccountInterface;
 use Drupal\ngf_user_profile\Manager\UserFeedManager;
 use Drupal\ngf_user_profile\Manager\UserManager;
 use Drupal\user\Entity\User;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -85,39 +87,62 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function followers(EntityInterface $user = NULL) {
-    $text = t('<p>There are no followers yet</p>');
-    return $this->getContent($this->getUserList($this->userManager->getFollowersUsersList($user), $text), $user);
+    $user = $user ?? $this->getCurrentUserAccount();
+    return $this->getContent($this->getView('ngf_user_followers', 'followers', $user->id()), $user);
   }
 
   /**
    * {@inheritdoc}
    */
   public function following(EntityInterface $user = NULL) {
-    $text = t("<p>There are no following users yet</p>");
-    return $this->getContent($this->getUserList($this->userManager->getFollowingUsersList($user), $text), $user);
+    $user = $user ?? $this->getCurrentUserAccount();
+    return $this->getContent($this->getView('ngf_user_followers', 'following', $user->id()), $user);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function savedContent() {
+    return $this->getContent($this->getView('ngf_saved_content', 'saved_content', NULL));
   }
 
   public function contact(EntityInterface $user) {
-    $message = $this
-      ->entityTypeManager()
+    $message = $this->entityTypeManager()
       ->getStorage('contact_message')
-      ->create(array(
+      ->create([
         'contact_form' => 'personal',
         'recipient' => $user
           ->id(),
-      ));
+      ]);
     $form = $this
       ->entityFormBuilder()
       ->getForm($message);
 
-    return $this->getContent($form);
+    return $this->getContent($form, $user);
+  }
+
+  protected function getUserList($users, $no_items_text) {
+    return $this->getEntityList('user', 'compact', $users, $no_items_text);
+  }
+
+  protected function getContentList($content_items, $no_items_text) {
+    return $this->getEntityList('node', 'teaser', $content_items, $no_items_text);
+  }
+
+  protected function getEntityList($entity_type, $view_mode, $entities, $no_items_text) {
+    $items = [];
+    $entity_builder = $this->entityTypeManager()->getViewBuilder($entity_type);
+    foreach ($entities as $entity) {
+      $items[] = $entity_builder->view($entity, $view_mode);
+    }
+    return count($items) > 0  ? $items : $this->getRenderMarkup($no_items_text);
   }
 
   /**
    * {@inheritdoc}
    */
   public function generalSettings() {
-    return $this->getContent($this->getEntityForm('default', $this->getCurrentUserAccount(), 'user'));
+    return $this->getContent($this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'ngf_general_settings'));
   }
 
   /**
@@ -138,7 +163,7 @@ class UserProfilePageController extends UserProfileControllerBase {
    * {@inheritdoc}
    */
   public function interestsSettings() {
-    return $this->getContent($this->getEntityForm('ngf_interests', $this->getCurrentUserAccount(), 'user'));
+    return $this->getContent($this->entityFormBuilder()->getForm($this->getCurrentUserAccount(), 'ngf_interests'));
   }
 
   /**
@@ -149,36 +174,27 @@ class UserProfilePageController extends UserProfileControllerBase {
   }
 
   public function feed() {
-
-    $publications = $this->userFeedManager->getContent();
-    $page = pager_find_page();
-    $num_per_page = 10;
-    $offset = $num_per_page * $page;
-    $result = array_slice($publications, $offset, $num_per_page);
-
-    // Now that we have the total number of results, initialize the pager.
-    pager_default_initialize(count($publications), $num_per_page);
-
-    // Create a render array with the search results.
-    $render = [];
-    if (count($result) > 0) {
-      foreach ($result as $item) {
-        $message = $this->entityTypeManager()->getViewBuilder('message')
-          ->view($item, 'full');
-        // There is a bug partial is still displayed even it's hidden in the view mode.
-        unset($message['partial_0']);
-        $render['content'][] = $message;
-      }
-      $render['content'][] = [
-        '#type' => 'pager',
-      ];
-    }
-    else {
-      $render[] = $this->getRenderMarkup('<p>There are no items in your feed</p>');
-    }
-    return $this->getContent($render);
+    return $this->getContent($this->userFeedManager->getContent());
   }
 
+  public function editUserProfile($user){
+    if ($this->currentUser()->id() == $user->id()) {
+      return $this->redirect('ngf_user_profile.page.general_settings');
+    }
+    else {
+      return $this->entityFormBuilder()->getForm($user, 'default');
+    }
+  }
 
-
+  public function viewUserProfile($user) {
+    // Redirect all to profile pages.
+    if ($user->id() ==  $this->currentUser()->id()) {
+      $url = Url::fromRoute('ngf_user_profile.page.profile');
+    }
+    else {
+      $url = Url::fromRoute('ngf_user_profile.page.user_profile', ['user' => $user->id()]);
+    }
+    $response = new RedirectResponse($url->toString());
+    $response->send();
+  }
 }

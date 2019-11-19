@@ -1,0 +1,12 @@
+uuid: 81051393-1386-4a46-bb7e-d7cbcf030a3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.ngf_session
+id: ngf_session-banned
+label: Banned
+weight: -100
+internal: true
+state: active
+group_type: ngf_session

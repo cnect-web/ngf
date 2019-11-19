@@ -1,13 +1,3 @@
-# Any user profile pages
-ngf_user_profile.profile:
-  path: '/profile/view/{username}'
-  defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfileController::profile'
-    _title: 'User profile'
-  requirements:
-    _permission: 'access content'
-    username: '^[a-zA-Z0-9_]+'
-
 # Handlers
 ngf_user_profile.follow:
   path: '/profile/follow/{username}'
@@ -106,11 +96,19 @@ ngf_user_profile.page.following:
   requirements:
     _permission: 'access content'
 
+ngf_user_profile.page.saved_content:
+  path: '/profile/saved-content'
+  defaults:
+    _title: 'Saved content'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::savedContent'
+  requirements:
+    _permission: 'access content'
+
 ngf_user_profile.page.feed:
   path: '/profile/feed'
   defaults:
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
-    _title: 'User feed'
+    _title: 'Profile'
   requirements:
     _permission: 'access content'
 
@@ -118,7 +116,7 @@ ngf_user_profile.page.profile:
   path: '/profile'
   defaults:
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::feed'
-    _title: 'User feed'
+    _title: 'Profile'
   requirements:
     _permission: 'access content'
 
@@ -160,10 +158,10 @@ ngf_user_profile.page.private_settings:
 ngf_user_profile.page.user_profile:
   path: '/profile/{user}'
   defaults:
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::publications'
+    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::about'
     _title: 'User profile'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
   options:
       parameters:
         user:
@@ -175,19 +173,7 @@ ngf_user_profile.page.user_publications:
     _title: 'Publications'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::publications'
   requirements:
-    _permission: 'access content'
-  options:
-    parameters:
-      user:
-        type: 'entity:user'
-
-ngf_user_profile.page.user_publications:
-  path: '/profile/{user}/publications'
-  defaults:
-    _title: 'Publications'
-    _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::publications'
-  requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
   options:
     parameters:
       user:
@@ -199,7 +185,7 @@ ngf_user_profile.page.user_events:
     _title: 'Events'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::events'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
   options:
     parameters:
       user:
@@ -211,7 +197,7 @@ ngf_user_profile.page.user_groups:
     _title: 'Events'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::groups'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
   options:
     parameters:
       user:
@@ -223,7 +209,7 @@ ngf_user_profile.page.user_followers:
     _title: 'Followers'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::followers'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
   options:
     parameters:
       user:
@@ -235,7 +221,7 @@ ngf_user_profile.page.user_following:
     _title: 'Following'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::following'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
   options:
     parameters:
       user:
@@ -247,7 +233,7 @@ ngf_user_profile.page.user_contact:
     _title: 'Following'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::contact'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
   options:
     parameters:
       user:
@@ -259,7 +245,7 @@ ngf_user_profile.page.user_about:
     _title: 'About'
     _controller: '\Drupal\ngf_user_profile\Controller\UserProfilePageController::about'
   requirements:
-    _permission: 'access content'
+    _permission: 'access user profiles'
   options:
     parameters:
       user:

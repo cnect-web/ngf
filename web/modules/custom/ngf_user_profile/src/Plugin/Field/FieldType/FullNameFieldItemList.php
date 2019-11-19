@@ -21,7 +21,7 @@ class FullNameFieldItemList extends FieldItemList {
       $value = $entity->getUserName();
     }
     else {
-      $value = $entity->get('field_ngf_first_name')->value . ' ' . $entity->get('field_ngf_last_name')->value;
+      $value = "{$entity->get('field_ngf_first_name')->value} {$entity->get('field_ngf_last_name')->value}";
     }
 
     $this->list[0] = $this->createItem(0, $value);

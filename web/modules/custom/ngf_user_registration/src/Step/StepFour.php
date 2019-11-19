@@ -41,9 +41,9 @@ class StepFour extends BaseStep {
       '#type' => 'item',
       '#markup' => t('<h2>Private settings</h2>'),
     ];
-    $form['info'] = [
+    $form['introtext'] = [
       '#type' => 'item',
-      '#markup' => t('<p>Private settings information</p>'),
+      '#markup' => t('<p class="intro-text">Privacy is a private matter. Tune your visibility and reachability at this platform as you prefer. Know that you can modify your privacy settings at any moment according to your needs.</p>'),
     ];
     $form['setting_wrapper'] = [
       '#type' => 'container',

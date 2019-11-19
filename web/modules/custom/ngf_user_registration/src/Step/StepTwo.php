@@ -41,6 +41,10 @@ class StepTwo extends BaseStep {
       '#type' => 'item',
       '#markup' => t('<h2>Location</h2>'),
     ];
+    $form['introtext'] = [
+      '#type' => 'item',
+      '#markup' => t('<p class="intro-text">It might be cool to see who from your region is here too?</p>'),
+    ];
 
     $form['country'] = [
       '#title' => t('Country'),

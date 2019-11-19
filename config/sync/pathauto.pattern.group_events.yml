@@ -1,0 +1,23 @@
+uuid: a3223682-2c11-4a21-b73b-68d6e32a9070
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+id: group_events
+label: 'Group events'
+type: 'canonical_entities:group'
+pattern: '[group:ngf_path]/events/[group:title]'
+selection_criteria:
+  3432ad92-5be9-4e29-94de-c97da4218769:
+    id: 'entity_bundle:group'
+    bundles:
+      ngf_event: ngf_event
+    negate: false
+    context_mapping:
+      group: group
+    uuid: 3432ad92-5be9-4e29-94de-c97da4218769
+selection_logic: and
+weight: -8
+relationships: {  }

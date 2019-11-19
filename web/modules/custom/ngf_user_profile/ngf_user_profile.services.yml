@@ -1,4 +1,8 @@
 services:
+  ngf_user_profile.route_subscriber:
+    class: Drupal\ngf_user_profile\Routing\NGFUserProfileRouteSubscriber
+    tags:
+      - { name: event_subscriber }
   ngf_user_profile.user_manager:
     class: Drupal\ngf_user_profile\Manager\UserManager
     arguments: ['@current_user', '@messenger', '@user.data', '@flag']
@@ -13,4 +17,4 @@ services:
 
   ngf_user_profile.user_feed_manager:
       class: Drupal\ngf_user_profile\Manager\UserFeedManager
-      arguments: ['@current_user', '@flag']
+      arguments: ['@entity_type.manager', '@current_user', '@flag']

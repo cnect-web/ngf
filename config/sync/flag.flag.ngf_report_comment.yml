@@ -1,0 +1,32 @@
+uuid: 7c0bc28a-c8d6-4c1f-85b0-04395627be39
+langcode: en
+status: false
+dependencies:
+  module:
+    - comment
+id: ngf_report_comment
+label: 'Report comment'
+bundles:
+  - comment
+  - ngf_group_comments
+entity_type: comment
+global: false
+weight: 0
+flag_short: 'Report comment'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Unreport comment'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:comment'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+    parent_owner: '0'
+linkTypeConfig: {  }

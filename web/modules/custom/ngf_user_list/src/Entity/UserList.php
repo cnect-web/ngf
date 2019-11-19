@@ -152,6 +152,7 @@ class UserList extends ContentEntityBase implements UserListInterface {
 
     $fields['name'] = BaseFieldDefinition::create('string')
       ->setLabel(t('Name'))
+      ->setDescription('Enter a list name')
       ->setRevisionable(TRUE)
       ->setSettings([
         'max_length' => 50,

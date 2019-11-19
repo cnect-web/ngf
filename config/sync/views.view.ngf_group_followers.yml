@@ -206,7 +206,7 @@ display:
           entity_field: id
           plugin_id: group_id
       display_extenders: {  }
-      css_class: newsfeed
+      css_class: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -217,7 +217,9 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.ngf_about'
         - 'config:core.entity_view_display.user.user.ngf_author'
+        - 'config:core.entity_view_display.user.user.ngf_profile'
   followers:
     display_plugin: block
     id: followers
@@ -236,4 +238,6 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.compact'
         - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.ngf_about'
         - 'config:core.entity_view_display.user.user.ngf_author'
+        - 'config:core.entity_view_display.user.user.ngf_profile'

@@ -1,0 +1,20 @@
+post_login: '<front>'
+user_allowed: register
+redirect_user_form: false
+disable_admin_login: false
+disabled_roles:
+  administrator: '0'
+  ngf_moderator: '0'
+auth:
+  social_auth_facebook:
+    route: social_auth_facebook.redirect_to_fb
+    img_path: modules/contrib/social_auth_facebook/img/facebook_logo.svg
+  social_auth_google:
+    route: social_auth_google.redirect_to_google
+    img_path: modules/contrib/social_auth_google/img/google_logo.svg
+  social_auth_linkedin:
+    route: social_auth_linkedin.redirect_to_linkedin
+    img_path: modules/contrib/social_auth_linkedin/img/linkedin_logo.svg
+  social_auth_twitter:
+    route: social_auth_twitter.redirect_to_twitter
+    img_path: modules/contrib/social_auth_twitter/img/twitter_logo.svg

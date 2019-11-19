@@ -1,0 +1,11 @@
+uuid: 0581337a-17c6-4778-84f9-dcb8910a1d8e
+langcode: en
+status: true
+dependencies: {  }
+id: ngf_moderator
+label: Moderator
+weight: 3
+is_admin: null
+permissions:
+  - 'create ngf_discussion_group group'
+  - 'create ngf_event group'

@@ -2,24 +2,10 @@
 
 namespace Drupal\ngf_user_profile\Form;
 
-use Drupal\Component\Utility\Tags;
-use Drupal\Core\Ajax\AjaxResponse;
-use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
-use Drupal\Core\Form\FormState;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\ngf_user_registration\Manager\StepManager;
-use Drupal\ngf_user_registration\Step\StepsEnum;
-use Drupal\redirect\Entity\Redirect;
-use Drupal\user\RoleInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Entity\Element\EntityAutocomplete;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\ngf_user_profile\Manager\UserSettingsManager;
-use Drupal\user\UserData;
-use Drupal\Core\Session\AccountInterface;
 use Drupal\user\Entity\User;
 use Drupal\taxonomy\Entity\Term;
 
@@ -37,16 +23,7 @@ class UserLocationSettingsForm extends FormBase {
    * Class constructor.
    */
   public function __construct() {
-    $this->currentUser = User::load(\Drupal::getContainer()->get('current_user')->id());
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('current_user')
-    );
+    $this->currentUser = User::load($this->currentUser()->id());
   }
 
   /**
@@ -73,7 +50,7 @@ class UserLocationSettingsForm extends FormBase {
       if (!empty($this->currentUser->get('field_ngf_city')->target_id)) {
         $city_term = Term::load($this->currentUser->get('field_ngf_city')->target_id);
         if ($city_term) {
-          $city = $city_term->getName() . ' (' . $city_term->id() . ')';
+          $city = "{$city_term->getName()} ({$city_term->id()})";
         }
       }
     }

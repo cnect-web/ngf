@@ -1,0 +1,19 @@
+uuid: 0a686786-0f06-4d3e-b66c-13252f715e00
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+    - text
+id: group.field_ngf_session_description
+field_name: field_ngf_session_description
+entity_type: group
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

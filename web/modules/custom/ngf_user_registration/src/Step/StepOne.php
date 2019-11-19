@@ -4,8 +4,8 @@ namespace Drupal\ngf_user_registration\Step;
 
 use Drupal\ngf_user_registration\Button\StepOneNextButton;
 use Drupal\ngf_user_registration\Validator\ValidatorRequired;
+use Drupal\ngf_user_registration\Validator\ValidatorEmail;
 use Drupal\ngf_user_registration\Validator\ValidatorUsername;
-use Drupal\user\RegisterForm;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -39,6 +39,10 @@ class StepOne extends BaseStep {
       '#type' => 'item',
       '#markup' => t('<h2>Register</h2>'),
     ];
+    $form['introtext'] = [
+      '#type' => 'item',
+      '#markup' => t('<p class="intro-text">Let’s keep it simple. Just tell us who you are and how can we reach you</p>'),
+    ];
 
     $fields = [
       [
@@ -68,7 +72,7 @@ class StepOne extends BaseStep {
       '#prefix' => '<div class="form__block form__block--onecol form__block--ticks"><div class="form__block--checkbox">',
       '#suffix' => '</div></div>',
       '#type' => 'checkbox',
-      '#title' => t('<span class="onoffswitch-inner"></span> <span class="label-text">By clicking "Sign Up", you agree to our <a href="@url">Terms and Conditions and that you have read our Data Use Policy</a></span>', [
+      '#title' => t('<span class="onoffswitch-inner"></span> <span class="label-text">By checking this checkbox you agree to our <a href="/terms-service">Terms and Conditions and that you have read our Data Use Policy</a></span>', [
         '@url' => '',
       ]),
       '#required' => TRUE,
@@ -120,8 +124,11 @@ class StepOne extends BaseStep {
   public function getFieldsValidators() {
     return [
       'username' => [
-        new ValidatorUsername('Only several special characters are allowed, including space, ., -, \, _, @.  ')
+        new ValidatorUsername('Only several special characters are allowed, including space, ., -, \, _, @.  '),
       ],
+      'email' => [
+        new ValidatorEmail(),
+      ]
     ];
   }
 

@@ -1,0 +1,4 @@
+depth: 0
+_core:
+  default_config_hash: VSBsC1hsGPM2gNULMlhwxRDW_cJD6BVggQ8f9d9fZUk
+blacklist: "/group/*/content/create*\r\n/group/*/subgroup/create*\r\n/user/*\r\n/profile/*\r\n"

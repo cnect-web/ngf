@@ -6,15 +6,45 @@ definitions:
     weight: 0
     expanded: false
   standard__front_page:
+    enabled: false
     menu_name: main
     parent: ''
-    weight: -50
     expanded: false
-    enabled: true
+    weight: -50
   ngf_group__link__discover:
     menu_name: main
     parent: ''
     weight: 20
+    expanded: false
+    enabled: true
+  ngf_group__link__contacts-and-groups:
+    menu_name: main
+    parent: ''
+    weight: 20
+    expanded: false
+    enabled: true
+  ngf_core__link__user-feed:
+    menu_name: main
+    parent: ''
+    weight: 10
+    expanded: false
+    enabled: true
+  ngf_core__link__news-feed:
+    enabled: false
+    menu_name: main
+    parent: ''
+    weight: 10
+    expanded: false
+  ngf_group__link__groups:
+    menu_name: main
+    parent: ''
+    weight: 20
+    expanded: false
+    enabled: true
+  ngf_search__link__search:
+    menu_name: main
+    parent: ''
+    weight: 25
     expanded: false
     enabled: true
 _core:

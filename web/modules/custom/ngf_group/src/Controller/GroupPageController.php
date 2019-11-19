@@ -31,21 +31,12 @@ class GroupPageController extends ControllerBase {
   protected $gd;
 
   /**
-   * Entity type manager.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
-
-  /**
    * {@inheritdoc}
    */
   public function __construct(
-    GroupCacheContext $group,
-    EntityTypeManager $entityTypeManager
+    GroupCacheContext $group
   ) {
     $this->currentGroup = $group->getBestCandidate();
-    $this->entityTypeManager = $entityTypeManager;
     $this->gd = new NGFGroup($this->currentGroup);
   }
 
@@ -54,8 +45,7 @@ class GroupPageController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('cache_context.group'),
-      $container->get('entity_type.manager')
+      $container->get('cache_context.group')
     );
   }
 
@@ -75,6 +65,7 @@ class GroupPageController extends ControllerBase {
   public function landingPage(EntityInterface $group) {
     switch ($group->bundle()) {
       case 'ngf_discussion_group':
+      case 'ngf_session':
         return $this->publicationsPage($group);
 
       case 'ngf_event':
@@ -147,10 +138,8 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function eventPage(EntityInterface $event) {
-    if (isset($event->group) && $group = $event->group) {
-      $render[] = $this->groupDisplay($group);
-    }
     $render[] = $this->groupDisplay($event, 'full');
+    $render[] = $this->getContentView('ngf_sessions', 'sessions', $event->id(), FALSE);
     return $render;
   }
 
@@ -158,7 +147,7 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function getViewContent(EntityInterface $group, $page) {
-    return $this->getPageContent($group, $this->getContentView('ngf_group_' . $page, $page, $group->id()));
+    return $this->getPageContent($group, $this->getContentView("ngf_group_$page", $page, $group->id()));
   }
 
   /**
@@ -183,14 +172,14 @@ class GroupPageController extends ControllerBase {
    * {@inheritdoc}
    */
   public function groupDisplay(EntityInterface $group, $view_mode = 'ngf_header') {
-    $view_builder = \Drupal::entityTypeManager()->getViewBuilder('group');
+    $view_builder = $this->entityTypeManager()->getViewBuilder('group');
     return $view_builder->view($group, $view_mode);
   }
 
   /**
    * {@inheritdoc}
    */
-  public function getContentView($view_name, $display_name, $group_id) {
+  public function getContentView($view_name, $display_name, $group_id, $display_empty = TRUE) {
 
     // Add the view block.
     $view = Views::getView($view_name);
@@ -199,26 +188,38 @@ class GroupPageController extends ControllerBase {
     $view->preExecute();
     $view->execute();
 
-    $render_array['view'] = [
-      '#type' => 'container',
-      '#tree' => TRUE,
-    ];
-
-    // Add the groups view title to the render array.
-    $title = $view->getTitle();
-    if ($title) {
-      $render_array['view']['title'] = [
-        '#type' => 'html_tag',
-        '#tag' => 'h2',
-        '#value' => $title,
+    $render_array = [];
+    if ($view->total_rows || $display_empty) {
+      $render_array['view'] = [
+        '#type' => 'container',
+        '#tree' => TRUE,
       ];
+
+      // Add the groups view title to the render array.
+      $title = $view->getTitle();
+      if ($title) {
+        $render_array['title'] = [
+          '#type' => 'html_tag',
+          '#tag' => 'h3',
+          '#value' => $title,
+        ];
+      }
+
+      // Add the groups view to the render array.
+      $render_array['content'] = $view->render();
+
+      return $render_array;
     }
 
-    // Add the groups view to the render array.
-    $render_array['view']['content'] = $view->render();
+    return $render_array;
+  }
 
-    return $render_array['view'];
+  public function reportedContentPage(EntityInterface $group) {
+    return $this->getViewContent($group, 'reported_content');
+  }
 
+  public function reportedCommentsPage(EntityInterface $group) {
+    return $this->getViewContent($group, 'reported_comments');
   }
 
 }

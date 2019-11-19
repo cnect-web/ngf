@@ -6,11 +6,16 @@ dependencies:
     - field.storage.group.field_ngf_cover_image
     - group.type.ngf_discussion_group
     - media.type.ngf_cover_image
+  module:
+    - entity_reference_validators
+third_party_settings:
+  entity_reference_validators:
+    duplicate_reference: false
 id: group.ngf_discussion_group.field_ngf_cover_image
 field_name: field_ngf_cover_image
 entity_type: group
 bundle: ngf_discussion_group
-label: 'Cover image'
+label: 'Group logo'
 description: ''
 required: false
 translatable: true

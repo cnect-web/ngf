@@ -5,10 +5,13 @@
  * Contains ngf_core.module.
  */
 
+use Drupal\Core\Breadcrumb\Breadcrumb;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormBuilder;
 use Drupal\Core\Form\FormStateInterface;
+use CommerceGuys\Addressing\AddressFormat\AddressField;
+use Drupal\Core\Link;
 
 /**
  * Implements hook_help().
@@ -38,34 +41,26 @@ function ngf_core_link_alter(&$variables) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function ngf_core_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  // Alter the registration form button text to "Sign Up".
-  if (!empty($form['actions']['submit'])) {
-    $form['actions']['submit']['#value'] = t('Sign Up');
-  }
-
-  // Add the legal agreements message.
-  $form['agreements'] = [
-    '#markup' => t("By clicking 'Sign up' or using one of the Social Media Login buttons you agree to our <a href=\"/legal/terms-and-conditions\">Terms and Conditions</a> and that you have read our <a href=\"/legal/data-use-policy\">Data Use Policy</a>."),
-    '#weight' => 99,
-  ];
-
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
 function ngf_core_form_group_ngf_event_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   _ngf_core_event_ngf_registration_link_validation_helper($form);
 }
 
 /**
  * Implements hook_form_FORM_ID_alter().
- *
- * Needs a patch of a patch.
  */
 function ngf_core_form_group_ngf_event_ggroup_form_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   _ngf_core_event_ngf_registration_link_validation_helper($form);
+
+  // NGF-362: Create event submit button.
+  $form['actions']['submit']['#value'] = t('Create Event');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ngf_core_form_group_ngf_session_ggroup_form_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // NGF-362: Create event submit button.
+  $form['actions']['submit']['#value'] = t('Create Session');
 }
 
 /**
@@ -81,7 +76,7 @@ function ngf_core_form_group_ngf_event_edit_form_alter(&$form, \Drupal\Core\Form
 function _ngf_core_event_ngf_registration_link_validation_helper(&$form) {
   $form['field_ngf_registration_link']['widget'][0]['title']['#states'] = [
     'visible' => [
-      ':input[name="field_ngf_registration_link[0][uri]"]' => array('!value' => ''),
+      ':input[name="field_ngf_registration_link[0][uri]"]' => ['!value' => ''],
     ],
   ];
   array_unshift($form['field_ngf_registration_link']['widget'][0]['#element_validate'], '_ngf_core_event_ngf_registration_link_validate');
@@ -96,8 +91,8 @@ function _ngf_core_event_ngf_registration_link_validation_helper(&$form) {
 function _ngf_core_event_ngf_registration_link_validate(&$element, &$form_state) {
   $values = $form_state->getValue('field_ngf_registration_link');
   if (!empty($values[0]['uri']) && empty($values[0]['title'])) {
-    $values[0]['title'] = t("Register");
-    $element['title']['#value'] = t("Register");
+    $values[0]['title'] = t('Register');
+    $element['title']['#value'] = t('Register');
     $form_state->setValue('field_ngf_registration_link', $values);
   }
 }
@@ -109,7 +104,6 @@ function _ngf_core_event_end_date_validate($element, &$form_state) {
   // NGF-67: Start date can't be greater than End date.
   $start_date = NULL;
   if (!empty($form_state->getValue('field_ngf_event_start_date')->value) && !empty($form_state->getValue('field_ngf_event_start_date')->value['object'])) {
-    var_dump($form_state->getValue('field_ngf_event_start_date')->value);
     $start_date = $form_state->getValue('field_ngf_event_start_date')->value->getTimestamp();
   }
   $end_date = NULL;
@@ -142,17 +136,26 @@ function ngf_core_taxonomy_term_insert(Drupal\taxonomy\Entity\Term $term) {
  * Implements hook_theme_suggestions_HOOK_alter().
  */
 function ngf_core_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // Use a different page template is the user is anonymous.
   if (\Drupal::currentUser()->isAnonymous()) {
-    $suggestions[] = 'page__front__anonymous';
-  }
-}
 
-/**
- * Implements hook_menu_links_discovered_alter().
- */
-function ngf_core_menu_links_discovered_alter(&$links) {
-  // Switch the Home link to News Feed.
-  $links['standard.front_page']['title'] = t('News Feed');
+    $path = \Drupal::service('path.current')->getPath();
+
+    // But only in some pages.
+    $patterns_array = [
+      '<front>',
+      '/join',
+      '/contact',
+      '/user/password',
+      '/user/login'
+    ];
+
+    $patterns = implode($patterns_array, "\n");
+
+    if (\Drupal::service('path.matcher')->matchPath($path, $patterns)) {
+      $suggestions[] = 'page__front__anonymous';
+    }
+  }
 }
 
 /**
@@ -163,6 +166,7 @@ function ngf_core_theme($existing, $type, $theme, $path) {
     'login_account_block' => [
       'variables' => [
         'user_picture' => NULL,
+        'default_user_picture' => NULL,
         'user_name' => NULL,
         'user_profile_link' => NULL,
         'user_manage_network_link' => NULL,
@@ -175,11 +179,70 @@ function ngf_core_theme($existing, $type, $theme, $path) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function ngf_core_form_contact_message_feedback_form_alter(
-  &$form,
-  FormStateInterface $form_state,
-  $form_id
-) {
+function ngf_core_form_contact_message_feedback_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['copy']['#access'] = FALSE;
   $form['actions']['preview']['#access'] = FALSE;
+}
+
+/**
+ * Implements hook_address_fields_labels_alter().
+ *
+ * Change "Company" field label to "Venue name".
+ */
+function ngf_core_address_fields_labels_alter(&$labels) {
+  $labels[AddressField::ORGANIZATION] = t('Venue name', [], ['context' => 'Address label']);
+}
+
+/**
+ * Implements hook_library_info_alter().
+ *
+ * Override the time picker to prevent that seconds picks up current time.
+ */
+function ngf_core_library_info_alter(array &$libraries, $module) {
+  if (isset($libraries['datetimepicker'])) {
+    unset($libraries['datetimepicker']['js']['js/drupal.single_datetime.js']);
+    $libraries['datetimepicker']['js'] += ['/' . drupal_get_path('module', 'ngf_core') . '/js/datepicker_override.js' => []];
+  }
+}
+
+/*
+ * Implements template_preprocess_breadcrumb().
+ *
+ * Set cache per url for breadcrumbs.
+ */
+function ngf_core_preprocess_breadcrumb(&$variables) {
+  $variables['#cache']['contexts'][] = 'url';
+}
+
+/**
+ * Implements hook_system_breadcrumb_alter().
+ */
+function ngf_core_system_breadcrumb_alter(Breadcrumb &$breadcrumb, RouteMatchInterface $route_match, array $context) {
+  $request     = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $title       = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+
+  $breadcrumb->addLink(Link::createFromRoute($title, '<nolink>'));
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function ngf_core_preprocess_block(&$vars) {
+  if($vars['plugin_id'] == 'system_menu_block:main') {
+    $vars['#cache']['max-age'] = 0;
+  }
+}
+
+/**
+ * Implements hook_migration_plugins_alter().
+ */
+function ngf_core_migration_plugins_alter(&$definitions) {
+  $migrations = [
+    'ngf_interests',
+  ];
+
+  foreach ($migrations as $migration) {
+    $definitions[$migration]['source']['path'] = drupal_get_path('module', 'ngf_core') . $definitions[$migration]['source']['path'];
+  }
 }

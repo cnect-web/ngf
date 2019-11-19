@@ -1,0 +1,42 @@
+uuid: 9af9721c-d16b-4fcd-96ae-48fbe1b8c2b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - twitter_block
+  theme:
+    - funkywave
+id: twitterblock
+theme: funkywave
+region: header
+weight: 0
+provider: null
+plugin: twitter_block
+settings:
+  id: twitter_block
+  label: 'Twitter block'
+  provider: twitter_block
+  label_display: '0'
+  username: RegioInterreg
+  theme: ''
+  link_color: ''
+  width: ''
+  height: '360'
+  chrome:
+    noheader: '0'
+    nofooter: '0'
+    noborders: '0'
+    noscrollbar: '0'
+    transparent: '0'
+  border_color: ''
+  language: ''
+  tweet_limit: ''
+  related: ''
+  polite: polite
+visibility:
+  request_path:
+    id: request_path
+    pages: '/EURegionsWeek*'
+    negate: false
+    context_mapping: {  }

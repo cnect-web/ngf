@@ -13,16 +13,16 @@ use Drupal\node\NodeInterface;
 use Drupal\Core\Session\AccountInterface;
 
 use Drupal\Core\Access\AccessResult;
-
-use Drupal\views\Form\ViewsForm;
-use Drupal\views\Plugin\views\area\AreaPluginBase;
-use Drupal\views\ViewExecutable;
-use Drupal\views\Plugin\views\PluginBase;
-use Drupal\views\Views;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\ngf_group\Entity\Decorator\NGFGroup;
+use Drupal\Core\Url;
+
+use Drupal\group\Entity\Group;
+use Drupal\Component\Serialization\Json;
+use Drupal\Core\Datetime\DrupalDateTime;
 
 define('NGF_GROUP_PUBLIC', 0);
 define('NGF_GROUP_PRIVATE', 1);
@@ -48,17 +48,17 @@ function ngf_group_help($route_name, RouteMatchInterface $route_match) {
  * Alter the group menu.
  */
 function ngf_group_group_operations_alter(&$links, $group) {
-
   // Move the Create Post action to top.
-  if (!empty($links['gnode-create-ngf_post'])) {
-    $links['gnode-create-ngf_post']['weight']--;
+  if (!empty($links['gnode-create-ngf_discussion'])) {
+    $links['gnode-create-ngf_discussion']['weight'] = 0;
   }
 
   // Modify the action link title.
   foreach ($links as $key => $link) {
     $link_title_arg = $link['title']->getArguments();
+
     if (!empty($link_title_arg['@type'])) {
-      $links[$key]['title'] = t('New @type', $link_title_arg);
+      $links[$key]['title'] = t('@type', str_replace('Discussion Group', 'Subgroup', $link_title_arg));
     }
   }
 }
@@ -280,6 +280,7 @@ function ngf_group_group_view(array &$build, EntityInterface $entity, EntityView
       ];
     }
   }
+  $build['#cache']['max-age'] = 0;
 }
 
 /**
@@ -395,4 +396,90 @@ function ngf_group_preprocess_group(&$variables) {
     $variables['group_follow'] = $gD->getFollowFlag();
     $variables['group_ops']    = $gD->getMembershipLinks();
   }
+}
+
+function ngf_core_import_euregions_week_sessions() {
+  $url = "http://ec.europa.eu/regional_policy/opendays/od2005/rest/getAllWorkshops";
+  try {
+    $response = \Drupal::httpClient()->get($url);
+    $data = (string) $response->getBody();
+    if (empty($data)) {
+      return FALSE;
+    }
+
+    $sessions = Json::decode($data);
+    foreach ($sessions as $sess) {
+
+      $session = Group::create([
+        'type' => 'ngf_session',
+        'label' => $sess['title'],
+      ]);
+
+      list($day, $month, $year) = explode('/', $sess['dateOn']);
+      list($start_hour, $start_minutes) = explode(':', $sess['timeFrom']);
+      list($end_hour, $end_minutes) = explode(':', $sess['timeTo']);
+
+      // By default we use the site's timezone.
+      $timezone = \Drupal::config('system.date')->get('timezone');
+      // but if there is timezone info on the json data, use that.
+      if (isset($sess['timezone'])) {
+        $timezone = $sess['timezone'];
+      }
+
+      $start_date = DrupalDateTime::createFromArray([
+        'year' => $year,
+        'month' => $month,
+        'day' => $day,
+        'hour' => $start_hour,
+        'minute' => $start_minutes,
+        'second' => 0,
+      ])->setTimezone(new \DateTimeZone($timezone));
+
+      $end_date = DrupalDateTime::createFromArray([
+        'year' => $year,
+        'month' => $month,
+        'day' => $day,
+        'hour' => $end_hour,
+        'minute' => $end_minutes,
+        'second' => 0,
+      ])->setTimezone(new \DateTimeZone($timezone));
+
+      $session->set('field_ngf_session_start_date', $start_date->format("Y-m-d\Th:i:s"));
+      $session->set('field_ngf_session_end_date', $end_date->format("Y-m-d\Th:i:s"));
+
+      $session->save();
+
+      // Add to group 2;
+      $group = Group::load(2);
+      $plugin_id = 'subgroup:ngf_session';
+      $group->addContent($session, $plugin_id);
+    }
+  }
+  catch (RequestException $e) {
+    return FALSE;
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ngf_group_form_alter(
+  &$form,
+  FormStateInterface $form_state,
+  $form_id
+) {
+
+  // Redirect user to the group page after cancellation.
+  if (strpos($form_id, 'group_content_group_content_type_', 0) !== FALSE && isset($form['actions']['cancel'])) {
+    $route_params = $form['actions']['cancel']['#url']->getRouteParameters();
+    if (!empty($route_params['group'])) {
+      $group = Group::load($route_params['group']);
+      if (!empty($group)) {
+        $form['actions']['cancel']['#url'] = Url::fromRoute('entity.group.canonical', [
+          'group' => $route_params['group']
+        ]);
+      }
+    }
+  }
+
 }

@@ -12,7 +12,7 @@ field_name: field_ngf_group_visibility
 entity_type: group
 bundle: ngf_discussion_group
 label: Visibility
-description: ''
+description: "<b>Public Group</b><br>The content of the group is public.\r\n<br><br>\r\n<b>Private group</b><br>The content of the goup is private. You can find the group but only access the group content if you are a member. \r\n<br><br>\r\n<b>Secret group</b><br>The content of the group is private. You cannot find the group. Only if you are a member.\r\n"
 required: true
 translatable: false
 default_value: {  }

@@ -4,12 +4,12 @@ status: true
 dependencies: {  }
 id: dev_config
 label: 'Dev Config'
+description: ''
 folder: ../config/dev_config
 module:
   coffee: 0
   config_devel: 0
   devel: 0
-  field_ui: 0
   kint: 0
   simpletest: 0
   views_ui: 0

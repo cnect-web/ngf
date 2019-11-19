@@ -4,14 +4,15 @@ namespace Drupal\ngf_user_profile\Manager;
 
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
 use Drupal\ngf_user_profile\MessageTrait;
 use Drupal\user\Entity\User;
 use Drupal\user\UserDataInterface;
-use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Drupal\flag\FlagService;
 use Drupal\ngf_user_profile\Helper\UserHelper;
 use Drupal\ngf_user_profile\Entity\UserList;
 use Drupal\ngf_user_profile\FlagTrait;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class UserManager {
 
@@ -76,7 +77,9 @@ class UserManager {
 
   protected function checkAccess() {
     if ($this->currentUser->isAnonymous()) {
-      throw new AccessDeniedHttpException();
+      $this->addMessage(t('You need to be registered to see other people profiles'));
+      $response = new RedirectResponse(Url::fromRoute('ngf_user_registration')->toString());
+      $response->send();
     }
   }
 
@@ -89,37 +92,16 @@ class UserManager {
     return UserList::loadMultiple($list_ids);
   }
 
-  public function getFollowingUsersList($user) {
-    if (empty($user)) {
-      $user = $this->getCurrentUserAccount();
-    }
-    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
-    $user_ids = [];
-    foreach ($followed_user_items as $user_item) {
-      $user_ids[] = $user_item->entity_id;
-    }
-    return User::loadMultiple($user_ids);
-  }
-
-  public function getFollowersUsersList($user) {
-    if (empty($user)) {
-      $user = $this->getCurrentUserAccount();
-    }
-
-    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user);
-    $user_ids = [];
-    foreach ($following_user_items as $user_item) {
-      $user_ids[] = $user_item->get('uid')->target_id;
-    }
-    return User::loadMultiple($user_ids);
-  }
-
   public function getCountFollowingUsersList($user) {
     return count($this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user));
   }
 
   public function getCountFollowersUsersList($user) {
     return count($this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id()));
+  }
+
+  public function getCountSavedContent($user) {
+    return count($this->getUserFlaggedItemsByFlagId('ngf_save_content', $user->id()));
   }
 
   /**
@@ -314,6 +296,16 @@ class UserManager {
     return $this->flag->getFlaggingUsers($user, $this->getFollowUserFlag());
   }
 
-
+  public function getFollowingUsersList($user) {
+    if (empty($user)) {
+      $user = $this->getCurrentUserAccount();
+    }
+    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
+    $user_ids = [];
+    foreach ($followed_user_items as $user_item) {
+      $user_ids[] = $user_item->entity_id;
+    }
+    return User::loadMultiple($user_ids);
+  }
 
 }

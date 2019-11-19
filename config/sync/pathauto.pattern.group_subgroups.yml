@@ -1,0 +1,23 @@
+uuid: f3146227-f9f7-4c4e-a05c-fddccd3491ec
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - group
+id: group_subgroups
+label: 'Group subgroups'
+type: 'canonical_entities:group'
+pattern: '[group:ngf_path]/[group:title]'
+selection_criteria:
+  9e41e34e-1d8a-418e-9d2e-7d580657d485:
+    id: 'entity_bundle:group'
+    bundles:
+      ngf_discussion_group: ngf_discussion_group
+    negate: false
+    context_mapping:
+      group: group
+    uuid: 9e41e34e-1d8a-418e-9d2e-7d580657d485
+selection_logic: and
+weight: -9
+relationships: {  }

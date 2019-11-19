@@ -89,93 +89,6 @@ class UserListManager {
     return UserList::loadMultiple($list_ids);
   }
 
-  public function getFollowingUsersList($user) {
-    if (empty($user)) {
-      $user = $this->getCurrentUserAccount();
-    }
-    $followed_user_items = $this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id());
-    $user_ids = [];
-    foreach ($followed_user_items as $user_item) {
-      $user_ids[] = $user_item->entity_id;
-    }
-    return User::loadMultiple($user_ids);
-  }
-
-  public function getFollowersUsersList($user) {
-    if (empty($user)) {
-      $user = $this->getCurrentUserAccount();
-    }
-
-    $following_user_items = $this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user);
-    $user_ids = [];
-    foreach ($following_user_items as $user_item) {
-      $user_ids[] = $user_item->get('uid')->target_id;
-    }
-    return User::loadMultiple($user_ids);
-  }
-
-  public function getCountFollowingUsersList($user) {
-    return count($this->flag->getEntityFlaggings($this->getFollowUserFlag(), $user));
-  }
-
-  public function getCountFollowersUsersList($user) {
-    return count($this->getUserFlaggedItemsByFlagId('ngf_follow_user', $user->id()));
-  }
-
-  /**
-   * Follow user.
-   *
-   * @param string $username
-   *   Username.
-   */
-  public function follow($username) {
-    $user = user_load_by_name($username);
-    if (empty($user)) {
-      $this->addError(t('User is not found.'));
-    }
-    else {
-      $user_name = UserHelper::getUserFullName($user);
-      $flag = $this->getFollowUserFlag();
-      if (!$flag->isFlagged($user, $this->currentUser)) {
-        $this->flag->flag($flag, $user);
-
-        $this->addMessage(t('You are following @username',
-          ['@username' => $user_name]));
-      } else {
-        $this->addError(t('You are already following @username',
-          ['@username' => $user_name]));
-      }
-    }
-  }
-
-  /**
-   * Remove passed user to the list of followed users.
-   *
-   * @param string $username
-   *   Username.
-   */
-  public function unfollow($username) {
-    $user = user_load_by_name($username);
-
-    if (empty($user)) {
-      $this->addError(t('User is not found.'));
-    }
-    else {
-      $user_name = UserHelper::getUserFullName($user);
-      $flag = $this->getFollowUserFlag();
-      if ($flag->isFlagged($user, $this->currentUser)) {
-        $this->flag->unflag($flag, $user);
-
-        $this->addMessage(t('You are not following anymore @username',
-          ['@username' => $user_name]));
-      }
-      else {
-        $this->addError(t('You are not following @username',
-          ['@username' => $user_name]));
-      }
-    }
-  }
-
   /**
    * Adds user list.
    *
@@ -193,7 +106,7 @@ class UserListManager {
         ->execute();
 
       if (empty($lists)) {
-        $user_list_item = UserListManager::create([
+        $user_list_item = UserList::create([
           'user_id' => $this->currentUser->id(),
           'name' => $name,
         ]);
@@ -218,7 +131,7 @@ class UserListManager {
   }
 
   public function addUserListItem($list_id, $username) {
-    $list = UserListManager::load($list_id);
+    $list = UserList::load($list_id);
     $user = user_load_by_name($username);
 
     if (empty($user)) {
@@ -241,7 +154,7 @@ class UserListManager {
   }
 
   public function removeUserListItem($list_id, $username) {
-    $list = UserListManager::load($list_id);
+    $list = UserList::load($list_id);
     $user = user_load_by_name($username);
 
     if (empty($user)) {
@@ -281,15 +194,12 @@ class UserListManager {
   }
 
   public function removeUserList($list_id) {
-    $user_list = UserListManager::load($list_id);
+    $user_list = UserList::load($list_id);
     if (empty($user_list)) {
       $this->addError(t('List is not found.'));
     } elseif ($user_list->getOwnerId() !== $this->currentUser->id()) {
       $this->addError(t('This list does not belong to you.'));
     } else {
-      // Remove related list items.
-      $this->removeUserListItemByList($user_list);
-
       // Remove list.
       $storage_handler = \Drupal::entityTypeManager()->getStorage('ngf_user_list');
       $entities = $storage_handler->loadMultiple([$list_id]);
@@ -301,18 +211,12 @@ class UserListManager {
     }
   }
 
-  protected function removeUserListItemByList($user_list) {
+  public function removeUserListItemByList($user_list) {
     if (empty($user_list)) {
       $this->addError(t('List is not found.'));
     } else {
       $this->flag->unflagAllByEntity($user_list);
     }
   }
-
-  public function getFollowers($user) {
-    return $this->flag->getFlaggingUsers($user, $this->getFollowUserFlag());
-  }
-
-
 
 }

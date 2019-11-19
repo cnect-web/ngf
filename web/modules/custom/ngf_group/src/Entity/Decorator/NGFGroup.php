@@ -22,7 +22,7 @@ class NGFGroup {
    * Magic method, propagates the parent class api to the current class.
    */
   public function __call($method, $args) {
-    return call_user_func_array(array($this->group, $method), $args);
+    return call_user_func_array([$this->group, $method], $args);
   }
 
   /**
@@ -65,7 +65,7 @@ class NGFGroup {
     $group = $this->group;
 
     $members_count_raw    = count($group->getMembers());
-    $members_count_string = \Drupal::translation()->formatPlural($members_count_raw, '1 member', '@count members', array('@count' => $members_count_raw));
+    $members_count_string = \Drupal::translation()->formatPlural($members_count_raw, '1 member', '@count members', ['@count' => $members_count_raw]);
     $members_page_url     = Url::fromRoute('ngf_group.page.members', ['group' => $group->id()]);
 
     $members['count'] = $members_count_raw;
@@ -92,7 +92,7 @@ class NGFGroup {
     $flaggings_count = \Drupal::service('flag.count')->getEntityFlagCounts($group);
 
     $followers_count_raw    = isset($flaggings_count['ngf_follow_group']) ? $flaggings_count['ngf_follow_group'] : 0;
-    $followers_count_string = \Drupal::translation()->formatPlural($followers_count_raw, '1 follower', '@count followers', array('@count' => $followers_count_raw));
+    $followers_count_string = \Drupal::translation()->formatPlural($followers_count_raw, '1 follower', '@count followers', ['@count' => $followers_count_raw]);
     $followers_page_url     = Url::fromRoute('ngf_group.page.followers', ['group' => $group->id()]);
 
     $followers['count'] = $followers_count_raw;
@@ -124,7 +124,7 @@ class NGFGroup {
     $view->execute();
 
     $subgroups_count_raw    = $view->total_rows;
-    $subgroups_count_string = \Drupal::translation()->formatPlural($subgroups_count_raw, '1 subgroup', '@count subgroups', array('@count' => $subgroups_count_raw));
+    $subgroups_count_string = \Drupal::translation()->formatPlural($subgroups_count_raw, '1 subgroup', '@count subgroups', ['@count' => $subgroups_count_raw]);
     $subgroups_page_url     = Url::fromRoute('ngf_group.page.subgroups', ['group' => $group->id()]);
 
     $subgroups['count'] = $subgroups_count_raw;

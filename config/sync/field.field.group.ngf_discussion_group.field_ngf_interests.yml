@@ -15,8 +15,8 @@ id: group.ngf_discussion_group.field_ngf_interests
 field_name: field_ngf_interests
 entity_type: group
 bundle: ngf_discussion_group
-label: Topics
-description: ''
+label: Taxonomy
+description: "<i class=\"fas fa-pull-left fa-info-circle\"></i>\r\nTaxonomies are just a way to group content. </br>For <b>example</b>, if you discussion is about sports, you could create taxonomies for the different sports (football, basketball, cricket, etc.) \r\nTaxonomies are helpful because they make it easier for readers to find content (and also provide some context to your content, though that’s a secondary benefit)."
 required: false
 translatable: false
 default_value: {  }

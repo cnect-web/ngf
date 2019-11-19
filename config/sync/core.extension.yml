@@ -31,6 +31,7 @@ module:
   entity_reference_revisions: 0
   entity_reference_validators: 0
   field: 0
+  field_ui: 0
   file: 0
   filter: 0
   fiu: 0
@@ -44,17 +45,20 @@ module:
   geofield: 0
   ggroup: 0
   gnode: 0
+  google_qr_code: 0
   group: 0
-  help: 0
-  history: 0
   image: 0
   inline_entity_form: 0
   leaflet: 0
   libraries: 0
   link: 0
+  mail_login: 0
   media: 0
   menu_ui: 0
   message: 0
+  metatag: 0
+  metatag_open_graph: 0
+  metatag_twitter_cards: 0
   migrate: 0
   migrate_plus: 0
   migrate_source_csv: 0
@@ -75,7 +79,6 @@ module:
   rdf: 0
   redirect: 0
   search: 0
-  shortcut: 0
   single_datetime: 0
   social_api: 0
   social_auth: 0
@@ -83,6 +86,8 @@ module:
   social_auth_google: 0
   social_auth_linkedin: 0
   social_auth_twitter: 0
+  social_media: 0
+  subpathauto: 0
   system: 0
   taxonomy: 0
   taxonomy_unique: 0
@@ -90,14 +95,16 @@ module:
   textfield_counter: 0
   token: 0
   toolbar: 0
-  tour: 0
   twig_extensions: 0
   twig_field_value: 0
   twig_tweak: 0
+  twitter_block: 0
   ui_patterns: 0
   update: 0
   user: 0
   video: 0
+  votingapi: 0
+  vud: 0
   workflows: 0
   menu_link_content: 1
   pathauto: 1

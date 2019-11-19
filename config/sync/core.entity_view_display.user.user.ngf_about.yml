@@ -58,6 +58,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  qr_code:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   action_panel: true
   field_ngf_city: true
@@ -71,4 +76,5 @@ hidden:
   groups_view: true
   member_for: true
   ngf_extra_text: true
+  realname: true
   user_picture: true

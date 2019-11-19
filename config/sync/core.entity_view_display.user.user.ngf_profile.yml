@@ -70,6 +70,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  qr_code:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   user_picture:
     type: image
     weight: 0
@@ -90,3 +95,4 @@ hidden:
   groups_view: true
   member_for: true
   ngf_extra_text: true
+  realname: true

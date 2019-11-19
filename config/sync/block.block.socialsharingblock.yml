@@ -1,0 +1,38 @@
+uuid: 3e125d3c-b187-48b1-8d35-55cc5ad37ba5
+langcode: en
+status: false
+dependencies:
+  module:
+    - group
+    - node
+    - social_media
+  theme:
+    - funkywave
+id: socialsharingblock
+theme: funkywave
+region: content
+weight: 0
+provider: null
+plugin: social_sharing_block
+settings:
+  id: social_sharing_block
+  label: 'Share this'
+  provider: social_media
+  label_display: visible
+visibility:
+  group_type:
+    id: group_type
+    group_types:
+      ngf_discussion_group: ngf_discussion_group
+      ngf_event: ngf_event
+      ngf_session: ngf_session
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'
+  node_type:
+    id: node_type
+    bundles:
+      ngf_discussion: ngf_discussion
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
